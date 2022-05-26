@@ -1,8 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
+  
+  background-color: black;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'PT Sans', sans-serif, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -13,4 +19,13 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+.mask{
+  opacity:0;
+  mask-image: url(/opv-mask.png);
+  border-radius: 100%;
+  background-color: #ffeded;
+
 }
