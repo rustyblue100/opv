@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import SpotLights from "./SpotLights";
+import Marquee from "react-fast-marquee";
 
 interface IProps {
   setClicked: (open: boolean) => void;
@@ -37,8 +38,8 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
   };
 
   return (
-    <div className="flex justify-start items-center w-[300px]">
-      <div className="flex-1 pl-14">
+    <div className="flex justify-start items-center w-[0px]">
+      <div className="flex-1">
         <motion.ul
           variants={stagger}
           initial="hidden"
@@ -65,7 +66,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
             variants={item}
             className="hover:text-opv-pink-500"
           >
-            <Link href="/">Histoire</Link>
+            <Link href="/">Notre Histoire</Link>
           </motion.li>
 
           <motion.li
@@ -73,7 +74,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
             variants={item}
             className="hover:text-opv-pink-500"
           >
-            <Link href="/">Photos</Link>
+            <Link href="/">Photos & vidéos</Link>
           </motion.li>
 
           <motion.li
@@ -81,7 +82,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
             variants={item}
             className="hover:text-opv-pink-500"
           >
-            <Link href="/">Vidéos</Link>
+            <Link href="/">Infos</Link>
           </motion.li>
 
           <motion.li
@@ -89,37 +90,30 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
             variants={item}
             className="hover:text-opv-pink-500"
           >
-            <Link href="/">Infos Technique</Link>
+            <Link href="/contact">Nous joindre</Link>
           </motion.li>
 
           <motion.li
             onClick={() => setClicked(true)}
             variants={item}
-            className="hover:text-opv-pink-500"
+            className="text-gray-500  self-start  p-1 text-lg hover:text-opv-pink-500"
           >
-            <Link href="/">FAQ</Link>
-          </motion.li>
-
-          <motion.li
-            onClick={() => setClicked(true)}
-            variants={item}
-            className="hover:text-opv-pink-500"
-          >
-            <Link href="/contact">Contact</Link>
-          </motion.li>
-
-          <motion.li
-            onClick={() => setClicked(true)}
-            variants={item}
-            className="text-gray-500  self-center  p-1 text-lg hover:text-opv-pink-500"
-          >
-            <Link href="/">En</Link>
+            <Link href="/">EN</Link> | <Link href="/">FR</Link>
           </motion.li>
         </motion.ul>
       </div>
-      <div className="flex-1">
-        <div className="flex-grow-1 h-screen pl-14 text-gray-50 text-2xl leading-[40px] flex flex-col justify-center fixed capitalize ">
-          <h1>Nouvelle</h1>
+      <div className="flex-1 ml-8 pr-24">
+        <div className=" h-screen text-gray-50 text-2xl leading-[40px] flex flex-col justify-center fixed items-center capitalize">
+          <div className="-rotate-90 w-2/3 text-center">
+            <p>Prochain Évènement </p>
+            <Marquee
+              speed={5}
+              gradient={false}
+              className="bg-opv-pink-500 text-black"
+            >
+              Les Goules - 24 juin 2022
+            </Marquee>
+          </div>
         </div>
       </div>
     </div>

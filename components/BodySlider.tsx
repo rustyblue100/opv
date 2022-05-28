@@ -12,14 +12,14 @@ const BodySlider: NextPage = () => {
 
   const slideVariant = {
     init: {
-      x: 120,
+      x: 110,
       transition: {
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
       },
     },
     anim: {
-      x: 270,
+      x: 340,
       transition: {
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],

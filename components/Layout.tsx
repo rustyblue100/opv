@@ -18,7 +18,7 @@ const Layout: NextPage<any> = ({ children }) => {
 
   return (
     <div className="max-w-[1440px] mx-auto overflow-hidden">
-      <div className="absolute top-5 right-[70px]">
+      <div className="absolute top-4 right-[3.4vw]">
         <motion.div
           initial={{
             y: 20,
@@ -49,16 +49,16 @@ const Layout: NextPage<any> = ({ children }) => {
       </div>
 
       <div
-        className="flex justify-between w-full absolute"
+        className="flex justify-between w-full absolute top-0 z-0"
         onMouseOver={() => setMenuHover(true)}
         onMouseLeave={handleOnMouseLeave}
       >
-        <div className="flex-1 pr-96">
+        <div className="flex-1 pr-14">
           <Navigation setClicked={setClicked} />
         </div>
 
-        <div className="">
-          <SpotLights />
+        <div className="relative w-96 flex-1 ml-24">
+          <SpotLights menuHover={menuHover} />
         </div>
       </div>
 

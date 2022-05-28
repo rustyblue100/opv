@@ -10,7 +10,7 @@ import SpotLights from "../components/SpotLights";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="">
       <BodySlider />
     </div>
   );

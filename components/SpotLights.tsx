@@ -4,9 +4,11 @@ import { Context } from "./Context";
 import { motion } from "framer-motion";
 import { NextPage } from "next";
 
-const Spotlights: NextPage = () => {
-  const menuHover = useContext(Context).menuHover;
+interface IProps {
+  menuHover: boolean;
+}
 
+const Spotlights: NextPage<IProps> = ({ menuHover }) => {
   const spotlights = {
     hidden: {
       opacity: 0,
@@ -25,7 +27,7 @@ const Spotlights: NextPage = () => {
   };
 
   return (
-    <motion.div className="relative">
+    <motion.div className="">
       <motion.div
         variants={spotlights}
         initial="hidden"
@@ -38,7 +40,7 @@ const Spotlights: NextPage = () => {
           delay: 0.5,
         }}
         exit="exit"
-        className=" "
+        className="absolute top-[24vh] right-[5vw] max-w-full"
       >
         <Image
           src="https://fastly.4sqi.net/img/general/width960/54255444_x7ZweBJGKxWeqQXQcxE4KRkRWWL2l-PhKbhyQcDnwBY.jpg"
@@ -60,7 +62,7 @@ const Spotlights: NextPage = () => {
           delay: 1.2,
         }}
         exit="exit"
-        className=" "
+        className="absolute top-[24vh] right-[34vw]"
       >
         <Image
           src="https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvNDM3LWZlbGl4LTE1NS5qcGc.jpg"
@@ -82,7 +84,7 @@ const Spotlights: NextPage = () => {
           delay: 1,
         }}
         exit="exit"
-        className=" "
+        className="absolute top-[70vh] right-[28vw]"
       >
         <Image
           src="https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTk1ODI5LXdpa2ltZWRpYS1pbWFnZS1rb3dzNmcxZi5qcGc.jpg"
