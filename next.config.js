@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    domains: ["images.rawpixel.com"],
+    domains: [
+      "images.rawpixel.com",
+      "media.istockphoto.com",
+      "fastly.4sqi.net",
+    ],
   },
   i18n: {
     locales: ["en-CA", "fr-CA"],

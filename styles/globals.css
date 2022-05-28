@@ -4,7 +4,7 @@
 
 html,
 body {
-  
+
   background-color: black;
   padding: 0;
   margin: 0;
@@ -23,9 +23,9 @@ a {
 
 
 .mask{
-  opacity:0;
+  opacity:1;
   mask-image: url(/opv-mask.png);
-  border-radius: 100%;
   background-color: #ffeded;
 
 }
+
