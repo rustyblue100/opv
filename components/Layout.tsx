@@ -17,48 +17,48 @@ const Layout: NextPage<any> = ({ children }) => {
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto overflow-hidden">
-      <div className="absolute top-4 right-[3.4vw]">
-        <motion.div
-          initial={{
-            y: 20,
-            opacity: 0,
-          }}
-          animate={{
-            y: 0,
-            opacity: 1,
-          }}
-          transition={{
-            duration: 1,
-            ease: "easeInOut",
-          }}
-          exit={{ opacity: 0 }}
-          className=" relative w-full sm:w-[371px] sm:h-[121px] lg:w-[501px] lg:h-[171px]"
+    <div className="container max-w-[1400px] mx-auto ">
+      <div className="grid grid-rows-1 grid-flow-col h-screen ml-10 absolute">
+        <div
+          className="self-center"
+          onMouseOver={() => setMenuHover(true)}
+          onMouseLeave={handleOnMouseLeave}
         >
-          <Link href="/">
-            <a>
-              <Image
-                src="/logo-opv.jpeg"
-                layout="fill"
-                objectFit="contain"
-                alt="OPV"
-              />
-            </a>
-          </Link>
-        </motion.div>
-      </div>
-
-      <div
-        className="flex justify-between w-full absolute top-0 z-0"
-        onMouseOver={() => setMenuHover(true)}
-        onMouseLeave={handleOnMouseLeave}
-      >
-        <div className="flex-1 pr-14">
           <Navigation setClicked={setClicked} />
         </div>
 
-        <div className="relative w-96 flex-1 ml-24">
-          <SpotLights menuHover={menuHover} />
+        <div className="justify-self-end">
+          <motion.div
+            initial={{
+              y: 20,
+              opacity: 0,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+            }}
+            exit={{ opacity: 0 }}
+          >
+            <Link href="/">
+              <a>
+                <Image
+                  src="/logo-opv.jpeg"
+                  width="571"
+                  height="171"
+                  objectFit="contain"
+                  alt="OPV"
+                />
+              </a>
+            </Link>
+          </motion.div>
+
+          <div className=" justify-self-end">
+            <SpotLights menuHover={menuHover} />
+          </div>
         </div>
       </div>
 

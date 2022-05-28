@@ -38,13 +38,13 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
   };
 
   return (
-    <div className="flex justify-start items-center w-[0px]">
+    <div className="flex justify-start items-center w-3/4">
       <div className="flex-1">
         <motion.ul
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className="flex-grow-1 h-screen pl-14 text-opv-pink-900 text-2xl leading-[40px] flex flex-col justify-center fixed capitalize "
+          className="flex-1 text-opv-pink-900 text-2xl leading-[40px] capitalize"
         >
           <motion.li
             onClick={() => setClicked(true)}
@@ -102,9 +102,10 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
           </motion.li>
         </motion.ul>
       </div>
-      <div className="flex-1 ml-8 pr-24">
-        <div className=" h-screen text-gray-50 text-2xl leading-[40px] flex flex-col justify-center fixed items-center capitalize">
-          <div className="-rotate-90 w-2/3 text-center">
+
+      <div className="">
+        <div className="text-gray-50 text-2xl leading-[40px] capitalize">
+          <div className="-rotate-90 text-center">
             <p>Prochain Évènement </p>
             <Marquee
               speed={5}
