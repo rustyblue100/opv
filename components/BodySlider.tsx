@@ -2,14 +2,13 @@ import { NextPage } from "next";
 import Image from "next/image";
 import { useContext } from "react";
 import { Context } from "./Context";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 const BodySlider: NextPage = () => {
   const menuHover = useContext(Context).menuHover;
 
   const slideVariant = {
     init: {
-      position: "absolute",
       x: 100,
       transition: {
         duration: 1.3,
@@ -30,6 +29,7 @@ const BodySlider: NextPage = () => {
       variants={slideVariant}
       initial="init"
       animate={menuHover ? "anim" : "init"}
+      className="absolute"
     >
       <motion.div
         layoutId="slider"
@@ -48,7 +48,7 @@ const BodySlider: NextPage = () => {
         exit={{
           opacity: 1,
         }}
-        className={`h-screen relative md:w-[400px] lg:w-[450px] xl:w-[720px] bg-opv-pink-500 max-w-full`}
+        className={`h-screen relative md:w-[400px] lg:w-[450px] xl:w-[820px] bg-opv-pink-500 max-w-full`}
       >
         <motion.div
           layoutId="sliderBg"

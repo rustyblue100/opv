@@ -28,10 +28,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        "opv-black": "#101010",
         "opv-pink-100": "#f8eded",
         "opv-pink-500": "#FFEDED",
         "opv-pink-900": "#dd7b7b",
-        white: "#feffff",
       },
 
       keyframes: {

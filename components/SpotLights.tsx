@@ -14,7 +14,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
       opacity: 0,
     },
     show: {
-      opacity: 0.7,
+      opacity: 0.6,
     },
     exit: {
       opacity: 0,
@@ -35,9 +35,9 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
         transition={{
           ease: "easeInOut",
           duration: 1.8,
-          repeat: !menuHover ? 999999999999999 : 0,
+          repeat: !menuHover ? Infinity : 0,
           repeatType: "reverse",
-          delay: 1.2,
+          delay: 1.8,
         }}
         exit="exit"
         className="col-span-1 md:ml-10 sm:max-w-[75px] md:max-w-[75px] 2md:max-w-[100px] lg:max-w-full"
@@ -58,9 +58,9 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
         transition={{
           ease: "easeInOut",
           duration: 1.8,
-          repeat: !menuHover ? 999999999999999 : 0,
+          repeat: !menuHover ? Infinity : 0,
           repeatType: "reverse",
-          delay: 0.5,
+          delay: 0.4,
         }}
         exit="exit"
         className="col-span-2 justify-self-end sm:max-w-[150px]  md:max-w-[150px] 2md:max-w-[180px] lg:max-w-full"
@@ -81,9 +81,9 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
         transition={{
           ease: "easeInOut",
           duration: 1.8,
-          repeat: !menuHover ? 999999999999999 : 0,
+          repeat: !menuHover ? Infinity : 0,
           repeatType: "reverse",
-          delay: 1,
+          delay: 1.1,
         }}
         exit="exit"
         className="col-span-2 md:ml-20 sm:max-w-[100px]  md:max-w-[100px] 2md:max-w-[120px] lg:max-w-full"

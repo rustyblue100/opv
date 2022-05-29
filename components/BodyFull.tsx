@@ -10,7 +10,6 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
 
   const slideVariant = {
     init: {
-      position: "absolute",
       x: 100,
       transition: {
         duration: 1.3,
@@ -31,6 +30,7 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
       variants={slideVariant}
       initial="init"
       animate={menuHover && linkMenuClicked ? "anim" : "init"}
+      className="absolute"
     >
       <motion.div
         layoutId="slider"
@@ -49,7 +49,9 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
         exit={{
           opacity: 1,
         }}
-        className={`h-screen relative  w-[calc(100vw-100px)] max-w-full bg-opv-pink-500`}
+        className={`h-screen relative  ${
+          menuHover ? "w-[calc(100vw-320px)]" : "w-[calc(100vw-100px)]"
+        } max-w-full bg-opv-pink-500`}
       >
         <motion.div
           layoutId="sliderBg"

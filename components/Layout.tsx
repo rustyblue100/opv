@@ -29,7 +29,7 @@ const Layout: NextPage<any> = ({ children }) => {
 
         <div className="justify-self-end place-self-center">
           <motion.div
-            className="relative first-line:-mt-10 mb-10 ml-auto max-w-full  md:max-w-[300px] 2md:max-w-[420px] lg:max-w-[480px]"
+            className="relative -mt-10 mb-10 ml-auto max-w-full  md:max-w-[300px] 2md:max-w-[420px] lg:max-w-[480px] xl:max-w-[571px]"
             initial={{
               y: 20,
               opacity: 0,

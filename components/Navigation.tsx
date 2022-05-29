@@ -36,7 +36,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
   };
 
   return (
-    <div className="flex justify-start items-center w-2 py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] -ml-24">
+    <div className="flex justify-start items-center w-2 py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw] -ml-24">
       <motion.ul
         variants={stagger}
         initial="hidden"
@@ -55,7 +55,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
           variants={item}
           className="hover:text-opv-pink-500 -z-50"
         >
-          <Link href="/spectacles">Spectacles</Link>
+          <Link href="/spectacles">Évènements</Link>
         </motion.li>
 
         <motion.li
@@ -101,11 +101,11 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
 
       <div className="text-gray-50 text-2xl leading-[40px] capitalize absolute left-20 w-96">
         <div className="-rotate-90 text-center">
-          <p className="text-md">Prochain Évènement </p>
+          <p className="text-md">À Venir</p>
           <Marquee
             speed={8}
             gradient={false}
-            className="bg-opv-pink-100 text-black"
+            className="bg-opv-pink-100 text-opv-black"
           >
             Les Goules - 24 juin 19h30
           </Marquee>
