@@ -18,6 +18,27 @@ const Layout: NextPage<any> = ({ children }) => {
 
   return (
     <div className="container max-w-[1400px] mx-auto relative">
+      <button
+        onClick={() => setMenuHover(!menuHover)}
+        className="absolute top-0 right-2 py-1  text-opv-pink-900 sm:hidden z-50 tracking-widest"
+      >
+        <div className="leading-[12px]">
+          {!menuHover ? (
+            <div>
+              &#8226;&#8226;
+              <br /> &#8226;&#8226;
+              <br />
+              &#8226;&#8226;
+            </div>
+          ) : (
+            <div>
+              &#8226; <br /> &#8226;
+              <br />
+              &#8226;
+            </div>
+          )}
+        </div>
+      </button>
       <div className="grid grid-rows-1 grid-flow-col w-full h-screen relative px-10">
         <div
           className="self-center"
@@ -29,7 +50,9 @@ const Layout: NextPage<any> = ({ children }) => {
 
         <div className="justify-self-end place-self-center">
           <motion.div
-            className="relative -mt-10 mb-10 ml-auto max-w-full  md:max-w-[300px] 2md:max-w-[420px] lg:max-w-[480px] xl:max-w-[571px]"
+            className={`relative mt-0 lg:-mt-10 ml-auto max-w-[200px] sm:max-w-[300px] md:max-w-[300px] 2md:max-w-[420px] lg:max-w-[480px] xl:max-w-[571px] ${
+              menuHover && "invisible sm:visible "
+            }`}
             initial={{
               y: 20,
               opacity: 0,

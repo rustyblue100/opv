@@ -48,7 +48,7 @@ const BodySlider: NextPage = () => {
         exit={{
           opacity: 1,
         }}
-        className={`h-screen relative md:w-[400px] lg:w-[450px] xl:w-[820px] bg-opv-pink-500 max-w-full`}
+        className={`h-screen relative -left-[100px] w-[210px]  md:w-[400px] lg:w-[450px] xl:w-[820px] bg-opv-pink-500 max-w-full md:left-[unset]`}
       >
         <motion.div
           layoutId="sliderBg"

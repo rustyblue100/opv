@@ -40,7 +40,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           delay: 1.8,
         }}
         exit="exit"
-        className="col-span-1 md:ml-10 sm:max-w-[75px] md:max-w-[75px] 2md:max-w-[100px] lg:max-w-full"
+        className="col-span-1 md:ml-10 sm:max-w-[75px] md:max-w-[75px] 2md:max-w-[100px] lg:max-w-full hidden sm:block"
       >
         <Image
           src="https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvNDM3LWZlbGl4LTE1NS5qcGc.jpg"
@@ -63,7 +63,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           delay: 0.4,
         }}
         exit="exit"
-        className="col-span-2 justify-self-end sm:max-w-[150px]  md:max-w-[150px] 2md:max-w-[180px] lg:max-w-full"
+        className="col-span-3 sm:col-span-2 justify-self-end max-w-[120px] xs:max-w-[200px] sm:max-w-[150px]  md:max-w-[150px] 2md:max-w-[180px] lg:max-w-full"
       >
         <Image
           src="https://fastly.4sqi.net/img/general/width960/54255444_x7ZweBJGKxWeqQXQcxE4KRkRWWL2l-PhKbhyQcDnwBY.jpg"
@@ -86,7 +86,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           delay: 1.1,
         }}
         exit="exit"
-        className="col-span-2 md:ml-20 sm:max-w-[100px]  md:max-w-[100px] 2md:max-w-[120px] lg:max-w-full"
+        className="col-span-2 md:ml-20 sm:max-w-[100px]  md:max-w-[100px] 2md:max-w-[120px] lg:max-w-full hidden sm:block"
       >
         <Image
           src="https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTk1ODI5LXdpa2ltZWRpYS1pbWFnZS1rb3dzNmcxZi5qcGc.jpg"

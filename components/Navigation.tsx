@@ -41,7 +41,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className="min-w-[200px] text-opv-pink-900 text-2xl leading-[40px] capitalize "
+        className="min-w-[200px] text-opv-pink-900 text-lg sm:text-2xl  leading-[30px]  sm:leading-[40px] capitalize z-10"
       >
         <motion.li
           onClick={() => setClicked(true)}
@@ -99,13 +99,13 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
         </motion.li>
       </motion.ul>
 
-      <div className="text-gray-50 text-2xl leading-[40px] capitalize absolute left-20 w-96">
+      <div className="text-white text-2xl leading-[40px] capitalize absolute left-28 w-80 hidden md:block">
         <div className="-rotate-90 text-center">
           <p className="text-md">À Venir</p>
           <Marquee
             speed={8}
             gradient={false}
-            className="bg-opv-pink-100 text-opv-black"
+            className=" text-opv-pink-500 cursor-pointer  hover:text-opv-pink-900 "
           >
             Les Goules - 24 juin 19h30
           </Marquee>

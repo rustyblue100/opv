@@ -10,14 +10,14 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
 
   const slideVariant = {
     init: {
-      x: 100,
+      x: 320,
       transition: {
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
       },
     },
     anim: {
-      x: 320,
+      x: 100,
       transition: {
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
