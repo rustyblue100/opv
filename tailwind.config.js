@@ -4,8 +4,31 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      xs: "480px",
+      // => @media (min-width: 640px) { ... }
+
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      "2md": "850px",
+      // => @media (min-width: 850px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
+    },
     extend: {
       colors: {
+        "opv-pink-100": "#f8eded",
         "opv-pink-500": "#FFEDED",
         "opv-pink-900": "#dd7b7b",
         white: "#feffff",

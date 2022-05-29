@@ -6,20 +6,18 @@ import { motion, useAnimation } from "framer-motion";
 
 const BodySlider: NextPage = () => {
   const menuHover = useContext(Context).menuHover;
-  const controls = useAnimation();
-
-  console.log(menuHover);
 
   const slideVariant = {
     init: {
-      x: 110,
+      position: "absolute",
+      x: 100,
       transition: {
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
       },
     },
     anim: {
-      x: 340,
+      x: 320,
       transition: {
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
@@ -50,7 +48,7 @@ const BodySlider: NextPage = () => {
         exit={{
           opacity: 1,
         }}
-        className={`h-screen relative  max-w-[50%] bg-opv-pink-500`}
+        className={`h-screen relative md:w-[400px] lg:w-[450px] xl:w-[720px] bg-opv-pink-500 max-w-full`}
       >
         <motion.div
           layoutId="sliderBg"

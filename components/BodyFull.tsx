@@ -10,23 +10,22 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
 
   const slideVariant = {
     init: {
-      x: 110,
+      position: "absolute",
+      x: 100,
       transition: {
-        duration: 0.3,
-        ease: "easeInOut",
+        duration: 1.3,
+        ease: [0.19, 1, 0.22, 1],
       },
     },
     anim: {
-      x: 340,
+      x: 320,
       transition: {
-        duration: 0.3,
-        ease: "easeInOut",
+        duration: 1.3,
+        ease: [0.19, 1, 0.22, 1],
       },
     },
   };
 
-  console.log({ menuHover });
-  console.log({ linkMenuClicked });
   return (
     <motion.div
       variants={slideVariant}
@@ -50,7 +49,7 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
         exit={{
           opacity: 1,
         }}
-        className={`h-screen relative  max-w-[100%] bg-opv-pink-500`}
+        className={`h-screen relative  w-[calc(100vw-100px)] max-w-full bg-opv-pink-500`}
       >
         <motion.div
           layoutId="sliderBg"
