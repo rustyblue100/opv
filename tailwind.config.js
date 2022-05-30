@@ -30,10 +30,9 @@ module.exports = {
       colors: {
         "opv-black": "#101010",
         "opv-pink-100": "#f8eded",
-        "opv-pink-500": "#FFEDED",
+        "opv-pink-500": "#FFEDED", //#fddede
         "opv-pink-900": "#dd7b7b",
       },
-
       keyframes: {
         firewoks: {
           "0%": { opacity: 0.7 },

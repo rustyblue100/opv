@@ -20,37 +20,38 @@ const Layout: NextPage<any> = ({ children }) => {
     <div className="container max-w-[1400px] mx-auto relative">
       <button
         onClick={() => setMenuHover(!menuHover)}
-        className="absolute top-0 right-2 py-1  text-opv-pink-900 sm:hidden z-50 tracking-widest"
+        className="absolute top-0 right-0 py-1 pr-4  text-opv-pink-900 md:hidden z-50 tracking-widest"
       >
-        <div className="leading-[12px]">
+        <div className="leading-[18px] pl-2">
           {!menuHover ? (
             <div>
-              &#8226;&#8226;
-              <br /> &#8226;&#8226;
+              ••
               <br />
-              &#8226;&#8226;
+              ••
+              <br />
+              ••
             </div>
           ) : (
             <div>
-              &#8226; <br /> &#8226;
-              <br />
-              &#8226;
+              •<br />
+              •
+              <br />•
             </div>
           )}
         </div>
       </button>
-      <div className="grid grid-rows-1 grid-flow-col w-full h-screen relative px-10">
+      <div className="grid grid-rows-1 grid-flow-col w-full h-screen relative px-5 sm:px-10 justify-between ">
         <div
-          className="self-center"
+          className={`self-center`}
           onMouseOver={() => setMenuHover(true)}
           onMouseLeave={handleOnMouseLeave}
         >
           <Navigation setClicked={setClicked} />
         </div>
 
-        <div className="justify-self-end place-self-center">
+        <div className="place-self-center">
           <motion.div
-            className={`relative mt-0 lg:-mt-10 ml-auto max-w-[200px] sm:max-w-[300px] md:max-w-[300px] 2md:max-w-[420px] lg:max-w-[480px] xl:max-w-[571px] ${
+            className={`relative mb-10 landscape:mt-0 2md:landscape:mt-5 2md:landscape:md:max-w-[260px] lg:landscape:md:max-w-[480px] lg:landscape:mt-0 sm:mb-0 mt-0 lg:mt-0 ml-auto max-w-[200px] sm:max-w-[300px] md:max-w-[300px] 2md:max-w-[420px] lg:max-w-[480px] xl:max-w-[510px] ${
               menuHover && "invisible sm:visible "
             }`}
             initial={{
@@ -81,7 +82,7 @@ const Layout: NextPage<any> = ({ children }) => {
             </Link>
           </motion.div>
 
-          <div className=" ">
+          <div className="mt-10">
             <SpotLights menuHover={menuHover} />
           </div>
         </div>

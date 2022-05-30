@@ -10,14 +10,21 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
 
   const slideVariant = {
     init: {
-      x: 320,
+      x: 100,
       transition: {
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
       },
     },
     anim: {
-      x: 100,
+      x: 320,
+      transition: {
+        duration: 1.3,
+        ease: [0.19, 1, 0.22, 1],
+      },
+    },
+    anim2: {
+      x: 320,
       transition: {
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
@@ -29,7 +36,7 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
     <motion.div
       variants={slideVariant}
       initial="init"
-      animate={menuHover && linkMenuClicked ? "anim" : "init"}
+      animate={menuHover ? "anim" : "anim2"}
       className="absolute"
     >
       <motion.div

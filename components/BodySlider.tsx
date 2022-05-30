@@ -16,7 +16,7 @@ const BodySlider: NextPage = () => {
       },
     },
     anim: {
-      x: 320,
+      x: 312,
       transition: {
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
@@ -48,7 +48,7 @@ const BodySlider: NextPage = () => {
         exit={{
           opacity: 1,
         }}
-        className={`h-screen relative -left-[100px] w-[210px]  md:w-[400px] lg:w-[450px] xl:w-[820px] bg-opv-pink-500 max-w-full md:left-[unset]`}
+        className={`h-screen relative -left-[100px] w-[210px] xs:w-[280px]  sm:w-[400px]  md:w-[400px] lg:w-[450px] xl:w-[660px] bg-opv-pink-500 max-w-full md:left-[unset] `}
       >
         <motion.div
           layoutId="sliderBg"

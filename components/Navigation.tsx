@@ -1,7 +1,7 @@
-import React from "react";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import React from "react";
 import Marquee from "react-fast-marquee";
 
 interface IProps {
@@ -41,7 +41,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className="min-w-[200px] text-opv-pink-900 text-lg sm:text-2xl  leading-[30px]  sm:leading-[40px] capitalize z-10"
+        className="min-w-[200px] text-opv-pink-900 text-lg sm:text-2xl  leading-[30px]  sm:leading-[40px] capitalize z-10 "
       >
         <motion.li
           onClick={() => setClicked(true)}
@@ -55,7 +55,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
           variants={item}
           className="hover:text-opv-pink-500 -z-50"
         >
-          <Link href="/spectacles">Évènements</Link>
+          <Link href="/calendrier">Calendrier</Link>
         </motion.li>
 
         <motion.li
@@ -99,9 +99,9 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
         </motion.li>
       </motion.ul>
 
-      <div className="text-white text-2xl leading-[40px] capitalize absolute left-28 w-80 hidden md:block">
-        <div className="-rotate-90 text-center">
-          <p className="text-md">À Venir</p>
+      <div className="text-white text-2xl leading-[40px] absolute left-28 w-80 hidden md:block">
+        <div className="-rotate-90 text-center ">
+          <p className="text-[16px]">☆ Prochain Évènement ☆</p>
           <Marquee
             speed={8}
             gradient={false}
