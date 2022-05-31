@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,10 +6,19 @@ import { useState } from "react";
 import { Context } from "../components/Context";
 import Navigation from "./Navigation";
 import SpotLights from "./SpotLights";
+import { useEffect } from "react";
+import Burger from "./burger";
+import { useRouter } from "next/router";
 
-const Layout: NextPage<any> = ({ children }) => {
+interface Iprops {
+  children: any;
+}
+
+const Layout: NextPage<Iprops> = ({ children }) => {
   const [menuHover, setMenuHover] = useState(false);
   const [clicked, setClicked] = useState(false);
+
+  const route = useRouter();
 
   const handleOnMouseLeave = () => {
     setMenuHover(false);
@@ -17,36 +26,19 @@ const Layout: NextPage<any> = ({ children }) => {
   };
 
   return (
-    <div className="container max-w-[1400px] mx-auto relative">
-      <button
-        onClick={() => setMenuHover(!menuHover)}
-        className="absolute top-0 right-0 py-1 pr-4  text-opv-pink-900 md:hidden z-50 tracking-widest"
-      >
-        <div className="leading-[18px] pl-2">
-          {!menuHover ? (
-            <div>
-              ••
-              <br />
-              ••
-              <br />
-              ••
-            </div>
-          ) : (
-            <div>
-              •<br />
-              •
-              <br />•
-            </div>
-          )}
-        </div>
-      </button>
+    <div className="container max-w-[1400px]  mx-auto relative overflow-hidden lg:overflow-visible">
+      <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
       <div className="grid grid-rows-1 grid-flow-col w-full h-screen relative px-5 sm:px-10 justify-between ">
         <div
           className={`self-center`}
           onMouseOver={() => setMenuHover(true)}
           onMouseLeave={handleOnMouseLeave}
         >
-          <Navigation setClicked={setClicked} />
+          <Navigation
+            clicked={clicked}
+            setClicked={setClicked}
+            setMenuHover={setMenuHover}
+          />
         </div>
 
         <div className="place-self-center">
@@ -88,7 +80,16 @@ const Layout: NextPage<any> = ({ children }) => {
         </div>
       </div>
       <Context.Provider value={{ menuHover, clicked }}>
-        <div className="absolute top-0 left-0 z-10">{children}</div>
+        <AnimateSharedLayout type="crossfade">
+          <AnimatePresence>
+            <motion.div
+              key={route.asPath}
+              className="absolute top-0 z-10 will-change-auto"
+            >
+              {children}
+            </motion.div>
+          </AnimatePresence>
+        </AnimateSharedLayout>
       </Context.Provider>
     </div>
   );

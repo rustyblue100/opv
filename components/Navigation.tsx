@@ -5,10 +5,16 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 
 interface IProps {
+  clicked: boolean;
   setClicked: (open: boolean) => void;
+  setMenuHover: (open: boolean) => void;
 }
 
-const Navigation: NextPage<IProps> = ({ setClicked }) => {
+const Navigation: NextPage<IProps> = ({
+  setClicked,
+  setMenuHover,
+  clicked,
+}) => {
   const stagger = {
     hidden: {
       opacity: 0,
@@ -35,23 +41,30 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
     },
   };
 
+  const handleClicked = () => {
+    setClicked(true);
+    /*     setMenuHover(false); */
+  };
+
   return (
     <div className="flex justify-start items-center w-2 py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw] -ml-24">
       <motion.ul
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className="min-w-[200px] text-opv-pink-900 text-lg sm:text-2xl  leading-[30px]  sm:leading-[40px] capitalize z-10 "
+        className={`min-w-[200px] text-opv-pink-900 text-lg sm:text-2xl  leading-[30px]  sm:leading-[40px] capitalize z-10 ${
+          clicked && "z-0"
+        }`}
       >
         <motion.li
-          onClick={() => setClicked(true)}
+          onClick={handleClicked}
           variants={item}
           className="hover:text-opv-pink-500 -z-50"
         >
           <Link href="/">Accueil</Link>
         </motion.li>
         <motion.li
-          onClick={() => setClicked(true)}
+          onClick={handleClicked}
           variants={item}
           className="hover:text-opv-pink-500 -z-50"
         >
@@ -59,7 +72,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
         </motion.li>
 
         <motion.li
-          onClick={() => setClicked(true)}
+          onClick={handleClicked}
           variants={item}
           className="hover:text-opv-pink-500"
         >
@@ -67,7 +80,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
         </motion.li>
 
         <motion.li
-          onClick={() => setClicked(true)}
+          onClick={handleClicked}
           variants={item}
           className="hover:text-opv-pink-500"
         >
@@ -75,7 +88,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
         </motion.li>
 
         <motion.li
-          onClick={() => setClicked(true)}
+          onClick={handleClicked}
           variants={item}
           className="hover:text-opv-pink-500"
         >
@@ -83,7 +96,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
         </motion.li>
 
         <motion.li
-          onClick={() => setClicked(true)}
+          onClick={handleClicked}
           variants={item}
           className="hover:text-opv-pink-500"
         >
@@ -91,7 +104,7 @@ const Navigation: NextPage<IProps> = ({ setClicked }) => {
         </motion.li>
 
         <motion.li
-          onClick={() => setClicked(true)}
+          onClick={handleClicked}
           variants={item}
           className="text-gray-500  self-start  p-1 text-lg hover:text-opv-pink-500"
         >

@@ -10,79 +10,50 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
 
   const slideVariant = {
     init: {
-      x: 100,
-      transition: {
-        duration: 1.3,
-        ease: [0.19, 1, 0.22, 1],
-      },
+      x: 312,
     },
     anim: {
-      x: 320,
-      transition: {
-        duration: 1.3,
-        ease: [0.19, 1, 0.22, 1],
-      },
+      x: 312,
     },
+
     anim2: {
-      x: 320,
-      transition: {
-        duration: 1.3,
-        ease: [0.19, 1, 0.22, 1],
-      },
+      x: 100,
     },
+
+    exit: {},
   };
+
+  const polygon = `polygon(0 0, 0 100vh, 70vw 100vh, 27vw 0)`;
+  const rectangle = `polygon(0 0, 0 100vh, 100vw 100vh, 100vw 0)`;
 
   return (
     <motion.div
       variants={slideVariant}
       initial="init"
-      animate={menuHover ? "anim" : "anim2"}
-      className="absolute"
+      animate={`${menuHover ? "anim" : "anim2"}`}
+      transition={{
+        duration: 1.3,
+        ease: [0.19, 1, 0.22, 1],
+      }}
+      exit="exit"
+      className="absolute will-change-auto"
+      layoutId="sliderWrapper"
     >
       <motion.div
         layoutId="slider"
         initial={{
-          opacity: 1,
-          clipPath: `polygon(0 0,100% 0,100% 100%,0% 100%)`,
+          clipPath: polygon,
         }}
         animate={{
-          opacity: 1,
-          clipPath: `polygon(0 0,100% 0,100% 100%,0% 100%)`,
+          clipPath: rectangle,
         }}
         transition={{
           duration: 0.8,
           ease: "easeInOut",
         }}
-        exit={{
-          opacity: 1,
-        }}
-        className={`h-screen relative  ${
-          menuHover ? "w-[calc(100vw-320px)]" : "w-[calc(100vw-100px)]"
-        } max-w-full bg-opv-pink-500`}
+        exit={{ clipPath: rectangle }}
+        className={`h-screen relative  w-[1440px] bg-opv-pink-500 will-change-auto`}
       >
-        <motion.div
-          layoutId="sliderBg"
-          initial={{
-            opacity: 1,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.2,
-            ease: "easeInOut",
-          }}
-          exit={{ opacity: 1 }}
-        >
-          {/*           <Image
-            className="bg-opv-pink-500 opacity-40"
-            src="/bg-3.png"
-            layout="fill"
-            objectPosition="top"
-            objectFit="cover"
-            alt="OPV"
-          /> */}
-        </motion.div>
         {children}
       </motion.div>
     </motion.div>

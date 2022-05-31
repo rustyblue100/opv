@@ -66,8 +66,8 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
       >
         <Image
           src="https://fastly.4sqi.net/img/general/width960/54255444_x7ZweBJGKxWeqQXQcxE4KRkRWWL2l-PhKbhyQcDnwBY.jpg"
-          width="300"
-          height="300"
+          width="310"
+          height="310"
           alt="show"
           objectFit="cover"
           className={`${menuHover && "mask"} rounded-full `}

@@ -5,13 +5,9 @@ import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AnimateSharedLayout type="crossfade">
-      <AnimatePresence initial={true} exitBeforeEnter>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </AnimatePresence>
-    </AnimateSharedLayout>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
 
