@@ -28,7 +28,7 @@ const BodySlider: NextPage = () => {
       initial="init"
       animate={sequence}
       transition={{
-        duration: 1.3,
+        duration: 0.8,
         ease: [0.19, 1, 0.22, 1],
       }}
       exit="exit"

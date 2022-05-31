@@ -31,7 +31,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
       <div className="grid grid-rows-1 grid-flow-col w-full h-screen relative px-5 sm:px-10 justify-between ">
         <div
-          className={`self-center`}
+          className={`self-center p-[7rem] -m-[7rem]`}
           onMouseOver={() => setMenuHover(true)}
           onMouseLeave={handleOnMouseLeave}
           onClick={() => handleOnMouseLeave}

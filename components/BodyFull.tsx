@@ -27,7 +27,7 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
       initial="init"
       animate={sequence}
       transition={{
-        duration: 1.1,
+        duration: 0.8,
         ease: [0.19, 1, 0.22, 1],
       }}
       exit="exit"
@@ -46,10 +46,10 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        exit={{ clipPath: geo.polygon }}
-        className={`h-screen relative  w-[1440px] bg-opv-pink-500 will-change-auto overflow-scroll`}
+        exit={{ clipPath: geo().polygon }}
+        className={`h-screen relative  w-[1440px] bg-opv-pink-500 will-change-auto`}
       >
-        {children}
+        <div className="overflow-y-scroll h-full">{children}</div>
       </motion.div>
     </motion.div>
   );

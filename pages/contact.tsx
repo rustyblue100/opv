@@ -1,12 +1,29 @@
+import { motion } from "framer-motion";
 import React from "react";
 import BodyFull from "../components/BodyFull";
+import CalendarCell from "../components/CalendarCell";
 
 const contact = () => {
   return (
     <BodyFull>
-      <main className="container px-10">
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="container px-10 "
+      >
         <h1 className="h1">Nous joindre</h1>
-      </main>
+        <h2 className="text-opv-pink-900 text-3xl uppercase mb-3">
+          Janvier 2022
+        </h2>
+
+        <div className="">
+          <CalendarCell />
+          <CalendarCell />
+          <CalendarCell />
+          <CalendarCell />
+        </div>
+      </motion.main>
     </BodyFull>
   );
 };
