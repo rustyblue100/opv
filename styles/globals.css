@@ -4,10 +4,33 @@
 
 
 
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+ background: #ffeded #f8eded; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #dd7b7b88; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #dd7b7b; 
+}
+
 html,
 body {
-overflow: hidden;
+overflow-x: hidden;
   background-color: #101010;
+  color: #313131;
   padding: 0;
   margin: 0;
   font-family: 'PT Sans', sans-serif, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,

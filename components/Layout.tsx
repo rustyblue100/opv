@@ -9,6 +9,7 @@ import SpotLights from "./SpotLights";
 import { useEffect } from "react";
 import Burger from "./Burger";
 import { useRouter } from "next/router";
+import Footer from "./Footer";
 
 interface Iprops {
   children: any;
@@ -27,7 +28,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   };
 
   return (
-    <div className="container max-w-[1400px]  mx-auto relative overflow-hidden lg:overflow-visible">
+    <div className="container max-w-[1400px] mx-auto relative overflow-hidden lg:overflow-hidden">
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
       <div className="grid grid-rows-1 grid-flow-col w-full h-screen relative px-5 sm:px-10 justify-between ">
         <div

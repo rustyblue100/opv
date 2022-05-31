@@ -29,7 +29,9 @@ module.exports = {
     extend: {
       colors: {
         "opv-black": "#101010",
+        "opv-black-300": "#313131",
         "opv-pink-100": "#f8eded",
+        "opv-pink-400": "#dd7b7b88",
         "opv-pink-500": "#FFEDED", //#fddede
         "opv-pink-900": "#dd7b7b",
       },

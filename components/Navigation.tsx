@@ -105,7 +105,7 @@ const Navigation: NextPage<IProps> = ({
           className="hover:text-opv-pink-500"
         >
           <a onMouseEnter={handleOnMouseLeave}></a>
-          <Link href="/">Infos</Link>
+          <Link href="/infos">Infos</Link>
         </motion.li>
 
         <motion.li

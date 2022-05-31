@@ -29,7 +29,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
       <motion.div
         variants={spotlights}
         initial="hidden"
-        animate={`${!menuHover && "show"}`}
+        animate={`${"show"}`}
         transition={{
           ease: "easeInOut",
           duration: 1.8,
@@ -53,7 +53,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
       <motion.div
         variants={spotlights}
         initial="hidden"
-        animate={`${!menuHover && "show"}`}
+        animate={`${"show"}`}
         transition={{
           ease: "easeInOut",
           duration: 1.8,
@@ -77,7 +77,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
       <motion.div
         variants={spotlights}
         initial="hidden"
-        animate={`${!menuHover && "show"}`}
+        animate={`${"show"}`}
         transition={{
           ease: "easeInOut",
           duration: 1.8,

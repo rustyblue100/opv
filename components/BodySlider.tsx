@@ -15,10 +15,6 @@ const BodySlider: NextPage = () => {
       x: 312,
     },
 
-    anim2: {
-      x: 100,
-    },
-
     exit: { opacity: 1 },
   };
 
@@ -39,7 +35,7 @@ const BodySlider: NextPage = () => {
         layoutId="slider"
         initial={{
           opacity: 1,
-          clipPath: geo().polygon,
+          clipPath: geo().rectangleFirstLoad,
         }}
         animate={{
           opacity: 1,
