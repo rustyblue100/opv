@@ -1,7 +1,11 @@
 import { useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { Context } from "../components/Context";
 
-export const useSequence = (linkMenuClicked, menuHover) => {
+export const useSequence = () => {
+  const menuHover = useContext(Context).menuHover;
+  const linkMenuClicked = useContext(Context).clicked;
+
   const controls = useAnimation();
 
   useEffect(() => {
@@ -24,7 +28,7 @@ export const useSequence = (linkMenuClicked, menuHover) => {
       case linkMenuClicked && linkMenuClicked:
         sequenceClicked();
         break;
-      case menuHover:
+      case menuHover && menuHover:
         sequenceHovered();
         break;
       case linkMenuClicked && linkMenuClicked && menuHover:

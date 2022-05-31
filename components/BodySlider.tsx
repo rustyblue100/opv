@@ -1,16 +1,11 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import { useContext } from "react";
-import { Context } from "./Context";
 import { motion } from "framer-motion";
 import { geo } from "../utils/geoMetrical";
 import { useSequence } from "../utils/useSequence";
 
 const BodySlider: NextPage = () => {
-  const menuHover = useContext(Context).menuHover;
-  const linkMenuClicked = useContext(Context).clicked;
-
-  const controls = useSequence(linkMenuClicked, menuHover);
+  const sequence = useSequence();
 
   const slideVariant = {
     init: {
@@ -31,7 +26,7 @@ const BodySlider: NextPage = () => {
     <motion.div
       variants={slideVariant}
       initial="init"
-      animate={controls}
+      animate={sequence}
       transition={{
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
@@ -44,11 +39,11 @@ const BodySlider: NextPage = () => {
         layoutId="slider"
         initial={{
           opacity: 1,
-          clipPath: geo.polygon,
+          clipPath: geo().polygon,
         }}
         animate={{
           opacity: 1,
-          clipPath: geo.polygon,
+          clipPath: geo().polygon,
         }}
         transition={{
           duration: 0.8,
