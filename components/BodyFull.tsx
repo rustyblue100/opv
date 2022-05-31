@@ -1,12 +1,54 @@
-import { NextPage } from "next";
-import Image from "next/image";
-import { useContext } from "react";
-import { Context } from "./Context";
 import { motion, useAnimation } from "framer-motion";
+import { NextPage } from "next";
+import { useContext, useEffect } from "react";
+import { geo } from "../utils/geoMetrical";
+import { Context } from "./Context";
 
 const BodyFullSlider: NextPage<any> = ({ children }) => {
   const menuHover = useContext(Context).menuHover;
   const linkMenuClicked = useContext(Context).clicked;
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    async function sequenceClicked() {
+      await controls.start({ x: 312 });
+      controls.start({ x: 100 });
+    }
+
+    async function sequenceHovered() {
+      await controls.start({ x: 312 });
+      controls.stop();
+    }
+
+    async function sequenceNotHovered() {
+      await controls.start({ x: 100 });
+      controls.stop();
+    }
+
+    switch (true) {
+      case linkMenuClicked:
+        console.log(1);
+        sequenceClicked();
+        break;
+      case menuHover:
+        console.log(2);
+        sequenceHovered();
+        break;
+      case linkMenuClicked && menuHover:
+        console.log(3);
+        sequenceClicked();
+        break;
+      case !linkMenuClicked && menuHover:
+        console.log(4);
+        sequenceHovered();
+        break;
+      default:
+        console.log("default");
+        sequenceNotHovered();
+        break;
+    }
+  }, [controls, linkMenuClicked, menuHover]);
 
   const slideVariant = {
     init: {
@@ -20,19 +62,16 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
       x: 100,
     },
 
-    exit: {},
+    exit: { opacity: 0 },
   };
-
-  const polygon = `polygon(0 0, 0 100vh, 70vw 100vh, 27vw 0)`;
-  const rectangle = `polygon(0 0, 0 100vh, 100vw 100vh, 100vw 0)`;
 
   return (
     <motion.div
       variants={slideVariant}
       initial="init"
-      animate={`${menuHover ? "anim" : "anim2"}`}
+      animate={controls}
       transition={{
-        duration: 1.3,
+        duration: 1.1,
         ease: [0.19, 1, 0.22, 1],
       }}
       exit="exit"
@@ -42,17 +81,17 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
       <motion.div
         layoutId="slider"
         initial={{
-          clipPath: polygon,
+          clipPath: geo.polygon,
         }}
         animate={{
-          clipPath: rectangle,
+          clipPath: geo.rectangle,
         }}
         transition={{
           duration: 0.8,
           ease: "easeInOut",
         }}
-        exit={{ clipPath: rectangle }}
-        className={`h-screen relative  w-[1440px] bg-opv-pink-500 will-change-auto`}
+        exit={{ clipPath: geo.polygon }}
+        className={`h-screen relative  w-[1440px] bg-opv-pink-500 will-change-auto overflow-scroll`}
       >
         {children}
       </motion.div>

@@ -1,19 +1,21 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import Marquee from "react-fast-marquee";
 
 interface IProps {
   clicked: boolean;
   setClicked: (open: boolean) => void;
   setMenuHover: (open: boolean) => void;
+  handleOnMouseLeave: (open: boolean) => void;
 }
 
 const Navigation: NextPage<IProps> = ({
   setClicked,
   setMenuHover,
   clicked,
+  handleOnMouseLeave,
 }) => {
   const stagger = {
     hidden: {
@@ -58,6 +60,7 @@ const Navigation: NextPage<IProps> = ({
       >
         <motion.li
           onClick={handleClicked}
+          onMouseEnter={handleOnMouseLeave}
           variants={item}
           className="hover:text-opv-pink-500 -z-50"
         >
@@ -65,6 +68,7 @@ const Navigation: NextPage<IProps> = ({
         </motion.li>
         <motion.li
           onClick={handleClicked}
+          onMouseEnter={handleOnMouseLeave}
           variants={item}
           className="hover:text-opv-pink-500 -z-50"
         >
@@ -73,6 +77,7 @@ const Navigation: NextPage<IProps> = ({
 
         <motion.li
           onClick={handleClicked}
+          onMouseEnter={handleOnMouseLeave}
           variants={item}
           className="hover:text-opv-pink-500"
         >
@@ -81,6 +86,7 @@ const Navigation: NextPage<IProps> = ({
 
         <motion.li
           onClick={handleClicked}
+          onMouseEnter={handleOnMouseLeave}
           variants={item}
           className="hover:text-opv-pink-500"
         >
@@ -89,6 +95,7 @@ const Navigation: NextPage<IProps> = ({
 
         <motion.li
           onClick={handleClicked}
+          onMouseEnter={handleOnMouseLeave}
           variants={item}
           className="hover:text-opv-pink-500"
         >
@@ -97,6 +104,7 @@ const Navigation: NextPage<IProps> = ({
 
         <motion.li
           onClick={handleClicked}
+          onMouseEnter={handleOnMouseLeave}
           variants={item}
           className="hover:text-opv-pink-500"
         >
@@ -105,6 +113,7 @@ const Navigation: NextPage<IProps> = ({
 
         <motion.li
           onClick={handleClicked}
+          onMouseEnter={handleOnMouseLeave}
           variants={item}
           className="text-gray-500  self-start  p-1 text-lg hover:text-opv-pink-500"
         >

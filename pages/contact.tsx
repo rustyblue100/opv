@@ -4,7 +4,9 @@ import BodyFull from "../components/BodyFull";
 const contact = () => {
   return (
     <BodyFull>
-      <h1>Contact</h1>
+      <main className="container px-10">
+        <h1 className="h1">Nous joindre</h1>
+      </main>
     </BodyFull>
   );
 };

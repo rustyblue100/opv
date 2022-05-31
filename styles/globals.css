@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+
 html,
 body {
 overflow: hidden;
@@ -28,6 +29,12 @@ a {
   mask-image: url(/opv-mask.png);
   background-color: #ffeded;
 
+}
+
+@layer components {
+  .h1{
+    @apply pt-8 pb-2  text-5xl uppercase font-bold
+  }
 }
 
 
