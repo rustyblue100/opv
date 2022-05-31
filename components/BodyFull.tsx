@@ -3,52 +3,13 @@ import { NextPage } from "next";
 import { useContext, useEffect } from "react";
 import { geo } from "../utils/geoMetrical";
 import { Context } from "./Context";
+import { useSequence } from "../utils/useSequence";
 
 const BodyFullSlider: NextPage<any> = ({ children }) => {
   const menuHover = useContext(Context).menuHover;
   const linkMenuClicked = useContext(Context).clicked;
 
-  const controls = useAnimation();
-
-  useEffect(() => {
-    async function sequenceClicked() {
-      await controls.start({ x: 312 });
-      controls.start({ x: 100 });
-    }
-
-    async function sequenceHovered() {
-      await controls.start({ x: 312 });
-      controls.stop();
-    }
-
-    async function sequenceNotHovered() {
-      await controls.start({ x: 100 });
-      controls.stop();
-    }
-
-    switch (true) {
-      case linkMenuClicked:
-        console.log(1);
-        sequenceClicked();
-        break;
-      case menuHover:
-        console.log(2);
-        sequenceHovered();
-        break;
-      case linkMenuClicked && menuHover:
-        console.log(3);
-        sequenceClicked();
-        break;
-      case !linkMenuClicked && menuHover:
-        console.log(4);
-        sequenceHovered();
-        break;
-      default:
-        console.log("default");
-        sequenceNotHovered();
-        break;
-    }
-  }, [controls, linkMenuClicked, menuHover]);
+  const controls = useSequence(linkMenuClicked, menuHover);
 
   const slideVariant = {
     init: {

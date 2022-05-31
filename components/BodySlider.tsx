@@ -4,9 +4,13 @@ import { useContext } from "react";
 import { Context } from "./Context";
 import { motion } from "framer-motion";
 import { geo } from "../utils/geoMetrical";
+import { useSequence } from "../utils/useSequence";
 
 const BodySlider: NextPage = () => {
   const menuHover = useContext(Context).menuHover;
+  const linkMenuClicked = useContext(Context).clicked;
+
+  const controls = useSequence(linkMenuClicked, menuHover);
 
   const slideVariant = {
     init: {
@@ -27,7 +31,7 @@ const BodySlider: NextPage = () => {
     <motion.div
       variants={slideVariant}
       initial="init"
-      animate={`${menuHover ? "anim" : "anim2"}`}
+      animate={controls}
       transition={{
         duration: 1.3,
         ease: [0.19, 1, 0.22, 1],
