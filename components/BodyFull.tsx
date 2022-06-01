@@ -47,28 +47,6 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
         exit={{ clipPath: geo().rectangle }}
         className={`h-screen relative  w-[1440px] bg-opv-pink-500 will-change-auto`}
       >
-        <motion.div
-          initial={{
-            opacity: 0.3,
-          }}
-          animate={{
-            opacity: 0,
-          }}
-          transition={{
-            duration: 0.4,
-            ease: "easeInOut",
-          }}
-          exit={{ opacity: 0 }}
-        >
-          <Image
-            className="bg-opv-pink-500 opacity-50"
-            src="/bg-3.png"
-            layout="fill"
-            objectPosition="top"
-            objectFit="cover"
-            alt="OPV"
-          />
-        </motion.div>
         <div className="flex flex-col min-h-screen h-full max-w-[90%] 2xl:max-w-full z-50 overflow-scroll">
           <div className="flex-1">{children}</div>
 

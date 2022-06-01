@@ -5,6 +5,8 @@ module.exports = {
       "images.rawpixel.com",
       "media.istockphoto.com",
       "fastly.4sqi.net",
+      "www.seekpng.com",
+      "cdn.sanity.io",
     ],
   },
   i18n: {

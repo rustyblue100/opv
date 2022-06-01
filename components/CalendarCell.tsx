@@ -34,15 +34,25 @@ const CalendarCell = () => {
           >
             Entrée: 10$
           </motion.div>
-          <div className="text-xl font-bold">19h:30</div>
-          <motion.div
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="text-4xl font-normal mb-1"
-          >
-            Les Goules
-          </motion.div>
+          <div className="flex justify-between items-center mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="text-4xl font-normal"
+            >
+              Les Goules
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.2 }}
+              className="text-lg font-bold "
+            >
+              19h30
+            </motion.div>
+          </div>
 
           <div className="flex">
             <Image
