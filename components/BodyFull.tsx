@@ -31,8 +31,10 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
       exit="exit"
       className="absolute will-change-auto"
       layoutId="sliderWrapper"
+      layout="position"
     >
       <motion.div
+        layout="position"
         layoutId="slider"
         initial={{
           clipPath: geo().polygon,
@@ -44,12 +46,11 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
           duration: 0.6,
           ease: "easeInOut",
         }}
-        exit={{ clipPath: geo().rectangle }}
-        className={`h-screen relative  w-[1440px] bg-opv-pink-500 will-change-auto`}
+        exit={{ opacity: 1, clipPath: geo().rectangle }}
+        className={`h-screen bg-opv-pink-500 will-change-auto`}
       >
-        <div className="flex flex-col min-h-screen h-full max-w-[90%] 2xl:max-w-full z-50 overflow-scroll">
+        <div className="flex flex-col min-h-screen h-full w-[calc(100vw-100px)] 2xl:w-[1440px] z-50 overflow-scroll px-10">
           <div className="flex-1">{children}</div>
-
           <Footer />
         </div>
       </motion.div>

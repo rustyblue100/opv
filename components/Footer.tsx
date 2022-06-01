@@ -33,7 +33,7 @@ const Footer = () => {
       variants={stagger}
       initial="hidden"
       animate="visible"
-      className="mt-48 pt-10 px-8 font-bold "
+      className="mt-48 pt-10 font-bold "
     >
       <div className="flex justify-between items-center border-t border-opv-black">
         <div className="flex-1 flex justify-start items-center uppercase text-opv-black gap-3">

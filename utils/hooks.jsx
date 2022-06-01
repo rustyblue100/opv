@@ -22,7 +22,6 @@ export const useSequence = () => {
   const controls = useAnimation();
 
   const width = useMedia();
-  console.log(width);
 
   useEffect(() => {
     async function sequenceClicked() {

@@ -6,10 +6,8 @@ import { useState } from "react";
 import { Context } from "../components/Context";
 import Navigation from "./Navigation";
 import SpotLights from "./SpotLights";
-import { useEffect } from "react";
 import Burger from "./Burger";
 import { useRouter } from "next/router";
-import Footer from "./Footer";
 
 interface Iprops {
   children: any;
@@ -18,7 +16,6 @@ interface Iprops {
 const Layout: NextPage<Iprops> = ({ children }) => {
   const [menuHover, setMenuHover] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const [doubleClicked, setDoubleClicked] = useState(false);
 
   const route = useRouter();
 
@@ -28,9 +25,9 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   };
 
   return (
-    <div className="container max-w-[1400px] mx-auto relative overflow-hidden lg:overflow-hidden">
+    <div className="container mx-auto fixed">
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
-      <div className="grid grid-rows-1 grid-flow-col w-full h-screen relative px-5 sm:px-10 justify-between ">
+      <div className="grid grid-rows-1 grid-flow-col h-screen relative px-5 sm:px-10 justify-between ">
         <div
           className={`self-center p-[7rem] -m-[7rem]`}
           onMouseOver={() => setMenuHover(true)}
@@ -86,9 +83,8 @@ const Layout: NextPage<Iprops> = ({ children }) => {
       </div>
       <Context.Provider value={{ menuHover, clicked }}>
         <AnimateSharedLayout type="crossfade">
-          <AnimatePresence>
+          <AnimatePresence initial={false}>
             <motion.div
-              style={{ backfaceVisibility: "hidden" }}
               key={route.asPath}
               className="absolute top-0 z-10 will-change-auto"
             >

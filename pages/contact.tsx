@@ -10,7 +10,6 @@ const contact = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="container px-10 "
       >
         <h1 className="h1">Nous joindre</h1>
         <h2 className="text-opv-pink-900 text-3xl uppercase mb-3">

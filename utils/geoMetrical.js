@@ -10,8 +10,6 @@ export function geo() {
     });
   }, []);
 
-  console.log(width);
-
   return {
     rectangle: "polygon(0 0, 0 100vh, 100vw 100vh, 100vw 0)",
     rectangleFirstLoad: "polygon(0 0, 0 100vh, 47vw 100vh, 45vw 0)",
