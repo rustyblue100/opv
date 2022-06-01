@@ -3,7 +3,7 @@ import React from "react";
 import BodyFull from "../components/BodyFull";
 import CalendarCell from "../components/CalendarCell";
 
-const contact = () => {
+const calendrier = () => {
   return (
     <BodyFull>
       <motion.main
@@ -11,10 +11,8 @@ const contact = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.3 }}
       >
-        <h1 className="h1">Nous joindre</h1>
-        <h2 className="text-opv-pink-900 text-3xl uppercase mb-3">
-          Janvier 2022
-        </h2>
+        <h1 className="h1">Contact</h1>
+        <h2 className="h2">Janvier 2022</h2>
 
         <div className="">
           <CalendarCell />
@@ -27,4 +25,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default calendrier;

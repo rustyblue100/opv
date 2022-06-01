@@ -10,16 +10,13 @@ const calendrier = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="px-10"
       >
         <h1 className="h1">Calendrier</h1>
-        <h2 className="text-opv-pink-900 text-3xl uppercase mb-3">
-          Janvier 2022
-        </h2>
+        <h2 className="h2">Janvier 2022</h2>
 
         <div className="">
           <CalendarCell />
-          <CalendarCell />
+          <CalendarCell complet={true} />
           <CalendarCell />
           <CalendarCell />
         </div>

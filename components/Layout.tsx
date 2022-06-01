@@ -25,7 +25,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   };
 
   return (
-    <div className="container mx-auto fixed">
+    <div className="container fixed 3xl:left-[50%] 3xl:-translate-x-[50%] max-w-screen-2xl">
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
       <div className="grid grid-rows-1 grid-flow-col h-screen relative px-5 sm:px-10 justify-between ">
         <div

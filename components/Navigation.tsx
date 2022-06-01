@@ -45,6 +45,33 @@ const Navigation: NextPage<IProps> = ({
     },
   };
 
+  const menuItem = [
+    {
+      nom: "Accueil",
+      slug: "/",
+    },
+    {
+      nom: "Calendrier",
+      slug: "calendrier",
+    },
+    {
+      nom: "Photos & Vidéos",
+      slug: "contact",
+    },
+    {
+      nom: "Infos",
+      slug: "infos",
+    },
+    {
+      nom: "À propos",
+      slug: "calendrier",
+    },
+    {
+      nom: "Nous joindre",
+      slug: "contact",
+    },
+  ];
+
   const handleClicked = () => {
     setClicked(true);
     /*     setMenuHover(false); */
@@ -56,73 +83,32 @@ const Navigation: NextPage<IProps> = ({
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className={`min-w-[200px] text-opv-pink-900 text-lg sm:text-2xl  leading-[30px]  sm:leading-[40px] capitalize z-10 ${
+        className={`min-w-[200px] text-opv-pink-900 text-lg sm:text-2xl  leading-[30px]  sm:leading-[43px] capitalize z-10 ${
           clicked && "z-0"
         }`}
       >
-        <motion.li
-          onClick={handleClicked}
-          variants={item}
-          className="hover:text-opv-pink-500 -z-50"
-        >
-          <a onMouseEnter={handleOnMouseLeave}>
-            <Link href="/">Accueil</Link>
-          </a>
-        </motion.li>
-        <motion.li
-          onClick={handleClicked}
-          variants={item}
-          className="hover:text-opv-pink-500 -z-50"
-        >
-          <a onMouseEnter={handleOnMouseLeave}>
-            <Link href="/calendrier">Calendrier</Link>
-          </a>
-        </motion.li>
+        {menuItem.map((item, i) => {
+          const { nom, slug } = item;
 
-        <motion.li
-          onClick={handleClicked}
-          variants={item}
-          className="hover:text-opv-pink-500"
-        >
-          <a onMouseEnter={handleOnMouseLeave}>
-            <Link href="/">Notre Histoire</Link>
-          </a>
-        </motion.li>
-
-        <motion.li
-          onClick={handleClicked}
-          variants={item}
-          className="hover:text-opv-pink-500"
-        >
-          <a onMouseEnter={handleOnMouseLeave}>
-            <Link href="/">Photos & vidéos</Link>
-          </a>
-        </motion.li>
-
-        <motion.li
-          onClick={handleClicked}
-          variants={item}
-          className="hover:text-opv-pink-500"
-        >
-          <a onMouseEnter={handleOnMouseLeave}></a>
-          <Link href="/infos">Infos</Link>
-        </motion.li>
-
-        <motion.li
-          onClick={handleClicked}
-          variants={item}
-          className="hover:text-opv-pink-500"
-        >
-          <a onMouseEnter={handleOnMouseLeave}></a>
-          <Link href="/contact">Nous joindre</Link>
-        </motion.li>
-
+          return (
+            <motion.li
+              key={i}
+              onClick={handleClicked}
+              variants={item}
+              className="hover:text-opv-pink-500 "
+            >
+              <a className="" onMouseEnter={handleOnMouseLeave}>
+                <Link href={`/${slug}`}>{nom}</Link>
+              </a>
+            </motion.li>
+          );
+        })}
         <motion.li
           onClick={handleClicked}
           variants={item}
           className="text-gray-500  self-start  p-1 text-lg hover:text-opv-pink-500"
         >
-          <a onMouseEnter={handleOnMouseLeave}></a>
+          <a className="" onMouseEnter={handleOnMouseLeave}></a>
           <Link href="/">EN</Link> | <Link href="/">FR</Link>
         </motion.li>
       </motion.ul>

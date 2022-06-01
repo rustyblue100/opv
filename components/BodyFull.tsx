@@ -8,27 +8,20 @@ import Footer from "./Footer";
 const BodyFullSlider: NextPage<any> = ({ children }) => {
   const sequence = useSequence();
 
-  const slideVariant = {
-    init: {
-      x: 312,
-    },
-    anim: {
-      x: 312,
-    },
-
-    exit: { opacity: 1 },
-  };
+  const storage = globalThis?.sessionStorage;
+  const prevPath = storage && storage.getItem("prevPath");
 
   return (
     <motion.div
-      variants={slideVariant}
-      initial="init"
+      initial={{
+        x: 312,
+      }}
       animate={sequence}
       transition={{
         duration: 1.2,
         ease: [0.19, 1, 0.22, 1],
       }}
-      exit="exit"
+      exit={{ opacity: 1 }}
       className="absolute will-change-auto"
       layoutId="sliderWrapper"
       layout="position"
@@ -37,7 +30,10 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
         layout="position"
         layoutId="slider"
         initial={{
-          clipPath: geo().polygon,
+          clipPath:
+            prevPath === "/en-CA" || prevPath === "/"
+              ? geo().polygon
+              : geo().rectangle,
         }}
         animate={{
           clipPath: geo().rectangle,
@@ -49,7 +45,7 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
         exit={{ opacity: 1, clipPath: geo().rectangle }}
         className={`h-screen bg-opv-pink-500 will-change-auto`}
       >
-        <div className="flex flex-col min-h-screen h-full w-[calc(100vw-100px)] 2xl:w-[1440px] z-50 overflow-scroll px-10">
+        <div className="flex flex-col min-h-screen h-full w-[calc(100vw-100px)] 2xl:w-[1440px] z-50 overflow-scroll px-5 lg:px-10">
           <div className="flex-1">{children}</div>
           <Footer />
         </div>

@@ -4,6 +4,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    container: {
+      center: true,
+    },
     screens: {
       xs: "480px",
       // => @media (min-width: 640px) { ... }
@@ -25,6 +28,9 @@ module.exports = {
 
       "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
+
+      "3xl": "2400px",
+      // => @media (min-width: 2400px) { ... }
     },
     extend: {
       colors: {

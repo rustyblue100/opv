@@ -3,36 +3,24 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { geo } from "../utils/geoMetrical";
 import { useSequence } from "../utils/useSequence";
-import { useIsPresent } from "framer-motion";
 
 const BodySlider: NextPage = () => {
   const sequence = useSequence();
-  const isPresent = useIsPresent();
-
-  console.log(isPresent);
-
-  const slideVariant = {
-    init: {
-      x: 312,
-    },
-    anim: {
-      x: 312,
-    },
-
-    exit: { opacity: 1 },
-  };
 
   return (
     <motion.div
       layout="position"
-      variants={slideVariant}
-      initial="init"
+      initial={{
+        x: 312,
+      }}
       animate={sequence}
       transition={{
         duration: 0.8,
         ease: [0.19, 1, 0.22, 1],
       }}
-      exit="exit"
+      exit={{
+        opacity: 1,
+      }}
       className="absolute will-change-auto "
       layoutId="sliderWrapper"
     >
@@ -53,6 +41,7 @@ const BodySlider: NextPage = () => {
         }}
         exit={{
           opacity: 1,
+          clipPath: geo().polygon,
         }}
         className={`h-screen relative -translate-x-[100] w-[1440px] bg-opv-pink-500 max-w-full will-change-auto md:translate-x-[0]`}
       >

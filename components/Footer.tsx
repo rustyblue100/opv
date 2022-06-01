@@ -36,20 +36,21 @@ const Footer = () => {
       className="mt-48 pt-10 font-bold "
     >
       <div className="flex justify-between items-center border-t border-opv-black">
-        <div className="flex-1 flex justify-start items-center uppercase text-opv-black gap-3">
+        <div className="flex-1 flex justify-betwwen items-center uppercase text-opv-black gap-3">
           <Image
-            className="flex-1"
             width="36"
             height="36"
             objectFit="contain"
             alt="facebook"
             src="https://www.seekpng.com/png/full/18-185778_facebook-f-logo-png-transparent-background-facebook-icon.png/png/full/18-185778_facebook-f-logo-png-transparent-background-facebook-icon.png"
           ></Image>
-          <motion.div variants={item} className="font-bold flex-1">
-            Politique de condidentialité
-          </motion.div>
-          <motion.div variants={item} className="flex-1 ml-auto">
+
+          <motion.div variants={item} className="">
             Nous joindre
+          </motion.div>
+
+          <motion.div variants={item} className="font-bold ">
+            Politique de condidentialité
           </motion.div>
         </div>
 
@@ -61,7 +62,7 @@ const Footer = () => {
             356 Mont-Royal Ave E, Montreal, QC H2T 1R1
           </motion.div> */}
         </div>
-        <div className="ml-auto">
+        <div className="ml-auto w-[180px]">
           <Image
             src="/logo-footer.png"
             width="200"
