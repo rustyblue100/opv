@@ -40,6 +40,7 @@ module.exports = {
         "opv-pink-400": "#dd7b7b88",
         "opv-pink-500": "#FFEDED", //#fddede
         "opv-pink-900": "#dd7b7b",
+        "opv-pink-1000": "#d43f3f",
       },
       keyframes: {
         firewoks: {

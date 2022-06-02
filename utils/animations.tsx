@@ -24,13 +24,13 @@ export const AnimationSlider = () => {
     const defaultTransition = {
       type: "tween",
       ease: "easeInOut",
-      duration: 0.6,
+      duration: 0.4,
     };
 
     async function sequenceClicked() {
       await controls.start({
         clipPath: prevPath !== "/en-CA" ? rectangle : polygon,
-        x: prevPath !== "/en-CA" ? 0 : 212,
+        x: prevPath !== "/en-CA" ? 0 : distance,
         transition: defaultTransition,
       });
       controls.start({
@@ -43,7 +43,11 @@ export const AnimationSlider = () => {
     async function sequenceHovered() {
       await controls.start({
         x: distance,
-        transition: defaultTransition,
+        transition: {
+          type: "tween",
+          ease: "easeInOut",
+          duration: 0.6,
+        },
       });
     }
 
@@ -53,7 +57,6 @@ export const AnimationSlider = () => {
 
     switch (true) {
       case linkMenuClicked && !menuHover:
-        console.log("linkMenuClicked");
         sequenceClicked();
         break;
       case !linkMenuClicked && menuHover:

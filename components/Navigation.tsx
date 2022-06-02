@@ -8,16 +8,11 @@ interface IProps {
   clicked: boolean;
   setClicked: (open: boolean) => void;
   setMenuHover: (open: boolean) => void;
-  handleOnMouseLeave: () => {
-    setClicked: (open: boolean) => void;
-    setMenuHover: (open: boolean) => void;
-  };
 }
 
 const Navigation: NextPage<IProps> = ({
   setClicked,
   clicked,
-  handleOnMouseLeave,
   setMenuHover,
 }) => {
   const stagger = {
@@ -71,6 +66,10 @@ const Navigation: NextPage<IProps> = ({
       nom: "Nous joindre",
       slug: "contact",
     },
+    {
+      nom: "TEST",
+      slug: "test",
+    },
   ];
 
   const handleClicked = () => {
@@ -98,12 +97,7 @@ const Navigation: NextPage<IProps> = ({
               onHoverStart={() => setMenuHover(true)}
             >
               <Link href={slug}>
-                <a
-                  className="hover:text-opv-pink-500 "
-                  onClick={handleClicked}
-
-                  /*    onMouseEnter={handleOnMouseLeave} */
-                >
+                <a className="hover:text-opv-pink-500 " onClick={handleClicked}>
                   {nom}
                 </a>
               </Link>

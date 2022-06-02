@@ -15,7 +15,11 @@ const infos = () => {
       >
         <Header>Infos</Header>
 
-        <div className=""></div>
+        <div className="">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+          minus porro quas deserunt expedita ab earum ea sequi consectetur odit
+          quasi, quisquam atque, a maxime illo voluptate eum! Magni, rerum!
+        </div>
       </motion.main>
     </BodyFull>
   );

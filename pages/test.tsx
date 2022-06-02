@@ -9,28 +9,15 @@ const BodySlider = () => {
   const controls = useAnimation();
 
   return (
-    <motion.div
+    <div
       style={{ clipPath: Geo().polygon }}
+      /*       
       animate={animations}
       transition={{ duration: 0.2, ease: "easeInOut" }}
-      exit={{ opacity: 1, transition: { duration: 0.1 } }}
+      exit={{ opacity: 1, transition: { duration: 0.1 } }} */
       className="fixed top-0  will-change-auto ml-[100px] h-screen  w-[1440px] bg-opv-pink-500"
-      layoutId="sliderWrapper"
     >
-      <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.4,
-          ease: "easeInOut",
-          delay: 0.3,
-        }}
-        exit={{ opacity: 0 }}
-      >
+      <div>
         <Image
           className="bg-opv-pink-500 opacity-50"
           src="/bg-3.png"
@@ -39,8 +26,8 @@ const BodySlider = () => {
           objectFit="cover"
           alt="OPV"
         />
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 

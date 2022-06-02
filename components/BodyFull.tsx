@@ -1,7 +1,7 @@
-import { motion, MotionConfig } from "framer-motion";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
-import { Geo } from "../utils/geoMetrical";
 import { AnimationFullBody } from "../utils/animations";
+import { Geo } from "../utils/geoMetrical";
 import Footer from "./Footer";
 
 interface Iprops {
@@ -11,16 +11,15 @@ interface Iprops {
 const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
   const animations = AnimationFullBody();
 
-  const storage = globalThis?.sessionStorage;
-  const prevPath = storage && storage.getItem("prevPath");
-
   return (
     <motion.div
-      key="body"
       style={{ clipPath: Geo().rectangle }}
       animate={animations}
-      transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1], type: "tween" }}
-      exit={{ opacity: 1 }}
+      transition={{ duration: 0.1, ease: "easeInOut" }}
+      exit={{
+        opacity: 1,
+        transition: { duration: 0.2, ease: [0.48, 0.15, 0.25, 0.96] },
+      }}
       className="fixed top-0  will-change-auto ml-[100px] h-screen bg-opv-pink-500 "
       layoutId="sliderWrapper"
     >

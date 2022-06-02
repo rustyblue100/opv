@@ -1,4 +1,4 @@
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,6 @@ import { Context } from "../components/Context";
 import Navigation from "./Navigation";
 import SpotLights from "./SpotLights";
 import Burger from "./Burger";
-import { useRouter } from "next/router";
 
 interface Iprops {
   children: React.ReactNode;
@@ -18,15 +17,13 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   const [clicked, setClicked] = useState(false);
   const distanceFromLeftBorderWindow: number = 212;
 
-  const route = useRouter();
-
   function handleOnMouseLeave() {
     setMenuHover(false);
     setClicked(false);
   }
 
   return (
-    <div className="container fixed 3xl:left-[50%] 3xl:-translate-x-[50%] max-w-screen-2xl">
+    <div className="container fixed top-0 left-0 3xl:left-[50%] 3xl:-translate-x-[50%] max-w-screen-2xl">
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
       <div className="grid grid-rows-1 grid-flow-col h-screen relative px-5 sm:px-10 justify-between ">
         <motion.div
@@ -38,7 +35,6 @@ const Layout: NextPage<Iprops> = ({ children }) => {
             clicked={clicked}
             setClicked={setClicked}
             setMenuHover={setMenuHover}
-            handleOnMouseLeave={handleOnMouseLeave}
           />
         </motion.div>
 
@@ -83,16 +79,10 @@ const Layout: NextPage<Iprops> = ({ children }) => {
       <Context.Provider
         value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
       >
-        <AnimateSharedLayout type="crossfade">
-          <AnimatePresence initial={true} exitBeforeEnter>
-            <motion.div
-              key={route.asPath}
-              className="fixed top-0 left-0 z-10 will-change-auto overflow-hidden"
-            >
-              {children}
-            </motion.div>
-          </AnimatePresence>
-        </AnimateSharedLayout>
+        <motion.div className="fixed top-0 left-0 z-10 will-change-auto overflow-hidden">
+          {children}
+        </motion.div>
+        ç
       </Context.Provider>
     </div>
   );

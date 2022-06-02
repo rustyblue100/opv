@@ -62,7 +62,13 @@ const Footer = () => {
             356 Mont-Royal Ave E, Montreal, QC H2T 1R1
           </motion.div> */}
         </div>
-        <div className="ml-auto w-[180px]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          exit={{ opacity: 0 }}
+          className="ml-auto w-[180px]"
+        >
           <Image
             src="/logo-footer.png"
             width="200"
@@ -70,7 +76,7 @@ const Footer = () => {
             objectFit="contain"
             alt="logo"
           />
-        </div>
+        </motion.div>
       </div>
     </motion.footer>
   );
