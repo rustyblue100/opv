@@ -20,59 +20,56 @@ export const useSequence = () => {
   const menuHover = useContext(Context).menuHover;
   const linkMenuClicked = useContext(Context).clicked;
 
-  const [animate, setAnimate] = useState("");
-
   const controls = useAnimation();
 
   const width = useMedia();
 
-  const mobile = 768;
-
   const rectangle = Geo().rectangle;
   const polygon = Geo().polygon;
 
-  const defaultTransition = {
-    type: "tween",
-    ease: [0.19, 1, 0.22, 1],
-    duration: 1,
-  };
-
   useEffect(() => {
+    const defaultTransition = {
+      type: "tween",
+      ease: "easeInOut",
+      duration: 0.6,
+    };
+
     async function sequenceClicked() {
       await controls.start({
-        x: width > mobile ? 212 : 0,
-        transition: defaultTransition,
-      });
-      await controls.start({
-        x: width > mobile ? 0 : 0,
-        transition: defaultTransition,
+        x: 0,
       });
     }
 
     async function sequenceHovered() {
-      await controls.start({ x: width > mobile ? 212 : 0 });
-      controls.stop();
+      await controls.start({
+        x: 212,
+        transition: defaultTransition,
+      });
     }
 
     async function sequenceNotHovered() {
-      await controls.start({ x: width > mobile ? 0 : 0 });
-      controls.stop();
+      await controls.start({ x: 0, transition: defaultTransition });
     }
 
+    /*  console.log({ menuHover });
     console.log({ linkMenuClicked });
-
+ */
     switch (true) {
-      case linkMenuClicked && menuHover:
+      case linkMenuClicked && !menuHover:
+        console.log("linkMenuClicked");
         sequenceClicked();
         break;
-      /*       case !linkMenuClicked && menuHover:
+      case !linkMenuClicked && menuHover:
         sequenceHovered();
-        break; */
+        break;
+      case linkMenuClicked && menuHover:
+        sequenceHovered();
+        break;
       default:
-        /*   sequenceHovered(); */
+        sequenceNotHovered();
         break;
     }
-  }, [width, controls, linkMenuClicked, menuHover, rectangle]);
+  }, [controls, linkMenuClicked, menuHover, rectangle, polygon]);
 
   return controls;
 };

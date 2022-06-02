@@ -44,7 +44,12 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             </motion.div>
           )}
         </div>
-        <div className="flex-1 sm:border-l border-opv-black-300 sm:pl-5 relative">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 1 }}
+          className="flex-1 sm:border-l border-opv-black-300 sm:pl-5 relative"
+        >
           <motion.div
             initial={{ opacity: 0, y: 5, rotate: -90 }}
             animate={{ opacity: 1, y: 0, rotate: -90 }}
@@ -74,14 +79,20 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
           </div>
 
           <div className="flex flex-col xl:flex-row">
-            <Image
-              className="flex-1"
-              src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
-              width="200"
-              height="200"
-              objectFit="cover"
-              alt="band"
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              <Image
+                className="flex-1"
+                src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
+                width="200"
+                height="200"
+                objectFit="cover"
+                alt="band"
+              />
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
@@ -100,7 +111,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               Entrée: 10$
             </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

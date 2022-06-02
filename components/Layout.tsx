@@ -28,12 +28,10 @@ const Layout: NextPage<Iprops> = ({ children }) => {
     <div className="container fixed 3xl:left-[50%] 3xl:-translate-x-[50%] max-w-screen-2xl">
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
       <div className="grid grid-rows-1 grid-flow-col h-screen relative px-5 sm:px-10 justify-between ">
-        <div
+        <motion.div
           className={`self-center p-[7rem] -m-[7rem]`}
-          onMouseOver={() => setMenuHover(true)}
-          onMouseLeave={handleOnMouseLeave}
-          onClick={() => handleOnMouseLeave}
-          onMouseMove={() => setMenuHover(true)}
+          onHoverStart={() => setMenuHover(true)}
+          onHoverEnd={handleOnMouseLeave}
         >
           <Navigation
             clicked={clicked}
@@ -41,7 +39,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
             setMenuHover={setMenuHover}
             handleOnMouseLeave={handleOnMouseLeave}
           />
-        </div>
+        </motion.div>
 
         <div className="place-self-center">
           <motion.div

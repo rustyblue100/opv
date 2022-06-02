@@ -75,7 +75,7 @@ const Navigation: NextPage<IProps> = ({
 
   const handleClicked = () => {
     setClicked(true);
-    /*     setMenuHover(false); */
+    setMenuHover(false);
   };
 
   return (
@@ -92,11 +92,16 @@ const Navigation: NextPage<IProps> = ({
           const { nom, slug }: { nom: string; slug: string } = menuItem;
 
           return (
-            <motion.li key={i} variants={item}>
+            <motion.li
+              key={i}
+              variants={item}
+              onHoverStart={() => setMenuHover(true)}
+            >
               <Link href={slug}>
                 <a
                   className="hover:text-opv-pink-500 "
                   onClick={handleClicked}
+
                   /*    onMouseEnter={handleOnMouseLeave} */
                 >
                   {nom}
@@ -109,7 +114,7 @@ const Navigation: NextPage<IProps> = ({
           variants={item}
           className="text-gray-500  self-start  p-1 text-lg hover:text-opv-pink-500"
         >
-          <a className="" onMouseEnter={handleOnMouseLeave}></a>
+          <a className=""></a>
           <Link href="/">EN</Link> | <Link href="/">FR</Link>
         </motion.li>
       </motion.ul>

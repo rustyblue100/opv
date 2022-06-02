@@ -16,9 +16,12 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
 
   return (
     <motion.div
+      key="body"
       style={{ clipPath: Geo().rectangle }}
       animate={sequence}
-      className="fixed top-0 left-0 will-change-auto ml-[100px] h-screen bg-opv-pink-500 "
+      transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], type: "tween" }}
+      exit={{ opacity: 1 }}
+      className="fixed top-0  will-change-auto ml-[100px] h-screen bg-opv-pink-500 "
       layoutId="sliderWrapper"
     >
       <div className="flex flex-col min-h-screen h-full  w-[calc(100vw-100px)] 2xl:w-[1440px] z-50 overflow-scroll px-5 lg:px-10">

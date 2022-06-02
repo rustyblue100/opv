@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import BodyFull from "../components/BodyFull";
 import CalendarCell from "../components/CalendarCell";
+import Header from "../components/Header";
 
 const infos = () => {
   return (
@@ -12,7 +13,7 @@ const infos = () => {
         transition={{ duration: 0.4 }}
         exit={{ opacity: 0 }}
       >
-        <h1 className="h1">Infos</h1>
+        <Header>Infos</Header>
 
         <div className=""></div>
       </motion.main>
