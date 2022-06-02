@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { geo } from "../utils/geoMetrical";
-import { useSequence } from "../utils/useSequence";
+import { useSequence } from "../utils/hooks";
 
 const BodySlider: NextPage = () => {
   const sequence = useSequence();
@@ -37,7 +37,7 @@ const BodySlider: NextPage = () => {
         }}
         transition={{
           duration: 0.8,
-          ease: "easeInOut",
+          ease: "linear",
         }}
         exit={{
           opacity: 1,

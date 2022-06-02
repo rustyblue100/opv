@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
 import { geo } from "../utils/geoMetrical";
-import { useSequence } from "../utils/useSequence";
-import Image from "next/image";
+import { useSequence } from "../utils/hooks";
 import Footer from "./Footer";
 
 const BodyFullSlider: NextPage<any> = ({ children }) => {
@@ -40,7 +39,7 @@ const BodyFullSlider: NextPage<any> = ({ children }) => {
         }}
         transition={{
           duration: 0.6,
-          ease: "easeInOut",
+          ease: "linear",
         }}
         exit={{ opacity: 1, clipPath: geo().rectangle }}
         className={`h-screen bg-opv-pink-500 will-change-auto`}

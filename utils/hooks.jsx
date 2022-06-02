@@ -23,19 +23,21 @@ export const useSequence = () => {
 
   const width = useMedia();
 
+  const mobile = 768;
+
   useEffect(() => {
     async function sequenceClicked() {
-      await controls.start({ x: 312 });
-      controls.start({ x: 100 });
+      controls.start({ x: width > mobile ? 312 : 0 });
+      controls.start({ x: width > mobile ? 100 : 0 });
     }
 
     async function sequenceHovered() {
-      await controls.start({ x: 312 });
+      await controls.start({ x: width > mobile ? 312 : 0 });
       controls.stop();
     }
 
     async function sequenceNotHovered() {
-      await controls.start({ x: 100 });
+      await controls.start({ x: width > mobile ? 100 : 0 });
       controls.stop();
     }
 
@@ -56,7 +58,7 @@ export const useSequence = () => {
         sequenceNotHovered();
         break;
     }
-  }, [controls, linkMenuClicked, menuHover]);
+  }, [width, controls, linkMenuClicked, menuHover]);
 
   return controls;
 };
