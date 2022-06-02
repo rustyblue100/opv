@@ -1,70 +1,45 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { Geo } from "../utils/geoMetrical";
-import { useSequence } from "../utils/hooks";
+import { AnimationSlider } from "../utils/animations";
 
 const BodySlider = () => {
-  const sequence = useSequence();
+  const animations = AnimationSlider();
+
+  const controls = useAnimation();
 
   return (
     <motion.div
-      layout="position"
-      initial={{
-        x: 312,
-      }}
-      animate={sequence}
-      transition={{
-        duration: 0.8,
-        ease: [0.19, 1, 0.22, 1],
-      }}
-      exit={{
-        opacity: 1,
-      }}
-      className="absolute will-change-auto "
+      style={{ clipPath: Geo().polygon }}
+      animate={animations}
+      transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], type: "tween" }}
+      exit={{ opacity: 1 }}
+      className="fixed top-0  will-change-auto ml-[100px] h-screen  w-[1440px] bg-opv-pink-500"
       layoutId="sliderWrapper"
     >
       <motion.div
-        layout="position"
-        layoutId="slider"
         initial={{
-          clipPath: Geo().rectangle,
+          opacity: 0,
         }}
         animate={{
-          clipPath: Geo().polygon,
+          opacity: 1,
         }}
         transition={{
-          duration: 0.8,
-          ease: "linear",
+          duration: 0.4,
+          ease: "easeInOut",
+          delay: 0.3,
         }}
-        exit={{
-          clipPath: Geo().polygon,
-        }}
-        className={`h-screen relative -translate-x-[100] w-[1440px] bg-opv-pink-500 max-w-full will-change-auto md:translate-x-[unset]`}
+        exit={{ opacity: 0 }}
       >
-        <motion.div
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.4,
-            ease: "easeInOut",
-            delay: 0.3,
-          }}
-          exit={{ opacity: 0 }}
-        >
-          <Image
-            className="bg-opv-pink-500 opacity-50"
-            src="/bg-3.png"
-            layout="fill"
-            objectPosition="top"
-            objectFit="cover"
-            alt="OPV"
-          />
-        </motion.div>
+        <Image
+          className="bg-opv-pink-500 opacity-50"
+          src="/bg-3.png"
+          layout="fill"
+          objectPosition="top"
+          objectFit="cover"
+          alt="OPV"
+        />
       </motion.div>
     </motion.div>
   );

@@ -16,6 +16,7 @@ interface Iprops {
 const Layout: NextPage<Iprops> = ({ children }) => {
   const [menuHover, setMenuHover] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const distanceFromLeftBorderWindow: number = 212;
 
   const route = useRouter();
 
@@ -79,7 +80,9 @@ const Layout: NextPage<Iprops> = ({ children }) => {
           </div>
         </div>
       </div>
-      <Context.Provider value={{ menuHover, clicked }}>
+      <Context.Provider
+        value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
+      >
         <AnimateSharedLayout type="crossfade">
           <AnimatePresence initial={true} exitBeforeEnter>
             <motion.div
