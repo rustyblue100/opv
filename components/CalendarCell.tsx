@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { NextPage } from "next";
 
 interface Iprops {
-  complet: boolean;
+  complet?: boolean;
 }
 
 const CalendarCell: NextPage<Iprops> = ({ complet }) => {

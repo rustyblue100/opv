@@ -18,6 +18,7 @@ const Navigation: NextPage<IProps> = ({
   setClicked,
   clicked,
   handleOnMouseLeave,
+  setMenuHover,
 }) => {
   const stagger = {
     hidden: {
@@ -45,7 +46,7 @@ const Navigation: NextPage<IProps> = ({
     },
   };
 
-  const menuItem = [
+  const menu = [
     {
       nom: "Accueil",
       slug: "/",
@@ -87,24 +88,24 @@ const Navigation: NextPage<IProps> = ({
           clicked && "z-0"
         }`}
       >
-        {menuItem.map((item, i) => {
-          const { nom, slug } = item;
+        {menu.map((menuItem, i) => {
+          const { nom, slug }: { nom: string; slug: string } = menuItem;
 
           return (
-            <motion.li
-              key={i}
-              onClick={handleClicked}
-              variants={item}
-              className="hover:text-opv-pink-500 "
-            >
-              <a className="" onMouseEnter={handleOnMouseLeave}>
-                <Link href={`/${slug}`}>{nom}</Link>
-              </a>
+            <motion.li key={i} variants={item}>
+              <Link href={slug}>
+                <a
+                  className="hover:text-opv-pink-500 "
+                  onClick={handleClicked}
+                  /*    onMouseEnter={handleOnMouseLeave} */
+                >
+                  {nom}
+                </a>
+              </Link>
             </motion.li>
           );
         })}
         <motion.li
-          onClick={handleClicked}
           variants={item}
           className="text-gray-500  self-start  p-1 text-lg hover:text-opv-pink-500"
         >

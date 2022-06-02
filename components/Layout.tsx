@@ -10,7 +10,7 @@ import Burger from "./Burger";
 import { useRouter } from "next/router";
 
 interface Iprops {
-  children: any;
+  children: React.ReactNode;
 }
 
 const Layout: NextPage<Iprops> = ({ children }) => {
@@ -19,10 +19,10 @@ const Layout: NextPage<Iprops> = ({ children }) => {
 
   const route = useRouter();
 
-  const handleOnMouseLeave = () => {
+  function handleOnMouseLeave() {
     setMenuHover(false);
     setClicked(false);
-  };
+  }
 
   return (
     <div className="container fixed 3xl:left-[50%] 3xl:-translate-x-[50%] max-w-screen-2xl">
@@ -83,10 +83,10 @@ const Layout: NextPage<Iprops> = ({ children }) => {
       </div>
       <Context.Provider value={{ menuHover, clicked }}>
         <AnimateSharedLayout type="crossfade">
-          <AnimatePresence initial={false}>
+          <AnimatePresence initial={true} exitBeforeEnter>
             <motion.div
               key={route.asPath}
-              className="absolute top-0 z-10 will-change-auto"
+              className="fixed top-0 left-0 z-10 will-change-auto overflow-hidden"
             >
               {children}
             </motion.div>

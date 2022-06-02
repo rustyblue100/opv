@@ -9,9 +9,12 @@ const infos = () => {
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
+        transition={{ duration: 0.4 }}
+        exit={{ opacity: 0 }}
       >
         <h1 className="h1">Infos</h1>
+
+        <div className=""></div>
       </motion.main>
     </BodyFull>
   );

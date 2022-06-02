@@ -1,10 +1,10 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { geo } from "../utils/geoMetrical";
+import { Geo } from "../utils/geoMetrical";
 import { useSequence } from "../utils/hooks";
 
-const BodySlider: NextPage = () => {
+const BodySlider = () => {
   const sequence = useSequence();
 
   return (
@@ -28,22 +28,19 @@ const BodySlider: NextPage = () => {
         layout="position"
         layoutId="slider"
         initial={{
-          opacity: 1,
-          clipPath: geo().rectangleFirstLoad,
+          clipPath: Geo().rectangle,
         }}
         animate={{
-          opacity: 1,
-          clipPath: geo().polygon,
+          clipPath: Geo().polygon,
         }}
         transition={{
           duration: 0.8,
           ease: "linear",
         }}
         exit={{
-          opacity: 1,
-          clipPath: geo().polygon,
+          clipPath: Geo().polygon,
         }}
-        className={`h-screen relative -translate-x-[100] w-[1440px] bg-opv-pink-500 max-w-full will-change-auto md:translate-x-[0]`}
+        className={`h-screen relative -translate-x-[100] w-[1440px] bg-opv-pink-500 max-w-full will-change-auto md:translate-x-[unset]`}
       >
         <motion.div
           initial={{
