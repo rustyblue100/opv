@@ -35,11 +35,11 @@ const Footer = () => {
       animate="visible"
       className="mt-48 pt-10 font-bold "
     >
-      <div className="flex justify-between items-center border-t border-opv-black">
-        <div className="flex-1 flex justify-betwwen items-center uppercase text-opv-black gap-3">
+      <div className="flex justify-between items-center border-t border-opv-black flex-col-reverse md:flex-row">
+        <div className="flex-1 flex justify-between md:justify-start items-center uppercase text-opv-black gap-3 text-sm md:text-md">
           <Image
-            width="36"
-            height="36"
+            width="32"
+            height="32"
             objectFit="contain"
             alt="facebook"
             src="https://www.seekpng.com/png/full/18-185778_facebook-f-logo-png-transparent-background-facebook-icon.png/png/full/18-185778_facebook-f-logo-png-transparent-background-facebook-icon.png"
@@ -67,7 +67,7 @@ const Footer = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
-          className="ml-auto w-[180px]"
+          className="md:ml-auto w-[180px]"
         >
           <Image
             src="/logo-footer.png"

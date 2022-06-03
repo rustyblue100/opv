@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 
 interface Iprops {
   menuHover: boolean;
@@ -8,6 +9,8 @@ interface Iprops {
 }
 
 const Burger: NextPage<Iprops> = ({ menuHover, setMenuHover }) => {
+  const route = useRouter();
+
   const stagger = {
     hidden: {
       opacity: 0,
@@ -33,10 +36,13 @@ const Burger: NextPage<Iprops> = ({ menuHover, setMenuHover }) => {
       },
     },
   };
+
   return (
     <button
       onClick={() => setMenuHover(!menuHover)}
-      className="absolute top-0 right-0 py-1 pr-4 text-opv-pink-900 md:hidden z-50 tracking-widest"
+      className={`absolute top-0 right-0 py-1 pr-4 ${
+        route.asPath !== "/" ? "text-opv-black" : "text-opv-pink-900"
+      } md:hidden z-50 tracking-widest`}
     >
       <div className="leading-[18px] pl-2">
         {!menuHover ? (

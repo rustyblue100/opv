@@ -1,21 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 
 export function Geo() {
-  const [width, setWidth] = useState(null);
+  const [width, setWidth] = useState(1536);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setWidth(window.innerWidth);
     window.addEventListener("resize", () => {
       setWidth(window.innerWidth);
     });
   }, []);
 
+  console.log(width);
+
   return {
-    rectangle: "polygon(0 0, 0 100%,100% 100%,100% 0)",
+    rectangle: "polygon(0 0, 0 100vh, 100vw 100vh, 100vw 0)",
     rectangleFirstLoad: "polygon(0 0, 0 100vh, 47vw 100vh, 45vw 0)",
     polygon:
-      width > 1440
+      width >= 1536
         ? "polygon(0 0, 0 100vh, 56% 100vh, 26% 0)"
-        : "polygon(0 0, 0 100vh, 47vw 100vh, 26vw 0)",
+        : "polygon(0 0, 0 100vh, 47vw 100vh, 28vw 0)",
   };
 }
