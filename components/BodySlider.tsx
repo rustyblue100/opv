@@ -10,7 +10,7 @@ const BodySlider = () => {
     <motion.div
       style={{ clipPath: Geo().polygon }}
       animate={animations}
-      transition={{ duration: 0.2, ease: "easeInOut" }}
+      transition={{ duration: 0.6, ease: "easeInOut", type: "tween" }}
       exit={{ opacity: 1, transition: { duration: 0.1 } }}
       className="fixed top-0  will-change-auto md:ml-[100px] h-screen  w-[1440px] bg-opv-pink-500"
       layoutId="sliderWrapper"

@@ -11,7 +11,7 @@ const calendrier = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.1 }}
-        exit={{ opacity: 0, transition: { duration: 0.1 } }}
+        exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <Header>Calendrier</Header>
         <h2 className="h2">Janvier 2022</h2>
