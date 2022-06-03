@@ -42,9 +42,9 @@ const Burger: NextPage<Iprops> = ({ menuHover, setMenuHover }) => {
       onClick={() => setMenuHover(!menuHover)}
       className={`absolute top-0 right-0 py-1 pr-4 ${
         route.asPath !== "/" ? "text-opv-black" : "text-opv-pink-900"
-      } md:hidden z-50 tracking-widest`}
+      } z-50 tracking-widest md:hidden`}
     >
-      <div className="leading-[18px] pl-2">
+      <div className="pl-2 leading-[18px]">
         {!menuHover ? (
           <motion.div variants={stagger} initial="hidden" animate="visible">
             <motion.div variants={item}>••</motion.div>

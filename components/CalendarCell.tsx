@@ -10,26 +10,26 @@ interface Iprops {
 const CalendarCell: NextPage<Iprops> = ({ complet }) => {
   return (
     <div className="relative">
-      <div className="flex justify-between py-6 w-full flex-col sm:flex-row ">
+      <div className="flex w-full flex-col justify-between py-6 sm:flex-row ">
         <motion.hr
           initial={{ opacity: 0, width: 0 }}
           animate={{ opacity: 1, width: "100%" }}
           transition={{ duration: 0.6, delay: 0 }}
-          className="absolute top-0 border-t border-opv-black-300 w-full"
+          className="absolute top-0 w-full border-t border-opv-black-300"
         ></motion.hr>
 
-        <div className="flex-1 relative">
-          <div className="text-2xl md:text-3xl font-bold mb-5 sm:mb-0">
+        <div className="relative flex-1">
+          <div className="mb-5 text-2xl font-bold sm:mb-0 md:text-3xl">
             vendredi
           </div>
           <motion.div
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl md:text-6xl font-normal"
+            className="text-4xl font-normal md:text-6xl"
           >
             03
-            <small className="align-top text-xs relative top-1">Janvier</small>
+            <small className="relative top-1 align-top text-xs">Janvier</small>
           </motion.div>
 
           {complet && (
@@ -38,7 +38,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 1.3 }}
             >
-              <div className="text-2xl text-red-700 border border-red-700 p-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-12  tracking-wide uppercase">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 transform border border-red-700 p-1 text-2xl uppercase tracking-wide text-red-700">
                 Complet
               </div>
             </motion.div>
@@ -48,17 +48,17 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="flex-1 sm:border-l border-opv-black-300 sm:pl-5 relative"
+          className="relative flex-1 border-opv-black-300 sm:border-l sm:pl-5"
         >
           <motion.div
             initial={{ opacity: 0, y: 5, rotate: -90 }}
             animate={{ opacity: 1, y: 0, rotate: -90 }}
             transition={{ duration: 0.3, delay: 1 }}
-            className="text-sm -rotate-90 absolute bottom-6 -left-12  hidden sm:block"
+            className="absolute bottom-6 -left-12 hidden -rotate-90 text-sm font-normal sm:block"
           >
             Entrée: 10$
           </motion.div>
-          <div className="flex sm:justify-between sm:items-center mb-6 flex-col sm:flex-row">
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 1.2 }}
-              className="text-md font-normal mt-0 sm:mt-0"
+              className="mt-0 text-sm font-normal sm:mt-0"
             >
               <div className="md:-rotate-90">19h30</div>
             </motion.div>
@@ -100,14 +100,14 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className=" flex-1 mt-4 md:p-4"
+              className=" mt-4 flex-1 md:p-4"
             >
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
               suscipit at esse voluptatum numquam. Numquam quia quo, ullam saepe
               quaerat suscipit dolores officiis consectetur sint sequi
               perferendis doloremque culpa exercitationem.
             </motion.div>
-            <motion.div className="flex-1 text-sm mt-5 font-bold block sm:hidden">
+            <motion.div className="mt-5 block flex-1 text-sm font-bold sm:hidden">
               Entrée: 10$
             </motion.div>
           </div>

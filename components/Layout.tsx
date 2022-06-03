@@ -23,11 +23,11 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   }
 
   return (
-    <div className="container fixed top-0 left-0 3xl:left-[50%] 3xl:-translate-x-[50%] max-w-screen-2xl">
+    <div className="container fixed top-0 left-0 max-w-screen-2xl 3xl:left-[50%] 3xl:-translate-x-[50%]">
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
-      <div className="grid grid-rows-1 grid-flow-col h-screen relative px-5 sm:px-10 justify-between ">
+      <div className="relative grid h-screen grid-flow-col grid-rows-1 justify-between px-5 sm:px-10 ">
         <motion.div
-          className={`self-center p-[7rem] -m-[7rem]`}
+          className={`-m-[7rem] self-center p-[7rem]`}
           onHoverStart={() => setMenuHover(true)}
           onHoverEnd={handleOnMouseLeave}
         >
@@ -40,7 +40,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
 
         <div className="place-self-center">
           <motion.div
-            className={`relative mb-10 landscape:mt-0 2md:landscape:mt-5 2md:landscape:md:max-w-[260px] lg:landscape:md:max-w-[480px] lg:landscape:mt-0 sm:mb-0 mt-0 lg:mt-0 ml-auto max-w-[200px] sm:max-w-[300px] md:max-w-[300px] 2md:max-w-[420px] lg:max-w-[480px] xl:max-w-[550px] ${
+            className={`relative mb-10 mt-0 ml-auto max-w-[200px] sm:mb-0 sm:max-w-[300px] md:max-w-[300px] 2md:max-w-[420px] lg:mt-0 lg:max-w-[480px] xl:max-w-[560px] landscape:mt-0 2md:landscape:mt-5 2md:landscape:md:max-w-[260px] lg:landscape:mt-0 lg:landscape:md:max-w-[480px] ${
               menuHover && "invisible sm:visible "
             }`}
             initial={{
@@ -79,7 +79,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
       <Context.Provider
         value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
       >
-        <div className="fixed top-0 left-0 z-10 will-change-auto overflow-hidden">
+        <div className="fixed top-0 left-0 z-10 overflow-hidden will-change-auto">
           {children}
         </div>
         ç

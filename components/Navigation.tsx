@@ -74,12 +74,12 @@ const Navigation: NextPage<IProps> = ({
   };
 
   return (
-    <div className="flex justify-start items-center w-2 py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw] -ml-24">
+    <div className="-ml-24 flex w-2 items-center justify-start py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw]">
       <motion.ul
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className={`min-w-[200px] text-opv-pink-900 text-lg sm:text-2xl  leading-[30px]  sm:leading-[43px] capitalize z-10 ${
+        className={`z-10 min-w-[200px] text-lg capitalize  leading-[30px]  text-opv-pink-900 sm:text-2xl sm:leading-[43px] ${
           clicked && "z-0"
         }`}
       >
@@ -102,20 +102,20 @@ const Navigation: NextPage<IProps> = ({
         })}
         <motion.li
           variants={item}
-          className="text-gray-500  self-start  p-1 text-lg hover:text-opv-pink-500"
+          className="self-start  p-1  text-lg text-gray-500 hover:text-opv-pink-500"
         >
           <a className=""></a>
           <Link href="/">EN</Link> | <Link href="/">FR</Link>
         </motion.li>
       </motion.ul>
 
-      <div className="text-white text-2xl leading-[40px] absolute left-28 w-80 hidden md:block">
+      <div className="absolute left-28 hidden w-80 text-2xl leading-[40px] text-white md:block">
         <div className="-rotate-90 text-center ">
           <p className="text-[16px]">☆ Prochain Évènement ☆</p>
           <Marquee
             speed={8}
             gradient={false}
-            className=" text-opv-pink-500 cursor-pointer  hover:text-opv-pink-900 "
+            className=" cursor-pointer text-opv-pink-500  hover:text-opv-pink-900 "
           >
             Les Goules - 24 juin 19h30
           </Marquee>

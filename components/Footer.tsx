@@ -33,10 +33,10 @@ const Footer = () => {
       variants={stagger}
       initial="hidden"
       animate="visible"
-      className="mt-48 pt-10 font-bold "
+      className="mt-48 pt-10 font-bold"
     >
-      <div className="flex justify-between items-center border-t border-opv-black flex-col-reverse md:flex-row">
-        <div className="flex-1 flex justify-between md:justify-start items-center uppercase text-opv-black gap-3 text-sm md:text-md">
+      <div className="flex flex-col-reverse items-center justify-between border-t border-opv-black md:flex-row">
+        <div className="md:text-md flex flex-1 items-center justify-between gap-3 text-sm uppercase text-opv-black md:justify-start">
           <Image
             width="32"
             height="32"
@@ -67,7 +67,7 @@ const Footer = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
-          className="md:ml-auto w-[180px]"
+          className="w-[180px] md:ml-auto"
         >
           <Image
             src="/logo-footer.png"

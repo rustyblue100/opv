@@ -13,7 +13,7 @@ const BodySlider = () => {
       animate={animations}
       transition={{ duration: 0.8, ease: "easeInOut" }}
       exit={{ opacity: 1, transition: { duration: 0.4 } }}
-      className="fixed top-0 will-change-auto md:ml-[100px] h-screen w-[1440px] bg-opv-pink-500"
+      className="fixed top-0 h-screen w-[1440px] bg-opv-pink-500 will-change-auto md:ml-[100px]"
       layoutId="sliderWrapper"
     >
       <motion.div
