@@ -33,7 +33,7 @@ export const AnimationSlider = () => {
         x: prevPath !== "/en-CA" ? 0 : distance,
         transition: defaultTransition,
       });
-      controls.start({
+      await controls.start({
         clipPath: route === "/" ? polygon : rectangle,
         x: prevPath !== "/en-CA" ? 0 : distance,
         transition: defaultTransition,

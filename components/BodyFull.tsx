@@ -23,7 +23,7 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
       className="fixed top-0 h-screen bg-opv-pink-500 will-change-auto md:ml-[100px] "
       layoutId="sliderWrapper"
     >
-      <div className="z-50 flex h-full min-h-screen flex-col overflow-scroll px-5 md:w-[calc(100vw-100px)] lg:px-10 2xl:w-[1440px]">
+      <div className="z-50 flex h-full min-h-screen flex-col overflow-scroll px-5 md:w-[calc(100vw-100px)] lg:px-10 2xl:w-full">
         <div className="flex-1">{children}</div>
         <Footer />
       </div>

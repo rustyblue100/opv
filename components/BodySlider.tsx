@@ -10,6 +10,7 @@ const BodySlider = () => {
   const [randomColors, setRandomColors] = useState("#FFEDED");
 
   const menuHover = useContext(Context).menuHover;
+  const linkMenuClicked = useContext(Context).clicked;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,25 +22,28 @@ const BodySlider = () => {
         const index = Math.floor(Math.random() * hexValues.length);
         hex += hexValues[index];
       }
-
       setRandomColors(hex);
-    }, 3000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <motion.div
-      initial={{ clipPath: Geo().polygon }}
+      layoutId="sliderWrapper"
+      initial={false}
       animate={animations}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      exit={{ opacity: 1, transition: { duration: 0.4 } }}
-      className="fixed top-0 h-screen w-[1440px] will-change-auto md:ml-[100px]"
-      layoutId="sliderWrapper"
+      exit={{
+        opacity: 1,
+        transition: { duration: 0.4 },
+        backgroundColor: "#FFEDED",
+      }}
+      className="fixed top-0 h-screen w-full will-change-auto md:ml-[100px]"
       style={{
         backgroundColor: !menuHover ? randomColors : "#FFEDED",
         clipPath: Geo().polygon,
-        transition: "all 0.6s easeInOut",
+        transition: "background-color .4s linear",
       }}
     >
       <motion.div
@@ -47,23 +51,21 @@ const BodySlider = () => {
           opacity: 0,
         }}
         animate={{
-          opacity: 0.3,
+          opacity: 0.4,
         }}
         transition={{
           duration: 0.4,
-          ease: "easeInOut",
-          delay: 0.5,
+          ease: "linear",
+          delay: 0.3,
         }}
         exit={{ opacity: 0, transition: { duration: 0.1 } }}
       >
         <Image
-          style={{ clipPath: Geo().polygon }}
-          /*     className="bg-opv-pink-500" */
           src="/bg-3.png"
           layout="fill"
-          objectPosition="top"
+          objectPosition="center"
           objectFit="cover"
-          alt="OPV"
+          alt=""
         />
       </motion.div>
     </motion.div>
