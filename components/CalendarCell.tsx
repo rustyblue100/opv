@@ -38,7 +38,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 1.3 }}
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 transform border border-red-700 p-1 text-2xl uppercase tracking-wide text-red-700">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 transform border border-opv-pink-1200 p-1 uppercase tracking-wide text-opv-pink-1200 md:text-2xl">
                 Complet
               </div>
             </motion.div>
@@ -86,12 +86,13 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
+              className="md:w-[200px]"
             >
               <Image
                 className="flex-1"
                 src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
-                width="200"
-                height="200"
+                width="400"
+                height="400"
                 objectFit="cover"
                 alt="band"
               />

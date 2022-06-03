@@ -102,7 +102,7 @@ const Navigation: NextPage<IProps> = ({
         })}
         <motion.li
           variants={item}
-          className="self-start  p-1  text-lg text-gray-500 hover:text-opv-pink-500"
+          className="self-start  p-1  text-lg text-gray-400 hover:text-opv-pink-500"
         >
           <a className=""></a>
           <Link href="/">EN</Link> | <Link href="/">FR</Link>

@@ -50,9 +50,12 @@ a {
 .mask{
   opacity:1;
   mask-image: url(/opv-mask.png);
-  background-color: #ffeded;
+ mask-position: top center; 
+/*   background-color: #ffeded; */
+
 
 }
+
 
 
   .h1{

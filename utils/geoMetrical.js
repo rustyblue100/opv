@@ -15,7 +15,7 @@ export function Geo() {
       case width >= 1536:
         return "polygon(0 0, 0 100vh, 56% 100vh, 26% 0)";
       case width > 660 && width < 1535:
-        return "polygon(0 0, 0 100vh, 48vw 100vh, 22vw 0)";
+        return "polygon(0 0, 0 100vh, 48vw 100vh, 20vw 0)";
       default:
         return "polygon(0 0, 0 100vh, 54vw 100vh, 30vw 0)";
     }

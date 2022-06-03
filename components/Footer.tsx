@@ -36,7 +36,7 @@ const Footer = () => {
       className="mt-48 pt-10 font-bold"
     >
       <div className="flex flex-col-reverse items-center justify-between border-t border-opv-black md:flex-row">
-        <div className="md:text-md flex flex-1 items-center justify-between gap-3 text-sm uppercase text-opv-black md:justify-start">
+        <div className="md:text-md flex flex-1 items-center justify-between gap-3 text-xs uppercase text-opv-black md:justify-start">
           <Image
             width="32"
             height="32"
@@ -67,7 +67,7 @@ const Footer = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
-          className="w-[180px] md:ml-auto"
+          className="w-[120px] md:ml-auto md:w-[180px]"
         >
           <Image
             src="/logo-footer.png"

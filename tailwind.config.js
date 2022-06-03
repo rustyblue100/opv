@@ -31,6 +31,7 @@ module.exports = {
 
       "3xl": "2400px",
       // => @media (min-width: 2400px) { ... }
+      landscape: { raw: "(width: 1024px) and (height: 600px)" },
     },
     extend: {
       colors: {
@@ -39,8 +40,9 @@ module.exports = {
         "opv-pink-100": "#f8eded",
         "opv-pink-400": "#dd7b7b88",
         "opv-pink-500": "#FFEDED", //#fddede
-        "opv-pink-900": "#dd7b7b",
+        "opv-pink-900": "#E08585",
         "opv-pink-1000": "#d43f3f",
+        "opv-pink-1200": "#CC3333",
       },
       keyframes: {
         firewoks: {

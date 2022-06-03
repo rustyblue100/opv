@@ -21,14 +21,14 @@ const BodySlider = () => {
           opacity: 0,
         }}
         animate={{
-          opacity: 1,
+          opacity: 0.8,
         }}
         transition={{
           duration: 0.4,
           ease: "easeInOut",
-          delay: 0.4,
+          delay: 0.5,
         }}
-        exit={{ opacity: 0, transition: { duration: 0.2 } }}
+        exit={{ opacity: 0, transition: { duration: 0.1 } }}
       >
         <Image
           className="bg-opv-pink-500 opacity-50"

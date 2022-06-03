@@ -7,6 +7,7 @@ module.exports = {
       "fastly.4sqi.net",
       "www.seekpng.com",
       "cdn.sanity.io",
+      "png.pngtree.com",
     ],
   },
   i18n: {
