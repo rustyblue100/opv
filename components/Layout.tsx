@@ -40,7 +40,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
 
         <div className="place-self-center">
           <motion.div
-            className={`relative mb-10 mt-0 ml-auto max-w-[200px] sm:mb-0 sm:max-w-[300px] md:max-w-[300px] 2md:max-w-[420px] lg:mt-0 lg:max-w-[480px] xl:max-w-[560px] landscape:mt-0 2md:landscape:mt-5 2md:landscape:md:max-w-[260px] lg:landscape:mt-0 lg:landscape:md:max-w-[480px] ${
+            className={`relative mb-10 mt-0 ml-auto max-w-[200px] sm:mb-0 sm:max-w-[300px] md:max-w-[300px] 2md:max-w-[420px] lg:mt-0 lg:max-w-[480px] xl:max-w-[570px] landscape:mt-0 2md:landscape:mt-5 2md:landscape:md:max-w-[260px] lg:landscape:mt-0 lg:landscape:md:max-w-[480px] ${
               menuHover && "invisible sm:visible "
             }`}
             initial={{

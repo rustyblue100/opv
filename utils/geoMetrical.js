@@ -10,12 +10,20 @@ export function Geo() {
     });
   }, []);
 
+  function mediaSize() {
+    switch (true) {
+      case width >= 1536:
+        return "polygon(0 0, 0 100vh, 56% 100vh, 26% 0)";
+      case width > 660 && width < 1440:
+        return "polygon(0 0, 0 100vh, 48vw 100vh, 22vw 0)";
+      default:
+        return "polygon(0 0, 0 100vh, 54vw 100vh, 30vw 0)";
+    }
+  }
+
   return {
     rectangle: "polygon(0 0, 0 100vh, 100vw 100vh, 100vw 0)",
     rectangleFirstLoad: "polygon(0 0, 0 100vh, 47vw 100vh, 45vw 0)",
-    polygon:
-      width >= 1536
-        ? "polygon(0 0, 0 100vh, 56% 100vh, 26% 0)"
-        : "polygon(0 0, 0 100vh, 47vw 100vh, 28vw 0)",
+    polygon: mediaSize(),
   };
 }
