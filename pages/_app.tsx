@@ -1,9 +1,8 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import Layout from "../components/Layout";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
-
+import type { AppProps } from "next/app";
 import { useEffect } from "react";
+import Layout from "../components/Layout";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   useEffect(() => storePathValues, [router.asPath]);
@@ -20,13 +19,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <Layout>
       <AnimateSharedLayout type="crossfade">
-        <AnimatePresence initial={true} exitBeforeEnter>
-          <motion.div
-            key={router.asPath}
-            className="fixed top-0 left-0 z-10 will-change-auto overflow-hidden"
-          >
-            <Component {...pageProps} />
-          </motion.div>
+        <AnimatePresence initial={true} exitBeforeEnter={true}>
+          <Component {...pageProps} key={router.asPath} />
         </AnimatePresence>
       </AnimateSharedLayout>
     </Layout>

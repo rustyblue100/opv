@@ -38,7 +38,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 1.3 }}
             >
-              <div className="text-xl text-opv-pink-1000 border border-opv-pink-1000 p-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-12  tracking-wide uppercase">
+              <div className="text-2xl text-red-700 border border-red-700 p-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-12  tracking-wide uppercase">
                 Complet
               </div>
             </motion.div>
@@ -54,11 +54,11 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             initial={{ opacity: 0, y: 5, rotate: -90 }}
             animate={{ opacity: 1, y: 0, rotate: -90 }}
             transition={{ duration: 0.4, delay: 1 }}
-            className="text-sm -rotate-90 absolute bottom-6 -left-12 font-bold hidden sm:block"
+            className="text-sm -rotate-90 absolute bottom-6 -left-12  hidden sm:block"
           >
             Entrée: 10$
           </motion.div>
-          <div className="flex sm:justify-between sm:items-center mb-10 flex-col sm:flex-row">
+          <div className="flex sm:justify-between sm:items-center mb-6 flex-col sm:flex-row">
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
@@ -66,6 +66,9 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               className="text-4xl font-normal"
             >
               Les Goules
+              <div className="mt-1 text-sm">
+                Musiciens: Jf-Batteur / Marc-Guitariste
+              </div>
             </motion.div>
 
             <motion.div
@@ -103,9 +106,6 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               suscipit at esse voluptatum numquam. Numquam quia quo, ullam saepe
               quaerat suscipit dolores officiis consectetur sint sequi
               perferendis doloremque culpa exercitationem.
-              <div className="mt-3 text-sm">
-                Musiciens: Jf-Batteur / Marc-Guitariste
-              </div>
             </motion.div>
             <motion.div className="flex-1 text-sm mt-5 font-bold block sm:hidden">
               Entrée: 10$

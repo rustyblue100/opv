@@ -18,7 +18,7 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
       transition={{ duration: 0.1, ease: "easeInOut" }}
       exit={{
         opacity: 1,
-        transition: { duration: 0.2, ease: [0.48, 0.15, 0.25, 0.96] },
+        transition: { duration: 0.4, ease: [0.48, 0.15, 0.25, 0.96] },
       }}
       className="fixed top-0  will-change-auto ml-[100px] h-screen bg-opv-pink-500 "
       layoutId="sliderWrapper"

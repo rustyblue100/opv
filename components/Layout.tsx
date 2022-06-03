@@ -79,9 +79,9 @@ const Layout: NextPage<Iprops> = ({ children }) => {
       <Context.Provider
         value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
       >
-        <motion.div className="fixed top-0 left-0 z-10 will-change-auto overflow-hidden">
+        <div className="fixed top-0 left-0 z-10 will-change-auto overflow-hidden">
           {children}
-        </motion.div>
+        </div>
         ç
       </Context.Provider>
     </div>

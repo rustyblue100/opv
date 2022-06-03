@@ -29,7 +29,7 @@ const BodySlider = () => {
           ease: "easeInOut",
           delay: 0.3,
         }}
-        exit={{ opacity: 0 }}
+        exit={{ opacity: 0, transition: { duration: 0.2 } }}
       >
         <Image
           className="bg-opv-pink-500 opacity-50"

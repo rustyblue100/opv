@@ -66,10 +66,6 @@ const Navigation: NextPage<IProps> = ({
       nom: "Nous joindre",
       slug: "contact",
     },
-    {
-      nom: "TEST",
-      slug: "test",
-    },
   ];
 
   const handleClicked = () => {
