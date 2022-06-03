@@ -112,7 +112,7 @@ export const AnimationFullBody = () => {
     const defaultTransition = {
       type: "tween",
       ease: "easeInOut",
-      duration: 0.6,
+      duration: 0.4,
     };
 
     async function sequenceClicked() {

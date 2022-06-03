@@ -22,7 +22,7 @@ export function Geo() {
   }
 
   return {
-    rectangle: "polygon(0 0, 0 100vh, 100vw 100vh, 100vw 0)",
+    rectangle: "polygon(0 0, 0 100vh, 100% 100vh, 100% 0)",
     rectangleFirstLoad: "polygon(0 0, 0 100vh, 47vw 100vh, 45vw 0)",
     polygon: mediaSize(),
   };

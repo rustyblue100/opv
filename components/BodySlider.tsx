@@ -31,9 +31,9 @@ const BodySlider = () => {
 
   return (
     <motion.div
-      /*    layout="position" */
+      layout="position"
       layoutId="sliderWrapper"
-      initial={{ opacity: 1, x: distance, clipPath: Geo().polygon }}
+      initial={{ opacity: 1, x: distance, width: "100%" }}
       animate={animations}
       exit={{
         opacity: 1,
@@ -52,7 +52,7 @@ const BodySlider = () => {
           opacity: 0,
         }}
         animate={{
-          opacity: 0.4,
+          opacity: 0.3,
         }}
         transition={{
           duration: 1,
