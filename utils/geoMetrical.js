@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from "react";
 
 export function Geo() {
-  const [width, setWidth] = useState(1536);
+  const [width, setWidth] = useState(null);
 
   useLayoutEffect(() => {
     setWidth(window.innerWidth);
@@ -14,7 +14,7 @@ export function Geo() {
     switch (true) {
       case width >= 1536:
         return "polygon(0 0, 0 100vh, 56% 100vh, 26% 0)";
-      case width > 660 && width < 1440:
+      case width > 660 && width < 1535:
         return "polygon(0 0, 0 100vh, 48vw 100vh, 22vw 0)";
       default:
         return "polygon(0 0, 0 100vh, 54vw 100vh, 30vw 0)";
