@@ -6,15 +6,13 @@ import { AnimationSlider } from "../utils/animations";
 const BodySlider = () => {
   const animations = AnimationSlider();
 
-  const controls = useAnimation();
-
   return (
     <motion.div
       style={{ clipPath: Geo().polygon }}
       animate={animations}
       transition={{ duration: 0.2, ease: "easeInOut" }}
       exit={{ opacity: 1, transition: { duration: 0.1 } }}
-      className="fixed top-0  will-change-auto ml-[100px] h-screen  w-[1440px] bg-opv-pink-500"
+      className="fixed top-0  will-change-auto md:ml-[100px] h-screen  w-[1440px] bg-opv-pink-500"
       layoutId="sliderWrapper"
     >
       <motion.div
