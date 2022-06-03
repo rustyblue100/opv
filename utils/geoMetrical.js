@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 
 export function Geo() {
   const [width, setWidth] = useState(1536);
@@ -9,8 +9,6 @@ export function Geo() {
       setWidth(window.innerWidth);
     });
   }, []);
-
-  console.log(width);
 
   return {
     rectangle: "polygon(0 0, 0 100vh, 100vw 100vh, 100vw 0)",

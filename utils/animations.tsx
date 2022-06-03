@@ -126,7 +126,6 @@ export const AnimationFullBody = () => {
 
     switch (true) {
       case linkMenuClicked && !menuHover:
-        console.log("linkMenuClicked");
         sequenceClicked();
         break;
       case !linkMenuClicked && menuHover:

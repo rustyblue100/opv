@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { Geo } from "../utils/geoMetrical";
 import { AnimationSlider } from "../utils/animations";
 
@@ -9,10 +9,11 @@ const BodySlider = () => {
   return (
     <motion.div
       style={{ clipPath: Geo().polygon }}
+      initial={false}
       animate={animations}
-      transition={{ duration: 0.6, ease: "easeInOut", type: "tween" }}
-      exit={{ opacity: 1, transition: { duration: 0.1 } }}
-      className="fixed top-0  will-change-auto md:ml-[100px] h-screen  w-[1440px] bg-opv-pink-500"
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+      exit={{ opacity: 1, transition: { duration: 0.4 } }}
+      className="fixed top-0 will-change-auto md:ml-[100px] h-screen w-[1440px] bg-opv-pink-500"
       layoutId="sliderWrapper"
     >
       <motion.div

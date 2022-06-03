@@ -75,9 +75,9 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 1.2 }}
-              className="text-lg font-bold mt-5 sm:mt-0"
+              className="text-md font-normal mt-0 sm:mt-0"
             >
-              19h30
+              <div className="md:-rotate-90">19h30</div>
             </motion.div>
           </div>
 
