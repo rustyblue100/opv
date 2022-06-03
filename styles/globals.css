@@ -49,8 +49,8 @@ a {
 
 .mask{
   opacity:1;
-/*   mask-image: url(/opv-mask.png); */
- mask-position: top center; 
+  mask-image: url(/opv-mask.png);
+/*   mask-position: top center; */
 /*   background-color: #ffeded; */
 
 

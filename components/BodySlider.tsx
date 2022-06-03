@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { LayoutGroup, motion } from "framer-motion";
 import { Geo } from "../utils/geoMetrical";
 import { AnimationSlider } from "../utils/animations";
 import { useEffect, useState, useContext } from "react";
@@ -30,45 +30,47 @@ const BodySlider = () => {
   }, []);
 
   return (
-    <motion.div
-      layout="position"
-      layoutId="sliderWrapper"
-      initial={{ opacity: 1, x: distance, width: "100%" }}
-      animate={animations}
-      exit={{
-        opacity: 1,
-        transition: { duration: 0.4, type: "tween", ease: "easeInOut" },
-        backgroundColor: "#FFEDED",
-      }}
-      className="fixed top-0 h-screen w-full will-change-auto md:ml-[100px]"
-      style={{
-        backgroundColor: !menuHover ? randomColors : "#FFEDED",
-        clipPath: Geo().polygon,
-        transition: "background-color .4s linear",
-      }}
-    >
+    <LayoutGroup id="a">
       <motion.div
-        initial={{
-          opacity: 0,
+        /*      layout="position" */
+        layoutId="sliderWrapper"
+        initial={{ opacity: 1, x: distance, width: "100%" }}
+        animate={animations}
+        exit={{
+          opacity: 1,
+          transition: { duration: 0.4, type: "tween", ease: "easeInOut" },
+          backgroundColor: "#FFEDED",
         }}
-        animate={{
-          opacity: 0.3,
+        className="fixed top-0 h-screen w-full will-change-auto md:ml-[40px] lg:ml-[100px]"
+        style={{
+          backgroundColor: !menuHover ? randomColors : "#FFEDED",
+          clipPath: Geo().polygon,
+          transition: "background-color .4s linear",
         }}
-        transition={{
-          duration: 1,
-          ease: "linear",
-        }}
-        exit={{ opacity: 0, transition: { duration: 0.1 } }}
       >
-        <Image
-          src="/bg-3.png"
-          layout="fill"
-          objectPosition="center"
-          objectFit="cover"
-          alt=""
-        />
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 0.3,
+          }}
+          transition={{
+            duration: 1,
+            ease: "linear",
+          }}
+          exit={{ opacity: 0, transition: { duration: 0.1 } }}
+        >
+          <Image
+            src="/bg-3.png"
+            layout="fill"
+            objectPosition="center"
+            objectFit="cover"
+            alt=""
+          />
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </LayoutGroup>
   );
 };
 

@@ -1,4 +1,4 @@
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import Layout from "../components/Layout";
@@ -18,11 +18,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <Layout>
-      <AnimateSharedLayout type="crossfade">
-        <AnimatePresence initial={true} exitBeforeEnter={true}>
-          <Component {...pageProps} key={router.asPath} />
-        </AnimatePresence>
-      </AnimateSharedLayout>
+      <AnimatePresence initial={true} exitBeforeEnter={true}>
+        <Component {...pageProps} key={router.asPath} />
+      </AnimatePresence>
     </Layout>
   );
 }

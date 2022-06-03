@@ -7,6 +7,7 @@ import { Context } from "../components/Context";
 import Navigation from "./Navigation";
 import SpotLights from "./SpotLights";
 import Burger from "./Burger";
+import { useMedia } from "../utils/hooks";
 
 interface Iprops {
   children: React.ReactNode;
@@ -15,7 +16,21 @@ interface Iprops {
 const Layout: NextPage<Iprops> = ({ children }) => {
   const [menuHover, setMenuHover] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const distanceFromLeftBorderWindow: number = 212;
+
+  const width = useMedia();
+
+  const mediaSize = () => {
+    switch (true) {
+      case width > 900:
+        return 212;
+      case width > 480 && width < 900:
+        return 272;
+      default:
+        return 212;
+    }
+  };
+
+  const distanceFromLeftBorderWindow: number = mediaSize();
 
   function handleOnMouseLeave() {
     setMenuHover(false);
@@ -40,7 +55,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
 
         <div className="place-self-center ">
           <motion.div
-            className={`relative mb-10 mt-0 ml-auto max-w-[200px] sm:mb-0 sm:max-w-[300px] md:max-w-[300px] 2md:max-w-[420px] lg:mt-0 lg:max-w-[480px] xl:max-w-[570px] landscape:mt-0 2md:landscape:mt-5 2md:landscape:md:max-w-[260px] lg:landscape:mt-0 lg:landscape:md:max-w-[500px] ${
+            className={`2md:landscape relative mb-10 mt-0 ml-auto max-w-[200px] sm:mb-0 sm:max-w-[300px] md:max-w-[330px]  2md:max-w-[420px] lg:mt-0 lg:max-w-[480px] xl:max-w-[570px] landscape:mt-0 2md:landscape:mt-5 lg:landscape:mt-0 lg:landscape:xl:max-w-[500px] ${
               menuHover && "invisible sm:visible "
             }`}
             initial={{

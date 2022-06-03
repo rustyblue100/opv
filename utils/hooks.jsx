@@ -1,7 +1,8 @@
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
+import useLayoutEffect from "./use-isomorphic-layout-effect";
 
 export const useMedia = () => {
-  const [width, setWidth] = useState(null);
+  const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
     setWidth(window.innerWidth);

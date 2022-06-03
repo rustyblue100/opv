@@ -12,14 +12,13 @@ const infos = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
-        className="w-[1440px] max-w-[1440px]"
       >
         <Header>Infos</Header>
 
         <div className="mt-10 max-w-[800px]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-          minus porro quas deserunt expedita ab earum ea sequi consectetur odit
-          quasi, quisquam atque, a maxime illo voluptate eum! Magni, rerum!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem repellat
+          dolores odit nobis vitae cupiditate et magnam laborum error. Ad
+          consequatur autem maxime expedita porro nostrum modi ea totam natus.
         </div>
       </motion.main>
     </BodyFull>

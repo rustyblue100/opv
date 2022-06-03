@@ -101,7 +101,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className=" mt-4 flex-1 md:p-4"
+              className=" mt-4 flex-1 lg:p-4"
             >
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
               suscipit at esse voluptatum numquam. Numquam quia quo, ullam saepe
