@@ -11,6 +11,7 @@ const BodySlider = () => {
 
   const menuHover = useContext(Context).menuHover;
   const linkMenuClicked = useContext(Context).clicked;
+  const distance = useContext(Context).distanceFromLeftBorderWindow;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,13 +31,13 @@ const BodySlider = () => {
 
   return (
     <motion.div
+      /*    layout="position" */
       layoutId="sliderWrapper"
-      initial={false}
+      initial={{ opacity: 1, x: distance, clipPath: Geo().polygon }}
       animate={animations}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
       exit={{
         opacity: 1,
-        transition: { duration: 0.4 },
+        transition: { duration: 0.4, type: "tween", ease: "easeInOut" },
         backgroundColor: "#FFEDED",
       }}
       className="fixed top-0 h-screen w-full will-change-auto md:ml-[100px]"
@@ -54,9 +55,8 @@ const BodySlider = () => {
           opacity: 0.4,
         }}
         transition={{
-          duration: 0.4,
+          duration: 1,
           ease: "linear",
-          delay: 0.3,
         }}
         exit={{ opacity: 0, transition: { duration: 0.1 } }}
       >

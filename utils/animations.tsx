@@ -29,13 +29,14 @@ export const AnimationSlider = () => {
 
     async function sequenceClicked() {
       await controls.start({
-        clipPath: prevPath !== "/en-CA" ? rectangle : polygon,
-        x: prevPath !== "/en-CA" ? 0 : distance,
+        x: distance,
+        clipPath: rectangle,
         transition: defaultTransition,
       });
+
       await controls.start({
-        clipPath: route === "/" ? polygon : rectangle,
-        x: prevPath !== "/en-CA" ? 0 : distance,
+        clipPath: polygon,
+        x: 0,
         transition: defaultTransition,
       });
     }
@@ -52,7 +53,16 @@ export const AnimationSlider = () => {
     }
 
     async function sequenceNotHovered() {
-      await controls.start({ x: 0, transition: defaultTransition });
+      await controls.start({
+        opacity: 1,
+        x: distance,
+        transition: { duration: 0.2, type: "tween", ease: "easeInOut" },
+      });
+
+      await controls.start({
+        x: 0,
+        transition: { duration: 0.4, type: "tween", ease: "easeInOut" },
+      });
     }
 
     switch (true) {
@@ -102,12 +112,15 @@ export const AnimationFullBody = () => {
     const defaultTransition = {
       type: "tween",
       ease: "easeInOut",
-      duration: 0.4,
+      duration: 0.6,
     };
 
     async function sequenceClicked() {
       await controls.start({
-        clipPath: rectangle,
+        x: distance,
+        transition: defaultTransition,
+      });
+      await controls.start({
         x: 0,
         transition: defaultTransition,
       });
@@ -121,7 +134,7 @@ export const AnimationFullBody = () => {
     }
 
     async function sequenceNotHovered() {
-      await controls.start({ x: 0, transition: defaultTransition });
+      await controls.start({ x: 0, opacity: 1, transition: defaultTransition });
     }
 
     switch (true) {
