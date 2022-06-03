@@ -2,33 +2,18 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Geo } from "../utils/geoMetrical";
 import { AnimationSlider } from "../utils/animations";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { Context } from "../components/Context";
 
 const BodySlider = () => {
   const animations = AnimationSlider();
   const [randomColors, setRandomColors] = useState("#FFEDED");
-  console.log(randomColors);
+
+  const menuHover = useContext(Context).menuHover;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const hexValues = [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-      ];
+      const hexValues = ["A", "B", "C", "D", "E", "F"];
 
       let hex = "#";
 
@@ -45,16 +30,16 @@ const BodySlider = () => {
 
   return (
     <motion.div
-      initial={false}
+      initial={{ clipPath: Geo().polygon }}
       animate={animations}
       transition={{ duration: 0.8, ease: "easeInOut" }}
       exit={{ opacity: 1, transition: { duration: 0.4 } }}
       className="fixed top-0 h-screen w-[1440px] will-change-auto md:ml-[100px]"
       layoutId="sliderWrapper"
       style={{
-        backgroundColor: randomColors,
+        backgroundColor: !menuHover ? randomColors : "#FFEDED",
         clipPath: Geo().polygon,
-        transition: "all 0.3s easeInOut",
+        transition: "all 0.6s easeInOut",
       }}
     >
       <motion.div
