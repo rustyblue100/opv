@@ -13,8 +13,6 @@ export const AnimationSlider = () => {
   const prevPath = storage && storage.getItem("prevPath");
   const route = useRouter().asPath;
 
-  const width = useMedia();
-
   const rectangle = Geo().rectangle;
   const polygon = Geo().polygon;
 
@@ -29,6 +27,7 @@ export const AnimationSlider = () => {
       await controls.start({
         x: appContext!.distanceFromLeftBorderWindow,
         /*         clipPath: rectangle, */
+
         transition: defaultTransition,
       });
 
@@ -52,14 +51,8 @@ export const AnimationSlider = () => {
 
     async function sequenceNotHovered() {
       await controls.start({
-        opacity: 1,
-        x: appContext!.distanceFromLeftBorderWindow,
-        transition: { duration: 0.2, type: "tween", ease: "easeInOut" },
-      });
-
-      await controls.start({
         x: 0,
-        transition: { duration: 0.4, type: "tween", ease: "easeInOut" },
+        transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
       });
     }
 
@@ -71,7 +64,7 @@ export const AnimationSlider = () => {
         sequenceHovered();
         break;
       case appContext!.clicked && appContext!.menuHover:
-        sequenceClicked();
+        sequenceHovered();
         break;
       default:
         sequenceNotHovered();
@@ -87,10 +80,6 @@ export const AnimationFullBody = () => {
 
   const controls = useAnimation();
   const storage = globalThis?.sessionStorage;
-  const prevPath = storage && storage.getItem("prevPath");
-  const route = useRouter().asPath;
-
-  const width = useMedia();
 
   const rectangle = Geo().rectangle;
   const polygon = Geo().polygon;

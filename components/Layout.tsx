@@ -21,16 +21,18 @@ const Layout: NextPage<Iprops> = ({ children }) => {
 
   const mediaSize = () => {
     switch (true) {
-      case width > 900:
+      case width > 1200:
         return 212;
-      case width > 480 && width < 900:
+      case width > 899 && width < 1199:
+        return 282;
+      case width > 480 && width < 899:
         return 272;
       default:
         return 212;
     }
   };
 
-  const distanceFromLeftBorderWindow: number = mediaSize();
+  const distanceFromLeftBorderWindow = mediaSize();
 
   function handleOnMouseLeave() {
     setMenuHover(false);

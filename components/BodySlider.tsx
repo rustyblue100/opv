@@ -11,6 +11,9 @@ const BodySlider = () => {
 
   const appContext = useContext(Context);
 
+  const rectangle = Geo().rectangle;
+  const polygon = Geo().polygon;
+
   useEffect(() => {
     const interval = setInterval(() => {
       const hexValues = ["A", "B", "C", "D", "E", "F"];
@@ -35,6 +38,7 @@ const BodySlider = () => {
         opacity: 1,
         x: appContext!.distanceFromLeftBorderWindow,
         width: "100%",
+        clipPath: polygon,
       }}
       animate={animations}
       exit={{
@@ -47,7 +51,7 @@ const BodySlider = () => {
         },
         backgroundColor: "#FFEDED",
       }}
-      className="fixed top-0 h-screen w-full will-change-auto md:ml-[40px] lg:ml-[100px]"
+      className="fixed top-0 h-screen w-full will-change-auto md:ml-[40px] xl:ml-[100px]"
       style={{
         backgroundColor: !appContext!.menuHover ? randomColors : "#FFEDED",
         clipPath: Geo().polygon,
