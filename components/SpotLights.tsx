@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Image from "next/image";
-import { useContext } from "react";
-import { Context } from "../components/Context";
 
-const Spotlights: NextPage = () => {
-  const appContext = useContext(Context);
+interface IProps {
+  menuHover: boolean;
+}
 
+const Spotlights: NextPage<IProps> = ({ menuHover }) => {
   const spotlights = {
     hidden: {
       opacity: 0,
@@ -33,7 +33,7 @@ const Spotlights: NextPage = () => {
         transition={{
           ease: "easeInOut",
           duration: 1.8,
-          repeat: !appContext?.menuHover ? Infinity : 0,
+          repeat: !menuHover ? Infinity : 0,
           repeatType: "reverse",
           delay: 1.8,
         }}
@@ -46,9 +46,7 @@ const Spotlights: NextPage = () => {
           height="170"
           alt="show"
           objectFit="cover"
-          className={`${
-            appContext?.menuHover && "mask"
-          } rounded-full grayscale-[0] `}
+          className={`${menuHover && "mask"} rounded-full grayscale-[0] `}
         />
       </motion.div>
 
@@ -59,7 +57,7 @@ const Spotlights: NextPage = () => {
         transition={{
           ease: "easeInOut",
           duration: 1.8,
-          repeat: !appContext?.menuHover ? Infinity : 0,
+          repeat: !menuHover ? Infinity : 0,
           repeatType: "reverse",
           delay: 0.4,
         }}
@@ -72,9 +70,7 @@ const Spotlights: NextPage = () => {
           height="310"
           alt="show"
           objectFit="cover"
-          className={`${
-            appContext?.menuHover && "mask"
-          } rounded-full grayscale-[0] `}
+          className={`${menuHover && "mask"} rounded-full grayscale-[0] `}
         />
       </motion.div>
 
@@ -85,7 +81,7 @@ const Spotlights: NextPage = () => {
         transition={{
           ease: "easeInOut",
           duration: 1.8,
-          repeat: !appContext?.menuHover ? Infinity : 0,
+          repeat: !menuHover ? Infinity : 0,
           repeatType: "reverse",
           delay: 1.1,
         }}
@@ -98,9 +94,7 @@ const Spotlights: NextPage = () => {
           height="220"
           alt="show"
           objectFit="cover"
-          className={`${
-            appContext?.menuHover && "mask"
-          } rounded-full grayscale-[0] `}
+          className={`${menuHover && "mask"} rounded-full grayscale-[0] `}
         />
       </motion.div>
     </motion.div>
