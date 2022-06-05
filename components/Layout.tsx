@@ -89,7 +89,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
           </motion.div>
 
           <div className="mt-10">
-            <SpotLights menuHover={menuHover} />
+            <SpotLights />
           </div>
         </div>
       </div>
