@@ -12,7 +12,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
       opacity: 0,
     },
     show: {
-      opacity: 0.7,
+      opacity: 0.5,
     },
     exit: {
       opacity: 0,

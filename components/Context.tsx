@@ -1,3 +1,9 @@
 import { createContext } from "react";
 
-export const Context = createContext<any>(null);
+interface AppContextInterface {
+  menuHover: boolean;
+  clicked: boolean;
+  distanceFromLeftBorderWindow: number;
+}
+
+export const Context = createContext<AppContextInterface | null>(null);

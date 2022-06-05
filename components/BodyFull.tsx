@@ -12,26 +12,24 @@ interface Iprops {
 
 const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
   const animations = AnimationFullBody();
-  const distance = useContext(Context).distanceFromLeftBorderWindow;
+  const appContext = useContext(Context);
 
   return (
-    <LayoutGroup id="b">
-      <motion.div
-        layoutId="sliderWrapper"
-        initial={{ x: distance }}
-        animate={animations}
-        exit={{
-          opacity: 1,
-          transition: { duration: 0.3, type: "tween", ease: "easeInOut" },
-        }}
-        className="fixed top-0  h-screen w-full bg-opv-pink-500 will-change-auto xl:ml-[100px] "
-      >
-        <div className="z-50 flex h-full min-h-screen flex-col overflow-scroll px-5 lg:px-10 xl:w-[calc(100vw-100px)] 2xl:w-full">
-          <div className="flex-1">{children}</div>
-          <Footer />
-        </div>
-      </motion.div>
-    </LayoutGroup>
+    <motion.div
+      layoutId="sliderWrapper"
+      initial={{ x: appContext!.distanceFromLeftBorderWindow }}
+      animate={animations}
+      exit={{
+        opacity: 1,
+        transition: { duration: 0.3, type: "tween", ease: "easeInOut" },
+      }}
+      className="fixed top-0  h-screen w-full bg-opv-pink-500 will-change-auto xl:ml-[100px] "
+    >
+      <div className="z-50 flex h-full min-h-screen flex-col overflow-scroll px-5 lg:px-10 xl:w-[calc(100vw-100px)] 2xl:w-full">
+        <div className="flex-1">{children}</div>
+        <Footer />
+      </div>
+    </motion.div>
   );
 };
 

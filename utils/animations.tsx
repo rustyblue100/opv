@@ -6,9 +6,7 @@ import { useMedia } from "./hooks";
 import { useRouter } from "next/router";
 
 export const AnimationSlider = () => {
-  const menuHover = useContext(Context).menuHover;
-  const linkMenuClicked = useContext(Context).clicked;
-  const distance = useContext(Context).distanceFromLeftBorderWindow;
+  const appContext = useContext(Context);
 
   const controls = useAnimation();
   const storage = globalThis?.sessionStorage;
@@ -24,18 +22,18 @@ export const AnimationSlider = () => {
     const defaultTransition = {
       type: "tween",
       ease: "easeInOut",
-      duration: 0.4,
+      duration: 0.5,
     };
 
     async function sequenceClicked() {
       await controls.start({
-        x: distance,
-        clipPath: rectangle,
+        x: appContext!.distanceFromLeftBorderWindow,
+        /*         clipPath: rectangle, */
         transition: defaultTransition,
       });
 
       await controls.start({
-        clipPath: polygon,
+        /*    clipPath: polygon, */
         x: 0,
         transition: defaultTransition,
       });
@@ -43,7 +41,7 @@ export const AnimationSlider = () => {
 
     async function sequenceHovered() {
       await controls.start({
-        x: distance,
+        x: appContext!.distanceFromLeftBorderWindow,
         transition: {
           type: "tween",
           ease: "easeInOut",
@@ -55,7 +53,7 @@ export const AnimationSlider = () => {
     async function sequenceNotHovered() {
       await controls.start({
         opacity: 1,
-        x: distance,
+        x: appContext!.distanceFromLeftBorderWindow,
         transition: { duration: 0.2, type: "tween", ease: "easeInOut" },
       });
 
@@ -66,37 +64,26 @@ export const AnimationSlider = () => {
     }
 
     switch (true) {
-      case linkMenuClicked && !menuHover:
+      case appContext!.clicked && !appContext!.menuHover:
         sequenceClicked();
         break;
-      case !linkMenuClicked && menuHover:
+      case !appContext!.clicked && appContext!.menuHover:
         sequenceHovered();
         break;
-      case linkMenuClicked && menuHover:
-        sequenceHovered();
+      case appContext!.clicked && appContext!.menuHover:
+        sequenceClicked();
         break;
       default:
         sequenceNotHovered();
         break;
     }
-  }, [
-    controls,
-    linkMenuClicked,
-    menuHover,
-    rectangle,
-    polygon,
-    distance,
-    prevPath,
-    route,
-  ]);
+  }, [controls, appContext, rectangle, polygon, prevPath, route]);
 
   return controls;
 };
 
 export const AnimationFullBody = () => {
-  const menuHover = useContext(Context).menuHover;
-  const linkMenuClicked = useContext(Context).clicked;
-  const distance = useContext(Context).distanceFromLeftBorderWindow;
+  const appContext = useContext(Context);
 
   const controls = useAnimation();
   const storage = globalThis?.sessionStorage;
@@ -112,12 +99,12 @@ export const AnimationFullBody = () => {
     const defaultTransition = {
       type: "tween",
       ease: "easeInOut",
-      duration: 0.4,
+      duration: 0.5,
     };
 
     async function sequenceClicked() {
       await controls.start({
-        x: distance,
+        x: appContext!.distanceFromLeftBorderWindow,
         transition: defaultTransition,
       });
       await controls.start({
@@ -128,30 +115,30 @@ export const AnimationFullBody = () => {
 
     async function sequenceHovered() {
       await controls.start({
-        x: distance,
+        x: appContext!.distanceFromLeftBorderWindow,
         transition: defaultTransition,
       });
     }
 
     async function sequenceNotHovered() {
-      await controls.start({ x: 0, opacity: 1, transition: defaultTransition });
+      await controls.start({ x: 0, opacity: 1, transition: { duration: 0.3 } });
     }
 
     switch (true) {
-      case linkMenuClicked && !menuHover:
+      case appContext!.clicked && !appContext!.menuHover:
         sequenceClicked();
         break;
-      case !linkMenuClicked && menuHover:
+      case !appContext!.clicked && appContext!.menuHover:
         sequenceHovered();
         break;
-      case linkMenuClicked && menuHover:
+      case appContext!.clicked && appContext!.menuHover:
         sequenceHovered();
         break;
       default:
         sequenceNotHovered();
         break;
     }
-  }, [controls, linkMenuClicked, menuHover, rectangle, polygon, distance]);
+  }, [appContext, controls, rectangle, polygon]);
 
   return controls;
 };

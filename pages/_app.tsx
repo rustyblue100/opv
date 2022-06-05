@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <Layout>
-      <AnimatePresence initial={true} exitBeforeEnter={true}>
+      <AnimatePresence initial={true} exitBeforeEnter>
         <Component {...pageProps} key={router.asPath} />
       </AnimatePresence>
     </Layout>
