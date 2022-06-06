@@ -28,7 +28,7 @@
 
 html,
 body {
-
+  overflow-x:hidden;
   background-color: #101010;
   color: #313131;
   padding: 0;

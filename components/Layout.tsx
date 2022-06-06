@@ -40,9 +40,9 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   }
 
   return (
-    <div className="container fixed top-0 left-0 max-w-screen-2xl 3xl:left-1/2 3xl:-translate-x-1/2">
+    <div className="container relative  max-w-screen-2xl ">
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
-      <div className="relative grid h-screen grid-flow-col grid-rows-1 justify-between px-5 sm:px-10">
+      <div className="relative grid grid-flow-col grid-rows-1 justify-between px-5 sm:px-10">
         <motion.div
           className={`-m-[7rem] self-center p-[7rem]`}
           onHoverStart={() => setMenuHover(true)}
@@ -55,7 +55,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
           />
         </motion.div>
 
-        <div className="place-self-center ">
+        <div className="fixed place-self-center">
           <motion.div
             className={`2md:landscape lg:landscape: relative mb-10 mt-0 ml-auto max-w-[200px] sm:mb-0 sm:max-w-[300px]  md:max-w-[330px] 2md:max-w-[420px] lg:mt-0 lg:max-w-[480px] xl:max-w-[520px] landscape:mt-0 2md:landscape:mt-5 xl:landscape:mt-0  ${
               menuHover && "invisible sm:visible "
@@ -97,10 +97,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
       <Context.Provider
         value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
       >
-        <div className="fixed top-0 left-0 z-10 overflow-hidden will-change-auto">
-          {children}
-        </div>
-        ç
+        <div className="m-h-screen z-10 will-change-auto">{children}</div>ç
       </Context.Provider>
     </div>
   );

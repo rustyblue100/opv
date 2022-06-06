@@ -74,40 +74,45 @@ const Navigation: NextPage<IProps> = ({
   };
 
   return (
-    <div className="-ml-24 flex w-2 items-center justify-start py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw]">
-      <motion.ul
-        variants={stagger}
-        initial="hidden"
-        animate="visible"
-        className={`z-10 min-w-[200px] text-lg capitalize  leading-[30px]  text-opv-pink-900 sm:text-lg md:text-2xl md:leading-[43px] ${
-          clicked && "z-0"
-        }`}
-      >
-        {menu.map((menuItem, i) => {
-          const { nom, slug }: { nom: string; slug: string } = menuItem;
-
-          return (
-            <motion.li
-              key={i}
-              variants={item}
-              onHoverStart={() => setMenuHover(true)}
-            >
-              <Link href={slug}>
-                <a className="hover:text-opv-pink-500 " onClick={handleClicked}>
-                  {nom}
-                </a>
-              </Link>
-            </motion.li>
-          );
-        })}
-        <motion.li
-          variants={item}
-          className="self-start  p-1  text-lg text-gray-400 hover:text-opv-pink-500"
+    <div className="fixed top-0 left-0 -ml-24  h-full w-2 items-center justify-start py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw]">
+      <div className="flex h-full grid-cols-1 grid-rows-1 items-center px-[50px] py-24">
+        <motion.ul
+          variants={stagger}
+          initial="hidden"
+          animate="visible"
+          className={`z-10 min-w-[200px] text-lg capitalize  leading-[30px]  text-opv-pink-900 sm:text-lg md:text-2xl md:leading-[43px] ${
+            clicked && "z-0 "
+          }`}
         >
-          <a className=""></a>
-          <Link href="/">EN</Link> | <Link href="/">FR</Link>
-        </motion.li>
-      </motion.ul>
+          {menu.map((menuItem, i) => {
+            const { nom, slug }: { nom: string; slug: string } = menuItem;
+
+            return (
+              <motion.li
+                key={i}
+                variants={item}
+                onHoverStart={() => setMenuHover(true)}
+              >
+                <Link href={slug}>
+                  <a
+                    className="hover:text-opv-pink-500 "
+                    onClick={handleClicked}
+                  >
+                    {nom}
+                  </a>
+                </Link>
+              </motion.li>
+            );
+          })}
+          <motion.li
+            variants={item}
+            className="self-start  p-1  text-lg text-gray-400 hover:text-opv-pink-500"
+          >
+            <a className=""></a>
+            <Link href="/">EN</Link> | <Link href="/">FR</Link>
+          </motion.li>
+        </motion.ul>
+      </div>
 
       <div className="absolute left-28 hidden w-80 text-2xl leading-[40px] text-white md:block">
         <div className="-rotate-90 text-center ">

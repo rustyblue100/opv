@@ -27,24 +27,23 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
     <motion.div
       layoutId="sliderWrapper"
       initial={{
-        clipPath: rectangle,
         x: appContext!.distanceFromLeftBorderWindow,
       }}
       animate={animations}
       exit={{
         opacity: 1,
         transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
-        clipPath:
+        /*         clipPath:
           route.asPath === "/" || route.asPath === "/en-CA"
             ? polygon
-            : rectangle,
+            : rectangle, */
       }}
-      className="fixed top-0  w-full scale-x-100 bg-opv-pink-500 px-0 will-change-auto md:ml-[40px] xl:ml-[100px] xl:px-0"
-      style={{ height: heightVH ? heightVH : "100vh" }}
+      className="relative w-full scale-x-100 bg-opv-pink-500 px-0 will-change-transform  md:ml-[40px] xl:ml-[100px] xl:px-0"
+      style={{ minHeight: heightVH ? heightVH : "100vh" }}
     >
       <div
-        className="z-50 flex h-full flex-col overflow-scroll px-5 md:w-[calc(100vw-40px)] lg:px-10 xl:w-[calc(100vw-100px)] 2xl:w-full"
-        style={{ minHeight: heightVH ? heightVH : "100vh" }}
+        className="z-50 flex h-full flex-col px-5 md:w-[calc(100vw-40px)] lg:px-10 xl:w-[calc(100vw-100px)] 2xl:w-full"
+        /*     style={{ minHeight: heightVH ? heightVH : "100vh" }} */
       >
         <div className="flex-1">{children}</div>
         <Footer />
