@@ -34,7 +34,7 @@ const BodySlider = () => {
       layoutId="sliderWrapper"
       initial={{
         opacity: 1,
-        x: appContext!.distanceFromLeftBorderWindow,
+        x: appContext?.distanceFromLeftBorderWindow,
         /*         clipPath: Geo().polygon, */
       }}
       animate={animations}
@@ -47,7 +47,7 @@ const BodySlider = () => {
       }}
       className="fixed top-0 h-screen w-full will-change-auto md:ml-[40px]  xl:ml-[100px] iphone_landscape_special:ml-[40px] "
       style={{
-        backgroundColor: !appContext!.menuHover ? randomColors : "#FFEDED",
+        backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
         clipPath: Geo().polygon,
         transition: "background-color .4s linear",
       }}
