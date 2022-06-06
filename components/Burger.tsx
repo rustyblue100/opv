@@ -40,9 +40,7 @@ const Burger: NextPage<Iprops> = ({ menuHover, setMenuHover }) => {
   return (
     <button
       onClick={() => setMenuHover(!menuHover)}
-      className={`absolute top-0  py-1 pr-4 xs:left-1 xl:left-[unset] xl:right-0 ${
-        route.asPath !== "/" ? "text-opv-black" : "text-opv-pink-900"
-      } z-50 tracking-widest xl:hidden`}
+      className={`absolute top-0  right-0 left-[unset] py-1  pr-4 md:left-1 md:right-[unset] xl:left-[unset] xl:right-0 ${"text-opv-pink-900"} z-50 tracking-widest xl:hidden iphone_landscape_special:left-1 iphone_landscape_special:right-[unset]`}
     >
       <div className="pl-2 leading-[18px]">
         {!menuHover ? (

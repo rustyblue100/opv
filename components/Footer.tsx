@@ -49,7 +49,7 @@ const Footer = () => {
             Nous joindre
           </motion.div>
 
-          <motion.div variants={item} className="font-bold ">
+          <motion.div variants={item} className="">
             Politique de condidentialité
           </motion.div>
         </div>

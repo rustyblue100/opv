@@ -79,7 +79,7 @@ const Navigation: NextPage<IProps> = ({
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className={`z-10 min-w-[200px] text-lg capitalize  leading-[30px]  text-opv-pink-900 sm:text-2xl sm:leading-[43px] ${
+        className={`z-10 min-w-[200px] text-lg capitalize  leading-[30px]  text-opv-pink-900 sm:text-lg md:text-2xl md:leading-[43px] ${
           clicked && "z-0"
         }`}
       >

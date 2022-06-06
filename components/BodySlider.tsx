@@ -1,18 +1,16 @@
 import Image from "next/image";
-import { LayoutGroup, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Geo } from "../utils/geoMetrical";
 import { AnimationSlider } from "../utils/animations";
 import { useEffect, useState, useContext } from "react";
 import { Context } from "../components/Context";
+import { useWindowSize } from "../utils/hooks";
 
 const BodySlider = () => {
   const animations = AnimationSlider();
   const [randomColors, setRandomColors] = useState("#FFEDED");
 
   const appContext = useContext(Context);
-
-  const rectangle = Geo().rectangle;
-  const polygon = Geo().polygon;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,21 +35,17 @@ const BodySlider = () => {
       initial={{
         opacity: 1,
         x: appContext!.distanceFromLeftBorderWindow,
-        width: "100%",
-        /*    clipPath: polygon, */
+        /*         clipPath: Geo().polygon, */
       }}
       animate={animations}
       exit={{
         opacity: 1,
+
+        transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
         clipPath: Geo().rectangle,
-        transition: {
-          duration: 0.4,
-          type: "tween",
-          ease: "easeInOut",
-        },
         backgroundColor: "#FFEDED",
       }}
-      className="fixed top-0 h-screen w-full will-change-auto md:ml-[40px] xl:ml-[100px]"
+      className="fixed top-0 h-screen w-full will-change-auto md:ml-[40px]  xl:ml-[100px] iphone_landscape_special:ml-[40px] "
       style={{
         backgroundColor: !appContext!.menuHover ? randomColors : "#FFEDED",
         clipPath: Geo().polygon,

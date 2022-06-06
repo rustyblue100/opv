@@ -59,11 +59,11 @@ a {
 
 
   .h1{
-    @apply pt-8 pb-2 text-3xl md:text-5xl uppercase font-bold
+    @apply pt-6 sm:pt-9 lg:pt-8 pb-2 text-3xl md:text-4xl lg:text-5xl uppercase font-bold
   }
 
   .h2{
-    @apply text-opv-pink-900 text-2xl md:text-3xl uppercase mb-3
+    @apply text-opv-pink-900 text-2xl lg:text-3xl uppercase mb-3
   }
 
 

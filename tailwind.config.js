@@ -23,15 +23,21 @@ module.exports = {
       lg: "1024px",
       // => @media (min-width: 1024px) { ... }
 
-      xl: "1280px",
+      xl: "1380px",
       // => @media (min-width: 1280px) { ... }
 
       "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
 
-      "3xl": "2400px",
+      "3xl": "1800px",
       // => @media (min-width: 2400px) { ... }
       landscape: { raw: "(width: 1024px) and (height: 600px)" },
+
+      iphone_landscape: { raw: "(max-width: 844px) and (max-height: 390px)" },
+
+      iphone_landscape_special: {
+        raw: "(width: 667px) and (height: 375px)",
+      },
     },
     extend: {
       colors: {

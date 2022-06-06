@@ -19,14 +19,14 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
         ></motion.hr>
 
         <div className="relative flex-1">
-          <div className="mb-5 text-2xl font-bold sm:mb-0 md:text-3xl">
+          <div className="mb-2 text-2xl font-bold sm:mb-0 md:text-3xl">
             vendredi
           </div>
           <motion.div
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl font-normal md:text-6xl"
+            className="text-3xl font-normal lg:text-6xl"
           >
             03
             <small className="relative top-1 align-top text-xs">Janvier</small>
@@ -63,7 +63,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
-              className="text-4xl font-normal"
+              className="text-3xl font-normal md:text-4xl"
             >
               Les Goules
               <div className="mt-1 text-sm">
@@ -81,7 +81,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             </motion.div>
           </div>
 
-          <div className="flex flex-col xl:flex-row">
+          <div className="flex flex-col items-start xl:flex-row">
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className=" mt-4 flex-1 lg:p-4"
+              className="mt-4 max-w-lg flex-1 xl:mt-0 xl:px-4"
             >
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
               suscipit at esse voluptatum numquam. Numquam quia quo, ullam saepe

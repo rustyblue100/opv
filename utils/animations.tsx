@@ -25,7 +25,7 @@ export const AnimationSlider = () => {
 
     async function sequenceClicked() {
       await controls.start({
-        x: appContext!.distanceFromLeftBorderWindow,
+        x: appContext?.distanceFromLeftBorderWindow,
         /*         clipPath: rectangle, */
 
         transition: defaultTransition,
@@ -40,7 +40,7 @@ export const AnimationSlider = () => {
 
     async function sequenceHovered() {
       await controls.start({
-        x: appContext!.distanceFromLeftBorderWindow,
+        x: appContext?.distanceFromLeftBorderWindow,
         transition: {
           type: "tween",
           ease: "easeInOut",
@@ -57,13 +57,13 @@ export const AnimationSlider = () => {
     }
 
     switch (true) {
-      case appContext!.clicked && !appContext!.menuHover:
+      case appContext?.clicked && !appContext?.menuHover:
         sequenceClicked();
         break;
-      case !appContext!.clicked && appContext!.menuHover:
+      case !appContext?.clicked && appContext?.menuHover:
         sequenceHovered();
         break;
-      case appContext!.clicked && appContext!.menuHover:
+      case appContext?.clicked && appContext?.menuHover:
         sequenceHovered();
         break;
       default:
@@ -93,7 +93,7 @@ export const AnimationFullBody = () => {
 
     async function sequenceClicked() {
       await controls.start({
-        x: appContext!.distanceFromLeftBorderWindow,
+        x: appContext?.distanceFromLeftBorderWindow,
         transition: defaultTransition,
       });
       await controls.start({
@@ -104,7 +104,7 @@ export const AnimationFullBody = () => {
 
     async function sequenceHovered() {
       await controls.start({
-        x: appContext!.distanceFromLeftBorderWindow,
+        x: appContext?.distanceFromLeftBorderWindow,
         transition: defaultTransition,
       });
     }
@@ -114,13 +114,13 @@ export const AnimationFullBody = () => {
     }
 
     switch (true) {
-      case appContext!.clicked && !appContext!.menuHover:
+      case appContext?.clicked && !appContext?.menuHover:
         sequenceClicked();
         break;
-      case !appContext!.clicked && appContext!.menuHover:
+      case !appContext?.clicked && appContext?.menuHover:
         sequenceHovered();
         break;
-      case appContext!.clicked && appContext!.menuHover:
+      case appContext?.clicked && appContext?.menuHover:
         sequenceHovered();
         break;
       default:
