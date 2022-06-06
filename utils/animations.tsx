@@ -2,7 +2,7 @@ import { useAnimation } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { Context } from "../components/Context";
 import { Geo } from "./geoMetrical";
-
+import { useWindowSize } from "./hooks";
 import { useRouter } from "next/router";
 
 export const AnimationSlider = () => {
@@ -84,6 +84,8 @@ export const AnimationFullBody = () => {
   const rectangle = Geo().rectangle;
   const polygon = Geo().polygon;
 
+  const width = useWindowSize().width;
+
   useEffect(() => {
     const defaultTransition = {
       type: "tween",
@@ -117,17 +119,23 @@ export const AnimationFullBody = () => {
       case appContext?.clicked && !appContext?.menuHover:
         sequenceClicked();
         break;
-      case !appContext?.clicked && appContext?.menuHover:
+      case width &&
+        width >= 1200 &&
+        !appContext?.clicked &&
+        appContext?.menuHover:
         sequenceHovered();
         break;
-      case appContext?.clicked && appContext?.menuHover:
+      case width &&
+        width >= 1200 &&
+        appContext?.clicked &&
+        appContext?.menuHover:
         sequenceHovered();
         break;
       default:
         sequenceNotHovered();
         break;
     }
-  }, [appContext, controls, rectangle, polygon]);
+  }, [appContext, controls, rectangle, polygon, width]);
 
   return controls;
 };
