@@ -8,8 +8,11 @@ module.exports = {
       center: true,
     },
     screens: {
-      xs: "310px",
-      // => @media (min-width: 640px) { ... }
+      xxs: "310px",
+      // => @media (min-width: 310px) { ... }
+
+      xs: "480px",
+      // => @media (min-width: 480px) { ... }
 
       sm: "640px",
       // => @media (min-width: 640px) { ... }
@@ -31,6 +34,7 @@ module.exports = {
 
       "3xl": "1800px",
       // => @media (min-width: 2400px) { ... }
+
       landscape: { raw: "(width: 1024px) and (height: 600px)" },
 
       iphone_landscape: { raw: "(max-width: 844px) and (max-height: 390px)" },

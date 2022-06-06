@@ -84,8 +84,6 @@ export const AnimationFullBody = () => {
   const rectangle = Geo().rectangle;
   const polygon = Geo().polygon;
 
-  const width = useWindowSize().width;
-
   useEffect(() => {
     const defaultTransition = {
       type: "tween",
@@ -115,27 +113,24 @@ export const AnimationFullBody = () => {
       await controls.start({ x: 0, opacity: 1, transition: { duration: 0.3 } });
     }
 
+    console.log(appContext?.clicked);
+    console.log(appContext?.menuHover);
+
     switch (true) {
       case appContext?.clicked && !appContext?.menuHover:
         sequenceClicked();
         break;
-      case width &&
-        width >= 1200 &&
-        !appContext?.clicked &&
-        appContext?.menuHover:
+      case !appContext?.clicked && appContext?.menuHover:
         sequenceHovered();
         break;
-      case width &&
-        width >= 1200 &&
-        appContext?.clicked &&
-        appContext?.menuHover:
+      case appContext?.clicked && appContext?.menuHover:
         sequenceHovered();
         break;
       default:
         sequenceNotHovered();
         break;
     }
-  }, [appContext, controls, rectangle, polygon, width]);
+  }, [appContext, controls, rectangle, polygon]);
 
   return controls;
 };

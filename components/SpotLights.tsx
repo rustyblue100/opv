@@ -64,7 +64,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           delay: 0.4,
         }}
         exit="exit"
-        className="col-span-3 max-w-[130px] justify-self-end  xs:max-w-[200px] sm:col-span-2 sm:max-w-[150px] md:max-w-[180px] 2md:max-w-[180px] lg:max-w-[200px] xl:max-w-full iphone_landscape:max-w-[130px]"
+        className="max-w-80px] col-span-3  justify-self-end xxs:max-w-[110px]  xs:max-w-[200px] sm:col-span-2 sm:max-w-[150px] md:max-w-[180px] 2md:max-w-[180px] lg:max-w-[200px] xl:max-w-full iphone_landscape:max-w-[130px]"
       >
         <Image
           src="https://fastly.4sqi.net/img/general/width960/54255444_x7ZweBJGKxWeqQXQcxE4KRkRWWL2l-PhKbhyQcDnwBY.jpg"
@@ -90,7 +90,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           delay: 1.1,
         }}
         exit="exit"
-        className="col-span-2 hidden max-w-[80px] pl-10 xs:block sm:max-w-[100px] md:max-w-[130px] 2md:max-w-[120px] lg:ml-20 lg:max-w-[150px] xl:max-w-full "
+        className="col-span-2 hidden max-w-[80px] pl-10 xs:block  sm:max-w-[100px] md:max-w-[130px] 2md:max-w-[120px] lg:ml-20 lg:max-w-[150px] xl:max-w-full "
       >
         <Image
           src="https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTk1ODI5LXdpa2ltZWRpYS1pbWFnZS1rb3dzNmcxZi5qcGc.jpg"
