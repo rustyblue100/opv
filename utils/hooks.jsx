@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import useLayoutEffect from "./use-isomorphic-layout-effect";
+import { Context } from "../components/Context";
 
-export const useMedia = () => {
-  const [width, setWidth] = useState(0);
+export function useWindowSize() {
+  const clicked = useContext(Context)?.clicked;
+
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
 
   useLayoutEffect(() => {
-    setWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
-    });
+    if (typeof window !== "undefined") {
+      function handleResize() {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+
+      window.addEventListener("resize", handleResize);
+
+      handleResize();
+
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
 
-  return width;
-};
+  return windowSize;
+}

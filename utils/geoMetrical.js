@@ -1,15 +1,7 @@
-import { useState } from "react";
-import useIsomorphicLayoutEffect from "./use-isomorphic-layout-effect";
+import { useWindowSize } from "./hooks";
 
 export function Geo() {
-  const [width, setWidth] = useState(null);
-
-  useIsomorphicLayoutEffect(() => {
-    setWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
-    });
-  }, []);
+  const width = useWindowSize().width;
 
   function mediaSize() {
     switch (true) {
@@ -18,9 +10,9 @@ export function Geo() {
       case width > 900 && width < 1535:
         return "polygon(0 0, 0 100vh, 45vw 100vh, 20vw 0)";
       case width > 480 && width < 899:
-        return "polygon(0 0, 0 100vh, 54vw 100vh, 34vw 0)";
+        return "polygon(0 0, 0 100vh, 56vw 100vh, 34vw 0)";
       default:
-        return "polygon(0 0, 0 100vh, 45vw 100vh, 20vw 0)";
+        return "";
     }
   }
 

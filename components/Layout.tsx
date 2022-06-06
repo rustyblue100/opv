@@ -7,7 +7,7 @@ import { Context } from "../components/Context";
 import Navigation from "./Navigation";
 import SpotLights from "./SpotLights";
 import Burger from "./Burger";
-import { useMedia } from "../utils/hooks";
+import { useWindowSize } from "../utils/hooks";
 
 interface Iprops {
   children: React.ReactNode;
@@ -17,15 +17,15 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   const [menuHover, setMenuHover] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  const width = useMedia();
+  const width = useWindowSize().width;
 
   const mediaSize = () => {
     switch (true) {
-      case width > 1200:
+      case width! > 1200:
         return 212;
-      case width > 899 && width < 1199:
+      case width! > 899 && width! < 1199:
         return 282;
-      case width > 480 && width < 899:
+      case width! > 480 && width! < 899:
         return 272;
       default:
         return 212;
@@ -89,7 +89,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
           </motion.div>
 
           <div className="mt-10">
-            <SpotLights />
+            <SpotLights menuHover={menuHover} />
           </div>
         </div>
       </div>

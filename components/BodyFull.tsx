@@ -36,7 +36,7 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
             ? polygon
             : rectangle,
       }}
-      className="fixed top-0  h-screen w-full bg-opv-pink-500 will-change-auto xl:ml-[100px]"
+      className="fixed top-0 h-screen w-full bg-opv-pink-500 pl-10 will-change-auto xl:ml-[100px] xl:px-0"
     >
       <div className="z-50 flex h-full min-h-screen flex-col overflow-scroll px-5 lg:px-10 xl:w-[calc(100vw-100px)] 2xl:w-full">
         <div className="flex-1">{children}</div>

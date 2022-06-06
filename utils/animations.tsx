@@ -2,7 +2,7 @@ import { useAnimation } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { Context } from "../components/Context";
 import { Geo } from "./geoMetrical";
-import { useMedia } from "./hooks";
+
 import { useRouter } from "next/router";
 
 export const AnimationSlider = () => {

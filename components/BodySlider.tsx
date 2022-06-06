@@ -38,7 +38,7 @@ const BodySlider = () => {
         opacity: 1,
         x: appContext!.distanceFromLeftBorderWindow,
         width: "100%",
-        clipPath: polygon,
+        /*    clipPath: polygon, */
       }}
       animate={animations}
       exit={{
@@ -70,6 +70,7 @@ const BodySlider = () => {
           ease: "linear",
         }}
         exit={{ opacity: 0, transition: { duration: 0.1 } }}
+        className="relative h-full w-[1000px]"
       >
         <Image
           src="/bg-3.png"
@@ -77,6 +78,7 @@ const BodySlider = () => {
           objectPosition="center"
           objectFit="cover"
           alt=""
+          priority
         />
       </motion.div>
     </motion.div>

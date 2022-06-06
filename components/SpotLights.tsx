@@ -38,7 +38,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           delay: 1.8,
         }}
         exit="exit"
-        className="col-span-1 -ml-10 hidden max-w-[55px] xs:block sm:max-w-[75px] md:max-w-[95px] 2md:max-w-[100px] lg:mr-16 lg:max-w-[115px] xl:max-w-full"
+        className="col-span-1 -ml-10 hidden max-w-[55px] xs:block sm:max-w-[75px] md:max-w-[95px] 2md:max-w-[100px] lg:mr-16 lg:max-w-[115px] xl:max-w-full "
       >
         <Image
           src="https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvNDM3LWZlbGl4LTE1NS5qcGc.jpg"
@@ -46,7 +46,9 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           height="170"
           alt="show"
           objectFit="cover"
-          className={`${menuHover && "mask"} rounded-full grayscale-[0] `}
+          className={`${
+            menuHover && "mask"
+          } duration-900 rounded-full grayscale-[0]  transition-all ease-in-out `}
         />
       </motion.div>
 
@@ -70,7 +72,9 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           height="310"
           alt="show"
           objectFit="cover"
-          className={`${menuHover && "mask"} rounded-full grayscale-[0] `}
+          className={`${
+            menuHover && "mask"
+          } rounded-full grayscale-[0] transition-all  duration-150 ease-in-out `}
         />
       </motion.div>
 
@@ -94,7 +98,9 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           height="220"
           alt="show"
           objectFit="cover"
-          className={`${menuHover && "mask"} rounded-full grayscale-[0] `}
+          className={`${
+            menuHover && "mask"
+          } rounded-full grayscale-[0] transition-all  duration-150 ease-in-out `}
         />
       </motion.div>
     </motion.div>
