@@ -33,17 +33,19 @@ const Footer = () => {
       variants={stagger}
       initial="hidden"
       animate="visible"
-      className="pt-10 font-bold xl:mt-48"
+      className="mb-4 pt-10 font-bold xl:mt-48"
     >
       <div className="flex flex-col-reverse items-center justify-between border-t border-opv-black md:flex-row">
-        <div className="md:text-md flex flex-1 items-center justify-between gap-3 text-xs uppercase text-opv-black md:justify-start">
-          <Image
-            width="32"
-            height="32"
-            objectFit="contain"
-            alt="facebook"
-            src="https://www.seekpng.com/png/full/18-185778_facebook-f-logo-png-transparent-background-facebook-icon.png/png/full/18-185778_facebook-f-logo-png-transparent-background-facebook-icon.png"
-          ></Image>
+        <div className="md:text-md flex flex-1 items-center justify-between gap-3 text-[10px] uppercase text-opv-black md:justify-start">
+          <div className="max-w-[24px]">
+            <Image
+              width="32"
+              height="32"
+              objectFit="contain"
+              alt="facebook"
+              src="https://www.seekpng.com/png/full/18-185778_facebook-f-logo-png-transparent-background-facebook-icon.png/png/full/18-185778_facebook-f-logo-png-transparent-background-facebook-icon.png"
+            ></Image>
+          </div>
 
           <motion.div variants={item} className="">
             Nous joindre
