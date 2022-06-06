@@ -40,7 +40,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   }
 
   return (
-    <div className="container relative  max-w-screen-2xl ">
+    <div className=" max-w-screen relative">
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
       <div className="relative grid grid-flow-col grid-rows-1 justify-between px-5 sm:px-10">
         <motion.div
@@ -97,7 +97,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
       <Context.Provider
         value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
       >
-        <div className="m-h-screen z-10 will-change-auto">{children}</div>ç
+        <div className="z-10 h-screen will-change-auto">{children}</div>ç
       </Context.Provider>
     </div>
   );

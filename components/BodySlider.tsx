@@ -64,7 +64,7 @@ const BodySlider = () => {
           ease: "linear",
         }}
         exit={{ opacity: 0, transition: { duration: 0.1 } }}
-        className="relative h-full w-[1000px]"
+        className="relative h-full w-full"
       >
         <Image
           src="/bg-3.png"
