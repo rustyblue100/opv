@@ -66,7 +66,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
         </motion.div>
 
         <div
-          className={`fixed top-0 right-0  h-full px-[50px] ${
+          className={`fixed top-0 right-0 h-full pr-4 xl:pr-12 ${
             router.asPath === "/" ? "flex" : "hidden"
           }`}
         >
