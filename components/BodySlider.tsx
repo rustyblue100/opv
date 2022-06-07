@@ -8,6 +8,8 @@ import { useWindowSize } from "../utils/hooks";
 import { use100vh } from "react-div-100vh";
 
 const BodySlider = () => {
+  console.log(Geo().polygon);
+
   const animations = AnimationSlider();
   const [randomColors, setRandomColors] = useState("#FFEDED");
 
@@ -50,8 +52,10 @@ const BodySlider = () => {
       }}
       className="w-full md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
-        backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
+        backgroundColor:
+          /* !appContext?.menuHover ? randomColors :  */ "#FFEDED",
         clipPath: Geo().polygon,
+        WebkitClipPath: Geo().polygon,
         transition: "background-color .4s linear",
         minHeight: heightVH ? heightVH : "100vh",
       }}
@@ -71,6 +75,7 @@ const BodySlider = () => {
         }}
         exit={{ opacity: 0, transition: { duration: 0.1 } }}
         className="relative h-full w-full"
+        style={{ clipPath: Geo().polygon, WebkitClipPath: Geo().polygon }}
       >
         <Image
           src="/bg-3.png"

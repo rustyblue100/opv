@@ -38,7 +38,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           delay: 1.8,
         }}
         exit="exit"
-        className="col-span-1 -ml-10 hidden max-w-[55px] xs:block sm:max-w-[75px] md:max-w-[95px] 2md:max-w-[100px] lg:mr-16 lg:max-w-[115px] xl:max-w-full iphone_landscape:max-w-[70px]"
+        className="col-span-1 -ml-10 hidden max-w-[55px] sm:block sm:max-w-[75px] md:max-w-[95px] 2md:max-w-[100px] lg:max-w-[115px] xl:max-w-full iphone_landscape:max-w-[70px]"
       >
         <Image
           src="https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvNDM3LWZlbGl4LTE1NS5qcGc.jpg"
@@ -90,7 +90,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
           delay: 1.1,
         }}
         exit="exit"
-        className="col-span-2 hidden max-w-[80px] pl-10 xs:block  sm:max-w-[100px] md:max-w-[130px] 2md:max-w-[120px] lg:ml-20 lg:max-w-[150px] xl:max-w-full "
+        className="col-span-2 hidden max-w-[80px] pl-10 sm:block  sm:max-w-[100px] md:max-w-[130px] 2md:max-w-[120px] lg:ml-20 lg:max-w-[150px] xl:max-w-full "
       >
         <Image
           src="https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTk1ODI5LXdpa2ltZWRpYS1pbWFnZS1rb3dzNmcxZi5qcGc.jpg"
