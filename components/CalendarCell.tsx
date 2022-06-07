@@ -9,8 +9,8 @@ interface Iprops {
 
 const CalendarCell: NextPage<Iprops> = ({ complet }) => {
   return (
-    <div className="relative">
-      <div className="flex w-full flex-col justify-between py-6 sm:flex-row ">
+    <div className="relative ">
+      <div className="flex w-full flex-col justify-between overflow-hidden py-6 sm:flex-row ">
         <motion.hr
           initial={{ opacity: 0, width: 0 }}
           animate={{ opacity: 1, width: "100%" }}

@@ -74,15 +74,14 @@ const Navigation: NextPage<IProps> = ({
   };
 
   return (
-    <div className="fixed top-0 left-0 -ml-24  h-full w-2 items-center justify-start py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw]">
-      <div className="flex h-full grid-cols-1 grid-rows-1 items-center px-[50px] py-24">
+    <div className="fixed top-0 left-0 -ml-24 flex h-full  items-center justify-start  py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw]">
+      <div className="flex h-full items-center px-[50px] py-24">
         <motion.ul
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className={`z-10 min-w-[200px] text-lg capitalize  leading-[30px]  text-opv-pink-900 sm:text-lg md:text-2xl md:leading-[43px] ${
-            clicked && "z-0 "
-          }`}
+          className={`text-lg  capitalize leading-[30px] text-opv-pink-900 sm:text-lg md:text-2xl 
+          md:leading-[43px]`}
         >
           {menu.map((menuItem, i) => {
             const { nom, slug }: { nom: string; slug: string } = menuItem;
@@ -114,13 +113,13 @@ const Navigation: NextPage<IProps> = ({
         </motion.ul>
       </div>
 
-      <div className="absolute left-28 hidden w-80 text-2xl leading-[40px] text-white md:block">
+      <div className="hidden w-80 -translate-x-36 text-2xl leading-[40px] text-white  md:block">
         <div className="-rotate-90 text-center ">
           <p className="text-[16px]">☆ Prochain Évènement ☆</p>
           <Marquee
             speed={8}
             gradient={false}
-            className=" cursor-pointer text-opv-pink-500  hover:text-opv-pink-900 "
+            className="cursor-pointer text-opv-pink-500  hover:text-opv-pink-900 "
           >
             Les Goules - 24 juin 19h30
           </Marquee>

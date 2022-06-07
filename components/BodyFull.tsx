@@ -38,12 +38,12 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
             ? polygon
             : rectangle, */
       }}
-      className="relative w-full scale-x-100 bg-opv-pink-500 px-0 will-change-transform md:ml-[40px] xl:ml-[100px] xl:px-0"
+      className="relative scale-x-100 overflow-x-hidden bg-opv-pink-500 px-0 will-change-transform md:ml-[40px] xl:ml-[100px] xl:px-0  "
       style={{ minHeight: heightVH ? heightVH : "100vh" }}
     >
       <div
-        className="z-50 flex h-full flex-col px-5 md:w-[calc(100vw-40px)] lg:px-10 xl:w-[calc(100vw-100px)]"
-        /*     style={{ minHeight: heightVH ? heightVH : "100vh" }} */
+        className="flex h-full flex-col px-5 md:w-[calc(100vw-40px)] lg:px-10 xl:w-[calc(100vw-100px)] "
+        /*         style={{ minHeight: heightVH ? heightVH : "100vh" }} */
       >
         <div className="flex-1">{children}</div>
         <Footer />
