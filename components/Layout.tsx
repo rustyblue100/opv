@@ -16,7 +16,7 @@ interface Iprops {
 }
 
 const Layout: NextPage<Iprops> = ({ children }) => {
-  const [menuHover, setMenuHover] = useState(true);
+  const [menuHover, setMenuHover] = useState(false);
   const [clicked, setClicked] = useState(false);
 
   const width = useWindowSize().width;
