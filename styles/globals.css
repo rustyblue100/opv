@@ -26,6 +26,16 @@
   background: #dd7b7b; 
 }
 
+::-webkit-scrollbar:horizontal {
+  height: 0;
+  width: 0;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  display: none;
+}
+
 html,
 body {
      -webkit-font-smoothing: antialiased;

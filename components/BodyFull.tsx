@@ -38,7 +38,7 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
             ? polygon
             : rectangle, */
       }}
-      className="relative scale-x-100 overflow-x-hidden bg-opv-pink-500 px-0 will-change-transform md:ml-[40px] xl:ml-[100px] xl:px-0  "
+      className="relative scale-x-100  bg-opv-pink-500 px-0 will-change-transform md:ml-[40px] xl:ml-[100px] xl:px-0"
       style={{ minHeight: heightVH ? heightVH : "100vh" }}
     >
       <div

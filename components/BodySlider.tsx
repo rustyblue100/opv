@@ -45,7 +45,7 @@ const BodySlider = () => {
         clipPath: Geo().rectangle,
         backgroundColor: "#FFEDED",
       }}
-      className="h-screen w-full will-change-transform md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px] "
+      className="h-screen w-full will-change-transform md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
         clipPath: Geo().polygon,

@@ -65,41 +65,45 @@ const Layout: NextPage<Iprops> = ({ children }) => {
           />
         </motion.div>
 
-        <div className="flex h-full  items-center px-[50px] py-24">
-          <motion.div
-            className={`2md:landscape lg:landscape: relative mb-10 mt-0 ml-auto max-w-[200px] sm:mb-0 sm:max-w-[300px]  md:max-w-[330px] 2md:max-w-[420px] lg:mt-0 lg:max-w-[480px] xl:max-w-[520px] landscape:mt-0 2md:landscape:mt-5 xl:landscape:mt-0  ${
-              menuHover && "invisible sm:visible "
-            }`}
-            initial={{
-              y: 20,
-              opacity: 0,
-            }}
-            animate={{
-              y: 0,
-              opacity: 1,
-            }}
-            transition={{
-              duration: 1,
-              ease: "easeInOut",
-            }}
-            exit={{ opacity: 0 }}
-          >
-            <Link href="/">
-              <a>
-                <Image
-                  src="/logo-sharp.png"
-                  width="571"
-                  height="171"
-                  layout="responsive"
-                  objectFit="contain"
-                  alt="OPV"
-                />
-              </a>
-            </Link>
-          </motion.div>
+        <div
+          className={`fixed top-0 right-0  h-full px-[50px] ${
+            router.asPath === "/" ? "flex" : "hidden"
+          }`}
+        >
+          <div className="flex flex-col  justify-center">
+            <motion.div
+              className={` ${menuHover && "invisible sm:visible "}`}
+              initial={{
+                y: 20,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+              }}
+              exit={{ opacity: 0 }}
+            >
+              <Link href="/">
+                <a>
+                  <Image
+                    src="/logo-sharp.png"
+                    width="571"
+                    height="171"
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="OPV"
+                  />
+                </a>
+              </Link>
+            </motion.div>
 
-          <div className="mt-10">
-            <SpotLights menuHover={menuHover} />
+            <div className="mt-10">
+              <SpotLights menuHover={menuHover} />
+            </div>
           </div>
         </div>
       </div>
@@ -107,7 +111,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
       <Context.Provider
         value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
       >
-        {/*         <div className="h-screen">{children}</div> */}
+        <div className="h-screen ">{children}</div>
       </Context.Provider>
     </div>
   );
