@@ -52,8 +52,7 @@ const BodySlider = () => {
       }}
       className="w-full md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
-        backgroundColor:
-          /* !appContext?.menuHover ? randomColors :  */ "#FFEDED",
+        backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
         clipPath: Geo().polygon,
         WebkitClipPath: Geo().polygon,
         transition: "background-color .4s linear",
