@@ -1,7 +1,9 @@
 import { useWindowSize } from "./hooks";
+import { use100vh } from "react-div-100vh";
 
 export function Geo() {
   const width = useWindowSize().width;
+  const heightVH = use100vh();
 
   function mediaSize() {
     switch (true) {
@@ -26,3 +28,5 @@ export function Geo() {
     polygon: mediaSize(),
   };
 }
+
+//return `polygon(0 0, 0 ${heightVH ? heightVH : "100vh" }, 45vw ${heightVH ? heightVH : "100vh"}, 20vw 0)`;

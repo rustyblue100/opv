@@ -25,7 +25,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   const mediaSize = () => {
     switch (true) {
       case width! > 1400:
-        return 212;
+        return 232;
       case width! > 899 && width! < 1399:
         return 282;
       case width! > 480 && width! < 899:
@@ -70,7 +70,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
             router.asPath === "/" ? "flex" : "hidden"
           }`}
         >
-          <div className="flex flex-col  justify-center">
+          <div className="flex flex-col justify-center">
             <motion.div
               className={` ${menuHover && "invisible sm:visible "}`}
               initial={{

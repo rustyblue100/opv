@@ -25,7 +25,7 @@ const Spotlights: NextPage<IProps> = ({ menuHover }) => {
   };
 
   return (
-    <motion.div className=" grid h-full grid-cols-3">
+    <motion.div className="grid h-full grid-cols-3">
       <motion.div
         variants={spotlights}
         initial="hidden"

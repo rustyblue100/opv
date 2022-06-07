@@ -74,8 +74,8 @@ const Navigation: NextPage<IProps> = ({
   };
 
   return (
-    <div className="fixed top-0 left-0 -ml-24 flex h-full  items-center justify-start  py-48 pl-24 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw]">
-      <div className="flex h-full items-center px-[50px] py-24">
+    <div className="fixed top-0 left-0 flex h-full  items-center justify-start  py-48 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw]">
+      <div className="flex h-full items-center px-[50px]">
         <motion.ul
           variants={stagger}
           initial="hidden"

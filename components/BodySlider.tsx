@@ -5,12 +5,14 @@ import { AnimationSlider } from "../utils/animations";
 import { useEffect, useState, useContext } from "react";
 import { Context } from "../components/Context";
 import { useWindowSize } from "../utils/hooks";
+import { use100vh } from "react-div-100vh";
 
 const BodySlider = () => {
   const animations = AnimationSlider();
   const [randomColors, setRandomColors] = useState("#FFEDED");
 
   const appContext = useContext(Context);
+  const heightVH = use100vh();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,11 +32,12 @@ const BodySlider = () => {
 
   return (
     <motion.div
-      /*      layout="position" */
+      layout="position"
       layoutId="sliderWrapper"
       initial={{
         opacity: 1,
         x: appContext?.distanceFromLeftBorderWindow,
+
         /*         clipPath: Geo().polygon, */
       }}
       animate={animations}
@@ -42,22 +45,25 @@ const BodySlider = () => {
         opacity: 1,
 
         transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
-        clipPath: Geo().rectangle,
+        /*   clipPath: Geo().rectangle, */
         backgroundColor: "#FFEDED",
       }}
-      className="h-screen w-full will-change-transform md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
+      className="w-full md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
         clipPath: Geo().polygon,
         transition: "background-color .4s linear",
+        minHeight: heightVH ? heightVH : "100vh",
       }}
     >
       <motion.div
         initial={{
           opacity: 0,
+          minHeight: heightVH ? heightVH : "100vh",
         }}
         animate={{
           opacity: 0.3,
+          minHeight: heightVH ? heightVH : "100vh",
         }}
         transition={{
           duration: 1,
