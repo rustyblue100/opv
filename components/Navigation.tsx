@@ -113,13 +113,13 @@ const Navigation: NextPage<IProps> = ({
         </motion.ul>
       </div>
 
-      <div className="text-md -ml-20 max-w-xs flex-1 leading-[40px] text-white xxs:hidden xs:block sm:text-xl md:block md:text-2xl">
+      <div className="text-md -ml-20 hidden max-w-xs flex-1 leading-[40px] text-white sm:block sm:text-xl md:block md:text-2xl">
         <div className="-rotate-90 text-center ">
           <p className="text-xs  md:text-[16px]">☆ Prochain Évènement ☆</p>
           <Marquee
             speed={8}
             gradient={false}
-            className="mt-2 cursor-pointer  text-opv-pink-500 hover:text-opv-pink-900 md:mt-0"
+            className="mt-2 cursor-pointer text-opv-pink-500 hover:text-opv-pink-900 md:mt-0"
           >
             Les Goules - 24 juin 19h30
           </Marquee>
