@@ -60,7 +60,7 @@ a {
 
 .mask{
   opacity:0;
-  mask-image: url(/opv-mask.png);
+/*   mask-image: url(/opv-mask.png); */
 /*   mask-position: top center; */
 /*   background-color: #ffeded; */
 
