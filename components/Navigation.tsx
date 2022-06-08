@@ -74,7 +74,7 @@ const Navigation: NextPage<IProps> = ({
   };
 
   return (
-    <div className="fixed top-0 left-0 flex h-full  items-center justify-start  py-48 sm:pr-[0vw] lg:pr-[40vw] xl:pr-[0vw]">
+    <div className="fixed top-0 left-0 flex h-full items-center justify-between">
       <div className="flex h-full items-center xxs:pl-4 xs:pl-12">
         <motion.ul
           variants={stagger}
@@ -113,7 +113,7 @@ const Navigation: NextPage<IProps> = ({
         </motion.ul>
       </div>
 
-      <div className="text-md w-80 -translate-x-[132px] leading-[40px] text-white xxs:hidden xs:block sm:-translate-x-24 sm:text-xl md:block  md:text-2xl">
+      <div className="text-md -ml-20 max-w-xs flex-1 leading-[40px] text-white xxs:hidden xs:block sm:text-xl md:block md:text-2xl">
         <div className="-rotate-90 text-center ">
           <p className="text-xs  md:text-[16px]">☆ Prochain Évènement ☆</p>
           <Marquee

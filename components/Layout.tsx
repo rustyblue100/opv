@@ -25,12 +25,10 @@ const Layout: NextPage<Iprops> = ({ children }) => {
     switch (true) {
       case width! > 1400:
         return 232;
-      case width! > 899 && width! < 1399:
-        return 282;
-      case width! > 480 && width! < 899:
-        return 272;
+      case width! > 480 && width! < 1399:
+        return 292;
       default:
-        return 162;
+        return 232;
     }
   };
 
@@ -113,7 +111,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
         <Context.Provider
           value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
         >
-          <div className="h-screen ">{children}</div>
+          <div className="h-screen">{children}</div>
         </Context.Provider>
       </motion.div>
     </div>
