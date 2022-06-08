@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export function Geo() {
   const [shape, setShape] = useState("");
   const width = useWindowSize().width;
+  const height = useWindowSize().height;
 
   console.log(width);
 
@@ -13,8 +14,11 @@ export function Geo() {
       switch (true) {
         case width >= 1536:
           return "polygon(0 0, 0 100vh, 56% 100vh, 26% 0)";
+        case width > 800 && width < 1024 && height < 600:
+          return "polygon(0 0, 0 100vh, 56vw 100vh, 32vw 0)";
         case width > 900 && width < 1535:
           return "polygon(0 0, 0 100vh, 45vw 100vh, 20vw 0)";
+
         case width > 480 && width < 899:
           return "polygon(0 0, 0 100vh, 58vw 100vh, 36vw 0)";
         case width > 220 && width < 479:
@@ -26,10 +30,10 @@ export function Geo() {
 
     setShape(mediaSize());
 
-    if (width) {
+    if (width || height) {
       setShape(mediaSize());
     }
-  }, [width]);
+  }, [width, height]);
 
   return {
     rectangle: "polygon(0 0, 0 100vh, 100% 100vh, 100% 0)",
@@ -37,5 +41,3 @@ export function Geo() {
     polygon: shape,
   };
 }
-
-//return `polygon(0 0, 0 ${heightVH ? heightVH : "100vh" }, 45vw ${heightVH ? heightVH : "100vh"}, 20vw 0)`;

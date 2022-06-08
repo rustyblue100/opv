@@ -70,13 +70,13 @@ const Layout: NextPage<Iprops> = ({ children }) => {
         </motion.div>
 
         <div
-          className={`fixed top-0 right-0 h-full pr-4 xl:pr-12 ${
+          className={`fixed top-0 right-0 h-full pr-4 md:pr-10 xl:pr-12 ${
             router.asPath === "/" ? "flex" : "hidden"
           }`}
         >
           <div className="flex flex-col justify-center">
             <motion.div
-              className={` ${menuHover && "invisible sm:visible "}`}
+              className={`${menuHover && "invisible sm:visible"} `}
               initial={{
                 y: 20,
                 opacity: 0,
