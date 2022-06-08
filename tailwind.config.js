@@ -42,6 +42,10 @@ module.exports = {
       iphone_landscape_special: {
         raw: "(width: 667px) and (height: 375px)",
       },
+
+      ipadPro: {
+        raw: "(width: 1366px) and (height: 1024px)",
+      },
     },
     extend: {
       colors: {

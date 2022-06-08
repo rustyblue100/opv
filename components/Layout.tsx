@@ -27,6 +27,8 @@ const Layout: NextPage<Iprops> = ({ children }) => {
         return 232;
       case width! > 480 && width! < 1399:
         return 292;
+      case width! > 310 && width! < 479:
+        return 182;
       default:
         return 232;
     }
