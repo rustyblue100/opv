@@ -73,8 +73,11 @@ const BodySlider = () => {
           ease: "linear",
         }}
         exit={{ opacity: 0, transition: { duration: 0.1 } }}
-        className="relative h-full w-full"
-        style={{ clipPath: Geo().polygon, WebkitClipPath: Geo().polygon }}
+        className="relative h-full w-full overflow-hidden"
+        style={{
+          clipPath: Geo().polygon,
+          WebkitClipPath: Geo().polygon,
+        }}
       >
         <Image
           src="/bg-3.png"

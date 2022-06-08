@@ -2,14 +2,13 @@ import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Context } from "../components/Context";
 import Navigation from "./Navigation";
 import SpotLights from "./SpotLights";
 import Burger from "./Burger";
 import { useWindowSize } from "../utils/hooks";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 interface Iprops {
   children: React.ReactNode;
@@ -53,7 +52,12 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   return (
     <div className="max-w-screen relative">
       <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
-      <div className="relative">
+      <motion.div
+        className="relative"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+      >
         <motion.div
           onHoverStart={() => setMenuHover(true)}
           onHoverEnd={handleOnMouseLeave}
@@ -106,13 +110,12 @@ const Layout: NextPage<Iprops> = ({ children }) => {
             </div>
           </div>
         </div>
-      </div>
-
-      <Context.Provider
-        value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
-      >
-        <div className="h-screen ">{children}</div>
-      </Context.Provider>
+        <Context.Provider
+          value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
+        >
+          <div className="h-screen ">{children}</div>
+        </Context.Provider>
+      </motion.div>
     </div>
   );
 };
