@@ -113,9 +113,6 @@ export const AnimationFullBody = () => {
       await controls.start({ x: 0, opacity: 1, transition: { duration: 0.3 } });
     }
 
-    console.log(appContext?.clicked);
-    console.log(appContext?.menuHover);
-
     switch (true) {
       case appContext?.clicked && !appContext?.menuHover:
         sequenceClicked();

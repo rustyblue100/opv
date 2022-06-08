@@ -6,31 +6,14 @@ import { useEffect, useState, useContext } from "react";
 import { Context } from "../components/Context";
 import { useWindowSize } from "../utils/hooks";
 import { use100vh } from "react-div-100vh";
+import useRamdomColors from "../utils/useRandomColors";
 
 const BodySlider = () => {
-  console.log(Geo().polygon);
-
   const animations = AnimationSlider();
-  const [randomColors, setRandomColors] = useState("#FFEDED");
 
   const appContext = useContext(Context);
   const heightVH = use100vh();
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const hexValues = ["A", "B", "C", "D", "E", "F"];
-
-      let hex = "#";
-
-      for (let i = 0; i < 6; i++) {
-        const index = Math.floor(Math.random() * hexValues.length);
-        hex += hexValues[index];
-      }
-      setRandomColors(hex);
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, []);
+  const randomColors = useRamdomColors();
 
   return (
     <motion.div
