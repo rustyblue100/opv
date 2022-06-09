@@ -23,7 +23,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
 
   const mediaSize = () => {
     switch (true) {
-      case width! > 1400 && width! < 2000:
+      case width! > 1400:
         return 100;
       case width! > 480 && width! < 1399:
         return 40;
@@ -36,9 +36,10 @@ const Layout: NextPage<Iprops> = ({ children }) => {
 
   const mediaSizeHover = () => {
     switch (true) {
-      case width! > 480 && width! < 2000:
+      case width! > 2000:
+        return 452;
+      case width! > 480 && width! < 1999:
         return 332;
-
       case width! > 310 && width! < 479:
         return 182;
       default:
