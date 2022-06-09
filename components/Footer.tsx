@@ -35,9 +35,9 @@ const Footer = () => {
       animate="visible"
       className="mb-4 pt-10 font-bold xl:mt-48"
     >
-      <div className="flex flex-col-reverse items-center justify-between border-t border-opv-black md:flex-row">
-        <div className="md:text-md flex flex-1 items-center justify-between gap-3 text-[10px] uppercase text-opv-black md:justify-start">
-          <div className="max-w-[24px]">
+      <div className="flex flex-col-reverse items-center justify-between  border-t border-opv-black md:flex-row">
+        <div className="flex flex-1  items-center justify-between gap-3 text-[12px] uppercase text-opv-black lg:justify-start xl:text-lg">
+          <div className="max-w-[24px] sm:max-w-[32px]">
             <Image
               width="32"
               height="32"
