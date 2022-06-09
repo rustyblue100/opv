@@ -132,7 +132,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
             distanceLeftHover,
           }}
         >
-          <div className="h-screen">{children}</div>
+          <div className="overflow-y:hidden;   h-screen">{children}</div>
         </Context.Provider>
       </motion.div>
     </div>

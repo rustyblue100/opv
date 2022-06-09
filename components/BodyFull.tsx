@@ -5,6 +5,7 @@ import { use100vh } from "react-div-100vh";
 import { Context } from "../components/Context";
 import { Geo } from "../utils/geoMetrical";
 import Footer from "./Footer";
+import { useRouter } from "next/router";
 
 interface Iprops {
   children: React.ReactNode;
@@ -14,8 +15,10 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
   const heightVH = use100vh();
 
   const appContext = useContext(Context);
+  const route = useRouter();
 
   const rectangle = Geo().rectangle;
+  const polygon = Geo().polygon;
 
   return (
     <motion.div
@@ -31,14 +34,15 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
       }}
       transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
-        /*         clipPath:
+        clipPath:
           route.asPath === "/" || route.asPath === "/en-CA"
             ? polygon
-            : rectangle, */
+            : rectangle,
         transition: {
-          duration: 0.3,
+          duration: 0.4,
           type: "tween",
           ease: "easeInOut",
+          delay: route.asPath === "/" || route.asPath === "/en-CA" ? 0.4 : 0,
         },
       }}
       className="relative bg-opv-pink-500"
