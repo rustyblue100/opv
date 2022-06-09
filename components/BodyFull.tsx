@@ -20,12 +20,24 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
   const rectangle = Geo().rectangle;
   const polygon = Geo().polygon;
 
+  const actionSlider = () => {
+    switch (true) {
+      case !appContext?.menuHover:
+        return appContext!.distanceLeft;
+      case appContext?.menuHover:
+        return appContext!.distanceLeftHover;
+      default:
+        return appContext!.distanceLeft;
+    }
+  };
+
   return (
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
       initial={{
         clipPath: rectangle,
+        WebkitClipPath: rectangle,
         height: heightVH ? heightVH : "100vh",
       }}
       animate={{
@@ -38,6 +50,10 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
           route.asPath === "/" || route.asPath === "/en-CA"
             ? polygon
             : rectangle,
+        WebkitClipPath:
+          route.asPath === "/" || route.asPath === "/en-CA"
+            ? polygon
+            : rectangle,
         transition: {
           duration: 0.4,
           type: "tween",
@@ -47,10 +63,10 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
       }}
       className="relative bg-opv-pink-500"
       style={{
-        marginLeft: !appContext?.menuHover
-          ? appContext!.distanceLeft
-          : appContext!.distanceLeftHover,
+        marginLeft: actionSlider(),
         width: `calc(100vw - ${appContext!.distanceLeft}px)`,
+        clipPath: rectangle,
+        WebkitClipPath: rectangle,
       }}
     >
       <motion.div className="flex h-screen flex-col overflow-y-scroll bg-opv-pink-500 px-5 ">

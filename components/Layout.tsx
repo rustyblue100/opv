@@ -27,10 +27,10 @@ const Layout: NextPage<Iprops> = ({ children }) => {
         return 100;
       case width! > 480 && width! < 1399:
         return 40;
-      case width! > 310 && width! < 1399:
+      case width! > 310 && width! < 479:
         return 0;
       default:
-        return 232;
+        return 100;
     }
   };
 
@@ -54,14 +54,14 @@ const Layout: NextPage<Iprops> = ({ children }) => {
     setMenuHover(false);
     setClicked(false);
   }
-
+  /* 
   useEffect(() => {
     if (router.asPath === "/") {
       document.body.style.overflowY = "hidden";
     } else {
       document.body.style.overflowY = "scroll";
     }
-  }, [router]);
+  }, [router]); */
 
   return (
     <div className="max-w-screen relative">
@@ -132,7 +132,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
             distanceLeftHover,
           }}
         >
-          <div className="h-screen overflow-y-hidden">{children}</div>
+          <div className="h-screen overflow-hidden">{children}</div>
         </Context.Provider>
       </motion.div>
     </div>

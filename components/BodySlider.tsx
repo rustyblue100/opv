@@ -13,11 +13,25 @@ const BodySlider = () => {
   const rectangle = Geo().rectangle;
   const polygon = Geo().polygon;
 
+  const actionSlider = () => {
+    switch (true) {
+      case !appContext?.menuHover:
+        return appContext!.distanceLeft;
+      case appContext?.menuHover:
+        return appContext!.distanceLeftHover;
+      default:
+        return appContext!.distanceLeft;
+    }
+  };
+
   return (
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
-      initial={{ clipPath: polygon, WebkitClipPath: polygon }}
+      initial={{
+        clipPath: polygon,
+        WebkitClipPath: polygon,
+      }}
       animate={{ clipPath: polygon, WebkitClipPath: polygon }}
       transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
@@ -31,9 +45,7 @@ const BodySlider = () => {
       style={{
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
         transition: "background-color 1.4s linear",
-        marginLeft: !appContext?.menuHover
-          ? appContext!.distanceLeft
-          : appContext!.distanceLeftHover,
+        marginLeft: actionSlider(),
         minHeight: heightVH ? heightVH : "100vh",
         backgroundImage: "url(/bg-3-opacity.png)",
         clipPath: polygon,
