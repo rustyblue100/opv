@@ -9,8 +9,7 @@ export const AnimationSlider = () => {
   const appContext = useContext(Context);
 
   const controls = useAnimation();
-  const storage = globalThis?.sessionStorage;
-  const prevPath = storage && storage.getItem("prevPath");
+
   const route = useRouter().asPath;
 
   const rectangle = Geo().rectangle;
@@ -70,7 +69,7 @@ export const AnimationSlider = () => {
         sequenceNotHovered();
         break;
     }
-  }, [controls, appContext, rectangle, polygon, prevPath, route]);
+  }, [controls, appContext, rectangle, polygon, route]);
 
   return controls;
 };
@@ -79,7 +78,6 @@ export const AnimationFullBody = () => {
   const appContext = useContext(Context);
 
   const controls = useAnimation();
-  const storage = globalThis?.sessionStorage;
 
   const rectangle = Geo().rectangle;
   const polygon = Geo().polygon;

@@ -5,17 +5,6 @@ import Layout from "../components/Layout";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  useEffect(() => storePathValues, [router.asPath]);
-
-  function storePathValues() {
-    const storage = globalThis?.sessionStorage;
-    if (!storage) return;
-
-    const prevPath: any = storage.getItem("currentPath");
-    storage.setItem("prevPath", prevPath);
-    storage.setItem("currentPath", globalThis.location.pathname);
-  }
-
   return (
     <Layout>
       <AnimatePresence
