@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { LayoutGroup, motion } from "framer-motion";
 import { Geo } from "../utils/geoMetrical";
 import { AnimationSlider } from "../utils/animations";
 import { useEffect, useState, useContext } from "react";
@@ -23,19 +23,20 @@ const BodySlider = () => {
         opacity: 1,
         x: appContext?.distanceFromLeftBorderWindow,
 
-        /*         clipPath: Geo().polygon, */
+        /*  clipPath: Geo().polygon, */
       }}
       animate={animations}
       exit={{
         opacity: 1,
-
         transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
-        /*   clipPath: Geo().rectangle, */
+        clipPath: Geo().rectangle,
+
         backgroundColor: "#FFEDED",
       }}
       className="w-full md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
+        /*       backgroundImage: "url('/bg-3-opacity.png')", */
         clipPath: Geo().polygon,
         WebkitClipPath: Geo().polygon,
         transition: "background-color .4s linear",
@@ -48,22 +49,19 @@ const BodySlider = () => {
           minHeight: heightVH ? heightVH : "100vh",
         }}
         animate={{
-          opacity: 0.3,
+          opacity: 1,
           minHeight: heightVH ? heightVH : "100vh",
         }}
         transition={{
           duration: 1,
-          ease: "linear",
+          ease: "easeInOut",
         }}
         exit={{ opacity: 0, transition: { duration: 0.1 } }}
-        className="relative h-full w-full overflow-hidden"
-        style={{
-          clipPath: Geo().polygon,
-          WebkitClipPath: Geo().polygon,
-        }}
+        className="relative h-full w-full"
+        style={{ clipPath: Geo().polygon, WebkitClipPath: Geo().polygon }}
       >
         <Image
-          src="/bg-3.png"
+          src="/bg-3-opacity.png"
           layout="fill"
           objectPosition="center"
           objectFit="cover"

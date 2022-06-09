@@ -25,13 +25,10 @@ export const AnimationSlider = () => {
     async function sequenceClicked() {
       await controls.start({
         x: appContext?.distanceFromLeftBorderWindow,
-        /*         clipPath: rectangle, */
-
         transition: defaultTransition,
       });
 
       await controls.start({
-        /*    clipPath: polygon, */
         x: 0,
         transition: defaultTransition,
       });
@@ -93,8 +90,11 @@ export const AnimationFullBody = () => {
       await controls.start({
         x: appContext?.distanceFromLeftBorderWindow,
         transition: defaultTransition,
+        clipPath: polygon,
       });
-      await controls.start({
+
+      controls.start({
+        clipPath: rectangle,
         x: 0,
         transition: defaultTransition,
       });
