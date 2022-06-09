@@ -1,12 +1,11 @@
-import { LayoutGroup, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
-import { AnimationFullBody } from "../utils/animations";
+import { useContext } from "react";
+import { use100vh } from "react-div-100vh";
+import { Context } from "../components/Context";
 import { Geo } from "../utils/geoMetrical";
 import Footer from "./Footer";
-import { useContext } from "react";
-import { Context } from "../components/Context";
 import { useRouter } from "next/router";
-import { use100vh } from "react-div-100vh";
 
 interface Iprops {
   children: React.ReactNode;
@@ -15,40 +14,67 @@ interface Iprops {
 const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
   const heightVH = use100vh();
 
-  const animations = AnimationFullBody();
   const appContext = useContext(Context);
+  const route = useRouter();
 
   const rectangle = Geo().rectangle;
   const polygon = Geo().polygon;
 
-  const route = useRouter();
+  const actionSlider = () => {
+    switch (true) {
+      case !appContext?.menuHover:
+        return appContext!.distanceLeft;
+      case appContext?.menuHover:
+        return appContext!.distanceLeftHover;
+      default:
+        return appContext!.distanceLeft;
+    }
+  };
 
   return (
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
       initial={{
-        x: appContext!.distanceFromLeftBorderWindow,
+        clipPath: rectangle,
+        WebkitClipPath: rectangle,
+        height: heightVH ? heightVH : "100vh",
+        marginLeft: actionSlider(),
       }}
-      animate={animations}
+      animate={{
+        clipPath: rectangle,
+        height: heightVH ? heightVH : "100vh",
+        marginLeft: actionSlider(),
+      }}
+      transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
-        opacity: 1,
-        transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
-        /*         clipPath:
+        clipPath:
           route.asPath === "/" || route.asPath === "/en-CA"
             ? polygon
-            : rectangle, */
+            : rectangle,
+        WebkitClipPath:
+          route.asPath === "/" || route.asPath === "/en-CA"
+            ? polygon
+            : rectangle,
+        transition: {
+          duration: 0.4,
+          type: "tween",
+          ease: "easeInOut",
+          delay: route.asPath === "/" || route.asPath === "/en-CA" ? 0.4 : 0,
+        },
       }}
-      className="relative scale-x-100  bg-opv-pink-500 px-0 will-change-auto md:ml-[40px] xl:ml-[100px] xl:px-0"
-      style={{ minHeight: heightVH ? heightVH : "100vh" }}
+      className="relative bg-opv-pink-500"
+      style={{
+        marginLeft: actionSlider(),
+        width: `calc(100vw - ${appContext!.distanceLeft}px)`,
+        clipPath: rectangle,
+        WebkitClipPath: rectangle,
+      }}
     >
-      <div
-        className="flex min-h-screen flex-col px-5 will-change-auto md:w-[calc(100vw-40px)] lg:px-10 xl:w-[calc(100vw-100px)]"
-        /*         style={{ minHeight: heightVH ? heightVH : "100vh" }} */
-      >
-        <div className="flex-1">{children}</div>
+      <motion.div className="flex h-screen flex-col overflow-y-scroll bg-opv-pink-500 px-5 ">
+        <motion.div className="flex-1">{children}</motion.div>
         <Footer />
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

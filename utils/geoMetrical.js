@@ -7,8 +7,6 @@ export function Geo() {
   const width = useWindowSize().width;
   const height = useWindowSize().height;
 
-  console.log(width);
-
   useEffect(() => {
     function mediaSize() {
       switch (true) {

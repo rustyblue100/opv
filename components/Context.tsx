@@ -3,7 +3,8 @@ import { createContext } from "react";
 interface AppContextInterface {
   menuHover: boolean;
   clicked: boolean;
-  distanceFromLeftBorderWindow: number;
+  distanceLeft: number;
+  distanceLeftHover: number;
 }
 
 export const Context = createContext<AppContextInterface | null>(null);

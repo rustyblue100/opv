@@ -21,6 +21,7 @@ const calendrier = () => {
           <CalendarCell complet={true} />
           <CalendarCell />
           <CalendarCell />
+          <CalendarCell complet={true} />
         </div>
       </motion.main>
     </BodyFull>

@@ -1,77 +1,67 @@
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Geo } from "../utils/geoMetrical";
-import { AnimationSlider } from "../utils/animations";
-import { useEffect, useState, useContext } from "react";
-import { Context } from "../components/Context";
-import { useWindowSize } from "../utils/hooks";
+import { useContext } from "react";
 import { use100vh } from "react-div-100vh";
+import { Context } from "../components/Context";
+import { Geo } from "../utils/geoMetrical";
 import useRamdomColors from "../utils/useRandomColors";
+import Image from "next/image";
 
 const BodySlider = () => {
-  const animations = AnimationSlider();
-
   const appContext = useContext(Context);
   const heightVH = use100vh();
   const randomColors = useRamdomColors();
+
+  const rectangle = Geo().rectangle;
+  const polygon = Geo().polygon;
+
+  const actionSlider = () => {
+    switch (true) {
+      case !appContext?.menuHover:
+        return appContext!.distanceLeft;
+      case appContext?.menuHover:
+        return appContext!.distanceLeftHover;
+      default:
+        return appContext!.distanceLeft;
+    }
+  };
 
   return (
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
       initial={{
-        opacity: 1,
-        x: appContext?.distanceFromLeftBorderWindow,
-
-        /*         clipPath: Geo().polygon, */
+        clipPath: polygon,
+        WebkitClipPath: polygon,
+        marginLeft: actionSlider(),
+        scale: 1.01,
       }}
-      animate={animations}
+      animate={{
+        clipPath: polygon,
+        WebkitClipPath: polygon,
+        marginLeft: actionSlider(),
+        scale: 1.01,
+      }}
+      transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
+        scale: 1.01,
+        clipPath: rectangle,
+        WebkitClipPath: rectangle,
         opacity: 1,
-        transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
-        /*   clipPath: Geo().rectangle, */
+        transition: { duration: 0.6, type: "tween", ease: "easeInOut" },
         backgroundColor: "#FFEDED",
+        backgroundImage: "",
       }}
-      className="w-full will-change-auto md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
-        clipPath: Geo().polygon,
-        WebkitClipPath: Geo().polygon,
-        transition: "background-color .4s linear",
+        transition: "background-color 1.4s linear",
+        marginLeft: actionSlider(),
         minHeight: heightVH ? heightVH : "100vh",
+        backgroundImage: "url(/bg-3-opacity.png)",
+        clipPath: polygon,
+        WebkitClipPath: polygon,
+        scale: 1.01,
       }}
-    >
-      <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 0.8,
-        }}
-        transition={{
-          duration: 1,
-          ease: "linear",
-        }}
-        exit={{ opacity: 0, transition: { duration: 0.1 } }}
-        className="relative h-full w-full overflow-hidden will-change-auto"
-        style={{
-          clipPath: Geo().polygon,
-          WebkitClipPath: Geo().polygon,
-          width: "100%",
-          minHeight: heightVH ? heightVH : "100vh",
-          position: "relative",
-        }}
-      >
-        <Image
-          src="/bg-3-opacity.png"
-          layout="fill"
-          objectPosition="center"
-          objectFit="cover"
-          alt=""
-          priority
-        />
-      </motion.div>
-    </motion.div>
+    ></motion.div>
   );
 };
 

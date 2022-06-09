@@ -24,30 +24,44 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   const mediaSize = () => {
     switch (true) {
       case width! > 1400:
-        return 232;
-      case width! > 480 && width! < 1399:
-        return 292;
-      case width! > 310 && width! < 479:
+        return 100;
+      case width! > 722 && width! < 1399:
+        return 40;
+      case width! > 210 && width! < 721:
+        return 0;
+      default:
+        return 100;
+    }
+  };
+
+  const mediaSizeHover = () => {
+    switch (true) {
+      case width! > 2000:
+        return 452;
+      case width! > 480 && width! < 1999:
+        return 332;
+      case width! > 210 && width! < 479:
         return 182;
       default:
         return 232;
     }
   };
 
-  const distanceFromLeftBorderWindow = mediaSize();
+  const distanceLeft = mediaSize();
+  const distanceLeftHover = mediaSizeHover();
 
   function handleOnMouseLeave() {
     setMenuHover(false);
     setClicked(false);
   }
-
+  /* 
   useEffect(() => {
     if (router.asPath === "/") {
       document.body.style.overflowY = "hidden";
     } else {
       document.body.style.overflowY = "scroll";
     }
-  }, [router]);
+  }, [router]); */
 
   return (
     <div className="max-w-screen relative">
@@ -111,9 +125,14 @@ const Layout: NextPage<Iprops> = ({ children }) => {
           </div>
         </div>
         <Context.Provider
-          value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
+          value={{
+            menuHover,
+            clicked,
+            distanceLeft,
+            distanceLeftHover,
+          }}
         >
-          <div className="h-screen">{children}</div>
+          <div className="h-screen overflow-hidden">{children}</div>
         </Context.Provider>
       </motion.div>
     </div>
