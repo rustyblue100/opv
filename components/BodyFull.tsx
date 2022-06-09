@@ -41,7 +41,7 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
           ease: "easeInOut",
         },
       }}
-      className="relative bg-opv-pink-500 px-0 xl:px-0"
+      className="relative bg-opv-pink-500"
       style={{
         marginLeft: !appContext?.menuHover
           ? appContext!.distanceLeft

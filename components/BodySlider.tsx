@@ -28,7 +28,6 @@ const BodySlider = () => {
         backgroundColor: "#FFEDED",
         backgroundImage: "",
       }}
-      className="w-full md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
         transition: "background-color 1.4s linear",

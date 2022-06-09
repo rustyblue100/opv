@@ -14,7 +14,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
         <motion.hr
           initial={{ opacity: 0, width: 0 }}
           animate={{ opacity: 1, width: "100%" }}
-          transition={{ duration: 0.6, delay: 0 }}
+          transition={{ duration: 0.5, delay: 0 }}
           className="absolute top-0 w-full border-t border-opv-black-300"
         ></motion.hr>
 
@@ -25,7 +25,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
           <motion.div
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
             className="text-3xl font-normal lg:text-6xl"
           >
             03
@@ -36,7 +36,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 1.3 }}
+              transition={{ duration: 0.3, delay: 1.1 }}
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 transform border border-opv-pink-1200 p-1 uppercase tracking-wide text-opv-pink-1200 md:text-2xl">
                 Complet
@@ -47,13 +47,13 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.6 }}
+          transition={{ duration: 0.3, delay: 0.6 }}
           className="relative flex-1 border-opv-black-300 sm:border-l sm:pl-5"
         >
           <motion.div
             initial={{ opacity: 0, y: 5, rotate: -90 }}
             animate={{ opacity: 1, y: 0, rotate: -90 }}
-            transition={{ duration: 0.3, delay: 1 }}
+            transition={{ duration: 0.2, delay: 1 }}
             className="absolute bottom-6 -left-12 hidden -rotate-90 text-sm font-normal sm:block"
           >
             Entrée: 10$
@@ -62,7 +62,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
               className="text-3xl font-normal md:text-4xl"
             >
               Les Goules
@@ -74,7 +74,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 1.2 }}
+              transition={{ duration: 0.2, delay: 1.2 }}
               className="mt-0 text-sm font-normal sm:mt-0"
             >
               <div className="md:-rotate-90">19h30</div>
@@ -85,7 +85,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="md:w-[200px]"
             >
               <Image
@@ -100,7 +100,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-4 max-w-lg flex-1 xl:mt-0 xl:px-4"
             >
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
