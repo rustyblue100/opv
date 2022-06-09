@@ -22,48 +22,26 @@ const BodySlider = () => {
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
-      initial={{ clipPath: polygon }}
+      initial={{ clipPath: rectangle }}
       animate={{ clipPath: polygon }}
       transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
-      exit={{ clipPath: rectangle }}
+      exit={{
+        clipPath: rectangle,
+        opacity: 1,
+        transition: { duration: 0.6, type: "tween", ease: "easeInOut" },
+        backgroundColor: "#FFEDED",
+        backgroundImage: "",
+      }}
       className="w-full md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
-        marginLeft: appContext?.menuHover
-          ? appContext!.distanceFromLeftBorderWindow
-          : 100,
-
-        transition: "background-color .4s linear",
+        marginLeft: !appContext?.menuHover
+          ? appContext!.distanceLeft
+          : appContext!.distanceLeftHover,
         minHeight: heightVH ? heightVH : "100vh",
+        backgroundImage: "url(/bg-3-opacity.png)",
       }}
-    >
-      <motion.div
-        initial={{
-          opacity: 0,
-          minHeight: heightVH ? heightVH : "100vh",
-        }}
-        animate={{
-          opacity: 1,
-          minHeight: heightVH ? heightVH : "100vh",
-        }}
-        transition={{
-          duration: 1,
-          ease: "easeInOut",
-        }}
-        exit={{ opacity: 0, transition: { duration: 0.1 } }}
-        className="relative h-full w-full"
-        style={{ clipPath: Geo().polygon, WebkitClipPath: Geo().polygon }}
-      >
-        <Image
-          src="/bg-3-opacity.png"
-          layout="fill"
-          objectPosition="center"
-          objectFit="cover"
-          alt=""
-          priority
-        />
-      </motion.div>
-    </motion.div>
+    ></motion.div>
   );
 };
 

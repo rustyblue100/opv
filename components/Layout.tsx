@@ -23,10 +23,22 @@ const Layout: NextPage<Iprops> = ({ children }) => {
 
   const mediaSize = () => {
     switch (true) {
-      case width! > 1400:
-        return 332;
+      case width! > 1400 && width! < 2000:
+        return 100;
       case width! > 480 && width! < 1399:
-        return 292;
+        return 40;
+      case width! > 310 && width! < 1399:
+        return 0;
+      default:
+        return 232;
+    }
+  };
+
+  const mediaSizeHover = () => {
+    switch (true) {
+      case width! > 480 && width! < 2000:
+        return 332;
+
       case width! > 310 && width! < 479:
         return 182;
       default:
@@ -34,7 +46,8 @@ const Layout: NextPage<Iprops> = ({ children }) => {
     }
   };
 
-  const distanceFromLeftBorderWindow = mediaSize();
+  const distanceLeft = mediaSize();
+  const distanceLeftHover = mediaSizeHover();
 
   function handleOnMouseLeave() {
     setMenuHover(false);
@@ -111,7 +124,12 @@ const Layout: NextPage<Iprops> = ({ children }) => {
           </div>
         </div>
         <Context.Provider
-          value={{ menuHover, clicked, distanceFromLeftBorderWindow }}
+          value={{
+            menuHover,
+            clicked,
+            distanceLeft,
+            distanceLeftHover,
+          }}
         >
           <div className="h-screen">{children}</div>
         </Context.Provider>
