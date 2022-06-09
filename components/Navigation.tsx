@@ -75,12 +75,12 @@ const Navigation: NextPage<IProps> = ({
 
   return (
     <div className="fixed top-0 left-0 flex h-full items-center justify-between">
-      <div className="flex h-full items-center xxs:pl-4 xs:pl-12">
+      <div className="flex h-full items-center pl-4 xs:pl-12">
         <motion.ul
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className={`text-lg  capitalize leading-[30px] text-opv-pink-900 sm:text-lg md:text-2xl 
+          className={`text-md  capitalize leading-[30px] text-opv-pink-900 sm:text-lg md:text-2xl 
           md:leading-[43px]`}
         >
           {menu.map((menuItem, i) => {
