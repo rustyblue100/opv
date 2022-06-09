@@ -17,7 +17,7 @@ const BodySlider = () => {
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
-      initial={{ clipPath: rectangle }}
+      initial={false}
       animate={{ clipPath: polygon }}
       transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
