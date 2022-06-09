@@ -17,11 +17,12 @@ const BodySlider = () => {
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
-      initial={false}
-      animate={{ clipPath: polygon }}
+      initial={{ clipPath: rectangle, WebkitClipPath: rectangle }}
+      animate={{ clipPath: polygon, WebkitClipPath: polygon }}
       transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
         clipPath: rectangle,
+        WebkitClipPath: rectangle,
         opacity: 1,
         transition: { duration: 0.6, type: "tween", ease: "easeInOut" },
         backgroundColor: "#FFEDED",
