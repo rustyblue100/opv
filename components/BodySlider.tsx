@@ -28,12 +28,11 @@ const BodySlider = () => {
       animate={animations}
       exit={{
         opacity: 1,
-
         transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
         /*   clipPath: Geo().rectangle, */
         backgroundColor: "#FFEDED",
       }}
-      className="w-full md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
+      className="w-full will-change-auto md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
         clipPath: Geo().polygon,
@@ -45,25 +44,26 @@ const BodySlider = () => {
       <motion.div
         initial={{
           opacity: 0,
-          minHeight: heightVH ? heightVH : "100vh",
         }}
         animate={{
-          opacity: 0.3,
-          minHeight: heightVH ? heightVH : "100vh",
+          opacity: 0.8,
         }}
         transition={{
           duration: 1,
           ease: "linear",
         }}
         exit={{ opacity: 0, transition: { duration: 0.1 } }}
-        className="relative h-full w-full overflow-hidden"
+        className="relative h-full w-full overflow-hidden will-change-auto"
         style={{
           clipPath: Geo().polygon,
           WebkitClipPath: Geo().polygon,
+          width: "100%",
+          minHeight: heightVH ? heightVH : "100vh",
+          position: "relative",
         }}
       >
         <Image
-          src="/bg-3.png"
+          src="/bg-3-opacity.png"
           layout="fill"
           objectPosition="center"
           objectFit="cover"
