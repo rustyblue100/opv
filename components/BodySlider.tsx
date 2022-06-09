@@ -1,16 +1,11 @@
-import Image from "next/image";
-import { LayoutGroup, motion } from "framer-motion";
-import { Geo } from "../utils/geoMetrical";
-import { AnimationSlider } from "../utils/animations";
-import { useEffect, useState, useContext } from "react";
-import { Context } from "../components/Context";
-import { useWindowSize } from "../utils/hooks";
+import { motion } from "framer-motion";
+import { useContext } from "react";
 import { use100vh } from "react-div-100vh";
+import { Context } from "../components/Context";
+import { Geo } from "../utils/geoMetrical";
 import useRamdomColors from "../utils/useRandomColors";
 
 const BodySlider = () => {
-  const animations = AnimationSlider();
-
   const appContext = useContext(Context);
   const heightVH = use100vh();
   const randomColors = useRamdomColors();

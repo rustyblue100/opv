@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
-import { AnimationFullBody } from "../utils/animations";
+import { useContext } from "react";
+import { use100vh } from "react-div-100vh";
+import { Context } from "../components/Context";
 import { Geo } from "../utils/geoMetrical";
 import Footer from "./Footer";
-import { useContext } from "react";
-import { Context } from "../components/Context";
-import { useRouter } from "next/router";
-import { use100vh } from "react-div-100vh";
-import { useWindowSize } from "../utils/hooks";
 
 interface Iprops {
   children: React.ReactNode;
@@ -19,7 +16,6 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
   const appContext = useContext(Context);
 
   const rectangle = Geo().rectangle;
-  const polygon = Geo().polygon;
 
   return (
     <motion.div
