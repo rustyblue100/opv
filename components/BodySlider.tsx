@@ -15,30 +15,24 @@ const BodySlider = () => {
   const heightVH = use100vh();
   const randomColors = useRamdomColors();
 
+  const rectangle = Geo().rectangle;
+  const polygon = Geo().polygon;
+
   return (
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
-      initial={{
-        opacity: 1,
-        x: appContext?.distanceFromLeftBorderWindow,
-
-        /*  clipPath: Geo().polygon, */
-      }}
-      animate={animations}
-      exit={{
-        opacity: 1,
-        transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
-        clipPath: Geo().rectangle,
-
-        backgroundColor: "#FFEDED",
-      }}
+      initial={{ clipPath: polygon }}
+      animate={{ clipPath: polygon }}
+      transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
+      exit={{ clipPath: rectangle }}
       className="w-full md:ml-[40px] xl:ml-[100px] iphone_landscape_special:ml-[40px]"
       style={{
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
-        /*       backgroundImage: "url('/bg-3-opacity.png')", */
-        clipPath: Geo().polygon,
-        WebkitClipPath: Geo().polygon,
+        marginLeft: appContext?.menuHover
+          ? appContext!.distanceFromLeftBorderWindow
+          : 100,
+
         transition: "background-color .4s linear",
         minHeight: heightVH ? heightVH : "100vh",
       }}

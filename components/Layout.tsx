@@ -24,7 +24,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   const mediaSize = () => {
     switch (true) {
       case width! > 1400:
-        return 232;
+        return 332;
       case width! > 480 && width! < 1399:
         return 292;
       case width! > 310 && width! < 479:

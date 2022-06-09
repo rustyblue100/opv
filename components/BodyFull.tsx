@@ -27,20 +27,24 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
-      initial={{
-        x: appContext!.distanceFromLeftBorderWindow,
-      }}
-      animate={animations}
+      initial={{ clipPath: "polygon(0 0, 0 100vh, 100% 100vh, 100% 0)" }}
+      animate={{ clipPath: "polygon(0 0, 0 100vh, 100% 100vh, 100% 0)" }}
+      transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
-        opacity: 1,
-        transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
         clipPath:
           route.asPath === "/" || route.asPath === "/en-CA"
             ? polygon
             : rectangle,
       }}
       className="relative scale-x-100  bg-opv-pink-500 px-0 md:ml-[40px] xl:ml-[100px] xl:px-0"
-      style={{ minHeight: heightVH ? heightVH : "100vh" }}
+      style={{
+        marginLeft: appContext?.menuHover
+          ? appContext!.distanceFromLeftBorderWindow
+          : 100,
+
+        transition: "background-color .4s linear",
+        minHeight: heightVH ? heightVH : "100vh",
+      }}
     >
       <motion.div
         className="flex min-h-screen flex-col px-5 md:w-[calc(100vw-40px)] lg:px-10 xl:w-[calc(100vw-100px)] "
