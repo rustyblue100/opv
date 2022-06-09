@@ -4,7 +4,6 @@ import { use100vh } from "react-div-100vh";
 import { Context } from "../components/Context";
 import { Geo } from "../utils/geoMetrical";
 import useRamdomColors from "../utils/useRandomColors";
-import Image from "next/image";
 
 const BodySlider = () => {
   const appContext = useContext(Context);

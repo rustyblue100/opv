@@ -60,7 +60,7 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
           duration: 0.4,
           type: "tween",
           ease: "easeInOut",
-          delay: route.asPath === "/" || route.asPath === "/en-CA" ? 0.4 : 0,
+          delay: route.asPath === "/" || route.asPath === "/en-CA" ? 0.5 : 0,
         },
       }}
       className="relative bg-opv-pink-500"
