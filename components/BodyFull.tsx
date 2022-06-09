@@ -39,10 +39,12 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
         clipPath: rectangle,
         WebkitClipPath: rectangle,
         height: heightVH ? heightVH : "100vh",
+        marginLeft: actionSlider(),
       }}
       animate={{
         clipPath: rectangle,
         height: heightVH ? heightVH : "100vh",
+        marginLeft: actionSlider(),
       }}
       transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
