@@ -37,6 +37,8 @@ const BodySlider = () => {
           : appContext!.distanceLeftHover,
         minHeight: heightVH ? heightVH : "100vh",
         backgroundImage: "url(/bg-3-opacity.png)",
+        clipPath: polygon,
+        WebkitClipPath: polygon,
       }}
     ></motion.div>
   );
