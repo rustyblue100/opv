@@ -32,7 +32,6 @@ const BodySlider = () => {
       drag={width! < 680 ? "x" : false}
       dragConstraints={{ left: 0, right: 100 }}
       dragElastic={0.1}
-      dragSnapToOrigin
       layout="position"
       layoutId="sliderWrapper"
       initial={{
