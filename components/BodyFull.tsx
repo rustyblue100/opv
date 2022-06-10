@@ -71,7 +71,10 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
         WebkitClipPath: rectangle, */
       }}
     >
-      <motion.div className="flex h-screen flex-col overflow-y-scroll bg-opv-pink-500 px-5 ">
+      <motion.div
+        style={{ height: heightVH ? heightVH : "100vh" }}
+        className="flexflex-col overflow-y-scroll bg-opv-pink-500 px-5 "
+      >
         <motion.div className="flex-1">{children}</motion.div>
         <Footer />
       </motion.div>
