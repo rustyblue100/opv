@@ -72,7 +72,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <motion.div
+        <motion.nav
           onHoverStart={() => setMenuHover(true)}
           onHoverEnd={handleOnMouseLeave}
         >
@@ -81,7 +81,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
             setClicked={setClicked}
             setMenuHover={setMenuHover}
           />
-        </motion.div>
+        </motion.nav>
 
         <div
           className={`fixed top-0 right-0 h-full pr-4 md:pr-8 xl:pr-12 ${
@@ -132,7 +132,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
             distanceLeftHover,
           }}
         >
-          <div className="h-screen overflow-hidden">{children}</div>
+          <main className="h-screen overflow-hidden">{children}</main>
         </Context.Provider>
       </motion.div>
     </div>
