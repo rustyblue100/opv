@@ -39,6 +39,7 @@
 
 html,
 body {
+  position:relative; 
   overflow-y:hidden;
   -webkit-font-smoothing: antialiased;
   background-color: #101010;
