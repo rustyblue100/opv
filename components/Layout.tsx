@@ -9,6 +9,7 @@ import SpotLights from "./SpotLights";
 import Burger from "./Burger";
 import { useWindowSize } from "../utils/hooks";
 import { useRouter } from "next/router";
+import { use100vh } from "react-div-100vh";
 
 interface Iprops {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ const Layout: NextPage<Iprops> = ({ children }) => {
 
   const width = useWindowSize().width;
   const router = useRouter();
+  const heightVH = use100vh();
 
   const mediaSize = () => {
     switch (true) {
@@ -132,7 +134,12 @@ const Layout: NextPage<Iprops> = ({ children }) => {
             distanceLeftHover,
           }}
         >
-          <main className="h-screen overflow-hidden">{children}</main>
+          <main
+            style={{ height: heightVH ? heightVH : "100vh" }}
+            className="overflow-hidden"
+          >
+            {children}
+          </main>
         </Context.Provider>
       </motion.div>
     </div>
