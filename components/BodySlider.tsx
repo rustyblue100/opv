@@ -29,9 +29,6 @@ const BodySlider = () => {
 
   return (
     <motion.div
-      drag={width! < 680 ? "x" : false}
-      dragConstraints={{ left: 0, right: 120 }}
-      dragElastic={0.1}
       layout="position"
       layoutId="sliderWrapper"
       initial={{
