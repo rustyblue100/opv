@@ -67,8 +67,8 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
       style={{
         marginLeft: actionSlider(),
         width: `calc(100vw - ${appContext!.distanceLeft}px)`,
-        clipPath: rectangle,
-        WebkitClipPath: rectangle,
+        /*   clipPath: rectangle,
+        WebkitClipPath: rectangle, */
       }}
     >
       <motion.div className="flex h-screen flex-col overflow-y-scroll bg-opv-pink-500 px-5 ">

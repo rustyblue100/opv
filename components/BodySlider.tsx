@@ -32,17 +32,14 @@ const BodySlider = () => {
         clipPath: polygon,
         WebkitClipPath: polygon,
         marginLeft: actionSlider(),
-        scale: 1.01,
       }}
       animate={{
         clipPath: polygon,
         WebkitClipPath: polygon,
         marginLeft: actionSlider(),
-        scale: 1.01,
       }}
       transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
-        scale: 1.01,
         clipPath: rectangle,
         WebkitClipPath: rectangle,
         opacity: 1,
@@ -56,9 +53,8 @@ const BodySlider = () => {
         marginLeft: actionSlider(),
         minHeight: heightVH ? heightVH : "100vh",
         backgroundImage: "url(/bg-3-opacity.png)",
-        clipPath: polygon,
-        WebkitClipPath: polygon,
-        scale: 1.01,
+        /*       clipPath: polygon,
+        WebkitClipPath: polygon, */
       }}
     ></motion.div>
   );
