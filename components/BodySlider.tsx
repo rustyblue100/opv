@@ -54,7 +54,7 @@ const BodySlider = () => {
         backgroundColor: !appContext?.menuHover ? randomColors : "#FFEDED",
         transition: "background-color 1.4s linear",
         marginLeft: actionSlider(),
-        minHeight: "100vh",
+        minHeight: heightVH ? heightVH : "100vh",
         backgroundImage: "url(/bg-3-opacity.png)",
         /*       clipPath: polygon,
         WebkitClipPath: polygon, */
