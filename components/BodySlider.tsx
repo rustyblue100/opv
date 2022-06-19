@@ -57,7 +57,7 @@ const BodySlider = () => {
         minHeight: heightVH ? heightVH : "100vh",
         backgroundImage: "url(/bg-3-opacity.png)",
       }}
-      className="clipping"
+      className="[clip-path:polygon(0_0,0_100vh,47vw_100vh,22vw_0)]"
     ></motion.div>
   );
 };

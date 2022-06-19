@@ -78,9 +78,3 @@ a {
     @apply text-opv-pink-900 text-2xl lg:text-3xl uppercase mb-3
   }
 
-
-
-
-  .clipping {
-   clip-path: polygon(0 0, 0 100vh, 47vw 100vh, 22vw 0)
-  }
