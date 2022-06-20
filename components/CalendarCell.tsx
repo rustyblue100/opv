@@ -2,12 +2,27 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { NextPage } from "next";
+import dayjs from "dayjs";
+import "dayjs/locale/fr";
 
-interface Iprops {
-  complet?: boolean;
-}
+type Iprops = {
+  data: {
+    date: string;
+    title: {
+      fr: string;
+      en?: string;
+    };
+    imageUrl?: string;
+    complet?: boolean;
+    prix?: number;
+  };
+};
 
-const CalendarCell: NextPage<Iprops> = ({ complet }) => {
+const CalendarCell: NextPage<Iprops> = ({ data }) => {
+  const { title, imageUrl, complet, prix, date } = data;
+
+  console.log(data);
+
   return (
     <div className="relative ">
       <div className="flex w-full flex-col justify-between overflow-hidden py-6 sm:flex-row ">
@@ -20,7 +35,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
 
         <div className="relative flex-1">
           <div className="mb-2 text-2xl font-bold sm:mb-0 md:text-3xl">
-            vendredi
+            {dayjs(date).locale("fr").format("dddd")}
           </div>
           <motion.div
             initial={{ opacity: 0, y: 5 }}
@@ -28,8 +43,10 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-3xl font-normal lg:text-6xl"
           >
-            03
-            <small className="relative top-1 align-top text-xs">Janvier</small>
+            {dayjs(date).format("DD")}
+            <small className="relative top-1 align-top text-xs">
+              {dayjs(date).locale("fr").format("MMMM")}
+            </small>
           </motion.div>
 
           {complet && (
@@ -56,7 +73,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             transition={{ duration: 0.2, delay: 0.9 }}
             className="absolute bottom-6 -left-12 hidden -rotate-90 text-sm font-normal sm:block"
           >
-            Entrée: 10$
+            Entrée: {prix}$
           </motion.div>
           <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <motion.div
@@ -65,7 +82,7 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-3xl font-normal md:text-4xl"
             >
-              Les Goules
+              {title?.fr}
               <div className="mt-1 text-sm">
                 Musiciens: Jf-Batteur / Marc-Guitariste
               </div>
@@ -90,7 +107,11 @@ const CalendarCell: NextPage<Iprops> = ({ complet }) => {
             >
               <Image
                 className="flex-1"
-                src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
+                src={
+                  imageUrl
+                    ? imageUrl
+                    : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
+                }
                 width="400"
                 height="400"
                 objectFit="cover"

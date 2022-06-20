@@ -2,7 +2,7 @@
 
 export default {
   name: "evenements",
-  title: "Évènements",
+  title: "Évènements récurrents",
   type: "document",
   fields: [
     {

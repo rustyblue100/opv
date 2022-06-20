@@ -3,8 +3,8 @@ const dayjs = require("dayjs");
 require("dayjs/locale/fr");
 
 export default {
-  name: "post",
-  title: "Post",
+  name: "calendrier",
+  title: "Calendrier",
   type: "document",
   fields: [
     {
@@ -47,9 +47,9 @@ export default {
     }, */
 
     {
-      name: "publishedAt",
+      name: "date",
       title: "Date de l'évènement",
-      type: "datetime",
+      type: "date",
       options: {
         dateFormat: "YYYY-MM-DD",
         timeFormat: "HH:mm",
@@ -88,23 +88,34 @@ export default {
         return document?.evenements;
       },
     },
+
+    {
+      name: "complet",
+      title: "Complet",
+      type: "boolean",
+    },
+
+    {
+      name: "prix",
+      title: "Prix",
+      type: "number",
+    },
   ],
 
   preview: {
     select: {
       title: "title.fr",
       titleRef: "evenements.title.fr",
-      subtitle: "publishedAt",
+      subtitle: "date",
       media: "mainImage",
       mediaRef: "evenements.mainImage",
     },
     prepare(selection) {
       const { title, titleRef, subtitle, media, mediaRef } = selection;
 
-      console.log(selection);
       return {
         title: title ? title : titleRef,
-        subtitle: dayjs(subtitle).locale("fr").format("dddd DD MMM  HH:mm"),
+        subtitle: dayjs(subtitle).locale("fr").format("dddd DD MMM"),
         media: media ? media : mediaRef,
       };
     },

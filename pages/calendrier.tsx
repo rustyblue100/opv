@@ -3,8 +3,22 @@ import React from "react";
 import BodyFull from "../components/BodyFull";
 import CalendarCell from "../components/CalendarCell";
 import Header from "../components/Header";
+import { sanityClient } from "../lib/sanityClient";
+import { NextPage } from "next";
 
-const calendrier = () => {
+interface Iprops {
+  calendrier: {
+    title: {
+      fr: string;
+      en?: string;
+    };
+    imageUrl?: string;
+    complet?: boolean;
+    prix?: number;
+  };
+}
+
+const calendrier: NextPage<Iprops> = ({ calendrier }) => {
   return (
     <BodyFull>
       <motion.main
@@ -17,11 +31,9 @@ const calendrier = () => {
         <h2 className="h2">Janvier 2022</h2>
 
         <div className="">
-          <CalendarCell />
-          <CalendarCell complet={true} />
-          <CalendarCell />
-          <CalendarCell />
-          <CalendarCell complet={true} />
+          {calendrier.map((cal) => {
+            return <CalendarCell key={cal._id} data={cal} />;
+          })}
         </div>
       </motion.main>
     </BodyFull>
@@ -29,3 +41,32 @@ const calendrier = () => {
 };
 
 export default calendrier;
+
+export async function getStaticProps() {
+  const fetchCalendar = `*[_type =="calendrier"]{
+      _id,
+      title,
+      "slug":slug.current,
+      artiste[]->,
+      description,
+      complet,
+      prix,
+      date,
+      "imageUrl": mainImage.asset->url,
+      "recurrents":evenements->{
+        title,
+      "imageUrl": mainImage.asset->url,
+        artiste[]->,
+        description,
+        "slug":slug.current
+      }, 
+    } `;
+
+  const calendrier = await sanityClient.fetch(fetchCalendar);
+
+  return {
+    props: {
+      calendrier,
+    },
+  };
+}
