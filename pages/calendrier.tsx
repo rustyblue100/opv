@@ -8,6 +8,7 @@ import { NextPage } from "next";
 
 interface Iprops {
   calendrier: {
+    _id: string;
     title: {
       fr: string;
       en?: string;
@@ -15,7 +16,8 @@ interface Iprops {
     imageUrl?: string;
     complet?: boolean;
     prix?: number;
-  };
+    date: string;
+  }[];
 }
 
 const calendrier: NextPage<Iprops> = ({ calendrier }) => {
@@ -31,9 +33,9 @@ const calendrier: NextPage<Iprops> = ({ calendrier }) => {
         <h2 className="h2">Janvier 2022</h2>
 
         <div className="">
-          {calendrier.map((cal) => {
-            return <CalendarCell key={cal._id} data={cal} />;
-          })}
+          {calendrier?.map((cal) => (
+            <CalendarCell key={cal._id} data={cal} />
+          ))}
         </div>
       </motion.main>
     </BodyFull>

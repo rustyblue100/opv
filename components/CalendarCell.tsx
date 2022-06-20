@@ -94,7 +94,10 @@ const CalendarCell: NextPage<Iprops> = ({ data }) => {
               transition={{ duration: 0.2, delay: 1.1 }}
               className="mt-0 text-sm font-normal sm:mt-0"
             >
-              <div className="md:-rotate-90">19h30</div>
+              <div className="md:-rotate-90">
+                {dayjs(date).locale("fr").format("HH")}h
+                {dayjs(date).locale("fr").format("mm")}
+              </div>
             </motion.div>
           </div>
 

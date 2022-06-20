@@ -49,7 +49,7 @@ export default {
     {
       name: "date",
       title: "Date de l'évènement",
-      type: "date",
+      type: "datetime",
       options: {
         dateFormat: "YYYY-MM-DD",
         timeFormat: "HH:mm",
@@ -115,7 +115,7 @@ export default {
 
       return {
         title: title ? title : titleRef,
-        subtitle: dayjs(subtitle).locale("fr").format("dddd DD MMM"),
+        subtitle: dayjs(subtitle).locale("fr").format("dddd DD MMM HH:mm"),
         media: media ? media : mediaRef,
       };
     },
