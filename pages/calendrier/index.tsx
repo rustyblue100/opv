@@ -13,11 +13,12 @@ interface Iprops {
       fr: string;
       en?: string;
     };
+    slug: string;
     description: {
       fr: string;
       en?: string;
     };
-    imageUrl?: string;
+    mainImage?: string;
     complet?: boolean;
     prix?: number;
     date: string;
@@ -58,10 +59,10 @@ export async function getStaticProps() {
       complet,
       prix,
       date,
-      "imageUrl": mainImage.asset->url,
+      mainImage,
       "recurrents":evenements->{
         title,
-      "imageUrl": mainImage.asset->url,
+        mainImage,
         artiste[]->,
         description,
         "slug":slug.current

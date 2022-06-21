@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import Modal from "./Modal";
 import Link from "next/link";
+import { urlFor } from "../lib/sanityClient";
 
 type Iprops = {
   data: {
@@ -20,18 +21,19 @@ type Iprops = {
       fr: any;
       en?: string;
     };
-    imageUrl?: string;
+    mainImage?: string;
     complet?: boolean;
     prix?: number;
   };
 };
 
 const CalendarCell: NextPage<Iprops> = ({ data }) => {
-  const { title, imageUrl, complet, prix, date, description, slug } = data;
+  const { title, mainImage, complet, prix, date, description, slug } = data;
 
   function truncate(string: string, limit: number) {
-    return string.length > limit ? `${string.substr(0, limit)}...` : string;
+    return string.length > limit ? `${string.slice(0, limit)}...` : string;
   }
+
   return (
     <div className="relative">
       <div className="flex w-full flex-col justify-between overflow-hidden py-6 sm:flex-row ">
@@ -117,27 +119,29 @@ const CalendarCell: NextPage<Iprops> = ({ data }) => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="md:w-[200px]"
             >
-              <Image
-                className="flex-1 rounded-full"
-                src={
-                  imageUrl
-                    ? imageUrl
-                    : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
-                }
-                width="400"
-                height="400"
-                objectFit="cover"
-                alt="band"
-              />
+              <Link href={`/calendrier/${slug}`}>
+                <Image
+                  className="flex-1 cursor-pointer rounded-full"
+                  src={
+                    mainImage
+                      ? urlFor(mainImage).url()
+                      : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
+                  }
+                  width="400"
+                  height="400"
+                  objectFit="cover"
+                  alt="band"
+                />
+              </Link>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-4 max-w-full flex-1 xl:mt-0 xl:px-12"
+              className="mt-4 max-w-[800px] flex-1 xl:mt-0 xl:px-12"
             >
               {/* <PortableText value={description?.fr[0]} /> */}
-              {description && truncate(description.fr[0].children[0].text, 180)}
+              {description && truncate(description.fr[0].children[0].text, 350)}
               <br />
               <br />
               <Link href={`/calendrier/${slug}`}> Voir plus...</Link>

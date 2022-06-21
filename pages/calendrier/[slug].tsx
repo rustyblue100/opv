@@ -3,7 +3,10 @@ import { GetStaticPaths, NextPage } from "next";
 import { useState } from "react";
 import BodyFull from "../../components/BodyFull";
 import Header from "../../components/Header";
-import { sanityClient } from "../../lib/sanityClient";
+import { sanityClient, urlFor } from "../../lib/sanityClient";
+import Image from "next/image";
+import dayjs from "dayjs";
+import "dayjs/locale/fr";
 
 interface IProps {
   calendrierData: {
@@ -16,7 +19,7 @@ interface IProps {
       fr: string;
       en?: string;
     };
-    imageUrl?: string;
+    mainImage?: string;
     complet?: boolean;
     prix?: number;
     date: string;
@@ -24,8 +27,7 @@ interface IProps {
 }
 
 const EventDetails: NextPage<IProps> = ({ calendrierData }) => {
-  const { title }: any = calendrierData;
-  console.log(title.fr);
+  const { title, mainImage, date }: any = calendrierData;
 
   return (
     <BodyFull>
@@ -35,7 +37,31 @@ const EventDetails: NextPage<IProps> = ({ calendrierData }) => {
         transition={{ duration: 0.1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <Header>{title.fr}</Header>
+        <div className="flex justify-between">
+          <div className="mt-8 space-y-10">
+            <div className="text-5xl">
+              {dayjs(date).locale("fr").format("dddd DD MMM")}
+            </div>
+            <h1>{title.fr}</h1>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+            exit={{ opacity: 0, transition: { duration: 0.3 } }}
+            className="flex justify-end"
+          >
+            <Image
+              src={urlFor(mainImage).url()}
+              width="800"
+              height="600"
+              alt={title}
+              objectFit="cover"
+              className=""
+            />
+          </motion.div>
+        </div>
       </motion.main>
     </BodyFull>
   );
@@ -52,10 +78,10 @@ const calendrierQuery = `*[_type =="calendrier" && slug.current == $slug][0]{
   complet,
   prix,
   date,
-  "imageUrl": mainImage.asset->url,
+  "mainImage": mainImage.asset->url,
   "recurrents":evenements->{
   title,
-  "imageUrl": mainImage.asset->url,
+  "mainImage": mainImage.asset->url,
     artiste[]->,
     description,
     "slug":slug.current
