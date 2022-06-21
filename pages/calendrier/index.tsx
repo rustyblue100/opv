@@ -5,27 +5,13 @@ import CalendarCell from "../../components/CalendarCell";
 import Header from "../../components/Header";
 import { sanityClient } from "../../lib/sanityClient";
 import { NextPage } from "next";
+import { Calendrier } from "../../typings";
 
-interface Iprops {
-  calendrier: {
-    _id: string;
-    title: {
-      fr: string;
-      en?: string;
-    };
-    slug: string;
-    description: {
-      fr: string;
-      en?: string;
-    };
-    mainImage?: string;
-    complet?: boolean;
-    prix?: number;
-    date: string;
-  }[];
+interface IProps {
+  calendrier: [Calendrier];
 }
 
-const calendrier: NextPage<Iprops> = ({ calendrier }) => {
+const calendrier: NextPage<IProps> = ({ calendrier }) => {
   return (
     <BodyFull>
       <motion.main

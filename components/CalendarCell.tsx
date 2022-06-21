@@ -1,33 +1,17 @@
-import { useState } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { PortableText } from "../lib/sanityClient";
-import { NextPage } from "next";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
-import Modal from "./Modal";
+import { motion } from "framer-motion";
+import { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "../lib/sanityClient";
+import { Calendrier } from "../typings";
 
-type Iprops = {
-  data: {
-    date: string;
-    title: {
-      fr: string;
-      en?: string;
-    };
-    slug: string;
-    description: {
-      fr: any;
-      en?: string;
-    };
-    mainImage?: string;
-    complet?: boolean;
-    prix?: number;
-  };
-};
+interface IProps {
+  data: Calendrier;
+}
 
-const CalendarCell: NextPage<Iprops> = ({ data }) => {
+const CalendarCell: NextPage<IProps> = ({ data }) => {
   const { title, mainImage, complet, prix, date, description, slug } = data;
 
   function truncate(string: string, limit: number) {
