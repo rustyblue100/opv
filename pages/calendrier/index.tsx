@@ -1,15 +1,19 @@
 import { motion } from "framer-motion";
 import React from "react";
-import BodyFull from "../components/BodyFull";
-import CalendarCell from "../components/CalendarCell";
-import Header from "../components/Header";
-import { sanityClient } from "../lib/sanityClient";
+import BodyFull from "../../components/BodyFull";
+import CalendarCell from "../../components/CalendarCell";
+import Header from "../../components/Header";
+import { sanityClient } from "../../lib/sanityClient";
 import { NextPage } from "next";
 
 interface Iprops {
   calendrier: {
     _id: string;
     title: {
+      fr: string;
+      en?: string;
+    };
+    description: {
       fr: string;
       en?: string;
     };
@@ -45,7 +49,7 @@ const calendrier: NextPage<Iprops> = ({ calendrier }) => {
 export default calendrier;
 
 export async function getStaticProps() {
-  const fetchCalendar = `*[_type =="calendrier"]{
+  const fetchCalendar = `*[_type =="calendrier"] | order(date asc){
       _id,
       title,
       "slug":slug.current,

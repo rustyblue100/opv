@@ -1,15 +1,23 @@
-import React from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { PortableText } from "../lib/sanityClient";
 import { NextPage } from "next";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
+import Modal from "./Modal";
+import Link from "next/link";
 
 type Iprops = {
   data: {
     date: string;
     title: {
       fr: string;
+      en?: string;
+    };
+    slug: string;
+    description: {
+      fr: any;
       en?: string;
     };
     imageUrl?: string;
@@ -19,12 +27,13 @@ type Iprops = {
 };
 
 const CalendarCell: NextPage<Iprops> = ({ data }) => {
-  const { title, imageUrl, complet, prix, date } = data;
+  const { title, imageUrl, complet, prix, date, description, slug } = data;
 
-  console.log(data);
-
+  function truncate(string: string, limit: number) {
+    return string.length > limit ? `${string.substr(0, limit)}...` : string;
+  }
   return (
-    <div className="relative ">
+    <div className="relative">
       <div className="flex w-full flex-col justify-between overflow-hidden py-6 sm:flex-row ">
         <motion.hr
           initial={{ opacity: 0, width: 0 }}
@@ -44,7 +53,7 @@ const CalendarCell: NextPage<Iprops> = ({ data }) => {
             className="text-3xl font-normal lg:text-6xl"
           >
             {dayjs(date).format("DD")}
-            <small className="relative top-1 align-top text-xs">
+            <small className="relative top-1 align-top text-sm">
               {dayjs(date).locale("fr").format("MMMM")}
             </small>
           </motion.div>
@@ -80,7 +89,7 @@ const CalendarCell: NextPage<Iprops> = ({ data }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-3xl font-normal md:text-4xl"
+              className="text-3xl font-normal md:text-3xl"
             >
               {title?.fr}
               <div className="mt-1 text-sm">
@@ -109,7 +118,7 @@ const CalendarCell: NextPage<Iprops> = ({ data }) => {
               className="md:w-[200px]"
             >
               <Image
-                className="flex-1"
+                className="flex-1 rounded-full"
                 src={
                   imageUrl
                     ? imageUrl
@@ -125,12 +134,13 @@ const CalendarCell: NextPage<Iprops> = ({ data }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-4 max-w-lg flex-1 xl:mt-0 xl:px-4"
+              className="mt-4 max-w-full flex-1 xl:mt-0 xl:px-12"
             >
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-              suscipit at esse voluptatum numquam. Numquam quia quo, ullam saepe
-              quaerat suscipit dolores officiis consectetur sint sequi
-              perferendis doloremque culpa exercitationem.
+              {/* <PortableText value={description?.fr[0]} /> */}
+              {description && truncate(description.fr[0].children[0].text, 180)}
+              <br />
+              <br />
+              <Link href={`/calendrier/${slug}`}> Voir plus...</Link>
             </motion.div>
             <motion.div className="mt-5 block flex-1 text-sm font-bold sm:hidden">
               Entrée: 10$

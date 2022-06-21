@@ -60,6 +60,10 @@ a {
   box-sizing: border-box;
 }
 
+p{
+  margin-bottom:16px;
+}
+
 
 .mask{
   opacity:0;
