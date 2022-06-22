@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import { ReactNode } from "react";
 
 interface Iprops {
-  children: string;
+  children: any;
 }
 
 const Header: NextPage<Iprops> = ({ children }) => {

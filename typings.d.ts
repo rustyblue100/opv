@@ -10,7 +10,7 @@ export interface Calendrier {
   ];
   complet: boolean;
   date: string;
-  description: [object];
+  description: any;
   mainImage: {
     asset: {
       url: string;

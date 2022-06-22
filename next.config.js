@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const { i18n } = require("./next-i18next.config");
+
 module.exports = {
   images: {
     domains: [
@@ -10,10 +13,7 @@ module.exports = {
       "png.pngtree.com",
     ],
   },
-  i18n: {
-    locales: ["en-CA", "fr-CA"],
-    defaultLocale: "fr-CA",
-  },
+  i18n,
   async rewrites() {
     return [
       {

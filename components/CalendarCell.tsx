@@ -105,7 +105,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
             >
               <Link href={`/calendrier/${slug}`}>
                 <Image
-                  className="flex-1 cursor-pointer rounded-full"
+                  className="flex-1 cursor-pointer md:rounded-full"
                   src={
                     mainImage
                       ? urlFor(mainImage).url()
@@ -125,10 +125,12 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               className="mt-4 max-w-[800px] flex-1 xl:mt-0 xl:px-12"
             >
               {/* <PortableText value={description?.fr[0]} /> */}
-              {description && truncate(description.fr[0].children[0].text, 350)}
+              {description && truncate(description.fr[0].children[0].text, 300)}
+
               <br />
-              <br />
-              <Link href={`/calendrier/${slug}`}> Voir plus...</Link>
+              <Link href={`/calendrier/${slug}`}>
+                <a className="text-opv-pink-1200">Voir plus...</a>
+              </Link>
             </motion.div>
             <motion.div className="mt-5 block flex-1 text-sm font-bold sm:hidden">
               Entrée: 10$

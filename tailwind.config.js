@@ -53,7 +53,7 @@ module.exports = {
         "opv-black-300": "#313131",
         "opv-pink-100": "#f8eded",
         "opv-pink-400": "#dd7b7b88",
-        "opv-pink-500": "#FFEDED", //#fddede
+        "opv-pink-500": "#fff1ef", //#fddede
         "opv-pink-900": "#E08585",
         "opv-pink-1000": "#d43f3f",
         "opv-pink-1200": "#CC3333",
