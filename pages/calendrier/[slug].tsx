@@ -25,116 +25,114 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
   return (
     <BodyFull>
       <motion.article
-        className=""
+        className="grid gap-x-16 gap-y-12 lg:grid-cols-2 lg:gap-y-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <div className="flex flex-col-reverse justify-between gap-12 md:flex-row">
-          <div className="max-w-24 flex flex-1 flex-col">
-            <Link href="/calendrier">
-              <button className="mt-8 flex items-center  gap-1 gap-3 border-0 bg-none transition-all hover:underline">
-                ← Retour au calendrier
-              </button>
-            </Link>
-            <Header>{title.fr}</Header>
-            <h2 className="text-3xl text-opv-pink-1200">
-              {dayjs(date).locale("fr").format("dddd DD MMMM")}{" "}
-              {complet && (
-                <div className="ml-5 inline-block -rotate-12 border border-black p-1 uppercase  text-black md:text-xl">
-                  Complet
-                </div>
-              )}
-            </h2>
-
-            <div className="mt-8 flex justify-start gap-5">
-              <div className="flex-1 text-2xl">
-                <strong> Informations </strong>
+        <div className="">
+          <Link href="/calendrier">
+            <button className="mt-8 flex items-center  gap-3 border-0 bg-none transition-all hover:underline">
+              ← Retour au calendrier
+            </button>
+          </Link>
+          <Header>{title.fr}</Header>
+          <h2 className="text-3xl text-opv-pink-1200">
+            {dayjs(date).locale("fr").format("dddd DD MMMM")}{" "}
+            {complet && (
+              <div className="ml-5 inline-block -rotate-12 border border-black p-1 uppercase  text-black md:text-xl">
+                Complet
               </div>
-            </div>
+            )}
+          </h2>
 
-            <div className="mt-8 flex justify-start gap-5">
-              <div className="flex-1 space-y-2 text-lg">
-                <h3 className="font-bold">Type d'évènement</h3>
-                <div>Musique</div>
-                <hr className=" border-opv-black"></hr>
-              </div>
-
-              <div className="flex-1 space-y-2 text-lg">
-                <h3 className="font-bold">Adresse</h3>
-                <div>356, rue Mont-Royal EST</div>
-                <hr className=" border-opv-black"></hr>
-              </div>
-            </div>
-
-            <div className="mt-8 flex justify-start gap-5">
-              <div className="flex-1 space-y-2 text-lg">
-                <h3 className="font-bold">Portes</h3>
-                <div>
-                  {dayjs(date).locale("fr").format("HH")}h
-                  {dayjs(date).locale("fr").format("mm")}
-                </div>
-                <hr className=" border-opv-black"></hr>
-              </div>
-
-              <div className="flex-1 space-y-2 text-lg">
-                <h3 className="font-bold">Entrée</h3>
-                <div>{prix}$</div>
-                <hr className=" border-opv-black"></hr>
-              </div>
-            </div>
-
-            <div className="mt-8 rounded bg-violet-500 p-5">
-              <div className="my-3 text-xl">{prix}$</div>
-              <div>Billets à la porte </div>
+          <div className="mt-8 flex justify-start gap-5">
+            <div className="flex-1 text-2xl">
+              <strong> Informations </strong>
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            exit={{ opacity: 0, transition: { duration: 0.3 } }}
-            className="sticky top-0 pt-8"
-          >
+          <div className="mt-12 flex justify-start gap-5">
+            <div className="flex-1 space-y-2 text-lg">
+              <h3 className="font-bold">Type d&apos; évènement</h3>
+              <div>Musique</div>
+              <hr className=" border-opv-black"></hr>
+            </div>
+
+            <div className="flex-1 space-y-2 text-lg">
+              <h3 className="font-bold">Adresse</h3>
+              <div>356, rue Mont-Royal EST</div>
+              <hr className=" border-opv-black"></hr>
+            </div>
+          </div>
+
+          <div className="mt-12 flex justify-start gap-5">
+            <div className="flex-1 space-y-2 text-lg">
+              <h3 className="font-bold">Portes</h3>
+              <div>
+                {dayjs(date).locale("fr").format("HH")}h
+                {dayjs(date).locale("fr").format("mm")}
+              </div>
+              <hr className=" border-opv-black"></hr>
+            </div>
+
+            <div className="flex-1 space-y-2 text-lg">
+              <h3 className="font-bold">Admission</h3>
+              <div>18+</div>
+              <hr className=" border-opv-black"></hr>
+            </div>
+          </div>
+
+          <div className="mt-20 flex items-center justify-between rounded border border-black bg-violet-200 p-5 text-2xl">
+            <div className="my-3">{prix}$</div>
+            <div className="">Billets à la porte </div>
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          exit={{ opacity: 0, transition: { duration: 0.3 } }}
+          className="pt-8"
+        >
+          <div className="">
             <Image
               src={urlFor(mainImage).url()!}
-              width="700"
-              height="618"
+              width="1200"
+              height="1200"
+              layout="responsive"
               alt={title}
               objectFit="cover"
               className="rounded"
             />
+          </div>
 
-            <div className="flex justify-end">
-              <ul className="flex gap-3">
-                <li>Site Wed</li>
-                <li>Facebook</li>
-              </ul>
-            </div>
-          </motion.div>
+          <div className="">
+            <ul className="flex gap-3">
+              <li>Site Web</li>
+              <li>Facebook</li>
+            </ul>
+          </div>
+        </motion.div>
+
+        <div className="">
+          <h2 className="mb-4 text-4xl">Bio</h2>
+          <div className="max-w-3xl text-lg ">
+            <PortableText value={description?.fr} />
+          </div>
         </div>
 
-        <div className="mt-24 flex items-start justify-between gap-16">
-          <div className="flex-1">
-            <div className="max-w-3xl text-lg ">
-              <PortableText value={description?.fr} />
-            </div>
-          </div>
-          <div className="flex-1">
-            <div>
-              <iframe
-                width="100%"
-                height="515"
-                src="https://www.youtube.com/embed/sOreUnGoIMg"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
+        <div className="">
+          <iframe
+            className="aspect-video w-full"
+            src="https://www.youtube.com/embed/sOreUnGoIMg"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </motion.article>
     </BodyFull>
