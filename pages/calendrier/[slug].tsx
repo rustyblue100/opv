@@ -10,10 +10,11 @@ import { PortableText } from "../../lib/sanityClient";
 import Header from "../../components/Header";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 interface IProps {
   calendrierData: Calendrier;
-  locale: object;
+  locale: string;
 }
 
 const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
@@ -21,6 +22,10 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
     calendrierData;
 
   const { t } = useTranslation();
+
+  console.log(locale);
+
+  console.log(t("evenement:type_event"));
 
   return (
     <BodyFull>
@@ -47,15 +52,9 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             )}
           </h2>
 
-          <div className="mt-8 flex justify-start gap-5">
-            <div className="flex-1 text-2xl">
-              <strong> Informations </strong>
-            </div>
-          </div>
-
-          <div className="mt-12 flex justify-start gap-5">
+          <div className="mt-24 flex justify-start gap-5">
             <div className="flex-1 space-y-2 text-lg">
-              <h3 className="font-bold">Type d&apos; évènement</h3>
+              <h3 className="font-bold">{t("evenement:type_event")}</h3>
               <div>Musique</div>
               <hr className=" border-opv-black"></hr>
             </div>
@@ -69,7 +68,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
           <div className="mt-12 flex justify-start gap-5">
             <div className="flex-1 space-y-2 text-lg">
-              <h3 className="font-bold">Portes</h3>
+              <h3 className="font-bold">{t("evenement:portes")}</h3>
               <div>
                 {dayjs(date).locale("fr").format("HH")}h
                 {dayjs(date).locale("fr").format("mm")}
@@ -109,7 +108,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             />
           </div>
 
-          <div className="">
+          <div className="float-right">
             <ul className="flex gap-3">
               <li>Site Web</li>
               <li>Facebook</li>
@@ -120,7 +119,9 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
         <div className="">
           <h2 className="mb-4 text-4xl">Bio</h2>
           <div className="max-w-3xl text-lg ">
-            <PortableText value={description?.fr} />
+            <PortableText
+              value={locale === "fr" ? description?.fr : description?.en}
+            />
           </div>
         </div>
 
@@ -175,6 +176,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const { slug }: any = params;
+  const { lang }: any = locale;
 
   const calendrierData = await sanityClient.fetch(calendrierQuery, { slug });
 
@@ -187,6 +189,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   return {
     props: {
       locale,
+      ...(await serverSideTranslations(lang, ["common", "evenement"])),
       calendrierData,
     },
     revalidate: 60, // 60 seconds

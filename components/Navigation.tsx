@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
 import Marquee from "react-fast-marquee";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 interface IProps {
   clicked: boolean;
@@ -92,7 +93,7 @@ const Navigation: NextPage<IProps> = ({
                 variants={item}
                 onHoverStart={() => setMenuHover(true)}
               >
-                <Link href={`/${slug}`}>
+                <Link href={`${slug}`}>
                   <a
                     className="hover:text-opv-pink-500 "
                     onClick={handleClicked}
@@ -103,13 +104,14 @@ const Navigation: NextPage<IProps> = ({
               </motion.li>
             );
           })}
-          <motion.li
+          {/*           <motion.li
             variants={item}
             className="self-start  p-1  text-lg text-gray-400 hover:text-opv-pink-500"
           >
             <a className=""></a>
             <Link href="/">EN</Link> | <Link href="/">FR</Link>
-          </motion.li>
+          </motion.li> */}
+          <LanguageSwitcher />
         </motion.ul>
       </div>
 
