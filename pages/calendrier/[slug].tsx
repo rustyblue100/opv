@@ -23,10 +23,6 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
   const { t } = useTranslation();
 
-  console.log(locale);
-
-  console.log(t("evenement:type_event"));
-
   return (
     <BodyFull>
       <motion.article
@@ -85,7 +81,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
           <div className="mt-20 flex items-center justify-between rounded border border-black bg-violet-200 p-5 text-2xl">
             <div className="my-3">{prix}$</div>
-            <div className="">Billets à la porte </div>
+            <div className="">{t("evenement:billets")}</div>
           </div>
         </div>
 
@@ -176,7 +172,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const { slug }: any = params;
-  const { lang }: any = locale;
+  const lang: any = locale;
 
   const calendrierData = await sanityClient.fetch(calendrierQuery, { slug });
 

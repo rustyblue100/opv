@@ -6,12 +6,35 @@ import Header from "../../components/Header";
 import { sanityClient } from "../../lib/sanityClient";
 import { NextPage } from "next";
 import { Calendrier } from "../../typings";
+import dayjs from "dayjs";
 
 interface IProps {
   calendrier: [Calendrier];
 }
 
 const calendrier: NextPage<IProps> = ({ calendrier }) => {
+  //reduce calendrier to array of objects by month
+  const calendrierByMonth = calendrier.reduce((acc: any, curr: any) => {
+    const month = dayjs(curr.date).format("MMMM");
+
+    if (!acc[month]) {
+      acc[month] = [];
+    }
+    acc[month].push(curr);
+    return acc;
+  }, {});
+
+  //transform object into a array of objects by month
+  const calendrierByMonthArray = Object.keys(calendrierByMonth).map(
+    (key: string) => {
+      return {
+        month: key,
+        events: calendrierByMonth[key],
+      };
+    }
+  );
+
+  console.log(calendrierByMonthArray);
   return (
     <BodyFull>
       <motion.main
@@ -24,8 +47,12 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
         <h2 className="h2">Janvier 2022</h2>
 
         <div className="">
-          {calendrier?.map((cal) => (
-            <CalendarCell key={cal._id} data={cal} />
+          {calendrier?.map((cal, i) => (
+            <CalendarCell
+              key={i}
+              data={cal}
+              dateEvents={calendrierByMonthArray}
+            />
           ))}
         </div>
       </motion.main>
