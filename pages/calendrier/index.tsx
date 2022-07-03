@@ -7,6 +7,7 @@ import { sanityClient } from "../../lib/sanityClient";
 import { NextPage } from "next";
 import { Calendrier } from "../../typings";
 import dayjs from "dayjs";
+import "dayjs/locale/fr";
 
 interface IProps {
   calendrier: [Calendrier];
@@ -15,7 +16,7 @@ interface IProps {
 const calendrier: NextPage<IProps> = ({ calendrier }) => {
   //reduce calendrier to array of objects by month
   const calendrierByMonth = calendrier.reduce((acc: any, curr: any) => {
-    const month = dayjs(curr.date).format("MMMM");
+    const month = dayjs(curr.date).locale("fr").format("MMMM");
 
     if (!acc[month]) {
       acc[month] = [];
@@ -44,17 +45,20 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <Header>Calendrier</Header>
-        <h2 className="h2">Janvier 2022</h2>
 
-        <div className="">
-          {calendrier?.map((cal, i) => (
-            <CalendarCell
-              key={i}
-              data={cal}
-              dateEvents={calendrierByMonthArray}
-            />
-          ))}
-        </div>
+        {calendrierByMonthArray.map((m: any, i: number) => {
+          return (
+            <>
+              <h2 className="h2" key={i}>
+                {m.month}
+              </h2>
+
+              {m.events.map((cal: any) => {
+                return <CalendarCell key={i} data={cal} />;
+              })}
+            </>
+          );
+        })}
       </motion.main>
     </BodyFull>
   );

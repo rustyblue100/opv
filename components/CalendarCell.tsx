@@ -9,11 +9,12 @@ import { Calendrier } from "../typings";
 
 interface IProps {
   data: Calendrier;
-  dateEvents: Calendrier;
 }
 
-const CalendarCell: NextPage<IProps> = ({ data, dateEvents }) => {
+const CalendarCell: NextPage<IProps> = ({ data }) => {
   const { title, mainImage, complet, prix, date, description, slug } = data;
+
+  console.log(data);
 
   function truncate(string: string, limit: number) {
     return string.length > limit ? `${string.slice(0, limit)}...` : string;
