@@ -14,8 +14,6 @@ interface IProps {
 const CalendarCell: NextPage<IProps> = ({ data }) => {
   const { title, mainImage, complet, prix, date, description, slug } = data;
 
-  console.log(data);
-
   function truncate(string: string, limit: number) {
     return string.length > limit ? `${string.slice(0, limit)}...` : string;
   }
@@ -79,7 +77,9 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-3xl font-normal md:text-3xl"
             >
-              {title?.fr}
+              <Link href={`/calendrier/${slug}`} passHref>
+                <a> {title?.fr}</a>
+              </Link>
               <div className="mt-1 text-sm">
                 Musiciens: Jf-Batteur / Marc-Guitariste
               </div>
@@ -131,7 +131,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
 
               <br />
               <Link href={`/calendrier/${slug}`}>
-                <a className="text-opv-pink-1200">Voir plus...</a>
+                <a className="text-opv-pink-1200">En savoir plus</a>
               </Link>
             </motion.div>
             <motion.div className="mt-5 block flex-1 text-sm font-bold sm:hidden">

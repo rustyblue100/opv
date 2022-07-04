@@ -53,9 +53,13 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
                 {m.month}
               </h2>
 
-              {m.events.map((cal: any) => {
-                return <CalendarCell key={i} data={cal} />;
-              })}
+              {m.events
+                /*               .filter(
+                  (f) => dayjs(f.date).locale("fr").format("MMMM") === "juillet"
+                ) */
+                .map((cal: any) => {
+                  return <CalendarCell key={i} data={cal} />;
+                })}
             </>
           );
         })}
