@@ -4,7 +4,7 @@ import BodyFull from "../../components/BodyFull";
 import CalendarCell from "../../components/CalendarCell";
 import Header from "../../components/Header";
 import { sanityClient } from "../../lib/sanityClient";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { Calendrier } from "../../typings";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
@@ -73,7 +73,7 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
 
 export default calendrier;
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const fetchCalendar = `*[_type =="calendrier"] | order(date asc){
       _id,
       title,
@@ -100,4 +100,4 @@ export async function getStaticProps() {
       calendrier,
     },
   };
-}
+};
