@@ -106,18 +106,20 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               className="md:w-[200px]"
             >
               <Link href={`/calendrier/${slug}`}>
-                <Image
-                  className="flex-1 cursor-pointer md:rounded-full"
-                  src={
-                    mainImage
-                      ? urlFor(mainImage).url()
-                      : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
-                  }
-                  width="400"
-                  height="400"
-                  objectFit="cover"
-                  alt="band"
-                />
+                <a>
+                  <Image
+                    className="flex-1 cursor-pointer md:rounded-full"
+                    src={
+                      mainImage
+                        ? urlFor(mainImage).url()
+                        : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
+                    }
+                    width="400"
+                    height="400"
+                    objectFit="cover"
+                    alt="band"
+                  />
+                </a>
               </Link>
             </motion.div>
             <motion.div
@@ -131,7 +133,9 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
 
               <br />
               <Link href={`/calendrier/${slug}`}>
-                <a className="text-opv-pink-1200">En savoir plus</a>
+                <a className="text-opv-pink-1200" data-testid="see more">
+                  En savoir plus
+                </a>
               </Link>
             </motion.div>
             <motion.div className="mt-5 block flex-1 text-sm font-bold sm:hidden">

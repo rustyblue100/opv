@@ -15,17 +15,15 @@ interface IProps {
 
 const calendrier: NextPage<IProps> = ({ calendrier }) => {
   //reduce calendrier to array of objects by month
-  const calendrierByMonth =
-    calendrier &&
-    calendrier.reduce((acc: any, curr: any) => {
-      const month = dayjs(curr.date).locale("fr").format("MMMM");
+  const calendrierByMonth = calendrier?.reduce((acc: any, curr: any) => {
+    const month = dayjs(curr.date).locale("fr").format("MMMM");
 
-      if (!acc[month]) {
-        acc[month] = [];
-      }
-      acc[month].push(curr);
-      return acc;
-    }, {});
+    if (!acc[month]) {
+      acc[month] = [];
+    }
+    acc[month].push(curr);
+    return acc;
+  }, {});
 
   //transform object into a array of objects by month
   const calendrierByMonthArray =
@@ -51,19 +49,17 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
         {calendrierByMonthArray &&
           calendrierByMonthArray.map((m: any, i: number) => {
             return (
-              <>
-                <h2 className="h2" key={i}>
-                  {m.month}
-                </h2>
+              <div key={i}>
+                <h2 className="h2">{m.month}</h2>
 
                 {m.events
                   /*               .filter(
                   (f) => dayjs(f.date).locale("fr").format("MMMM") === "juillet"
                 ) */
-                  .map((cal: any) => {
-                    return <CalendarCell key={i} data={cal} />;
+                  .map((cal: any, index: number) => {
+                    return <CalendarCell key={cal._id} data={cal} />;
                   })}
-              </>
+              </div>
             );
           })}
       </motion.main>

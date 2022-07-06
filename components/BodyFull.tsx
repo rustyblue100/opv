@@ -49,18 +49,14 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
       transition={{ duration: 0.6, type: "tween", ease: "easeInOut" }}
       exit={{
         clipPath:
-          route.asPath === "/" || route.asPath === "/en-CA"
-            ? polygon
-            : rectangle,
+          route.asPath === "/" || route.asPath === "/en" ? polygon : rectangle,
         WebkitClipPath:
-          route.asPath === "/" || route.asPath === "/en-CA"
-            ? polygon
-            : rectangle,
+          route.asPath === "/" || route.asPath === "/en" ? polygon : rectangle,
         transition: {
           duration: 0.4,
           type: "tween",
           ease: "easeInOut",
-          delay: route.asPath === "/" || route.asPath === "/en-CA" ? 0.5 : 0,
+          delay: route.asPath === "/" || route.asPath === "/en" ? 0.5 : 0,
         },
       }}
       className="relative bg-opv-pink-500"
