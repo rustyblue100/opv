@@ -23,11 +23,11 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
   const actionSlider = () => {
     switch (true) {
       case !appContext?.menuHover:
-        return appContext!.distanceLeft;
+        return appContext?.distanceLeft;
       case appContext?.menuHover:
-        return appContext!.distanceLeftHover;
+        return appContext?.distanceLeftHover;
       default:
-        return appContext!.distanceLeft;
+        return appContext?.distanceLeft;
     }
   };
 
@@ -66,7 +66,7 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
       className="relative bg-opv-pink-500"
       style={{
         marginLeft: actionSlider(),
-        width: `calc(100vw - ${appContext!.distanceLeft}px)`,
+        width: `calc(100vw - ${appContext?.distanceLeft}px)`,
         /*   clipPath: rectangle,
         WebkitClipPath: rectangle, */
       }}

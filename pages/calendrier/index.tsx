@@ -15,27 +15,28 @@ interface IProps {
 
 const calendrier: NextPage<IProps> = ({ calendrier }) => {
   //reduce calendrier to array of objects by month
-  const calendrierByMonth = calendrier.reduce((acc: any, curr: any) => {
-    const month = dayjs(curr.date).locale("fr").format("MMMM");
+  const calendrierByMonth =
+    calendrier &&
+    calendrier.reduce((acc: any, curr: any) => {
+      const month = dayjs(curr.date).locale("fr").format("MMMM");
 
-    if (!acc[month]) {
-      acc[month] = [];
-    }
-    acc[month].push(curr);
-    return acc;
-  }, {});
+      if (!acc[month]) {
+        acc[month] = [];
+      }
+      acc[month].push(curr);
+      return acc;
+    }, {});
 
   //transform object into a array of objects by month
-  const calendrierByMonthArray = Object.keys(calendrierByMonth).map(
-    (key: string) => {
+  const calendrierByMonthArray =
+    calendrierByMonth &&
+    Object.keys(calendrierByMonth).map((key: string) => {
       return {
         month: key,
         events: calendrierByMonth[key],
       };
-    }
-  );
+    });
 
-  console.log(calendrierByMonthArray);
   return (
     <BodyFull>
       <motion.main
@@ -45,24 +46,26 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <Header>Calendrier</Header>
+        <h2>Jest Test</h2>
 
-        {calendrierByMonthArray.map((m: any, i: number) => {
-          return (
-            <>
-              <h2 className="h2" key={i}>
-                {m.month}
-              </h2>
+        {calendrierByMonthArray &&
+          calendrierByMonthArray.map((m: any, i: number) => {
+            return (
+              <>
+                <h2 className="h2" key={i}>
+                  {m.month}
+                </h2>
 
-              {m.events
-                /*               .filter(
+                {m.events
+                  /*               .filter(
                   (f) => dayjs(f.date).locale("fr").format("MMMM") === "juillet"
                 ) */
-                .map((cal: any) => {
-                  return <CalendarCell key={i} data={cal} />;
-                })}
-            </>
-          );
-        })}
+                  .map((cal: any) => {
+                    return <CalendarCell key={i} data={cal} />;
+                  })}
+              </>
+            );
+          })}
       </motion.main>
     </BodyFull>
   );
