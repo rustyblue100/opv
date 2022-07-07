@@ -20,7 +20,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
 
   return (
     <div className="relative">
-      <div className="flex w-full flex-col justify-between overflow-hidden py-6 sm:flex-row ">
+      <div className="flex w-full flex-col justify-between overflow-hidden py-6 sm:flex-row">
         <motion.hr
           initial={{ opacity: 0, width: 0 }}
           animate={{ opacity: 1, width: "100%" }}
@@ -77,9 +77,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-3xl font-normal md:text-3xl"
             >
-              <Link href={`/calendrier/${slug}`} passHref>
-                <a> {title?.fr}</a>
-              </Link>
+              {title?.fr}
               <div className="mt-1 text-sm">
                 Musiciens: Jf-Batteur / Marc-Guitariste
               </div>
@@ -106,20 +104,18 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               className="md:w-[200px]"
             >
               <Link href={`/calendrier/${slug}`}>
-                <a>
-                  <Image
-                    className="flex-1 cursor-pointer md:rounded-full"
-                    src={
-                      mainImage
-                        ? urlFor(mainImage).url()
-                        : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
-                    }
-                    width="400"
-                    height="400"
-                    objectFit="cover"
-                    alt="band"
-                  />
-                </a>
+                <Image
+                  className="flex-1 cursor-pointer md:rounded-full"
+                  src={
+                    mainImage
+                      ? urlFor(mainImage).url()
+                      : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
+                  }
+                  width="400"
+                  height="400"
+                  objectFit="cover"
+                  alt="band"
+                />
               </Link>
             </motion.div>
             <motion.div
@@ -134,7 +130,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               <br />
               <Link href={`/calendrier/${slug}`}>
                 <a className="text-opv-pink-1200" data-testid="see more">
-                  En savoir plus
+                  Voir plus...
                 </a>
               </Link>
             </motion.div>
