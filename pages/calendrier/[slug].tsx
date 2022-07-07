@@ -190,6 +190,6 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
       ])),
       calendrierData,
     },
-    /*     revalidate: 60, // 60 seconds */
+    revalidate: 60, // 60 seconds
   };
 };
