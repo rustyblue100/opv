@@ -8,6 +8,7 @@ import { GetStaticProps, NextPage } from "next";
 import { Calendrier } from "../../typings";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 interface IProps {
   calendrier: [Calendrier];
@@ -68,7 +69,7 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
 
 export default calendrier;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const fetchCalendar = `*[_type =="calendrier"] | order(date asc){
       _id,
       title,
@@ -89,9 +90,10 @@ export const getStaticProps: GetStaticProps = async () => {
     } `;
 
   const calendrier = await sanityClient.fetch(fetchCalendar);
-
+  const lang: any = locale;
   return {
     props: {
+      ...(await serverSideTranslations(lang, ["common", "evenement"])),
       calendrier,
     },
   };
