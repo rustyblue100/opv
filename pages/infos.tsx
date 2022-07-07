@@ -3,6 +3,8 @@ import React from "react";
 import BodyFull from "../components/BodyFull";
 import CalendarCell from "../components/CalendarCell";
 import Header from "../components/Header";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticProps } from "next";
 
 const infos = () => {
   return (
@@ -26,3 +28,11 @@ const infos = () => {
 };
 
 export default infos;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string)),
+    },
+  };
+};

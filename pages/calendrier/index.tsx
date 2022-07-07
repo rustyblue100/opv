@@ -90,10 +90,10 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     } `;
 
   const calendrier = await sanityClient.fetch(fetchCalendar);
-  const lang: any = locale;
+
   return {
     props: {
-      ...(await serverSideTranslations(lang, ["common", "evenement"])),
+      ...(await serverSideTranslations(locale as string)),
       calendrier,
     },
   };

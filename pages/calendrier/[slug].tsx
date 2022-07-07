@@ -172,7 +172,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const { slug }: any = params;
-  const lang: any = locale;
 
   const calendrierData = await sanityClient.fetch(calendrierQuery, { slug });
 
@@ -185,9 +184,12 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   return {
     props: {
       locale,
-      ...(await serverSideTranslations(lang, ["common", "evenement"])),
+      ...(await serverSideTranslations(locale as string, [
+        "common",
+        "evenement",
+      ])),
       calendrierData,
     },
-    revalidate: 60, // 60 seconds
+    /*     revalidate: 60, // 60 seconds */
   };
 };
