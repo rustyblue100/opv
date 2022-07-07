@@ -4,27 +4,25 @@ import BodyFull from "../components/BodyFull";
 import CalendarCell from "../components/CalendarCell";
 import Header from "../components/Header";
 
-const calendrier = () => {
+const contact = () => {
   return (
     <BodyFull>
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.1 }}
+        transition={{ duration: 0.4 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <Header>Nous Joindre</Header>
-        <h2 className="h2">Janvier 2022</h2>
+        <Header>Contact</Header>
 
-        <div className="">
-          <CalendarCell />
-          <CalendarCell />
-          <CalendarCell />
-          <CalendarCell />
+        <div className="mt-10 max-w-[800px]">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem repellat
+          dolores odit nobis vitae cupiditate et magnam laborum error. Ad
+          consequatur autem maxime expedita porro nostrum modi ea totam natus.
         </div>
       </motion.main>
     </BodyFull>
   );
 };
 
-export default calendrier;
+export default contact;
