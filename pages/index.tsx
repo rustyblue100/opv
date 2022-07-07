@@ -8,11 +8,10 @@ const Home: NextPage = () => {
 
 export default Home;
 
-/* export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale as string)),
+      ...(await serverSideTranslations(locale as string, [])),
     },
   };
 };
- */

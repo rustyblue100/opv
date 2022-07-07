@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 import BodyFull from "../components/BodyFull";
 import CalendarCell from "../components/CalendarCell";
@@ -26,3 +28,11 @@ const contact = () => {
 };
 
 export default contact;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, [])),
+    },
+  };
+};

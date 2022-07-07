@@ -30,13 +30,9 @@ const infos = () => {
 export default infos;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  console.log(locale);
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, [
-        "common",
-        "evenement",
-      ])),
+      ...(await serverSideTranslations(locale as string, [])),
     },
   };
 };
