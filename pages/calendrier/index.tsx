@@ -44,7 +44,6 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <Header>Calendrier</Header>
-        <h2>Jest Test</h2>
 
         {calendrierByMonthArray &&
           calendrierByMonthArray.map((m: any, i: number) => {
