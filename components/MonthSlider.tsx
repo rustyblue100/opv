@@ -6,6 +6,7 @@ interface Iprops {
   monthPosition: number;
   nextSlide: () => void;
   prevSlide: () => void;
+  setMonthPosition: (number: number) => void;
 }
 
 const MonthSlider: NextPage<Iprops> = ({
@@ -25,6 +26,10 @@ const MonthSlider: NextPage<Iprops> = ({
     return index === months?.length - 1;
   };
 
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setMonthPosition(0);
+  };
+
   return (
     <div className="max-w-48 flex items-center justify-between gap-5 text-xl">
       <button
@@ -32,15 +37,28 @@ const MonthSlider: NextPage<Iprops> = ({
         disabled={isStartOfArray(monthPosition)}
         className={`flex-1 text-opv-black-300 transition-colors hover:text-opv-pink-1200 ${
           isStartOfArray(monthPosition) && "text-opv-black-300"
-        } ${isStartOfArray(monthPosition) && "hover:text-opv-black-300"}`}
+        } ${isStartOfArray(monthPosition) && "opacity-10"}`}
       >
-        ◀
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
       </button>
       <div className=" flex-1 text-center uppercase text-opv-pink-1200">
         <select
           value={months[monthPosition]}
-          onChange={(e) => setMonthPosition(e.target.value)}
-          className="bord bg-opv-pink-400 px-2 py-1 uppercase text-opv-black "
+          onChange={handleChange}
+          className="bord bg-opv-pink-400 px-2 py-1 capitalize text-opv-black "
         >
           {months.map((m, i) => (
             <option key={i} value={m} className="">
@@ -54,9 +72,18 @@ const MonthSlider: NextPage<Iprops> = ({
         disabled={isEndOfArray(monthPosition)}
         className={`flex-1 text-opv-black-300 transition-colors hover:text-opv-pink-1200 ${
           isEndOfArray(monthPosition) && "text-opv-black-300"
-        } ${isEndOfArray(monthPosition) && "hover:text-opv-black-300"}`}
+        } ${isEndOfArray(monthPosition) && "opacity-10"} `}
       >
-        ▶
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
       </button>
     </div>
   );

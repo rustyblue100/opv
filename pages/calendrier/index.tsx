@@ -30,7 +30,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
 
   //reduce calendrier to array of objects by month
   const calendrierByMonth = calendrier?.reduce((acc: any, curr: any) => {
-    const month = dayjs(curr.date).locale("fr").format("MMMM");
+    const month = dayjs(curr.date).locale("fr").format("MMMM YYYY");
 
     if (!acc[month]) {
       acc[month] = [];
