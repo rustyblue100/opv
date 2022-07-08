@@ -31,7 +31,7 @@ const MonthSlider: NextPage<Iprops> = ({
   };
 
   return (
-    <div className="max-w-48 flex items-center justify-between gap-5 text-xl">
+    <div className="max-w-48 flex items-center justify-between gap-2 text-xl">
       <button
         onClick={nextSlide}
         disabled={isStartOfArray(monthPosition)}

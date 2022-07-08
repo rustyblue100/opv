@@ -18,8 +18,6 @@ interface IProps {
 const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   const [monthPosition, setMonthPosition] = useState(0);
 
-  console.log(monthPosition);
-
   const nextSlide = () => {
     setMonthPosition(monthPosition - 1);
   };
@@ -101,7 +99,9 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
 export default Calendrier;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const fetchCalendar = `*[_type =="calendrier"] | order(date asc){
+  const today = new Date().toISOString().split("T")[0];
+
+  const fetchCalendar = `*[_type =="calendrier" && date >= '${today}'] | order(date asc){
       _id,
       title,
       "slug":slug.current,
