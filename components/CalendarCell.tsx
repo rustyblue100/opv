@@ -135,7 +135,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               </Link>
             </motion.div>
             <motion.div className="mt-5 block flex-1 text-sm font-bold sm:hidden">
-              Entrée: 10$
+              Entrée: {prix}$
             </motion.div>
           </div>
         </motion.div>

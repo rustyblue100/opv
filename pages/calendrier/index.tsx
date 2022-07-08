@@ -9,6 +9,7 @@ import { Calendrier } from "../../typings";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import MonthSlider from "../../components/MonthSlider";
 
 interface IProps {
   calendrier: [Calendrier];
@@ -44,7 +45,15 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
         transition={{ duration: 0.1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <Header>Calendrier</Header>
+        <div className="flex items-center justify-between">
+          <div className="">
+            <Header>Calendrier</Header>
+          </div>
+
+          <div className="mt-5">
+            <MonthSlider />
+          </div>
+        </div>
 
         {calendrierByMonthArray &&
           calendrierByMonthArray.map((m: any, i: number) => {
