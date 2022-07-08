@@ -15,7 +15,7 @@ interface IProps {
   calendrier: [Calendrier];
 }
 
-const calendrier: NextPage<IProps> = ({ calendrier }) => {
+const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   const [monthPosition, setMonthPosition] = useState(0);
 
   console.log(monthPosition);
@@ -49,9 +49,7 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
       };
     });
 
-  const months = calendrierByMonthArray?.map((m) => m.month);
-
-  console.log(months);
+  const months = calendrierByMonthArray?.map((m: any) => m.month);
 
   return (
     <BodyFull>
@@ -66,14 +64,17 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
             <Header>Calendrier</Header>
           </div>
 
-          <div className="mt-5">
-            <MonthSlider
-              months={months}
-              monthPosition={monthPosition}
-              nextSlide={nextSlide}
-              prevSlide={prevSlide}
-            />
-          </div>
+          {months.length > 1 && (
+            <div className="mt-5">
+              <MonthSlider
+                months={months}
+                monthPosition={monthPosition}
+                nextSlide={nextSlide}
+                prevSlide={prevSlide}
+                setMonthPosition={setMonthPosition}
+              />
+            </div>
+          )}
         </div>
         <h2 className="h2">{months[monthPosition]}</h2>
         {calendrierByMonthArray &&
@@ -81,7 +82,7 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
             return (
               <div key={i}>
                 {m.events
-                  .filter((f) =>
+                  .filter((f: any) =>
                     months[monthPosition]?.includes(
                       dayjs(f.date).locale("fr").format("MMMM")
                     )
@@ -97,7 +98,7 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
   );
 };
 
-export default calendrier;
+export default Calendrier;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const fetchCalendar = `*[_type =="calendrier"] | order(date asc){

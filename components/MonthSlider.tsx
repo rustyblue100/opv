@@ -1,8 +1,8 @@
 import { NextPage } from "next";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 interface Iprops {
-  months: { month: string }[];
+  months: [];
   monthPosition: number;
   nextSlide: () => void;
   prevSlide: () => void;
@@ -13,6 +13,7 @@ const MonthSlider: NextPage<Iprops> = ({
   monthPosition,
   nextSlide,
   prevSlide,
+  setMonthPosition,
 }) => {
   // check if start of array
   const isStartOfArray = (index: number) => {
@@ -25,7 +26,7 @@ const MonthSlider: NextPage<Iprops> = ({
   };
 
   return (
-    <div className="max-w-48 flex items-center justify-between gap-3 text-2xl">
+    <div className="max-w-48 flex items-center justify-between gap-5 text-xl">
       <button
         onClick={nextSlide}
         disabled={isStartOfArray(monthPosition)}
@@ -35,8 +36,18 @@ const MonthSlider: NextPage<Iprops> = ({
       >
         ◀
       </button>
-      <div className="min-w-[130px] flex-1 text-center uppercase text-opv-pink-1200">
-        {months?.map((m) => m)[monthPosition]}
+      <div className=" flex-1 text-center uppercase text-opv-pink-1200">
+        <select
+          value={months[monthPosition]}
+          onChange={(e) => setMonthPosition(e.target.value)}
+          className="bord bg-opv-pink-400 px-2 py-1 uppercase text-opv-black "
+        >
+          {months.map((m, i) => (
+            <option key={i} value={m} className="">
+              {m}
+            </option>
+          ))}
+        </select>
       </div>
       <button
         onClick={prevSlide}
