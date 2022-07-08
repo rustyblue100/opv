@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import BodyFull from "../../components/BodyFull";
 import CalendarCell from "../../components/CalendarCell";
 import Header from "../../components/Header";
@@ -16,6 +16,18 @@ interface IProps {
 }
 
 const calendrier: NextPage<IProps> = ({ calendrier }) => {
+  const [monthPosition, setMonthPosition] = useState(0);
+
+  console.log(monthPosition);
+
+  const nextSlide = () => {
+    setMonthPosition(monthPosition - 1);
+  };
+
+  const prevSlide = () => {
+    setMonthPosition(monthPosition + 1);
+  };
+
   //reduce calendrier to array of objects by month
   const calendrierByMonth = calendrier?.reduce((acc: any, curr: any) => {
     const month = dayjs(curr.date).locale("fr").format("MMMM");
@@ -37,6 +49,10 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
       };
     });
 
+  const months = calendrierByMonthArray?.map((m) => m.month);
+
+  console.log(months);
+
   return (
     <BodyFull>
       <motion.main
@@ -51,20 +67,25 @@ const calendrier: NextPage<IProps> = ({ calendrier }) => {
           </div>
 
           <div className="mt-5">
-            <MonthSlider />
+            <MonthSlider
+              months={months}
+              monthPosition={monthPosition}
+              nextSlide={nextSlide}
+              prevSlide={prevSlide}
+            />
           </div>
         </div>
-
+        <h2 className="h2">{months[monthPosition]}</h2>
         {calendrierByMonthArray &&
           calendrierByMonthArray.map((m: any, i: number) => {
             return (
               <div key={i}>
-                <h2 className="h2">{m.month}</h2>
-
                 {m.events
-                  /*               .filter(
-                  (f) => dayjs(f.date).locale("fr").format("MMMM") === "juillet"
-                ) */
+                  .filter((f) =>
+                    months[monthPosition]?.includes(
+                      dayjs(f.date).locale("fr").format("MMMM")
+                    )
+                  )
                   .map((cal: any, index: number) => {
                     return <CalendarCell key={cal._id} data={cal} />;
                   })}
