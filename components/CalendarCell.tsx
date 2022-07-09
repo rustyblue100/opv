@@ -12,7 +12,10 @@ interface IProps {
 }
 
 const CalendarCell: NextPage<IProps> = ({ data }) => {
-  const { title, mainImage, complet, prix, date, description, slug } = data;
+  const { title, mainImage, complet, prix, date, description } =
+    !data.recurrents ? data : data.recurrents;
+
+  const { slug } = data;
 
   function truncate(string: string, limit: number) {
     return string.length > limit ? `${string.slice(0, limit)}...` : string;

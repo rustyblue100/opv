@@ -37,7 +37,7 @@ const MonthSlider: NextPage<Iprops> = ({
         disabled={isStartOfArray(monthPosition)}
         className={`flex-1 text-opv-black-300 transition-colors hover:text-opv-pink-1200 ${
           isStartOfArray(monthPosition) && "text-opv-black-300"
-        } ${isStartOfArray(monthPosition) && "opacity-10"}`}
+        } ${isStartOfArray(monthPosition) && "opacity-20"}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ const MonthSlider: NextPage<Iprops> = ({
         <select
           value={months[monthPosition]}
           onChange={handleChange}
-          className="bord bg-opv-pink-400 px-2 py-1 capitalize text-opv-black "
+          className="bord bg-opv-pink-400 px-2 py-1 capitalize text-opv-black"
         >
           {months.map((m, i) => (
             <option key={i} value={m} className="">
@@ -72,7 +72,7 @@ const MonthSlider: NextPage<Iprops> = ({
         disabled={isEndOfArray(monthPosition)}
         className={`flex-1 text-opv-black-300 transition-colors hover:text-opv-pink-1200 ${
           isEndOfArray(monthPosition) && "text-opv-black-300"
-        } ${isEndOfArray(monthPosition) && "opacity-10"} `}
+        } ${isEndOfArray(monthPosition) && "opacity-20"} `}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

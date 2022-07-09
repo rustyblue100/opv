@@ -19,7 +19,7 @@ interface IProps {
 
 const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
   const { title, mainImage, date, description, prix, complet }: any =
-    calendrierData;
+    !calendrierData.recurrents ? calendrierData : calendrierData.recurrents;
 
   const { t } = useTranslation();
 

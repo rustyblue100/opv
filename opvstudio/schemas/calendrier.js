@@ -28,12 +28,19 @@ export default {
       name: "slug",
       title: "Slug",
       type: "slug",
-      hidden: ({ document }) => {
+      /*       hidden: ({ document }) => {
         return document?.evenements;
-      },
+      }, */
 
       options: {
-        source: (doc, options) => options.parent.title.fr,
+        source: (doc, options) => {
+          console.log(options);
+          return !options.parent.evenements
+            ? options.parent.title.fr
+            : options.parent.evenements._ref;
+        },
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
         maxLength: 96,
       },
     },

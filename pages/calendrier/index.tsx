@@ -82,7 +82,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
                 {m.events
                   .filter((f: any) =>
                     months[monthPosition]?.includes(
-                      dayjs(f.date).locale("fr").format("MMMM")
+                      dayjs(f.date).locale("fr").format("MMMM YYYY")
                     )
                   )
                   .map((cal: any, index: number) => {
@@ -121,6 +121,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     } `;
 
   const calendrier = await sanityClient.fetch(fetchCalendar);
+
+  console.log(calendrier);
 
   return {
     props: {
