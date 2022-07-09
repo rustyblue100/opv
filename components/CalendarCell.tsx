@@ -12,9 +12,11 @@ interface IProps {
 }
 
 const CalendarCell: NextPage<IProps> = ({ data }) => {
-  const { title, mainImage, complet, prix, date, description } =
-    data?.recurrents ? data.recurrents : data;
+  const { title, mainImage, complet, prix, description } = data?.recurrents
+    ? data.recurrents
+    : data;
 
+  const date = data.date;
   const slug = data.slug;
 
   console.log(data);
