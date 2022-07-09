@@ -122,12 +122,11 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
   const calendrier = await sanityClient.fetch(fetchCalendar);
 
-  console.log(calendrier);
-
   return {
     props: {
       ...(await serverSideTranslations(locale as string, [])),
       calendrier,
     },
+    revalidate: 60, // 60 seconds
   };
 };
