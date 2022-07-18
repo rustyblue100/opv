@@ -19,8 +19,6 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
   const date = data.date;
   const slug = data.slug;
 
-  console.log(data);
-
   function truncate(string: string, limit: number) {
     return string.length > limit ? `${string.slice(0, limit)}...` : string;
   }

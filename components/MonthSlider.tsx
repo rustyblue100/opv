@@ -37,7 +37,7 @@ const MonthSlider: NextPage<Iprops> = ({
         disabled={isStartOfArray(monthPosition)}
         className={`flex-1 text-opv-black-300 transition-colors hover:text-opv-pink-1200 ${
           isStartOfArray(monthPosition) && "text-opv-black-300"
-        } ${isStartOfArray(monthPosition) && "opacity-20"}`}
+        } ${isStartOfArray(monthPosition) && "opacity-30"}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ const MonthSlider: NextPage<Iprops> = ({
         disabled={isEndOfArray(monthPosition)}
         className={`flex-1 text-opv-black-300 transition-colors hover:text-opv-pink-1200 ${
           isEndOfArray(monthPosition) && "text-opv-black-300"
-        } ${isEndOfArray(monthPosition) && "opacity-20"} `}
+        } ${isEndOfArray(monthPosition) && "opacity-30"} `}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

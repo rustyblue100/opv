@@ -12,22 +12,6 @@ export default {
 
       validation: (Rule) => Rule.required(),
     },
-    {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-
-      validation: (Rule) => Rule.required(),
-      options: {
-        source: (doc, options) => options.parent.title.fr,
-        maxLength: 96,
-      },
-    },
-    /*     {
-      name: "category",
-      title: "Category",
-      type: "category",
-    }, */
 
     {
       name: "mainImage",

@@ -1,6 +1,14 @@
 /* eslint-disable import/no-anonymous-default-export */
 const dayjs = require("dayjs");
 require("dayjs/locale/fr");
+const sanityClient = require("@sanity/client");
+
+const client = sanityClient({
+  projectId: "5af2gkrh",
+  dataset: "production",
+  apiVersion: "2021-10-21",
+  useCdn: true,
+});
 
 export default {
   name: "calendrier",
@@ -34,13 +42,26 @@ export default {
 
       options: {
         source: (doc, options) => {
-          console.log(options);
-          return !options.parent.evenements
-            ? options.parent.title.fr
-            : options.parent.evenements._ref;
+          const show = options.parent;
+
+          const getData = async (ref) => {
+            const data = await client.fetch(
+              `*[_type=="calendrier"]{
+                "evenements": *[_type=='evenements' && _id=='${ref}']{ 
+                  title,
+                }
+              }`
+            );
+
+            return data;
+          };
+
+          return !show.evenements
+            ? `${dayjs(show.date).format("YYYY-MM-DD")}-${show.title.fr}`
+            : getData(show.evenements._ref).then((result) => {
+                return result[0].evenements[0].title.fr;
+              });
         },
-        slugify: (input) =>
-          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
         maxLength: 96,
       },
     },

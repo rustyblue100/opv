@@ -42,7 +42,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           </Link>
           <Header>{title.fr}</Header>
           <h2 className="text-3xl text-opv-pink-1200">
-            {dayjs(date).locale("fr").format("dddd DD MMMM")}{" "}
+            {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}
             {complet && (
               <div className="ml-5 inline-block -rotate-12 border border-black p-1 uppercase  text-black md:text-xl">
                 Complet
@@ -155,7 +155,6 @@ const calendrierQuery = `*[_type =="calendrier" && slug.current == $slug][0]{
   "mainImage": mainImage.asset->url,
     artiste[]->,
     description,
-    "slug":slug.current
   }, 
 }`;
 
