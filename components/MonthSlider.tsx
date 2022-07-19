@@ -27,7 +27,14 @@ const MonthSlider: NextPage<Iprops> = ({
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setMonthPosition(0);
+    console.log(months);
+
+    //find event in array months
+    const eventIndex = months?.findIndex(
+      (month: string) => month === event.target.value
+    );
+
+    setMonthPosition(eventIndex);
   };
 
   return (

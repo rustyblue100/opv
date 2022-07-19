@@ -36,10 +36,8 @@ export default {
       name: "slug",
       title: "Slug",
       type: "slug",
-      /*       hidden: ({ document }) => {
-        return document?.evenements;
-      }, */
 
+      validation: (Rule) => Rule.required(),
       options: {
         source: (doc, options) => {
           const show = options.parent;
@@ -59,7 +57,11 @@ export default {
           return !show.evenements
             ? `${dayjs(show.date).format("YYYY-MM-DD")}-${show.title.fr}`
             : getData(show.evenements._ref).then((result) => {
-                return result[0].evenements[0].title.fr;
+                return (
+                  dayjs(show.date).format("YYYY-MM-DD") +
+                  "-" +
+                  result[0].evenements[0].title.fr
+                );
               });
         },
         maxLength: 96,
