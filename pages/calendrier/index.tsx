@@ -11,59 +11,38 @@ import "dayjs/locale/fr";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import MonthSlider from "../../components/MonthSlider";
 import { useRouter } from "next/router";
+import { fetchCalendar } from "../../utils/sanityQuery";
 
 interface IProps {
   calendrier: [Calendrier];
 }
 
 const Calendrier: NextPage<IProps> = ({ calendrier }) => {
-  const router = useRouter();
-  const { query } = useRouter();
-
   const [dataQueryParam, setDataQueryParam] = useState([]);
-
   const [monthPosition, setMonthPosition] = useState(0);
 
-  useEffect(() => {
-    router.isReady && query.i
-      ? setMonthPosition(Number(query.i) as number)
-      : setMonthPosition(0);
-  }, [query.i, router.isReady]);
+  const router = useRouter();
+  const { query } = useRouter();
 
   // use Effect fecth sanity data
   useEffect(() => {
     const fetchData = async () => {
       const today = new Date().toISOString().split("T")[0];
-      const fetchCalendar = `*[_type =="calendrier" && date >= '${today}'] | order(date asc){
-      _id,
-      title,
-      "slug":slug.current,
-      artiste[]->,
-      description,
-      complet,
-      prix,
-      date,
-      mainImage,
-      "recurrents":evenements->{
-        title,
-        mainImage,
-        artiste[]->,
-        description,
-        "slug":slug.current
-      }, 
-    } `;
 
-      const calendrier = await sanityClient.fetch(fetchCalendar);
+      const calendrier = await sanityClient.fetch(fetchCalendar(today));
 
       return calendrier;
     };
 
-    if (router.isReady) {
+    if (router.isReady && query.i) {
+      setMonthPosition(Number(query.i) as number);
       fetchData().then((data) => {
         setDataQueryParam(data);
       });
+    } else {
+      setMonthPosition(0);
     }
-  }, [router.isReady]);
+  }, [router.isReady, query.i]);
 
   const nextSlide = () => {
     setMonthPosition(monthPosition - 1);
@@ -163,26 +142,7 @@ export default Calendrier;
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const today = new Date().toISOString().split("T")[0];
 
-  const fetchCalendar = `*[_type =="calendrier" && date >= '${today}'] | order(date asc){
-      _id,
-      title,
-      "slug":slug.current,
-      artiste[]->,
-      description,
-      complet,
-      prix,
-      date,
-      mainImage,
-      "recurrents":evenements->{
-        title,
-        mainImage,
-        artiste[]->,
-        description,
-        "slug":slug.current
-      }, 
-    } `;
-
-  const calendrier = await sanityClient.fetch(fetchCalendar);
+  const calendrier = await sanityClient.fetch(fetchCalendar(today));
 
   return {
     props: {
