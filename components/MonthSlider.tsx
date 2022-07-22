@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { ReactNode, useState } from "react";
 
 interface Iprops {
@@ -21,20 +22,35 @@ const MonthSlider: NextPage<Iprops> = ({
     return index === 0;
   };
 
+  const { query } = useRouter();
+
   // check if end of array
   const isEndOfArray = (index: number) => {
     return index === months?.length - 1;
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(months);
-
-    //find event in array months
     const eventIndex = months?.findIndex(
       (month: string) => month === event.target.value
     );
 
     setMonthPosition(eventIndex);
+
+    if (typeof window !== "undefined") {
+      return window.history.pushState(
+        null,
+        "",
+        `/calendrier?m=${event.target.value.replace(" ", "+")}&i=${eventIndex}`
+      );
+    }
+
+    /*     router.push(
+      {
+        query: { m: months[eventIndex] },
+      },
+      undefined,
+      { shallow: true }
+    ); */
   };
 
   return (
@@ -63,6 +79,7 @@ const MonthSlider: NextPage<Iprops> = ({
       </button>
       <div className=" flex-1 text-center uppercase text-opv-pink-1200">
         <select
+          data-index={monthPosition}
           value={months[monthPosition]}
           onChange={handleChange}
           className="bord bg-opv-pink-400 px-2 py-1 capitalize text-opv-black"

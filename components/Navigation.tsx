@@ -81,7 +81,7 @@ const Navigation: NextPage<IProps> = ({
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className={`text-md  capitalize leading-[30px] text-opv-pink-900 sm:text-lg md:text-2xl md:leading-[43px]  3xl:text-[40px] 
+          className={`capitalize  leading-[30px] text-opv-pink-900 xs:text-lg sm:text-lg md:text-2xl md:leading-[43px]  3xl:text-[40px] 
           3xl:leading-[63px]`}
         >
           {menu.map((menuItem, i) => {
