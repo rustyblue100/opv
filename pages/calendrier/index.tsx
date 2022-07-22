@@ -24,11 +24,10 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
 
   const [monthPosition, setMonthPosition] = useState(0);
 
-  console.log(router);
-
   useEffect(() => {
-    console.log(`useEffect triggered`);
-    router.isReady && setMonthPosition(Number(query.i) as number);
+    router.isReady && query.i
+      ? setMonthPosition(Number(query.i) as number)
+      : setMonthPosition(0);
   }, [query.i, router.isReady]);
 
   // use Effect fecth sanity data
@@ -59,8 +58,6 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
       return calendrier;
     };
 
-    console.log(router.isReady);
-
     if (router.isReady) {
       fetchData().then((data) => {
         setDataQueryParam(data);
@@ -76,29 +73,26 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
     setMonthPosition(monthPosition + 1);
   };
 
-  console.log(calendrier);
-
   //reduce calendrier to array of objects by month
-  const calendrierByMonth =
-    dataQueryParam && query.i
-      ? dataQueryParam.reduce((acc: any, curr: any) => {
-          const month = dayjs(curr.date).locale("fr").format("MMMM YYYY");
+  const calendrierByMonth = query.i
+    ? dataQueryParam.reduce((acc: any, curr: any) => {
+        const month = dayjs(curr.date).locale("fr").format("MMMM YYYY");
 
-          if (!acc[month]) {
-            acc[month] = [];
-          }
-          acc[month].push(curr);
-          return acc;
-        }, {})
-      : calendrier.reduce((acc: any, curr: any) => {
-          const month = dayjs(curr.date).locale("fr").format("MMMM YYYY");
+        if (!acc[month]) {
+          acc[month] = [];
+        }
+        acc[month].push(curr);
+        return acc;
+      }, {})
+    : calendrier.reduce((acc: any, curr: any) => {
+        const month = dayjs(curr.date).locale("fr").format("MMMM YYYY");
 
-          if (!acc[month]) {
-            acc[month] = [];
-          }
-          acc[month].push(curr);
-          return acc;
-        }, {});
+        if (!acc[month]) {
+          acc[month] = [];
+        }
+        acc[month].push(curr);
+        return acc;
+      }, {});
 
   //transform object into a array of objects by month
   const calendrierByMonthArray =
