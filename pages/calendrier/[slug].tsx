@@ -11,6 +11,7 @@ import Header from "../../components/Header";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 
 interface IProps {
   calendrierData: Calendrier;
@@ -25,6 +26,17 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
   const { t } = useTranslation();
 
+  const router = useRouter();
+
+  //get previous page url
+  const prevPage = router.pathname.split("/")[1];
+  const prevPageUrl = `/${prevPage}`;
+
+  // get document.referer from server
+  const referer = typeof window === "undefined" ? "" : window.document.referrer;
+
+  console.log(referer);
+
   return (
     <BodyFull>
       <motion.article
@@ -35,11 +47,17 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <div className="">
-          <Link href="/calendrier">
-            <button className="mt-8 flex items-center  gap-3 border-0 bg-none transition-all hover:underline">
-              ← Retour au calendrier
-            </button>
-          </Link>
+          <button
+            onClick={() =>
+              referer.includes("calendrier")
+                ? router.back()
+                : router.push("/calendrier")
+            }
+            className="mt-8 flex items-center  gap-3 border-0 bg-none transition-all hover:underline"
+          >
+            ← Retour au calendrier
+          </button>
+
           <Header>{title.fr}</Header>
           <h2 className="text-3xl text-opv-pink-1200">
             {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}

@@ -23,12 +23,9 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   const router = useRouter();
   const { query } = useRouter();
 
-  // use Effect fecth sanity data
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (router.isReady && query.i) {
       setMonthPosition(Number(query.i) as number);
-    } else {
-      setMonthPosition(0);
     }
   }, [router.isReady, query.i]);
 
@@ -42,7 +39,6 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
 
   //reduce calendrier to array of objects by month
   const calendrierByMonth = calendrier?.reduce((acc: any, curr: any) => {
-    console.log("ssr");
     const month = dayjs(curr.date).locale("fr").format("MMMM YYYY");
 
     if (!acc[month]) {
