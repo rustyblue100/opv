@@ -22,6 +22,7 @@ const MonthSlider: NextPage<Iprops> = ({
     return index === 0;
   };
 
+  const router = useRouter();
   const { query } = useRouter();
 
   // check if end of array
@@ -36,17 +37,24 @@ const MonthSlider: NextPage<Iprops> = ({
 
     setMonthPosition(eventIndex);
 
-    if (typeof window !== "undefined") {
-      return window.history.pushState(
+    /*     if (typeof window !== "undefined") {
+      return window.history.replaceState(
         null,
         "",
-        `/calendrier?m=${event.target.value.replace(" ", "+")}&i=${eventIndex}`
+        `/calendrier?i=${eventIndex}&m=${event.target.value.replace(" ", "+")}`
       );
-    }
+    } */
+
+    router.push(
+      `/calendrier?i=${eventIndex}&m=${event.target.value.replace(" ", "-")}`,
+      undefined,
+      { shallow: true }
+    );
 
     /*     router.push(
       {
-        query: { m: months[eventIndex] },
+        pathname: `/calendrier`,
+        query: { i: eventIndex, m: months[eventIndex] },
       },
       undefined,
       { shallow: true }
