@@ -6,12 +6,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "../lib/sanityClient";
 import { Calendrier } from "../typings";
+import { useRouter } from "next/router";
 
 interface IProps {
   data: Calendrier;
 }
 
 const CalendarCell: NextPage<IProps> = ({ data }) => {
+  const { query } = useRouter();
+
   const { title, mainImage, complet, prix, description } = data?.recurrents
     ? data.recurrents
     : data;
@@ -27,7 +30,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
     <div className="relative">
       <div className="flex w-full flex-col justify-between overflow-hidden py-6 sm:flex-row">
         <motion.hr
-          initial={{ opacity: 0, width: 0 }}
+          initial={!query.i && { opacity: 0, width: 0 }}
           animate={{ opacity: 1, width: "100%" }}
           transition={{ duration: 0.5, delay: 0 }}
           className="absolute top-0 w-full border-t border-opv-black-300"
@@ -38,7 +41,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
             {dayjs(date).locale("fr").format("dddd")}
           </div>
           <motion.div
-            initial={{ opacity: 0, y: 5 }}
+            initial={!query.i && { opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-3xl font-normal lg:text-6xl"

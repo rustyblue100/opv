@@ -28,14 +28,8 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
   const router = useRouter();
 
-  //get previous page url
-  const prevPage = router.pathname.split("/")[1];
-  const prevPageUrl = `/${prevPage}`;
-
   // get document.referer from server
   const referer = typeof window === "undefined" ? "" : window.document.referrer;
-
-  console.log(referer);
 
   return (
     <BodyFull>
@@ -49,9 +43,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
         <div className="">
           <button
             onClick={() =>
-              referer.includes("calendrier")
-                ? router.back()
-                : router.push("/calendrier")
+              referer.includes("calendrier") ? router.back() : router.back()
             }
             className="mt-8 flex items-center  gap-3 border-0 bg-none transition-all hover:underline"
           >

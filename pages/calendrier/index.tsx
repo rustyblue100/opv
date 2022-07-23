@@ -63,10 +63,12 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   return (
     <BodyFull>
       <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={!query.i && { opacity: 0 }}
+        animate={!query.i && { opacity: 1 }}
         transition={{ duration: 0.1 }}
-        exit={{ opacity: 0, transition: { duration: 0.3 } }}
+        exit={
+          !query.i ? { opacity: 0, transition: { duration: 0.3 } } : undefined
+        }
       >
         <div className="mb-8 flex flex-col items-center justify-between sm:mb-0 sm:flex-row">
           <div className="">
