@@ -13,7 +13,7 @@ interface IProps {
 }
 
 const CalendarCell: NextPage<IProps> = ({ data }) => {
-  const { query } = useRouter();
+  const { query } = useRouter() || { query: { text: "" } };
 
   const { title, mainImage, complet, prix, description } = data?.recurrents
     ? data.recurrents
@@ -108,7 +108,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="md:w-[200px]"
             >
               <Link href={`/calendrier/${slug}`}>
@@ -133,7 +133,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               className="mt-4 max-w-[800px] flex-1 xl:mt-0 xl:px-12"
             >
               {/* <PortableText value={description?.fr[0]} /> */}
-              {description && truncate(description.fr[0].children[0].text, 300)}
+              {description && truncate(description.fr[0].children[0].text, 150)}
 
               <br />
               <Link href={`/calendrier/${slug}`}>

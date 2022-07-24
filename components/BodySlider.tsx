@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { use100vh } from "react-div-100vh";
-import { Context } from "../components/Context";
+import { Context } from "../contexts/Context";
 import { Geo } from "../utils/geoMetrical";
 import useRamdomColors from "../utils/useRandomColors";
 import { useWindowSize } from "../utils/hooks";

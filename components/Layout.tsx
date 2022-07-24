@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Context } from "../components/Context";
+import { Context } from "../contexts/Context";
 import Navigation from "./Navigation";
 import SpotLights from "./SpotLights";
 import Burger from "./Burger";

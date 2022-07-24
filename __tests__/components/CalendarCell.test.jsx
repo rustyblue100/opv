@@ -1,9 +1,9 @@
 // __tests__/CalendarCell.test.jsx
 
 import { render, screen } from "@testing-library/react";
-import CalendarCell, { getStaticProps } from "../components/CalendarCell";
+import CalendarCell, { getStaticProps } from "../../components/CalendarCell";
 import "@testing-library/jest-dom";
-import { createMockRouter } from "../createMockRouter";
+import { createMockRouter } from "../../createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context.js";
 
 const elementProps = {

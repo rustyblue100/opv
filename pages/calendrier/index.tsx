@@ -30,11 +30,25 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   }, [router.isReady, query.i]);
 
   const nextSlide = () => {
-    setMonthPosition(monthPosition - 1);
+    /*  setMonthPosition(monthPosition - 1); */
+    query.i
+      ? router.replace(
+          `/calendrier?i=${monthPosition - 1}&m=${months[
+            monthPosition - 1
+          ].replace(" ", "-")}`
+        )
+      : setMonthPosition(0);
   };
 
   const prevSlide = () => {
-    setMonthPosition(monthPosition + 1);
+    /*     setMonthPosition(monthPosition + 1); */
+
+    router.replace(
+      `/calendrier?i=${monthPosition + 1}&m=${months[monthPosition + 1].replace(
+        " ",
+        "-"
+      )}`
+    );
   };
 
   //reduce calendrier to array of objects by month

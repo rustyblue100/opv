@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { ReactNode, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 
 interface Iprops {
   months: [];
@@ -15,7 +15,6 @@ const MonthSlider: NextPage<Iprops> = ({
   monthPosition,
   nextSlide,
   prevSlide,
-  setMonthPosition,
 }) => {
   // check if start of array
   const isStartOfArray = (index: number) => {
@@ -23,7 +22,6 @@ const MonthSlider: NextPage<Iprops> = ({
   };
 
   const router = useRouter();
-  const { query } = useRouter();
 
   // check if end of array
   const isEndOfArray = (index: number) => {
@@ -35,30 +33,11 @@ const MonthSlider: NextPage<Iprops> = ({
       (month: string) => month === event.target.value
     );
 
-    setMonthPosition(eventIndex);
-
-    /*     if (typeof window !== "undefined") {
-      return window.history.replaceState(
-        null,
-        "",
-        `/calendrier?i=${eventIndex}&m=${event.target.value.replace(" ", "+")}`
-      );
-    } */
-
     router.push(
       `/calendrier?i=${eventIndex}&m=${event.target.value.replace(" ", "-")}`,
       undefined,
       { shallow: true }
     );
-
-    /*     router.push(
-      {
-        pathname: `/calendrier`,
-        query: { i: eventIndex, m: months[eventIndex] },
-      },
-      undefined,
-      { shallow: true }
-    ); */
   };
 
   return (
