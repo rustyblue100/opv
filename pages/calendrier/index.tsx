@@ -12,6 +12,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import MonthSlider from "../../components/MonthSlider";
 import { useRouter } from "next/router";
 import { fetchCalendar } from "../../utils/sanityQuery";
+import useIsomorphicLayoutEffect from "../../utils/useIsomorphicLayoutEffect";
 
 interface IProps {
   calendrier: [Calendrier];
@@ -23,7 +24,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   const router = useRouter();
   const { query } = useRouter();
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (router.isReady && query.i) {
       setMonthPosition(Number(query.i) as number);
     }

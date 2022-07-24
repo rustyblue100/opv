@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import useIsomorphicLayoutEffect from "./use-isomorphic-layout-effect";
+import { useState } from "react";
+import useIsomorphicLayoutEffect from "./useIsomorphicLayoutEffect";
 
 type WindowDimentions = {
   width: number | undefined;

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import BodyFull from "../components/Layout/BodyFullLayout";
+import BodyFull from "../components/Layout/BodyLayout";
 import CalendarCell from "../components/CalendarCell";
 import Header from "../components/Header";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";

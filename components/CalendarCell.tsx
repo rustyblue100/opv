@@ -45,6 +45,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-3xl font-normal lg:text-6xl"
+            data-testid="date"
           >
             {dayjs(date).format("DD")}
             <small className="relative top-1 align-top text-sm">

@@ -17,19 +17,22 @@ const elementProps = {
 };
 
 describe("CalendarCell", () => {
-  it("renders title", () => {
+  beforeEach(() => {
     render(<CalendarCell data={elementProps} />);
+  });
 
+  it("renders title", () => {
     const title = screen.getByText(/un titre en français/i);
-
     expect(title).toBeInTheDocument();
   });
 
+  it("renders day", () => {
+    const date = screen.getByTestId(/date/i);
+    expect(date).toBeInTheDocument();
+  });
+
   it("renders a more link", () => {
-    render(<CalendarCell data={elementProps} />);
-
     const plus = screen.getByTestId("see more");
-
     expect(plus).toBeInTheDocument();
   });
 });
