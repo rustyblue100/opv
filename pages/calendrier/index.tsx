@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import BodyFull from "../../components/BodyFull";
+import BodyFull from "../../components/Layout/BodyLayout";
 import CalendarCell from "../../components/CalendarCell";
 import Header from "../../components/Header";
 import { sanityClient } from "../../lib/sanityClient";

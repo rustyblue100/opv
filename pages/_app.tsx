@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/MainLayout";
 import "../styles/globals.css";
 import { appWithTranslation } from "next-i18next";
 

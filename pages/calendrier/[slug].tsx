@@ -3,7 +3,7 @@ import "dayjs/locale/fr";
 import { motion } from "framer-motion";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Image from "next/image";
-import BodyFull from "../../components/BodyFull";
+import BodyFull from "../../components/Layout/BodyFullLayout";
 import { sanityClient, urlFor } from "../../lib/sanityClient";
 import { Calendrier } from "../../typings";
 import { PortableText } from "../../lib/sanityClient";

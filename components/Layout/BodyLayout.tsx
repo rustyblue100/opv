@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 import { NextPage } from "next";
 import { useContext } from "react";
 import { use100vh } from "react-div-100vh";
-import { Context } from "../contexts/Context";
-import { Geo } from "../utils/geoMetrical";
-import Footer from "./Footer";
+import { Context } from "../../contexts/Context";
+import { Geo } from "../../utils/geoMetrical";
+import Footer from "../Footer";
 import { useRouter } from "next/router";
 
 interface Iprops {
   children: React.ReactNode;
 }
 
-const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
+const BodyLayout: NextPage<Iprops> = ({ children }) => {
   const heightVH = use100vh();
 
   const appContext = useContext(Context);
@@ -78,4 +78,4 @@ const BodyFullSlider: NextPage<Iprops> = ({ children }) => {
   );
 };
 
-export default BodyFullSlider;
+export default BodyLayout;

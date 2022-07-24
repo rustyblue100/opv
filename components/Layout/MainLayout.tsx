@@ -3,18 +3,18 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Context } from "../contexts/Context";
-import Navigation from "./Navigation";
-import SpotLights from "./SpotLights";
-import Burger from "./Burger";
-import { useWindowSize } from "../utils/hooks";
+import { Context } from "../../contexts/Context";
+import Navigation from "../Navigation";
+import SpotLights from "../SpotLights";
+import Burger from "../Burger";
+import { useWindowSize } from "../../utils/hooks";
 import { useRouter } from "next/router";
 
 interface Iprops {
   children: React.ReactNode;
 }
 
-const Layout: NextPage<Iprops> = ({ children }) => {
+const MainLayout: NextPage<Iprops> = ({ children }) => {
   const [menuHover, setMenuHover] = useState(false);
   const [clicked, setClicked] = useState(false);
 
@@ -139,4 +139,4 @@ const Layout: NextPage<Iprops> = ({ children }) => {
   );
 };
 
-export default Layout;
+export default MainLayout;
