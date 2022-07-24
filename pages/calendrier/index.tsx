@@ -30,9 +30,8 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   }, [router.isReady, query.i]);
 
   const nextSlide = () => {
-    /*  setMonthPosition(monthPosition - 1); */
     query.i
-      ? router.replace(
+      ? router.push(
           `/calendrier?i=${monthPosition - 1}&m=${months[
             monthPosition - 1
           ].replace(" ", "-")}`
@@ -43,7 +42,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   const prevSlide = () => {
     /*     setMonthPosition(monthPosition + 1); */
 
-    router.replace(
+    router.push(
       `/calendrier?i=${monthPosition + 1}&m=${months[monthPosition + 1].replace(
         " ",
         "-"
