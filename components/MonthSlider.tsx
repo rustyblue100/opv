@@ -43,7 +43,7 @@ const MonthSlider: NextPage<Iprops> = ({
   return (
     <div className="max-w-48 flex items-center justify-between gap-2 text-xl">
       <button
-        onClick={nextSlide}
+        onClick={prevSlide}
         disabled={isStartOfArray(monthPosition)}
         className={`flex-1 text-opv-black-300 transition-colors hover:text-opv-pink-1200 ${
           isStartOfArray(monthPosition) && "text-opv-black-300"
@@ -79,7 +79,7 @@ const MonthSlider: NextPage<Iprops> = ({
         </select>
       </div>
       <button
-        onClick={prevSlide}
+        onClick={nextSlide}
         disabled={isEndOfArray(monthPosition)}
         className={`flex-1 text-opv-black-300 transition-colors hover:text-opv-pink-1200 ${
           isEndOfArray(monthPosition) && "text-opv-black-300"
