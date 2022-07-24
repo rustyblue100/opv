@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { ReactNode, useRef, useState } from "react";
+import pathPushQueryParams from "../utils/pathPushQueryParams";
 
 interface Iprops {
   months: [];
@@ -34,7 +35,7 @@ const MonthSlider: NextPage<Iprops> = ({
     );
 
     router.push(
-      `/calendrier?i=${eventIndex}&m=${event.target.value.replace(" ", "-")}`,
+      pathPushQueryParams(eventIndex, event.target.value),
       undefined,
       { shallow: true }
     );

@@ -13,7 +13,7 @@ import MonthSlider from "../../components/MonthSlider";
 import { useRouter } from "next/router";
 import { fetchCalendar } from "../../utils/sanityQuery";
 import useIsomorphicLayoutEffect from "../../utils/useIsomorphicLayoutEffect";
-
+import pathPushQueryParams from "../../utils/pathPushQueryParams";
 interface IProps {
   calendrier: [Calendrier];
 }
@@ -33,19 +33,14 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   const prevSlide = () => {
     query.i
       ? router.push(
-          `/calendrier?i=${monthPosition - 1}&m=${months[
-            monthPosition - 1
-          ].replace(" ", "-")}`
+          pathPushQueryParams(monthPosition - 1, months[monthPosition - 1])
         )
       : setMonthPosition(0);
   };
 
   const nextSlide = () => {
     router.push(
-      `/calendrier?i=${monthPosition + 1}&m=${months[monthPosition + 1].replace(
-        " ",
-        "-"
-      )}`
+      pathPushQueryParams(monthPosition + 1, months[monthPosition + 1])
     );
   };
 
@@ -107,11 +102,8 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
                 <div key={i}>
                   {m.events
                     .filter((f: any) => {
-                      return (
-                        /*      months[monthPosition]?.includes(query.m) || */
-                        months[monthPosition]?.includes(
-                          dayjs(f.date).locale("fr").format("MMMM YYYY")
-                        )
+                      return months[monthPosition]?.includes(
+                        dayjs(f.date).locale("fr").format("MMMM YYYY")
                       );
                     })
                     .map((cal: any, index: number) => {
