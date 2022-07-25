@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
 import Marquee from "react-fast-marquee";
-import LanguageSwitcher from "./LanguageSwitcher";
+import LanguageSwitcher from "../LanguageSwitcher/";
 
 interface IProps {
   clicked: boolean;

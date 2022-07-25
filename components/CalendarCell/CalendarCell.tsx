@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { urlFor } from "../lib/sanityClient";
-import { Calendrier } from "../typings";
+import { urlFor } from "../../lib/sanityClient";
+import { Calendrier } from "../../typings";
 import { useRouter } from "next/router";
 
 interface IProps {

@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import BodyFull from "../../components/Layout/BodyLayout";
-import CalendarCell from "../../components/CalendarCell";
-import Header from "../../components/Header";
+import CalendarCell from "../../components/CalendarCell/";
+import Header from "../../components/Header/Header";
 import { sanityClient } from "../../lib/sanityClient";
 import { GetStaticProps, NextPage } from "next";
 import { Calendrier } from "../../typings";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import MonthSlider from "../../components/MonthSlider";
+import MonthSlider from "../../components/MonthSlider/MonthSlider";
 import { useRouter } from "next/router";
 import { fetchCalendar } from "../../utils/sanityQuery";
 import useIsomorphicLayoutEffect from "../../utils/useIsomorphicLayoutEffect";

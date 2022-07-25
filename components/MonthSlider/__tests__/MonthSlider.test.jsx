@@ -1,7 +1,7 @@
 // __tests__/MonthSlider.test.jsx
 
 import { render, screen } from "@testing-library/react";
-import MonthSlider, { getStaticProps } from "../../components/MonthSlider";
+import MonthSlider, { getStaticProps } from "../MonthSlider";
 import userEvent from "@testing-library/user-event";
 
 import "@testing-library/jest-dom";

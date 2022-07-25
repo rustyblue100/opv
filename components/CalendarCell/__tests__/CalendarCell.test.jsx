@@ -1,7 +1,7 @@
 // __tests__/CalendarCell.test.jsx
 
 import { render, screen } from "@testing-library/react";
-import CalendarCell, { getStaticProps } from "../../components/CalendarCell";
+import CalendarCell, { getStaticProps } from "../CalendarCell";
 import "@testing-library/jest-dom";
 
 const elementProps = {

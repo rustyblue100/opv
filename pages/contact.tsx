@@ -3,8 +3,7 @@ import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 import BodyFull from "../components/Layout/BodyLayout";
-import CalendarCell from "../components/CalendarCell";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 
 const contact = () => {
   return (

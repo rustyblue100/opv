@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
-import pathPushQueryParams from "../utils/pathPushQueryParams";
+import pathPushQueryParams from "../../utils/pathPushQueryParams";
 
 interface Iprops {
   months: [];

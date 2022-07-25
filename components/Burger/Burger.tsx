@@ -8,7 +8,7 @@ interface Iprops {
   setMenuHover: (open: boolean) => void;
 }
 
-const Burger: NextPage<Iprops> = ({ menuHover, setMenuHover }) => {
+export const Burger: NextPage<Iprops> = ({ menuHover, setMenuHover }) => {
   const route = useRouter();
 
   const stagger = {
