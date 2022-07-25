@@ -112,19 +112,21 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="md:w-[200px]"
             >
-              <Link href={`/calendrier/${slug}`}>
-                <Image
-                  className="flex-1 cursor-pointer md:rounded-full"
-                  src={
-                    mainImage
-                      ? urlFor(mainImage).url()
-                      : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
-                  }
-                  width="400"
-                  height="400"
-                  objectFit="cover"
-                  alt="band"
-                />
+              <Link href={`/calendrier/${slug}`} passHref>
+                <a>
+                  <Image
+                    className="flex-1 cursor-pointer md:rounded-full"
+                    src={
+                      mainImage
+                        ? urlFor(mainImage).url()
+                        : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
+                    }
+                    width="400"
+                    height="400"
+                    objectFit="cover"
+                    alt="band"
+                  />
+                </a>
               </Link>
             </motion.div>
             <motion.div
@@ -137,7 +139,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               {description && truncate(description.fr[0].children[0].text, 150)}
 
               <br />
-              <Link href={`/calendrier/${slug}`}>
+              <Link href={`/calendrier/${slug}`} passHref>
                 <a className="text-opv-pink-1200" data-testid="see more">
                   Voir plus...
                 </a>

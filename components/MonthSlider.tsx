@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { ReactNode, useRef, useState } from "react";
+
 import pathPushQueryParams from "../utils/pathPushQueryParams";
 
 interface Iprops {
@@ -67,13 +67,14 @@ const MonthSlider: NextPage<Iprops> = ({
       </button>
       <div className=" flex-1 text-center uppercase text-opv-pink-1200">
         <select
+          role="combobox"
           data-index={monthPosition}
           value={months[monthPosition]}
           onChange={handleChange}
           className="bord bg-opv-pink-400 px-2 py-1 capitalize text-opv-black"
         >
-          {months.map((m, i) => (
-            <option key={i} value={m} className="">
+          {months.map((m: string, i: number) => (
+            <option key={i} value={m} className="" role="option">
               {m}
             </option>
           ))}

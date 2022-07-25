@@ -33,14 +33,18 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
   const prevSlide = () => {
     query.i
       ? router.push(
-          pathPushQueryParams(monthPosition - 1, months[monthPosition - 1])
+          pathPushQueryParams(monthPosition - 1, months[monthPosition - 1]),
+          undefined,
+          { shallow: true }
         )
       : setMonthPosition(0);
   };
 
   const nextSlide = () => {
     router.push(
-      pathPushQueryParams(monthPosition + 1, months[monthPosition + 1])
+      pathPushQueryParams(monthPosition + 1, months[monthPosition + 1]),
+      undefined,
+      { shallow: true }
     );
   };
 
@@ -82,7 +86,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
             <Header>Calendrier</Header>
           </div>
 
-          {months.length > 1 && (
+          {months?.length > 1 && (
             <div className="mt-5">
               <MonthSlider
                 months={months}
@@ -94,7 +98,9 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
             </div>
           )}
         </div>
-        <h2 className="h2 hidden sm:block">{months[monthPosition]}</h2>
+        <h2 className="h2 hidden sm:block">
+          {months && months[monthPosition]}
+        </h2>
         {calendrierByMonthArray &&
           calendrierByMonthArray.map(
             (m: { events: object[]; month: string }, i: number) => {
