@@ -1,19 +1,19 @@
-import { motion } from "framer-motion";
-import React, { useEffect, useLayoutEffect, useState } from "react";
-import BodyFull from "../../components/Layout/BodyLayout";
-import CalendarCell from "../../components/CalendarCell/";
-import Header from "../../components/Header/Header";
-import { sanityClient } from "../../lib/sanityClient";
-import { GetStaticProps, NextPage } from "next";
-import { Calendrier } from "../../typings";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
+import { motion } from "framer-motion";
+import { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import MonthSlider from "../../components/MonthSlider/MonthSlider";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import CalendarCell from "../../components/CalendarCell/";
+import Header from "../../components/Header/Header";
+import BodyFull from "../../components/Layout/BodyLayout";
+import MonthSlider from "../../components/MonthSlider/MonthSlider";
+import { sanityClient } from "../../lib/sanityClient";
+import { Calendrier } from "../../typings";
+import pathPushQueryParams from "../../utils/pathPushQueryParams";
 import { fetchCalendar } from "../../utils/sanityQuery";
 import useIsomorphicLayoutEffect from "../../utils/useIsomorphicLayoutEffect";
-import pathPushQueryParams from "../../utils/pathPushQueryParams";
 interface IProps {
   calendrier: [Calendrier];
 }
@@ -81,7 +81,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
           !query.i ? { opacity: 0, transition: { duration: 0.3 } } : undefined
         }
       >
-        <div className="mb-8 flex flex-col items-center justify-between sm:mb-0 sm:flex-row">
+        <div className="mb-8 mt-8 flex flex-col items-center justify-between sm:mb-0 sm:flex-row">
           <div className="">
             <Header>Calendrier</Header>
           </div>

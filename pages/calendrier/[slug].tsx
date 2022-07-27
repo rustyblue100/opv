@@ -2,16 +2,13 @@ import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { motion } from "framer-motion";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Image from "next/image";
-import BodyFull from "../../components/Layout/BodyLayout";
-import { sanityClient, urlFor } from "../../lib/sanityClient";
-import { Calendrier } from "../../typings";
-import { PortableText } from "../../lib/sanityClient";
-import Header from "../../components/Header";
-import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Image from "next/image";
 import { useRouter } from "next/router";
+import BodyFull from "../../components/Layout/BodyLayout";
+import { PortableText, sanityClient, urlFor } from "../../lib/sanityClient";
+import { Calendrier } from "../../typings";
 
 interface IProps {
   calendrierData: Calendrier;
@@ -33,15 +30,21 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
   return (
     <BodyFull>
-      <button
-        onClick={() =>
-          referer.includes("calendrier") ? router.back() : router.back()
-        }
-        className="mb-8 flex flex-1 items-center gap-3 border-0 bg-none transition-all hover:underline"
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        exit={{ opacity: 0, transition: { duration: 0.2 } }}
+        className="w-[120px] md:ml-auto md:w-[180px]"
       >
-        ← Retour au calendrier
-      </button>
-
+        <Image
+          src="/logo-footer.png"
+          width="200"
+          height="100"
+          objectFit="contain"
+          alt="logo"
+        />
+      </motion.div>
       <motion.article
         className="-mt-8 grid gap-x-16 gap-y-12 lg:grid-cols-2 lg:gap-y-32"
         initial={{ opacity: 0 }}
@@ -50,16 +53,20 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <div className="">
+          <button
+            onClick={() =>
+              referer.includes("calendrier") ? router.back() : router.back()
+            }
+            className="mt-8 flex items-center  gap-3 border-0 bg-none transition-all hover:underline"
+          >
+            ← Retour au calendrier
+          </button>
+
           <div className="max-w-2xl pt-6 pb-2 text-3xl font-bold uppercase sm:pt-9 md:text-4xl lg:pt-8 lg:text-5xl">
             {title.fr}
           </div>
           <h2 className="text-3xl text-opv-pink-1200">
             {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}
-            {complet && (
-              <div className="ml-5 inline-block -rotate-12 border border-black p-1 uppercase  text-black md:text-xl">
-                Complet
-              </div>
-            )}
           </h2>
 
           <div className="mt-24 flex justify-start gap-5">
@@ -95,6 +102,12 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
           <div className="mt-20 flex items-center justify-between rounded border border-black bg-violet-200 p-5 text-2xl">
             <div className="my-3">{prix}$</div>
+
+            {complet && (
+              <div className="ml-5 inline-block -rotate-12 border border-opv-pink-1200 p-1 uppercase  text-opv-pink-1200 md:text-xl">
+                Complet
+              </div>
+            )}
             <div className="">{t("evenement:billets")}</div>
           </div>
 
@@ -122,7 +135,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.2 }}
           exit={{ opacity: 0, transition: { duration: 0.3 } }}
-          className="pt-8"
+          className="sticky top-24 left-0 right-0 h-[1000px] "
         >
           <div className="">
             <Image
