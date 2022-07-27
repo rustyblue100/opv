@@ -6,6 +6,7 @@ import { use100vh } from "react-div-100vh";
 import { Context } from "../../contexts/Context";
 import { Geo } from "../../utils/geoMetrical";
 import Footer from "../Footer/";
+import Image from "next/image";
 
 interface Iprops {
   children: React.ReactNode;
@@ -69,7 +70,22 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
         style={{ height: heightVH ? heightVH : "100vh" }}
         className="flex flex-col overflow-y-scroll bg-opv-pink-500 px-10 "
       >
-        <motion.div className="flex-1">{children}</motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          exit={{ opacity: 0, transition: { duration: 0.2 } }}
+          className="w-[120px] md:ml-auto md:w-[180px] "
+        >
+          <Image
+            src="/logo-footer.png"
+            width="200"
+            height="100"
+            objectFit="contain"
+            alt="logo"
+          />
+        </motion.div>
+        <motion.div className="-mt-6 flex-1">{children}</motion.div>
         <Footer />
       </motion.div>
     </motion.div>

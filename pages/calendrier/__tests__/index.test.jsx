@@ -1,6 +1,6 @@
 // __tests__/Calendrier/index.test.jsx
 
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { createMockRouter } from "../../../createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context.js";
 import { elementProps } from "../../../__mocks__/sanityClient";
@@ -32,7 +32,6 @@ describe("Calendrier Index", () => {
 
   it("should render a select box with many options", async () => {
     const selectOptions = await screen.findAllByRole("option");
-
     expect(selectOptions.length).toBeGreaterThanOrEqual(1);
   });
 
@@ -46,8 +45,12 @@ describe("Calendrier Index", () => {
     expect(eventDivElements.length).toBeGreaterThanOrEqual(2);
   });
 
-  /*   it("should change filter months on click selector", async () => {
-    const selector = screen.findByText(/juillet 2022/i);
-    fireEvent.click(await selector, { button: 0 });
-  }); */
+  it("simulates selection of a month", async () => {
+    fireEvent.click(await screen.findByRole("combobox"), {
+      target: { value: "août 2022" },
+    });
+    let options = await screen.findAllByRole("option");
+    expect(options[0].selected).toBeFalsy();
+    expect(options[1].selected).toBeTruthy();
+  });
 });

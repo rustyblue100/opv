@@ -75,7 +75,7 @@ p{
 
 
   .h1{
-    @apply pt-6 sm:pt-9 lg:pt-8 pb-2 text-3xl md:text-4xl lg:text-5xl uppercase font-bold
+    @apply  pb-2 text-3xl md:text-4xl lg:text-5xl uppercase font-bold
   }
 
   .h2{

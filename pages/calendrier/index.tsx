@@ -87,7 +87,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
           </div>
 
           {months?.length > 1 && (
-            <div className="mt-5">
+            <div className="">
               <MonthSlider
                 months={months}
                 monthPosition={monthPosition}

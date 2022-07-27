@@ -33,24 +33,26 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
   return (
     <BodyFull>
+      <button
+        onClick={() =>
+          referer.includes("calendrier") ? router.back() : router.back()
+        }
+        className="mb-8 flex flex-1 items-center gap-3 border-0 bg-none transition-all hover:underline"
+      >
+        ← Retour au calendrier
+      </button>
+
       <motion.article
-        className="grid gap-x-16 gap-y-12 lg:grid-cols-2 lg:gap-y-32"
+        className="-mt-8 grid gap-x-16 gap-y-12 lg:grid-cols-2 lg:gap-y-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <div className="">
-          <button
-            onClick={() =>
-              referer.includes("calendrier") ? router.back() : router.back()
-            }
-            className="mt-8 flex items-center  gap-3 border-0 bg-none transition-all hover:underline"
-          >
-            ← Retour au calendrier
-          </button>
-
-          <Header>{title.fr}</Header>
+          <div className="max-w-2xl pt-6 pb-2 text-3xl font-bold uppercase sm:pt-9 md:text-4xl lg:pt-8 lg:text-5xl">
+            {title.fr}
+          </div>
           <h2 className="text-3xl text-opv-pink-1200">
             {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}
             {complet && (
