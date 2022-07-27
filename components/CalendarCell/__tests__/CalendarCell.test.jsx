@@ -1,7 +1,9 @@
 // __tests__/CalendarCell.test.jsx
 
-import { render, screen } from "@testing-library/react";
-import CalendarCell, { getStaticProps } from "../CalendarCell";
+import { render, screen, cleanup } from "@testing-library/react";
+import CalendarCell, {
+  getStaticProps,
+} from "../../../components/CalendarCell/";
 import "@testing-library/jest-dom";
 
 const elementProps = {
@@ -17,6 +19,10 @@ const elementProps = {
 describe("CalendarCell", () => {
   beforeEach(() => {
     render(<CalendarCell data={elementProps} />);
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   it("renders title", () => {

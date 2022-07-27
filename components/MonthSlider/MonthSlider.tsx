@@ -1,6 +1,5 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-
 import pathPushQueryParams from "../../utils/pathPushQueryParams";
 
 interface Iprops {
@@ -65,7 +64,7 @@ const MonthSlider: NextPage<Iprops> = ({
           />
         </svg>
       </button>
-      <div className=" flex-1 text-center uppercase text-opv-pink-1200">
+      <div className="flex-1 text-center uppercase text-opv-pink-1200">
         <select
           role="combobox"
           data-index={monthPosition}

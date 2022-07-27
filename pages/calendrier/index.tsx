@@ -101,24 +101,24 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
         <h2 className="h2 hidden sm:block">
           {months && months[monthPosition]}
         </h2>
-        {calendrierByMonthArray &&
-          calendrierByMonthArray.map(
-            (m: { events: object[]; month: string }, i: number) => {
-              return (
-                <div key={i}>
-                  {m.events
-                    .filter((f: any) => {
-                      return months[monthPosition]?.includes(
-                        dayjs(f.date).locale("fr").format("MMMM YYYY")
-                      );
-                    })
-                    .map((cal: any, index: number) => {
-                      return <CalendarCell key={cal._id} data={cal} />;
-                    })}
-                </div>
-              );
-            }
-          )}
+
+        {calendrierByMonthArray?.map(
+          (m: { events: object[]; month: string }, i: number) => {
+            return (
+              <div key={i} data-testid={`evenement-item-${i}`}>
+                {m.events
+                  .filter((f: any) => {
+                    return months[monthPosition]?.includes(
+                      dayjs(f.date).locale("fr").format("MMMM YYYY")
+                    );
+                  })
+                  .map((cal: any, index: number) => {
+                    return <CalendarCell key={index} data={cal} />;
+                  })}
+              </div>
+            );
+          }
+        )}
       </motion.main>
     </BodyFull>
   );

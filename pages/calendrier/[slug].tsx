@@ -95,6 +95,24 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             <div className="my-3">{prix}$</div>
             <div className="">{t("evenement:billets")}</div>
           </div>
+
+          <h2 className="mt-24 mb-4 text-4xl">Bio</h2>
+          <div className="max-w-3xl text-lg ">
+            <PortableText
+              value={locale === "fr" ? description?.fr : description?.en}
+            />
+          </div>
+
+          <div className="mt-24">
+            <iframe
+              className="aspect-video w-full"
+              src="https://www.youtube.com/embed/sOreUnGoIMg"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
 
         <motion.div
@@ -112,37 +130,17 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
               layout="responsive"
               alt={title}
               objectFit="cover"
-              className="rounded"
+              className="rounded-lg"
             />
           </div>
 
-          <div className="float-right">
+          <div className="float-right mt-4">
             <ul className="flex gap-3">
               <li>Site Web</li>
               <li>Facebook</li>
             </ul>
           </div>
         </motion.div>
-
-        <div className="">
-          <h2 className="mb-4 text-4xl">Bio</h2>
-          <div className="max-w-3xl text-lg ">
-            <PortableText
-              value={locale === "fr" ? description?.fr : description?.en}
-            />
-          </div>
-        </div>
-
-        <div className="">
-          <iframe
-            className="aspect-video w-full"
-            src="https://www.youtube.com/embed/sOreUnGoIMg"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
       </motion.article>
     </BodyFull>
   );

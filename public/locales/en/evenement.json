@@ -1,5 +1,6 @@
 {
     "type_event": "Type of event",
     "billets": "Tickets at the door",
-    "portes": "Doors"
+    "portes": "Doors",
+    "cover": "Cover charge"
 }

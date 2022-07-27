@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { Context } from "../../contexts/Context";
+import { useWindowSize } from "../../utils/hooks";
+import Burger from "../Burger";
 import Navigation from "../Navigation/";
 import SpotLights from "../SpotLights/";
-import Burger from "../Burger";
-import { useWindowSize } from "../../utils/hooks";
-import { useRouter } from "next/router";
 
 interface Iprops {
   children: React.ReactNode;
