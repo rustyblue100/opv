@@ -15,7 +15,9 @@ const infos = () => {
         transition={{ duration: 0.4 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <Header>Infos</Header>
+        <Header>
+          <h1 className="h1 mt-8">Infos</h1>
+        </Header>
 
         <div className="mt-10 max-w-[800px]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem repellat

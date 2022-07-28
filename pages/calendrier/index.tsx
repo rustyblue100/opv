@@ -14,6 +14,8 @@ import { Calendrier } from "../../typings";
 import pathPushQueryParams from "../../utils/pathPushQueryParams";
 import { fetchCalendar } from "../../utils/sanityQuery";
 import useIsomorphicLayoutEffect from "../../utils/useIsomorphicLayoutEffect";
+import Image from "next/image";
+
 interface IProps {
   calendrier: [Calendrier];
 }
@@ -81,22 +83,54 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
           !query.i ? { opacity: 0, transition: { duration: 0.3 } } : undefined
         }
       >
-        <div className="mb-8 mt-8 flex flex-col items-center justify-between sm:mb-0 sm:flex-row">
-          <div className="">
-            <Header>Calendrier</Header>
-          </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          exit={{ opacity: 0, transition: { duration: 0.2 } }}
+          className="w-[120px] md:ml-auto md:w-[180px]"
+        >
+          <Image
+            src="/logo-footer.png"
+            width="200"
+            height="100"
+            objectFit="contain"
+            alt="logo"
+          />
+        </motion.div>
+        <div className="mb-8 -mt-2 flex flex-col items-center justify-between sm:mb-0 sm:flex-row">
+          <Header>
+            <h1 className="h1 mb-5 xl:mb-0">Calendrier</h1>
+          </Header>
 
-          {months?.length > 1 && (
-            <div className="">
-              <MonthSlider
-                months={months}
-                monthPosition={monthPosition}
-                nextSlide={nextSlide}
-                prevSlide={prevSlide}
-                setMonthPosition={setMonthPosition}
-              />
+          <div className="flex flex-col items-center gap-2 xl:flex-row">
+            <div className="items-cente flex items-center ">
+              {months?.length > 1 && (
+                <MonthSlider
+                  months={months}
+                  monthPosition={monthPosition}
+                  nextSlide={nextSlide}
+                  prevSlide={prevSlide}
+                  setMonthPosition={setMonthPosition}
+                />
+              )}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="ml-5 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                />
+              </svg>{" "}
+              Download PDF
             </div>
-          )}
+          </div>
         </div>
         <h2 className="h2 hidden sm:block">
           {months && months[monthPosition]}

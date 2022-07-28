@@ -75,6 +75,7 @@ const MainLayout: NextPage<Iprops> = ({ children }) => {
         <motion.nav
           onHoverStart={() => setMenuHover(true)}
           onHoverEnd={handleOnMouseLeave}
+          data-testid="navigation"
         >
           <Navigation
             clicked={clicked}
@@ -132,7 +133,12 @@ const MainLayout: NextPage<Iprops> = ({ children }) => {
             distanceLeftHover,
           }}
         >
-          <main className="h-screen overflow-hidden">{children}</main>
+          <div
+            data-testid={`slideFx-${menuHover}`}
+            className="h-screen overflow-hidden"
+          >
+            {children}
+          </div>
         </Context.Provider>
       </motion.div>
     </div>

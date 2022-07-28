@@ -35,18 +35,18 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
         exit={{ opacity: 0, transition: { duration: 0.2 } }}
-        className="w-[120px] md:ml-auto md:w-[180px]"
+        className="w-[120px] pt-8 pb-4 md:ml-auto md:w-[180px]"
       >
         <Image
           src="/logo-footer.png"
-          width="200"
-          height="100"
+          width="510"
+          height="83"
           objectFit="contain"
           alt="logo"
         />
       </motion.div>
       <motion.article
-        className="-mt-8 grid gap-x-16 gap-y-12 lg:grid-cols-2 lg:gap-y-32"
+        className=" grid gap-x-16 gap-y-12 lg:grid-cols-2 lg:gap-y-32	"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.1 }}
@@ -135,7 +135,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.2 }}
           exit={{ opacity: 0, transition: { duration: 0.3 } }}
-          className="sticky top-24 left-0 right-0 h-[1000px] "
+          className="left-0 right-0 xl:sticky xl:top-24 xl:h-[1000px] "
         >
           <div className="">
             <Image
@@ -145,7 +145,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
               layout="responsive"
               alt={title}
               objectFit="cover"
-              className="rounded-lg"
+              className=" rounded-lg"
             />
           </div>
 

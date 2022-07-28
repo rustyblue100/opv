@@ -14,7 +14,9 @@ const contact = () => {
         transition={{ duration: 0.4 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <Header>Contact</Header>
+        <Header>
+          <h1 className="h1 mt-8">Contact</h1>
+        </Header>
 
         <div className="mt-10 max-w-[800px]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem repellat

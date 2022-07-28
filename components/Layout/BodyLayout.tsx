@@ -35,6 +35,7 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
     <motion.div
       layout="position"
       layoutId="sliderWrapper"
+      data-testid="slidePos"
       initial={{
         clipPath: rectangle,
         WebkitClipPath: rectangle,

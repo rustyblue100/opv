@@ -11,14 +11,14 @@ const Header: NextPage<Iprops> = ({ children }) => {
   const { query } = useRouter();
 
   return (
-    <motion.h1
+    <motion.div
       initial={!query.i && { opacity: 0, y: -5 }}
       animate={!query.i && { opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
-      className="h1"
+      className=""
     >
       {children}
-    </motion.h1>
+    </motion.div>
   );
 };
 
