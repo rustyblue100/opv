@@ -15,7 +15,7 @@ const contact = () => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <Header>
-          <h1 className="h1 mt-8">Contact</h1>
+          <h1 className="h1">Contact</h1>
         </Header>
 
         <div className="mt-10 max-w-[800px]">

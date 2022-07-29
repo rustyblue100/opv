@@ -88,8 +88,8 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
             <h1 className="h1 mb-5 xl:mb-0">Calendrier</h1>
           </Header>
 
-          <div className="flex flex-col items-center gap-2 xl:flex-row">
-            <div className="items-cente flex items-center ">
+          <div className="flex flex-col items-center  xl:flex-row">
+            <div className="flex items-center">
               {months?.length > 1 && (
                 <MonthSlider
                   months={months}
@@ -99,21 +99,23 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
                   setMonthPosition={setMonthPosition}
                 />
               )}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-5 h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                />
-              </svg>{" "}
-              Download PDF
+              <div className="flex items-center pl-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="ml-5 h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  />
+                </svg>{" "}
+                Download PDF
+              </div>
             </div>
           </div>
         </div>

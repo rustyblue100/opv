@@ -16,13 +16,30 @@ const infos = () => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <Header>
-          <h1 className="h1 mt-8">Infos</h1>
+          <h1 className="h1">Infos</h1>
         </Header>
 
         <div className="mt-10 max-w-[800px]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem repellat
-          dolores odit nobis vitae cupiditate et magnam laborum error. Ad
-          consequatur autem maxime expedita porro nostrum modi ea totam natus.
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas
+            cumque temporibus harum fuga rem suscipit laboriosam beatae rerum
+            exercitationem nisi, quia itaque consectetur dolor ducimus illo! Hic
+            expedita cum deleniti!
+          </p>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas
+            cumque temporibus harum fuga rem suscipit laboriosam beatae rerum
+            exercitationem nisi, quia itaque consectetur dolor ducimus illo! Hic
+            expedita cum deleniti!
+          </p>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas
+            cumque temporibus harum fuga rem suscipit laboriosam beatae rerum
+            exercitationem nisi, quia itaque consectetur dolor ducimus illo! Hic
+            expedita cum deleniti!
+          </p>
         </div>
       </motion.main>
     </BodyFull>

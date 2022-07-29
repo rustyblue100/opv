@@ -33,7 +33,10 @@ const contact: NextPage<IProps> = ({ media }) => {
         <div className="grid-flow-dense relative mt-8 grid max-w-full grid-cols-2 gap-y-12">
           {imgArray?.map((img) => {
             return (
-              <div key={img._key} className="relative h-[600px] max-w-full">
+              <div
+                key={img._key}
+                className="relative h-[600px] max-w-full 2xl:h-[1000px]"
+              >
                 <Image
                   src={urlFor(img).url()}
                   alt={img._key}

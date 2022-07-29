@@ -61,7 +61,7 @@ const Navigation: NextPage<IProps> = ({
     },
     {
       nom: "À propos",
-      slug: "calendrier",
+      slug: "about",
     },
     {
       nom: "Nous joindre",
