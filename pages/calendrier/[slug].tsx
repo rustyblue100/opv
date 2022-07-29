@@ -30,21 +30,6 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
   return (
     <BodyFull>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        exit={{ opacity: 0, transition: { duration: 0.2 } }}
-        className="w-[120px] pt-8 pb-4 md:ml-auto md:w-[180px]"
-      >
-        <Image
-          src="/logo-footer.png"
-          width="510"
-          height="83"
-          objectFit="contain"
-          alt="logo"
-        />
-      </motion.div>
       <motion.article
         className=" grid gap-x-16 gap-y-12 lg:grid-cols-2 lg:gap-y-32	"
         initial={{ opacity: 0 }}

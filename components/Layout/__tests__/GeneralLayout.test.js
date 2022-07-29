@@ -18,19 +18,15 @@ describe("Calendrier Index", () => {
     );
   });
 
-  it("Check page sliding to right on hover navigation", async () => {
+  it("Check page sliding to right on hover navigation", () => {
     const navItem = screen.queryByTestId("navigation");
-
     userEvent.hover(navItem);
-
     expect(screen.getByTestId("slideFx-true")).toBeTruthy();
   });
 
-  it("Check page sliding to left on unhover navigation", async () => {
+  it("Check page sliding to left on unhover navigation", () => {
     const navItem = screen.queryByTestId("navigation");
-
     userEvent.unhover(navItem);
-
     expect(screen.getByTestId("slideFx-false")).toBeTruthy();
   });
 });

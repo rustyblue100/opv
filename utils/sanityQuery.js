@@ -18,3 +18,11 @@ export const fetchCalendar = (
       "slug":slug.current
     }, 
   } `;
+
+export const fetchPhotosVideos = () => `*[_type =="photos"] | order(date asc){
+      _id,
+      title,
+      description, 
+      images[]
+ 
+    } `;

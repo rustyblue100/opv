@@ -17,7 +17,7 @@ import useIsomorphicLayoutEffect from "../../utils/useIsomorphicLayoutEffect";
 import Image from "next/image";
 
 interface IProps {
-  calendrier: [Calendrier];
+  calendrier: Calendrier[];
 }
 
 const Calendrier: NextPage<IProps> = ({ calendrier }) => {
@@ -83,21 +83,6 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
           !query.i ? { opacity: 0, transition: { duration: 0.3 } } : undefined
         }
       >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          exit={{ opacity: 0, transition: { duration: 0.2 } }}
-          className="w-[120px] md:ml-auto md:w-[180px]"
-        >
-          <Image
-            src="/logo-footer.png"
-            width="200"
-            height="100"
-            objectFit="contain"
-            alt="logo"
-          />
-        </motion.div>
         <div className="mb-8 -mt-2 flex flex-col items-center justify-between sm:mb-0 sm:flex-row">
           <Header>
             <h1 className="h1 mb-5 xl:mb-0">Calendrier</h1>
