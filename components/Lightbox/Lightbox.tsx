@@ -1,11 +1,10 @@
 // Import Swiper React components
 import Image from "next/image";
+import { useRef, useState } from "react";
 import { Photos } from "../../typings";
-import { useState, useEffect, useRef } from "react";
-
-import { urlFor } from "../../lib/sanityClient";
-import { NextPage } from "next";
 import { motion } from "framer-motion";
+import { NextPage } from "next";
+import { urlFor } from "../../lib/sanityClient";
 
 interface IProps {
   carousselData: Photos[];
@@ -13,13 +12,10 @@ interface IProps {
 
 const Lightbox: NextPage<IProps> = ({ carousselData }) => {
   const { images }: any = carousselData[0];
-
   const [lightboxDisplay, setLightBoxDisplay] = useState(false);
   const [endNav, setEndNav] = useState(false);
   const [imageToShow, setImageToShow] = useState("");
   const [cursorPosition, setCursorPosition] = useState({ top: 0, left: 0 });
-
-  const dragBox = useRef<HTMLDivElement>(null);
 
   const hideLightBox = () => {
     setLightBoxDisplay(false);
@@ -59,7 +55,7 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
     }
   };
 
-  const imageCards = images.map((image: any, i: number) => {
+  const imageCards = images.map((image: any) => {
     return (
       <div
         onClick={() => showImage(image)}
@@ -67,11 +63,12 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
         className="curor-pointer relative h-[600px] max-w-full 2xl:h-[1000px] "
       >
         <Image
+          data-testid="photos"
           src={urlFor(image).url()}
           alt={image._key}
           layout="fill"
           objectFit="contain"
-          className="curor-pointer"
+          className="cursor-pointer"
         />
       </div>
     );
@@ -86,8 +83,9 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
       {lightboxDisplay ? (
         <div id="lightbox" className="relative">
           <div
-            className="absolute top-10 right-10  z-50 cursor-auto text-violet-200"
+            className="absolute top-5 right-5 z-50 cursor-pointer text-violet-200"
             onClick={hideLightBox}
+            data-testid="open-lightbox"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -106,16 +104,29 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
           </div>
 
           <motion.div
-            ref={dragBox}
-            drag
+            initial={{ x: 0, y: -20 }}
+            animate={{ x: 0, y: 0 }}
             dragConstraints={{ left: 0, right: 300 }}
-            className="border-blac absolute top-1/2 right-10 z-50 flex cursor-pointer items-center justify-between "
+            className="absolute top-1/2 right-10 z-50 flex cursor-pointer items-center justify-between  border-black"
           >
             <button
               onClick={showPrev}
-              className=" left-0 top-0 z-50 cursor-pointer border-0 bg-none text-4xl font-bold text-violet-200"
+              className=" left-0 top-0 z-50 cursor-pointer border-0 bg-none p-2 text-4xl font-bold text-violet-200"
             >
-              ⭠
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                />
+              </svg>
             </button>
             {/*             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -133,9 +144,22 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
             </svg> */}
             <button
               onClick={showNext}
-              className="right-0 top-0 z-50 cursor-pointer border-0 bg-none text-4xl font-bold text-violet-200"
+              className="right-0 top-0 z-50 cursor-pointer border-0 bg-none p-2 text-4xl font-bold text-violet-200"
             >
-              ⭢
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
             </button>
           </motion.div>
 

@@ -49,23 +49,23 @@ const Navigation: NextPage<IProps> = ({
     },
     {
       nom: "Calendrier",
-      slug: "calendrier",
+      slug: "/calendrier",
     },
     {
       nom: "Photos & Vidéos",
-      slug: "photos",
+      slug: "/photos",
     },
     {
       nom: "Infos",
-      slug: "infos",
+      slug: "/infos",
     },
     {
       nom: "À propos",
-      slug: "about",
+      slug: "/about",
     },
     {
       nom: "Nous joindre",
-      slug: "contact",
+      slug: "/contact",
     },
   ];
 
@@ -93,7 +93,7 @@ const Navigation: NextPage<IProps> = ({
                 variants={item}
                 onHoverStart={() => setMenuHover(true)}
               >
-                <Link href={`/${slug}`}>
+                <Link href={`${slug}`}>
                   <a
                     className="hover:text-opv-pink-500 "
                     onClick={handleClicked}

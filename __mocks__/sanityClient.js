@@ -248,3 +248,54 @@ export const elementProps = [
     title: null,
   },
 ];
+
+export const elementPropsPhotos = [
+  {
+    _id: "69e54b8f-1f70-40cf-8997-e29684301d3f",
+    description: null,
+    images: [
+      {
+        _key: "0327031e2ea9",
+        _type: "image",
+        alt: "Spectacle 1",
+        asset: {
+          _ref: "image-5bddbd3d35a0d7e693d86738c4128a6f3fc9047a-5168x3445-jpg",
+          _type: "reference",
+        },
+      },
+      {
+        _key: "552b4c144255",
+        _type: "image",
+        asset: {
+          _ref: "image-b345c2fe8608be02b17b563d30098a3bd972e5eb-4000x6000-jpg",
+          _type: "reference",
+        },
+      },
+      {
+        _key: "3ff3de048197",
+        _type: "image",
+        asset: {
+          _ref: "image-7c7189fbbd5cabba77f92a83b7190d5d7510283a-3712x5568-jpg",
+          _type: "reference",
+        },
+      },
+      {
+        _key: "efb7359c19c7",
+        _type: "image",
+        asset: {
+          _ref: "image-d37f22245fd68068bcf8bac1cdb6b54f6b58bdd3-6000x4000-jpg",
+          _type: "reference",
+        },
+      },
+      {
+        _key: "741b559faf7a",
+        _type: "image",
+        asset: {
+          _ref: "image-d88d20cc3bba0da73057a7faf2196decc95cde52-3024x4032-jpg",
+          _type: "reference",
+        },
+      },
+    ],
+    title: null,
+  },
+];
