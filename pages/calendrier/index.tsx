@@ -99,7 +99,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
                   setMonthPosition={setMonthPosition}
                 />
               )}
-              <div className="flex items-center pl-4">
+              <div className="flex items-center pl-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="ml-5 h-6 w-6"

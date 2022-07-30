@@ -9,6 +9,7 @@ import { sanityClient } from "../lib/sanityClient";
 import { Photos } from "../typings";
 import Image from "next/image";
 import { urlFor } from "../lib/sanityClient";
+import Lightbox from "../components/Lightbox";
 
 interface IProps {
   media: Photos[];
@@ -28,25 +29,10 @@ const contact: NextPage<IProps> = ({ media }) => {
       >
         <Header>
           <h1 className="h1 ">Photos & Vidéos</h1>
+          <hr className="mt-4 w-full  border-opv-black-300"></hr>
         </Header>
 
-        <div className="grid-flow-dense relative mt-8 grid max-w-full grid-cols-2 gap-y-12">
-          {imgArray?.map((img) => {
-            return (
-              <div
-                key={img._key}
-                className="relative h-[600px] max-w-full 2xl:h-[1000px]"
-              >
-                <Image
-                  src={urlFor(img).url()}
-                  alt={img._key}
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-            );
-          })}
-        </div>
+        <Lightbox carousselData={media} />
       </motion.main>
     </BodyFull>
   );

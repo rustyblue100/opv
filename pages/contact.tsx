@@ -16,6 +16,7 @@ const contact = () => {
       >
         <Header>
           <h1 className="h1">Contact</h1>
+          <hr className="mt-4 w-full  border-opv-black-300"></hr>
         </Header>
 
         <div className="mt-10 max-w-[800px]">

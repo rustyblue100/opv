@@ -74,6 +74,11 @@ p{
 }
 
 
+  #lightbox {
+    @apply  z-50 fixed top-0 left-0 right-0 bottom-0 w-full bg-black flex items-center justify-center h-full;
+  }
+
+
   .h1{
     @apply  text-3xl md:text-4xl lg:text-5xl uppercase font-bold
   }
@@ -91,4 +96,8 @@ p{
     padding-left: 30px; /* gutter size */
     background-clip: padding-box;
   }
+  
+
+
+
   

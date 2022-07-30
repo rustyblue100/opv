@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { createMockRouter } from "../../../createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context.js";
 import { elementProps } from "../../../__mocks__/sanityClient";
-
+import "@testing-library/jest-dom/extend-expect";
 import Calendrier from "../../../pages/calendrier/index";
 
 import "@testing-library/jest-dom";
