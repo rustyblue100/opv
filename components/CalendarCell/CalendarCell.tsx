@@ -105,12 +105,12 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
             </motion.div>
           </div>
 
-          <div className="flex flex-col items-start xl:flex-row">
+          <div className="flex flex-col items-start xl:flex-row ">
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="md:w-[200px]"
+              className="md:w-[200px] "
             >
               <Link href={`/calendrier/${slug}`} passHref>
                 <a>

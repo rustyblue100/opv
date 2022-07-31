@@ -74,6 +74,14 @@ p{
 }
 
 
+.mask2{
+  mask-image: url(/bg-3.png); 
+  mask-position: top center;
+  background-color: #ffeded; 
+ 
+}
+
+
   #lightbox {
     @apply  z-50 fixed top-0 left-0 right-0 bottom-0 w-full bg-black flex items-center justify-center h-full;
   }
@@ -91,6 +99,11 @@ p{
   .h2{
     @apply text-opv-pink-1200 text-2xl lg:text-3xl uppercase mb-3
   }
+
+  .h4{
+    @apply text-opv-black-300 text-sm uppercase font-bold;
+  }
+
 
   .my-masonry-grid {
     display: flex;

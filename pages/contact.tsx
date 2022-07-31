@@ -21,13 +21,29 @@ const contact = () => {
 
         <div className="mt-10 ">Écrivez-nous!</div>
 
-        <div className="mt-10 text-opv-black">514-758-4967</div>
-
-        <div className="mt-10 text-opv-pink-1200 underline">
+        <div className="mt-10 text-opv-black">
+          <h4 className="h4">Info générale</h4>
+          514-758-4967
+          <br />
           <a
             href="mailto:sebastienfrancisque@gmail.com"
             target="_blank"
             rel="noreferrer noopener"
+            className="text-opv-pink-1200"
+          >
+            sebastienfrancisque@gmail.com
+          </a>
+        </div>
+
+        <div className="mt-10 text-opv-black">
+          <h4 className="h4">Info technique</h4>
+          514-758-4967
+          <br />
+          <a
+            href="mailto:sebastienfrancisque@gmail.com"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-opv-pink-1200"
           >
             sebastienfrancisque@gmail.com
           </a>

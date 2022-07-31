@@ -3,6 +3,8 @@ import { NextPage } from "next";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import LanguageSwitcher from "../LanguageSwitcher/";
+import { sanityClient } from "../../lib/sanityClient";
+import { useEffect, useState } from "react";
 
 interface IProps {
   clicked: boolean;
@@ -11,6 +13,33 @@ interface IProps {
 }
 
 const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
+  const [calendarData, setCalendarData] = useState([]);
+
+  let date = new Date();
+  date.setHours(date.getHours() - 4);
+
+  const today = date.toISOString();
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "calendrier" && date >= '${today}' ] | order(date asc)[0]{
+        title,
+        slug,
+        date,
+        "recurrents":evenements->{
+          title,
+          mainImage,
+          artiste[]->,
+          description,
+          "slug":slug.current
+        }, 
+      }`
+      )
+      .then((data) => setCalendarData(data))
+      .catch(console.error);
+  }, []);
+
   const stagger = {
     hidden: {
       opacity: 0,
@@ -111,14 +140,27 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
       </div>
 
       <div className="text-md -ml-20 hidden max-w-xs flex-1 leading-[40px] text-white sm:block sm:text-xl md:block md:text-2xl">
-        <div className="-rotate-90 text-center ">
+        <div className="-rotate-90 text-center">
           <p className="text-xs  md:text-[16px]">☆ Prochain Évènement ☆</p>
           <Marquee
-            speed={8}
+            speed={4}
             gradient={false}
             className="mt-2 cursor-pointer text-opv-pink-500 hover:text-opv-pink-900 md:mt-0"
           >
-            Les Goules - 24 juin 19h30
+            <Link
+              href={`/calendrier/${
+                calendarData && calendarData.slug && calendarData.slug.current
+                  ? calendarData.slug.current
+                  : "/calendrier"
+              }`}
+              passHref
+            >
+              <a>
+                {!calendarData.recurrents
+                  ? calendarData?.title?.fr
+                  : calendarData.recurrents.title.fr}
+              </a>
+            </Link>
           </Marquee>
         </div>
       </div>
