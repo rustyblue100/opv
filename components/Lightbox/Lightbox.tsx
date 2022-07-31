@@ -83,7 +83,7 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
       {lightboxDisplay ? (
         <div id="lightbox" className="relative">
           <div
-            className="absolute top-5 right-5 z-50 cursor-pointer text-violet-200"
+            className="absolute top-5 right-5 z-50 cursor-pointer text-opv-pink-900"
             onClick={hideLightBox}
             data-testid="open-lightbox"
           >
@@ -107,11 +107,11 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
             initial={{ x: 0, y: -20 }}
             animate={{ x: 0, y: 0 }}
             dragConstraints={{ left: 0, right: 300 }}
-            className="absolute top-1/2 right-10 z-50 flex cursor-pointer items-center justify-between  border-black"
+            className="absolute top-1/2 right-6 z-50 flex -translate-y-1/2 cursor-pointer items-center justify-between  border-black"
           >
             <button
               onClick={showPrev}
-              className=" left-0 top-0 z-50 cursor-pointer border-0 bg-none p-2 text-4xl font-bold text-violet-200"
+              className=" left-0 top-0 z-50 cursor-pointer border-0 bg-none p-2 text-4xl font-bold text-gray-400"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +144,7 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
             </svg> */}
             <button
               onClick={showNext}
-              className="right-0 top-0 z-50 cursor-pointer border-0 bg-none p-2 text-4xl font-bold text-violet-200"
+              className="right-0 top-0 z-50 cursor-pointer border-0 bg-none p-2 text-4xl font-bold text-gray-400"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -163,9 +163,8 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
             </button>
           </motion.div>
 
-          <div>
+          <div id="lightbox-img">
             <Image
-              id="lightbox-img"
               src={
                 !imageToShow
                   ? urlFor(images[0]).url()

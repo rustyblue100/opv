@@ -12,8 +12,10 @@
   "dependencies": {
     "@portabletext/react": "^1.0.6",
     "@sanity/image-url": "^1.0.1",
+    "@types/mapbox-gl": "^2.7.4",
     "dayjs": "^1.11.3",
     "framer-motion": "^6.3.4",
+    "mapbox-gl": "^2.9.2",
     "next": "12.1.6",
     "next-i18next": "^11.0.0",
     "next-sanity": "^0.5.2",

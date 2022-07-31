@@ -31,18 +31,18 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
   return (
     <BodyFull>
       <motion.article
-        className=" grid gap-x-16 gap-y-12 lg:grid-cols-2 lg:gap-y-32	"
+        className="flex flex-col-reverse gap-12 lg:grid-cols-2	lg:flex-row lg:gap-y-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <div className="">
+        <div className=" flex-1">
           <button
             onClick={() =>
               referer.includes("calendrier") ? router.back() : router.back()
             }
-            className="mt-8 flex items-center  gap-3 border-0 bg-none transition-all hover:underline"
+            className="mt-8 hidden items-center gap-3 border-0 bg-none transition-all hover:underline lg:flex"
           >
             ← Retour au calendrier
           </button>
@@ -54,7 +54,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}
           </h2>
 
-          <div className="mt-24 flex justify-start gap-5">
+          <div className="mt-20 flex justify-start gap-5">
             <div className="flex-1 space-y-2 text-lg">
               <h3 className="font-bold">{t("evenement:type_event")}</h3>
               <div>Musique</div>
@@ -85,25 +85,25 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             </div>
           </div>
 
-          <div className="mt-20 flex items-center justify-between rounded border border-black bg-violet-200 p-5 text-2xl">
+          <div className="mt-20 flex items-center justify-between gap-4 rounded border border-black bg-violet-200 p-5 text-2xl md:gap-0">
             <div className="my-3">{prix}$</div>
 
             {complet && (
-              <div className="ml-5 inline-block -rotate-12 border border-opv-pink-1200 p-1 uppercase  text-opv-pink-1200 md:text-xl">
+              <div className="ml-5 inline-block -rotate-12 border border-opv-pink-1200 p-1 text-sm  uppercase  text-opv-pink-1200 md:text-xl">
                 Complet
               </div>
             )}
-            <div className="">{t("evenement:billets")}</div>
+            <div className="text-sm md:text-xl ">{t("evenement:billets")}</div>
           </div>
 
-          <h2 className="mt-24 mb-4 text-4xl">Bio</h2>
+          <h2 className="mt-20 mb-4 text-4xl">Bio</h2>
           <div className="max-w-3xl text-lg ">
             <PortableText
               value={locale === "fr" ? description?.fr : description?.en}
             />
           </div>
 
-          <div className="mt-24">
+          <div className="mt-20">
             <iframe
               className="aspect-video w-full"
               src="https://www.youtube.com/embed/sOreUnGoIMg"
@@ -120,9 +120,17 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.2 }}
           exit={{ opacity: 0, transition: { duration: 0.3 } }}
-          className="left-0 right-0 xl:sticky xl:top-24 xl:h-[1000px] "
+          className="left-0 right-0 w-full flex-1 xl:sticky xl:top-24 xl:h-[1000px] xl:w-1/2"
         >
-          <div className="">
+          <button
+            onClick={() =>
+              referer.includes("calendrier") ? router.back() : router.back()
+            }
+            className="mb-8 flex items-center gap-3 border-0 bg-none transition-all hover:underline lg:hidden xl:mt-8"
+          >
+            ← Retour au calendrier
+          </button>
+          <div className=" ml-auto max-w-6xl">
             <Image
               src={urlFor(mainImage).url()!}
               width="1200"

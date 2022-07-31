@@ -88,18 +88,21 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
             <h1 className="h1 mb-5 xl:mb-0">Calendrier</h1>
           </Header>
 
-          <div className="flex flex-col items-center  xl:flex-row">
-            <div className="flex items-center">
-              {months?.length > 1 && (
-                <MonthSlider
-                  months={months}
-                  monthPosition={monthPosition}
-                  nextSlide={nextSlide}
-                  prevSlide={prevSlide}
-                  setMonthPosition={setMonthPosition}
-                />
-              )}
-              <div className="flex items-center pl-0">
+          <div className="flex flex-col items-center xl:flex-row">
+            <div className="flex flex-col items-center xl:flex-row">
+              <div>
+                {months?.length > 1 && (
+                  <MonthSlider
+                    months={months}
+                    monthPosition={monthPosition}
+                    nextSlide={nextSlide}
+                    prevSlide={prevSlide}
+                    setMonthPosition={setMonthPosition}
+                  />
+                )}
+              </div>
+
+              <div className="mt-6 flex items-center pl-0 xl:mt-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="ml-5 h-6 w-6"
@@ -113,8 +116,8 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
                     strokeLinejoin="round"
                     d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
                   />
-                </svg>{" "}
-                Download PDF
+                </svg>
+                <span className="hidden lg:block">Download</span> PDF
               </div>
             </div>
           </div>
@@ -148,7 +151,10 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
 export default Calendrier;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const today = new Date().toISOString();
+  let date = new Date();
+  date.setHours(date.getHours() - 4);
+
+  const today = date.toISOString();
 
   const calendrier = await sanityClient.fetch(fetchCalendar(today));
 

@@ -19,10 +19,18 @@ const contact = () => {
           <hr className="mt-4 w-full  border-opv-black-300"></hr>
         </Header>
 
-        <div className="mt-10 max-w-[800px]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem repellat
-          dolores odit nobis vitae cupiditate et magnam laborum error. Ad
-          consequatur autem maxime expedita porro nostrum modi ea totam natus.
+        <div className="mt-10 ">Écrivez-nous!</div>
+
+        <div className="mt-10 text-opv-black">514-758-4967</div>
+
+        <div className="mt-10 text-opv-pink-1200 underline">
+          <a
+            href="mailto:sebastienfrancisque@gmail.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            sebastienfrancisque@gmail.com
+          </a>
         </div>
       </motion.main>
     </BodyFull>

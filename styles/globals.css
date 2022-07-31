@@ -78,9 +78,14 @@ p{
     @apply  z-50 fixed top-0 left-0 right-0 bottom-0 w-full bg-black flex items-center justify-center h-full;
   }
 
+  #lightbox-img {
+    @apply  max-w-2xl lg:max-w-3xl xl:max-w-full w-full h-full relative;
+  }
+
+
 
   .h1{
-    @apply  text-3xl md:text-4xl lg:text-5xl uppercase font-bold
+    @apply text-lg xl:text-3xl md:text-4xl lg:text-5xl uppercase font-bold mt-2 xl:mt-0
   }
 
   .h2{
@@ -98,6 +103,3 @@ p{
   }
   
 
-
-
-  
