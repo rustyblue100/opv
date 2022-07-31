@@ -148,7 +148,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
 export default Calendrier;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().toISOString();
 
   const calendrier = await sanityClient.fetch(fetchCalendar(today));
 

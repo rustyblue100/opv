@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Link from "next/link";
-import React from "react";
 import Marquee from "react-fast-marquee";
 import LanguageSwitcher from "../LanguageSwitcher/";
 
@@ -11,11 +10,7 @@ interface IProps {
   setMenuHover: (open: boolean) => void;
 }
 
-const Navigation: NextPage<IProps> = ({
-  setClicked,
-  clicked,
-  setMenuHover,
-}) => {
+const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
   const stagger = {
     hidden: {
       opacity: 0,

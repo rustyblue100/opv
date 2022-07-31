@@ -1,4 +1,4 @@
-// __tests__/Calendrier/index.test.jsx
+// __tests__/Lightbox.test.jsx
 
 import { render, screen, fireEvent } from "@testing-library/react";
 import { elementPropsPhotos } from "../../../__mocks__/sanityClient";

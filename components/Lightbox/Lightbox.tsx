@@ -60,7 +60,7 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
       <div
         onClick={() => showImage(image)}
         key={image._key}
-        className="curor-pointer relative h-[600px] max-w-full 2xl:h-[1000px] "
+        className="curor-pointer relative h-[400px] max-w-full 2xl:h-[1000px] "
       >
         <Image
           data-testid="photos"
