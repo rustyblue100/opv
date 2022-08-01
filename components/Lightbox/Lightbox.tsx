@@ -60,15 +60,14 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
       <div
         onClick={() => showImage(image)}
         key={image._key}
-        className="relative h-[400px] max-w-full cursor-pointer 2xl:h-[1000px] "
+        className="relative mb-8 h-[400px] max-w-full  cursor-pointer md:mb-0 2xl:h-[1000px]"
       >
         <Image
           data-testid="photos"
           src={urlFor(image).url()}
           alt={image._key}
           layout="fill"
-          objectFit="contain"
-          className="cursor-pointer"
+          className="cursor-pointer object-cover md:object-contain"
           quality={65}
         />
       </div>
@@ -77,7 +76,7 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
 
   return (
     <div>
-      <div className="max-w-full grid-cols-2 md:mt-8 md:grid md:gap-y-12">
+      <div className="max-w-full grid-cols-2 gap-x-8 md:mt-8 md:grid md:gap-y-12">
         {imageCards}
       </div>
 

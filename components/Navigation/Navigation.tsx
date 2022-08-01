@@ -19,6 +19,15 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
     recurrents: { title: { fr: "", en: "" } },
   });
 
+  const [pagesData, setPagesData] = useState([
+    {
+      title: { fr: "", en: "" },
+      slug: { current: "" },
+    },
+  ]);
+
+  console.log(pagesData);
+
   let date = new Date();
   date.setHours(date.getHours() - 4);
 
@@ -41,6 +50,19 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
       }`
       )
       .then((data) => setCalendarData(data))
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "pages"]{
+        title,
+        slug,
+       
+      }`
+      )
+      .then((data) => setPagesData(data))
       .catch(console.error);
   }, []);
 
@@ -83,18 +105,6 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
       nom: "Photos & Vidéos",
       slug: "/photos",
     },
-    {
-      nom: "Infos",
-      slug: "/infos",
-    },
-    {
-      nom: "À propos",
-      slug: "/about",
-    },
-    {
-      nom: "Nous joindre",
-      slug: "/contact",
-    },
   ];
 
   const handleClicked = () => {
@@ -127,6 +137,33 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
                     onClick={handleClicked}
                   >
                     {nom}
+                  </a>
+                </Link>
+              </motion.li>
+            );
+          })}
+
+          {pagesData.map((menuItemDynamic: any, i: number) => {
+            const {
+              title,
+              slug,
+            }: {
+              title: { fr: string; en: string };
+              slug: { current: string };
+            } = menuItemDynamic;
+
+            return (
+              <motion.li
+                key={i}
+                variants={item}
+                onHoverStart={() => setMenuHover(true)}
+              >
+                <Link href={`${slug?.current}`}>
+                  <a
+                    className="hover:text-opv-pink-500 "
+                    onClick={handleClicked}
+                  >
+                    {title.fr}
                   </a>
                 </Link>
               </motion.li>

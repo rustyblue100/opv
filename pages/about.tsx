@@ -69,7 +69,7 @@ const APropos = () => {
             </p>
           </div>
 
-          <div className=" xl:ml-auto">
+          <div className="xl:ml-auto">
             <motion.div className="  rounded-full">
               <Image
                 width={500}
