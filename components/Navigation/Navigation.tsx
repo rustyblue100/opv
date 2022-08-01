@@ -5,6 +5,7 @@ import Marquee from "react-fast-marquee";
 import LanguageSwitcher from "../LanguageSwitcher/";
 import { sanityClient } from "../../lib/sanityClient";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 interface IProps {
   clicked: boolean;
@@ -26,7 +27,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
     },
   ]);
 
-  console.log(pagesData);
+  const router = useRouter();
 
   let date = new Date();
   date.setHours(date.getHours() - 4);
@@ -94,16 +95,16 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
 
   const menu = [
     {
-      nom: "Accueil",
-      slug: "/",
+      title: { fr: "Accueil", en: "Home" },
+      slug: { current: "/" },
     },
     {
-      nom: "Calendrier",
-      slug: "/calendrier",
+      title: { fr: "Calendrier", en: "Calendar" },
+      slug: { current: "calendrier" },
     },
     {
-      nom: "Photos & Vidéos",
-      slug: "/photos",
+      title: { fr: "Photos & Vidéos", en: "Photos & videos" },
+      slug: { current: "photos" },
     },
   ];
 
@@ -111,6 +112,8 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
     setClicked(true);
     setMenuHover(false);
   };
+
+  const mergedMenu = menu.concat(...pagesData);
 
   return (
     <div className="fixed top-0 left-0 flex h-full items-center justify-between">
@@ -122,28 +125,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
           className={`capitalize  leading-[30px] text-opv-pink-900 xxs:text-lg xs:text-xl sm:text-lg md:text-2xl md:leading-[43px]  3xl:text-[40px] 
           3xl:leading-[63px]`}
         >
-          {menu.map((menuItem, i) => {
-            const { nom, slug }: { nom: string; slug: string } = menuItem;
-
-            return (
-              <motion.li
-                key={i}
-                variants={item}
-                onHoverStart={() => setMenuHover(true)}
-              >
-                <Link href={`${slug}`}>
-                  <a
-                    className="hover:text-opv-pink-500 "
-                    onClick={handleClicked}
-                  >
-                    {nom}
-                  </a>
-                </Link>
-              </motion.li>
-            );
-          })}
-
-          {pagesData.map((menuItemDynamic: any, i: number) => {
+          {mergedMenu.map((menuItemDynamic: any, i: number) => {
             const {
               title,
               slug,
@@ -163,7 +145,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
                     className="hover:text-opv-pink-500 "
                     onClick={handleClicked}
                   >
-                    {title.fr}
+                    {router.locale === "fr" ? title.fr : title.en}
                   </a>
                 </Link>
               </motion.li>

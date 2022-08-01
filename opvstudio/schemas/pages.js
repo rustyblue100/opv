@@ -1,5 +1,12 @@
 /* eslint-disable import/no-anonymous-default-export */
 
+const supportedLanguages = [
+  { id: "fr", title: "Français", isDefault: true },
+  { id: "en", title: "English" },
+
+  // Add as many languages as you need to support
+];
+
 export default {
   name: "pages",
   title: "Pages",
@@ -7,10 +14,23 @@ export default {
   fields: [
     {
       name: "title",
-      title: "Title",
-      type: "localeString",
-    },
+      type: "object",
 
+      fieldsets: [
+        {
+          title: "Traduction",
+          name: "traduction",
+          options: { collapsible: false },
+        },
+      ],
+      fields: supportedLanguages.map((lang) => ({
+        title: lang.title,
+        name: lang.id,
+        type: "string",
+        fieldset: lang.isDefault ? null : "traduction",
+        validation: (Rule) => Rule.required(),
+      })),
+    },
     {
       name: "slug",
       title: "Slug",
