@@ -145,7 +145,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
           <Marquee
             speed={4}
             gradient={false}
-            className="mt-2 cursor-pointer text-opv-pink-500 hover:text-opv-pink-900 md:mt-0"
+            className="mt-0 cursor-pointer text-opv-pink-500 hover:text-opv-pink-900 md:mt-0"
           >
             <Link
               href={`/calendrier/${
@@ -155,7 +155,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
               }`}
               passHref
             >
-              <a>
+              <a onClick={handleClicked}>
                 {!calendarData.recurrents
                   ? calendarData?.title?.fr
                   : calendarData.recurrents.title.fr}

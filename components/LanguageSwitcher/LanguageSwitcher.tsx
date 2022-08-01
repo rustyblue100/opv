@@ -3,19 +3,19 @@ import Link from "next/link";
 
 export const LanguageSwitcher = () => {
   const locales = useRouter().locales;
-  const route = useRouter().pathname;
+  const route = useRouter().asPath;
 
-  console.log(route);
+  console.log(useRouter());
 
   return (
     <ul className="flex">
-      <li className="self-start p-1 text-lg text-gray-400 hover:text-opv-pink-500">
-        <Link href={`/${route}`}>
-          <a> FR</a>
+      <li className="self-start p-1 text-lg text-gray-400 ">
+        <Link href={`/${route}`} locale="fr">
+          <a className="hover:text-opv-pink-500"> FR</a>
         </Link>{" "}
         |{" "}
         <Link href={`/en/${route}`}>
-          <a>EN</a>
+          <a className="hover:text-opv-pink-500">EN</a>
         </Link>
       </li>
     </ul>
