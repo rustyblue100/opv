@@ -13,7 +13,11 @@ interface IProps {
 }
 
 const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
-  const [calendarData, setCalendarData] = useState([]);
+  const [calendarData, setCalendarData] = useState({
+    title: { fr: "", en: "" },
+    slug: { current: "" },
+    recurrents: { title: { fr: "", en: "" } },
+  });
 
   let date = new Date();
   date.setHours(date.getHours() - 4);
@@ -128,13 +132,6 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
               </motion.li>
             );
           })}
-          {/*           <motion.li
-            variants={item}
-            className="self-start  p-1  text-lg text-gray-400 hover:text-opv-pink-500"
-          >
-            <a className=""></a>
-            <Link href="/">EN</Link> | <Link href="/">FR</Link>
-          </motion.li> */}
           <LanguageSwitcher />
         </motion.ul>
       </div>
