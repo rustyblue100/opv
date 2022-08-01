@@ -21,7 +21,7 @@ const APropos = () => {
           <hr className="mt-4 w-full border-opv-black-300"></hr>
         </Header>
 
-        <div className="mt-10 flex flex-col-reverse gap-12 xl:flex-row">
+        <div className="mt-10 flex flex-col-reverse items-center gap-12 xl:flex-row xl:items-start">
           <div className="flex-1">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
@@ -69,14 +69,15 @@ const APropos = () => {
             </p>
           </div>
 
-          <div className="mask2 ml-auto">
-            <motion.div className="">
+          <div className=" xl:ml-auto">
+            <motion.div className="  rounded-full">
               <Image
+                width={500}
+                height={500}
                 src="https://fastly.4sqi.net/img/general/width960/54255444_x7ZweBJGKxWeqQXQcxE4KRkRWWL2l-PhKbhyQcDnwBY.jpg"
-                width="600"
-                height="600"
                 alt="show"
-                className=" rounded-full"
+                objectFit="contain"
+                className="mask2 rounded-full"
               />
             </motion.div>
           </div>

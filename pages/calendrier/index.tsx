@@ -88,41 +88,40 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
             <h1 className="h1 mb-5 xl:mb-0">Calendrier</h1>
           </Header>
 
-          <div className="flex flex-col items-center xl:flex-row">
-            <div className="flex flex-col items-center xl:flex-row">
-              <div>
-                {months?.length > 1 && (
-                  <MonthSlider
-                    months={months}
-                    monthPosition={monthPosition}
-                    nextSlide={nextSlide}
-                    prevSlide={prevSlide}
-                    setMonthPosition={setMonthPosition}
-                  />
-                )}
-              </div>
+          <div className="flex items-center  md:flex-row">
+            <div>
+              {months?.length > 1 && (
+                <MonthSlider
+                  months={months}
+                  monthPosition={monthPosition}
+                  nextSlide={nextSlide}
+                  prevSlide={prevSlide}
+                  setMonthPosition={setMonthPosition}
+                />
+              )}
+            </div>
 
-              <div className="mt-6 flex items-center pl-0 xl:mt-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="ml-5 h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                  />
-                </svg>
-                <span className="hidden lg:block">Download</span>{" "}
-                <span className="xl:ml-1">PDF</span>
-              </div>
+            <div className="flex items-center pl-0 sm:mt-6 md:mt-0 xl:mt-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="ml-5 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                />
+              </svg>
+              <span className="hidden md:block">Download</span>{" "}
+              <span className="xl:ml-1">PDF</span>
             </div>
           </div>
         </div>
+
         <h2 className="h2 hidden sm:block">
           {months && months[monthPosition]}
         </h2>

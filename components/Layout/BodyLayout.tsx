@@ -7,6 +7,7 @@ import { Context } from "../../contexts/Context";
 import { Geo } from "../../utils/geoMetrical";
 import Footer from "../Footer/";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Iprops {
   children: React.ReactNode;
@@ -78,13 +79,17 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
           className="w-[120px] md:ml-auto md:w-[180px]"
         >
-          <Image
-            src="/logo-footer.png"
-            width="200"
-            height="100"
-            objectFit="contain"
-            alt="logo"
-          />
+          <Link href="/" passHref>
+            <a>
+              <Image
+                src="/logo-footer.png"
+                width="200"
+                height="100"
+                objectFit="contain"
+                alt="logo"
+              />
+            </a>
+          </Link>
         </motion.div>
         <motion.div className="flex-1">{children}</motion.div>
         <Footer />

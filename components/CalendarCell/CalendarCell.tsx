@@ -84,7 +84,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-3xl font-normal md:text-3xl"
+              className="mt-4 text-2xl font-normal sm:mt-0 sm:text-3xl md:text-3xl"
             >
               {title?.fr}
               <div className="mt-1 text-sm">
@@ -115,7 +115,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               <Link href={`/calendrier/${slug}`} passHref>
                 <a>
                   <Image
-                    className="flex-1 cursor-pointer md:rounded-full"
+                    className="flex-1 cursor-pointer rounded-full"
                     src={
                       mainImage
                         ? urlFor(mainImage).url()

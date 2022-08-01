@@ -16,8 +16,6 @@ interface IProps {
 }
 
 const contact: NextPage<IProps> = ({ media }) => {
-  const imgArray = media[0].images;
-
   return (
     <BodyFull>
       <motion.main

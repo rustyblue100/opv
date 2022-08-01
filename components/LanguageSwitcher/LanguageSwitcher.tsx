@@ -2,10 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 export const LanguageSwitcher = () => {
-  const locales = useRouter().locales;
   const route = useRouter().asPath;
-
-  console.log(useRouter());
 
   return (
     <ul className="flex">

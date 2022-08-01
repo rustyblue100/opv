@@ -47,29 +47,29 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             ← Retour au calendrier
           </button>
 
-          <div className="max-w-2xl pt-6 pb-2 text-3xl font-bold uppercase sm:pt-9 md:text-4xl lg:pt-8 lg:text-5xl">
+          <div className="max-w-2xl pb-2 text-2xl font-bold uppercase sm:pt-9 md:pt-6 md:text-4xl lg:pt-8 lg:text-5xl">
             {title.fr}
           </div>
           <h2 className="text-3xl text-opv-pink-1200">
             {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}
           </h2>
 
-          <div className="mt-20 flex justify-start gap-5">
-            <div className="flex-1 space-y-2 text-lg">
+          <div className="mt-12 flex justify-start gap-5 md:mt-20">
+            <div className="flex-1 space-y-2  text-sm sm:text-lg">
               <h3 className="font-bold">{t("evenement:type_event")}</h3>
               <div>Musique</div>
               <hr className=" border-opv-black"></hr>
             </div>
 
-            <div className="flex-1 space-y-2 text-lg">
+            <div className="flex-1 space-y-2 text-sm sm:text-lg">
               <h3 className="font-bold">Adresse</h3>
               <div>356, rue Mont-Royal EST</div>
               <hr className=" border-opv-black"></hr>
             </div>
           </div>
 
-          <div className="mt-12 flex justify-start gap-5">
-            <div className="flex-1 space-y-2 text-lg">
+          <div className="mt-12 flex justify-start gap-5 md:mt-20">
+            <div className="flex-1 space-y-2 text-sm sm:text-lg">
               <h3 className="font-bold">{t("evenement:portes")}</h3>
               <div>
                 {dayjs(date).locale("fr").format("HH")}h
@@ -78,14 +78,14 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
               <hr className=" border-opv-black"></hr>
             </div>
 
-            <div className="flex-1 space-y-2 text-lg">
+            <div className="flex-1 space-y-2 text-sm sm:text-lg">
               <h3 className="font-bold">Admission</h3>
               <div>18+</div>
               <hr className=" border-opv-black"></hr>
             </div>
           </div>
 
-          <div className="mt-20 flex items-center justify-between gap-4 rounded border border-black bg-violet-200 p-5 text-2xl md:gap-0">
+          <div className="mt-12 flex items-center justify-between gap-4 rounded border border-black bg-violet-200 p-5 text-xl sm:text-2xl md:mt-20 md:gap-0">
             <div className="my-3">{prix}$</div>
 
             {complet && (
@@ -96,14 +96,14 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             <div className="text-sm md:text-xl ">{t("evenement:billets")}</div>
           </div>
 
-          <h2 className="mt-20 mb-4 text-4xl">Bio</h2>
+          <h2 className="mt-12 mb-4 text-4xl md:mt-20">Bio</h2>
           <div className="max-w-3xl text-lg ">
             <PortableText
               value={locale === "fr" ? description?.fr : description?.en}
             />
           </div>
 
-          <div className="mt-20">
+          <div className="mt-12 md:mt-20">
             <iframe
               className="aspect-video w-full"
               src="https://www.youtube.com/embed/sOreUnGoIMg"
