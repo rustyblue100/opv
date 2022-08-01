@@ -109,7 +109,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className={`capitalize  leading-[30px] text-opv-pink-900 xs:text-lg sm:text-lg md:text-2xl md:leading-[43px]  3xl:text-[40px] 
+          className={`capitalize  leading-[30px] text-opv-pink-900 xxs:text-lg xs:text-xl sm:text-lg md:text-2xl md:leading-[43px]  3xl:text-[40px] 
           3xl:leading-[63px]`}
         >
           {menu.map((menuItem, i) => {
@@ -132,6 +132,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
               </motion.li>
             );
           })}
+
           <LanguageSwitcher />
         </motion.ul>
       </div>
