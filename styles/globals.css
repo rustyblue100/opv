@@ -78,7 +78,7 @@ p{
   mask-image: url(/bg-3.png); 
   mask-position: top center;
   background-color: #ffeded; 
- 
+  -webkit-mask-size: contain;
 }
 
 

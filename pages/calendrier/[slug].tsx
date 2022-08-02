@@ -9,6 +9,9 @@ import { useRouter } from "next/router";
 import BodyFull from "../../components/Layout/BodyLayout";
 import { PortableText, sanityClient, urlFor } from "../../lib/sanityClient";
 import { Calendrier } from "../../typings";
+import { useContext, useEffect } from "react";
+import { Context } from "../../contexts/Context";
+import Link from "next/link";
 
 interface IProps {
   calendrierData: Calendrier;
@@ -25,6 +28,13 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
   const router = useRouter();
 
+  const previousRoute = useContext(Context)?.previousRoute();
+
+  const canGoBack =
+    (typeof window !== "undefined" && window.history.state?.idx) || 0 > 0;
+
+  console.log(canGoBack);
+
   // get document.referer from server
   const referer = typeof window === "undefined" ? "" : window.document.referrer;
 
@@ -37,15 +47,23 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
         transition={{ duration: 0.1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <div className=" flex-1">
-          <button
-            onClick={() =>
-              referer.includes("calendrier") ? router.back() : router.back()
-            }
-            className="mt-8 hidden items-center gap-3 border-0 bg-none transition-all hover:underline lg:flex"
-          >
-            ← Retour au calendrier
-          </button>
+        <div className="xl:w-[50%]">
+          {canGoBack ? (
+            <button
+              onClick={() =>
+                canGoBack ? router.back() : router.replace("/calendrier")
+              }
+              className="mt-8 hidden items-center gap-3 border-0 bg-none transition-all hover:underline lg:flex"
+            >
+              ← Retour au calendrier
+            </button>
+          ) : (
+            <Link href="/calendrier" passHref>
+              <a className="mt-8 hidden items-center gap-3 border-0 bg-none transition-all hover:underline lg:flex">
+                ← Retour au calendrier
+              </a>
+            </Link>
+          )}
 
           <div className="max-w-2xl pb-2 text-2xl font-bold uppercase sm:pt-9 md:pt-6 md:text-4xl lg:pt-8 lg:text-5xl">
             {title.fr}
@@ -105,7 +123,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
           <div className="mt-12 md:mt-20">
             <iframe
-              className="aspect-video w-full"
+              className="aspect-video w-full max-w-3xl"
               src="https://www.youtube.com/embed/sOreUnGoIMg"
               title="YouTube video player"
               frameBorder="0"

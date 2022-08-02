@@ -57,7 +57,11 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
 
   const imageCards = images.map((image: any) => {
     return (
-      <div
+      <motion.div
+        whileHover={{
+          y: -5,
+          transition: { duration: 0.6 },
+        }}
         onClick={() => showImage(image)}
         key={image._key}
         className="relative mb-8 h-[400px] max-w-full  cursor-pointer md:mb-0 2xl:h-[1000px]"
@@ -70,7 +74,7 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
           className="cursor-pointer object-cover md:object-contain"
           quality={65}
         />
-      </div>
+      </motion.div>
     );
   });
 

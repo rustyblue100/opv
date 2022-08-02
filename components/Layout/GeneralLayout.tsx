@@ -14,7 +14,7 @@ interface Iprops {
   children: React.ReactNode;
 }
 
-const MainLayout: NextPage<Iprops> = ({ children }) => {
+const MainLayout: NextPage<Iprops> = ({ children, previousRoute }) => {
   const [menuHover, setMenuHover] = useState(false);
   const [clicked, setClicked] = useState(false);
 
@@ -131,6 +131,7 @@ const MainLayout: NextPage<Iprops> = ({ children }) => {
             clicked,
             distanceLeft,
             distanceLeftHover,
+            previousRoute,
           }}
         >
           <div

@@ -5,6 +5,7 @@ interface AppContextInterface {
   clicked: boolean;
   distanceLeft: number;
   distanceLeftHover: number;
+  previousRoute: () => void;
 }
 
 export const Context = createContext<AppContextInterface | null>(null);

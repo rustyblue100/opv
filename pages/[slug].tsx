@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { motion } from "framer-motion";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
