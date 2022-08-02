@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   const stagger = {
@@ -47,12 +48,20 @@ const Footer = () => {
             ></Image>
           </div>
 
-          <motion.div variants={item} className="">
-            Nous joindre
+          <motion.div
+            variants={item}
+            className="transition-all duration-200 hover:text-opv-pink-1200"
+          >
+            <Link href="contact">Nous joindre</Link>
           </motion.div>
 
-          <motion.div variants={item} className="">
-            Politique de condidentialité
+          <motion.div
+            variants={item}
+            className="transition-all duration-200 hover:text-opv-pink-1200"
+          >
+            <Link href="politique-de-confidentialite">
+              Politique de condidentialité
+            </Link>
           </motion.div>
         </div>
 
@@ -71,13 +80,17 @@ const Footer = () => {
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
           className="w-[120px] md:ml-auto md:w-[180px]"
         >
-          <Image
-            src="/logo-footer.png"
-            width="200"
-            height="100"
-            objectFit="contain"
-            alt="logo"
-          />
+          <Link href="/" passHref>
+            <a className="cursor-pointer">
+              <Image
+                src="/logo-footer.png"
+                width="200"
+                height="100"
+                objectFit="contain"
+                alt="logo"
+              />
+            </a>
+          </Link>
         </motion.div>
       </div>
     </motion.footer>

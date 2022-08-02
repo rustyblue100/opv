@@ -33,10 +33,6 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
   const canGoBack =
     (typeof window !== "undefined" && window.history.state?.idx) || 0 > 0;
 
-  console.log("slug", previousRoute);
-
-  /*   console.log(previousRoute.includes("calendrier")); */
-
   // get document.referer from server
   const referer = typeof window === "undefined" ? "" : window.document.referrer;
 

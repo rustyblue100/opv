@@ -18,8 +18,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     return ref.current;
   };
 
-  console.log("app:", usePreviousRoute());
-
   return (
     <Layout previousRoute={usePreviousRoute()}>
       <AnimatePresence
