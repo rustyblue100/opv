@@ -28,12 +28,14 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
   const router = useRouter();
 
-  const previousRoute = useContext(Context)?.previousRoute();
+  const previousRoute = useContext(Context)?.previousRoute;
 
   const canGoBack =
     (typeof window !== "undefined" && window.history.state?.idx) || 0 > 0;
 
   console.log("slug", previousRoute);
+
+  /*   console.log(previousRoute.includes("calendrier")); */
 
   // get document.referer from server
   const referer = typeof window === "undefined" ? "" : window.document.referrer;
@@ -48,7 +50,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <div className="xl:w-[50%]">
-          {canGoBack ? (
+          {canGoBack && previousRoute?.includes("calendrier") ? (
             <button
               onClick={() => router.back()}
               className="mt-8 hidden items-center gap-3 border-0 bg-none transition-all hover:underline lg:flex"
@@ -112,7 +114,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             <div className="text-sm md:text-xl ">{t("evenement:billets")}</div>
           </div>
 
-          <div className="mt-12 max-w-3xl text-lg md:mt-14">
+          <div className="mt-12 max-w-3xl text-lg md:mt-16">
             <PortableText
               value={locale === "fr" ? description?.fr : description?.en}
             />

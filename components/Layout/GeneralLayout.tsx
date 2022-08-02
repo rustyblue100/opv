@@ -12,6 +12,7 @@ import SpotLights from "../SpotLights/";
 
 interface Iprops {
   children: React.ReactNode;
+  previousRoute: string | null;
 }
 
 const MainLayout: NextPage<Iprops> = ({ children, previousRoute }) => {

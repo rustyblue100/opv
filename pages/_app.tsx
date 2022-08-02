@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   console.log("app:", usePreviousRoute());
 
   return (
-    <Layout previousRoute={usePreviousRoute}>
+    <Layout previousRoute={usePreviousRoute()}>
       <AnimatePresence
         initial={router.asPath === "/" ? true : true}
         exitBeforeEnter
