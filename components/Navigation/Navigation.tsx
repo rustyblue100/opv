@@ -20,12 +20,14 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
     recurrents: { title: { fr: "", en: "" } },
   });
 
-  const [pagesData, setPagesData] = useState([
+  const [dynamicTitleMenu, setDynamicTitleMenu] = useState([
     {
       title: { fr: "", en: "" },
       slug: { current: "" },
     },
   ]);
+
+  const [loading, setLoading] = useState(true);
 
   const router = useRouter();
 
@@ -63,7 +65,10 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
        
       }`
       )
-      .then((data) => setPagesData(data))
+      .then((data) => {
+        setDynamicTitleMenu(data);
+        setLoading(false);
+      })
       .catch(console.error);
   }, []);
 
@@ -93,7 +98,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
     },
   };
 
-  const menu = [
+  const staticMenu = [
     {
       title: { fr: "Accueil", en: "Home" },
       slug: { current: "/" },
@@ -113,47 +118,49 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
     setMenuHover(false);
   };
 
-  const mergedMenu = menu.concat(...pagesData);
+  const mergedMenu = staticMenu.concat(...dynamicTitleMenu);
 
   return (
     <div className="fixed top-0 left-0 flex h-full items-center justify-between">
       <div className="flex h-full items-center pl-4 xs:pl-12">
-        <motion.ul
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-          className={`capitalize  leading-[30px] text-opv-pink-900 xxs:text-lg xs:text-xl sm:text-lg md:text-2xl md:leading-[43px]  3xl:text-[40px] 
+        {!loading && (
+          <motion.ul
+            variants={stagger}
+            initial="hidden"
+            animate="visible"
+            className={`capitalize  leading-[30px] text-opv-pink-900 xxs:text-lg xs:text-xl sm:text-lg md:text-2xl md:leading-[43px]  3xl:text-[40px] 
           3xl:leading-[63px]`}
-        >
-          {mergedMenu.map((menuItemDynamic: any, i: number) => {
-            const {
-              title,
-              slug,
-            }: {
-              title: { fr: string; en: string };
-              slug: { current: string };
-            } = menuItemDynamic;
+          >
+            {mergedMenu.map((menuItemDynamic: any, i: number) => {
+              const {
+                title,
+                slug,
+              }: {
+                title: { fr: string; en: string };
+                slug: { current: string };
+              } = menuItemDynamic;
 
-            return (
-              <motion.li
-                key={i}
-                variants={item}
-                onHoverStart={() => setMenuHover(true)}
-              >
-                <Link href={`${slug?.current}`}>
-                  <a
-                    className="hover:text-opv-pink-500 "
-                    onClick={handleClicked}
-                  >
-                    {router.locale === "fr" ? title.fr : title.en}
-                  </a>
-                </Link>
-              </motion.li>
-            );
-          })}
+              return (
+                <motion.li
+                  key={i}
+                  variants={item}
+                  onHoverStart={() => setMenuHover(true)}
+                >
+                  <Link href={`${slug?.current}`}>
+                    <a
+                      className="hover:text-opv-pink-500 "
+                      onClick={handleClicked}
+                    >
+                      {router.locale === "fr" ? title.fr : title.en}
+                    </a>
+                  </Link>
+                </motion.li>
+              );
+            })}
 
-          <LanguageSwitcher />
-        </motion.ul>
+            <LanguageSwitcher />
+          </motion.ul>
+        )}
       </div>
 
       <div className="text-md -ml-20 hidden max-w-xs flex-1 leading-[40px] text-white sm:block sm:text-xl md:block md:text-2xl">
