@@ -99,16 +99,32 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             </div>
           </div>
 
-          <div className="mt-12 flex items-center justify-between gap-4 rounded border border-black bg-violet-200 p-5 text-xl sm:text-2xl md:mt-20 md:gap-0">
+          <div className="mt-12 flex justify-start gap-5 md:mt-14">
+            <div className="flex-1 space-y-2 text-sm sm:text-lg">
+              <h3 className="font-bold">{t("evenement:entrée")}</h3>
+              <div>
+                {prix}${" "}
+                {complet && (
+                  <div className="relative -top-1 ml-5 inline-block border border-opv-pink-1200 p-1 text-sm  uppercase  text-opv-pink-1200 md:text-sm">
+                    Complet
+                  </div>
+                )}
+              </div>
+              <hr className=" border-opv-black"></hr>
+            </div>
+
+            <div className="flex-1 space-y-2 text-sm sm:text-lg">
+              <h3 className="font-bold">&nbsp;</h3>
+              <div>{t("evenement:billets")}</div>
+              <hr className=" border-opv-black"></hr>
+            </div>
+          </div>
+
+          {/*         <div className="mt-12 flex items-center justify-between gap-4 rounded border border-black bg-violet-200 p-5 text-xl sm:text-2xl md:mt-20 md:gap-0">
             <div className="my-3">{prix}$</div>
 
-            {complet && (
-              <div className="ml-5 inline-block -rotate-12 border border-opv-pink-1200 p-1 text-sm  uppercase  text-opv-pink-1200 md:text-xl">
-                Complet
-              </div>
-            )}
             <div className="text-sm md:text-xl ">{t("evenement:billets")}</div>
-          </div>
+          </div> */}
 
           <div className="mt-12 max-w-3xl text-lg md:mt-16">
             <PortableText
