@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import BodyFull from "../../components/Layout/BodyLayout";
 import { PortableText, sanityClient, urlFor } from "../../lib/sanityClient";
 import { Calendrier } from "../../typings";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useLayoutEffect } from "react";
 import { Context } from "../../contexts/Context";
 import Link from "next/link";
 
@@ -33,7 +33,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
   const canGoBack =
     (typeof window !== "undefined" && window.history.state?.idx) || 0 > 0;
 
-  console.log(canGoBack);
+  console.log("slug", previousRoute);
 
   // get document.referer from server
   const referer = typeof window === "undefined" ? "" : window.document.referrer;
@@ -50,9 +50,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
         <div className="xl:w-[50%]">
           {canGoBack ? (
             <button
-              onClick={() =>
-                canGoBack ? router.back() : router.replace("/calendrier")
-              }
+              onClick={() => router.back()}
               className="mt-8 hidden items-center gap-3 border-0 bg-none transition-all hover:underline lg:flex"
             >
               ← Retour au calendrier
@@ -72,7 +70,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}
           </h2>
 
-          <div className="mt-12 flex justify-start gap-5 md:mt-20">
+          <div className="mt-12 flex justify-start gap-5 md:mt-14">
             <div className="flex-1 space-y-2  text-sm sm:text-lg">
               <h3 className="font-bold">{t("evenement:type_event")}</h3>
               <div>Musique</div>
@@ -86,7 +84,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             </div>
           </div>
 
-          <div className="mt-12 flex justify-start gap-5 md:mt-20">
+          <div className="mt-12 flex justify-start gap-5 md:mt-14">
             <div className="flex-1 space-y-2 text-sm sm:text-lg">
               <h3 className="font-bold">{t("evenement:portes")}</h3>
               <div>
@@ -114,14 +112,13 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             <div className="text-sm md:text-xl ">{t("evenement:billets")}</div>
           </div>
 
-          <h2 className="mt-12 mb-4 text-4xl md:mt-20">Bio</h2>
-          <div className="max-w-3xl text-lg ">
+          <div className="mt-12 max-w-3xl text-lg md:mt-14">
             <PortableText
               value={locale === "fr" ? description?.fr : description?.en}
             />
           </div>
 
-          <div className="mt-12 md:mt-20">
+          <div className="mt-12 md:mt-14">
             <iframe
               className="aspect-video w-full max-w-3xl"
               src="https://www.youtube.com/embed/sOreUnGoIMg"
@@ -156,7 +153,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
               layout="responsive"
               alt={title}
               objectFit="cover"
-              className=" rounded-lg"
+              className="rounded-lg"
             />
           </div>
 

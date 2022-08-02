@@ -60,18 +60,18 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
       <motion.div
         whileHover={{
           y: -5,
-          transition: { duration: 0.6 },
+          transition: { duration: 0.3, ease: "easeInOut" },
         }}
         onClick={() => showImage(image)}
         key={image._key}
-        className="relative mb-8 h-[400px] max-w-full  cursor-pointer md:mb-0 2xl:h-[1000px]"
+        className="relative mb-8 h-[400px] max-w-full  cursor-pointer md:mb-0 2xl:h-[1000px] "
       >
         <Image
           data-testid="photos"
           src={urlFor(image).url()}
           alt={image._key}
           layout="fill"
-          className="cursor-pointer object-cover md:object-contain"
+          className="cursor-pointer  object-cover md:object-contain "
           quality={65}
         />
       </motion.div>

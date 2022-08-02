@@ -6,7 +6,7 @@ import { appWithTranslation } from "next-i18next";
 import { useEffect, useRef } from "react";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  const PreviousRoute = () => {
+  const usePreviousRoute = () => {
     const { asPath } = router;
 
     const ref = useRef<string | null>(null);
@@ -18,8 +18,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     return ref.current;
   };
 
+  console.log("app:", usePreviousRoute());
+
   return (
-    <Layout previousRoute={PreviousRoute}>
+    <Layout previousRoute={usePreviousRoute}>
       <AnimatePresence
         initial={router.asPath === "/" ? true : true}
         exitBeforeEnter
