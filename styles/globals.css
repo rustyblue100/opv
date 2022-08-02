@@ -90,8 +90,6 @@ p{
     @apply  max-w-2xl lg:max-w-3xl xl:max-w-full w-full h-full relative;
   }
 
-
-
   .h1{
     @apply text-lg xl:text-3xl md:text-4xl lg:text-5xl uppercase font-bold mt-2 xl:mt-0
   }
@@ -102,6 +100,14 @@ p{
 
   h4{
     @apply text-opv-black-300 text-lg uppercase font-bold;
+  }
+
+  ul{
+    @apply list-disc pl-4
+  }
+
+  li{
+   
   }
 
 
