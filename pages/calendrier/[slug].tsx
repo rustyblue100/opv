@@ -45,7 +45,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
         transition={{ duration: 0.1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
-        <div className="xl:w-[50%]">
+        <div className="lg:w-[50%]">
           {canGoBack && previousRoute?.includes("calendrier") ? (
             <button
               onClick={() => router.back()}
@@ -159,7 +159,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           >
             ← Retour au calendrier
           </button>
-          <div className=" ml-auto max-w-6xl">
+          <div className="ml-auto max-w-6xl">
             <Image
               src={urlFor(mainImage).url()!}
               width="1200"

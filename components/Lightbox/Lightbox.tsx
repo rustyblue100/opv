@@ -87,7 +87,7 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
       {lightboxDisplay ? (
         <div id="lightbox" className="relative">
           <div
-            className="absolute top-5 right-5 z-50 cursor-pointer text-opv-pink-900"
+            className="absolute left-5 top-5 z-50 cursor-pointer text-opv-pink-900 sm:right-5 sm:left-[unset]"
             onClick={hideLightBox}
             data-testid="open-lightbox"
           >

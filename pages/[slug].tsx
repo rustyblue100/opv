@@ -38,15 +38,15 @@ const EventDetails: NextPage<IProps> = ({ pageData, locale }) => {
           <hr className="mt-4 w-full border-opv-black-300"></hr>
         </Header>
 
-        <div className="mt-10 flex flex-col-reverse items-center gap-12 xl:flex-row xl:items-start">
+        <div className="mt-10 flex max-w-full flex-col-reverse lg:flex-row lg:items-start lg:gap-12">
           <div className="flex-1">
             <PortableText
               value={locale === "fr" ? description?.fr : description?.en}
             />
           </div>
 
-          <div className="xl:ml-auto">
-            <motion.div className=" rounded-full">
+          <div className="mx-auto lg:ml-auto">
+            <motion.div className="rounded-full">
               {mainImage && (
                 <Image
                   width={500}

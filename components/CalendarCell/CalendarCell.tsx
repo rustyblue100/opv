@@ -115,7 +115,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               <Link href={`/calendrier/${slug}`} passHref>
                 <a>
                   <Image
-                    className="flex-1 cursor-pointer rounded-full"
+                    className="flex-1 cursor-pointer rounded-lg md:rounded-full"
                     src={
                       mainImage
                         ? urlFor(mainImage).url()
