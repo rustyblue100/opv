@@ -15,7 +15,6 @@ export default {
     {
       name: "title",
       type: "object",
-
       fieldsets: [
         {
           title: "Traduction",

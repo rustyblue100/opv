@@ -100,10 +100,14 @@ p{
     @apply text-opv-pink-1200 text-2xl lg:text-3xl uppercase mb-3
   }
 
-  .h4{
-    @apply text-opv-black-300 text-sm uppercase font-bold;
+  h4{
+    @apply text-opv-black-300 text-lg uppercase font-bold;
   }
 
+
+  .url-sanity{
+    @apply text-opv-pink-1200;
+  }
 
   .my-masonry-grid {
     display: flex;

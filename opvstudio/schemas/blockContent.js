@@ -8,6 +8,9 @@
  *    type: 'blockContent'
  *  }
  */
+
+const emailIcon = () => <span style={{ fontWeight: "bold" }}>@</span>;
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: "Block Content",
@@ -52,15 +55,28 @@ export default {
               },
             ],
           },
+          {
+            title: "Email",
+            name: "internalLink",
+            type: "object",
+
+            fields: [
+              {
+                title: "email",
+                name: "href",
+                type: "string",
+              },
+            ],
+          },
         ],
       },
     },
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-    /*     {
+    {
       type: "image",
       options: { hotspot: true },
-    }, */
+    },
   ],
 };
