@@ -142,7 +142,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
           <div className="mt-12 flex justify-start gap-5 md:mt-14">
             <div className="flex-1 space-y-2 text-sm sm:text-lg">
-              <h3 className="font-bold">{t("evenement:entrée")}</h3>
+              <h3 className="font-bold">{t("evenement:cover")}</h3>
               <div>
                 {prix}${" "}
                 {complet && (

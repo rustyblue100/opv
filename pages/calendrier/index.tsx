@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { motion } from "framer-motion";
 import { GetStaticProps, NextPage } from "next";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -14,8 +15,6 @@ import { Calendrier } from "../../typings";
 import pathPushQueryParams from "../../utils/pathPushQueryParams";
 import { fetchCalendar } from "../../utils/sanityQuery";
 import useIsomorphicLayoutEffect from "../../utils/useIsomorphicLayoutEffect";
-import Image from "next/image";
-import { useTranslation } from "next-i18next";
 
 interface IProps {
   calendrier: Calendrier[];

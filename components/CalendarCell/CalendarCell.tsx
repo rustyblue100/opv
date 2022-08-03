@@ -81,7 +81,8 @@ const CalendarCell: NextPage<IProps> = ({ data, locale }) => {
             transition={{ duration: 0.2, delay: 0.9 }}
             className="absolute bottom-6 -left-12 hidden -rotate-90 text-sm font-normal sm:block"
           >
-            Entrée: {prix}$
+            {prix ? (locale === "fr" ? "entrée" : "cover") : ""}:{" "}
+            {prix && prix + "$"}
           </motion.div>
           <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <motion.div

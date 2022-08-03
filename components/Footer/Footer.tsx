@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+  const router = useRouter();
+
   const stagger = {
     hidden: {
       opacity: 0,
@@ -52,7 +55,9 @@ const Footer = () => {
             variants={item}
             className="transition-all duration-200 hover:text-opv-pink-1200"
           >
-            <Link href="/contact">Nous joindre</Link>
+            <Link href="/contact">
+              {router.locale === "fr" ? "Nous joindre" : "Contact us"}
+            </Link>
           </motion.div>
 
           <motion.div
@@ -60,7 +65,9 @@ const Footer = () => {
             className="transition-all duration-200 hover:text-opv-pink-1200"
           >
             <Link href="/politique-de-confidentialite">
-              Politique de condidentialité
+              {router.locale === "fr"
+                ? " Politique de condidentialité"
+                : "Privacy Policy"}
             </Link>
           </motion.div>
         </div>
