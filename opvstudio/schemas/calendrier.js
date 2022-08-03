@@ -118,6 +118,31 @@ export default {
         return document?.evenements;
       },
     },
+    {
+      name: "video",
+      title: "Liens vidéo",
+      type: "string",
+      hidden: ({ document }) => {
+        return document?.evenements;
+      },
+    },
+
+    {
+      name: "site",
+      title: "Site web",
+      type: "string",
+      hidden: ({ document }) => {
+        return document?.evenements;
+      },
+    },
+    {
+      name: "facebook",
+      title: "Liens facebook",
+      type: "string",
+      hidden: ({ document }) => {
+        return document?.evenements;
+      },
+    },
 
     {
       name: "complet",
