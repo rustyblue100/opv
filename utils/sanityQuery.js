@@ -6,6 +6,9 @@ export const fetchCalendar = (
     "slug":slug.current,
     artiste[]->,
     description,
+    site,
+    video,
+    facebook,
     complet,
     prix,
     date,
@@ -18,6 +21,27 @@ export const fetchCalendar = (
       "slug":slug.current
     }, 
   } `;
+
+export const fetchCalendarSingleEvent = `*[_type =="calendrier" && slug.current == $slug][0]{
+  _id,
+  title,
+  "slug":slug.current,
+  artiste[]->,
+  description,
+  complet,
+  prix,
+  date,
+  video,
+  site,
+  facebook,
+  "mainImage": mainImage.asset->url,
+  "recurrents":evenements->{
+  title,
+  "mainImage": mainImage.asset->url,
+    artiste[]->,
+    description,
+  }, 
+}`;
 
 export const fetchPhotosVideos = () => `*[_type =="photos"] | order(date asc){
       _id,

@@ -122,6 +122,7 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
 
           <div className="flex flex-col items-start xl:flex-row ">
             <motion.div
+              whileHover={{ y: -3, transition: { duration: 0.3 } }}
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}

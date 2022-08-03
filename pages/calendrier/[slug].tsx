@@ -12,6 +12,9 @@ import { Calendrier } from "../../typings";
 import { useContext, useEffect, useLayoutEffect } from "react";
 import { Context } from "../../contexts/Context";
 import Link from "next/link";
+import { fetchCalendarSingleEvent } from "../../utils/sanityQuery";
+import getYouTubeId from "get-youtube-id";
+import YouTube from "react-youtube";
 
 interface IProps {
   calendrierData: Calendrier;
@@ -19,8 +22,10 @@ interface IProps {
 }
 
 const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
-  const { title, mainImage, description, prix, complet, artiste }: any =
+  const { title, mainImage, description, prix, complet, artiste, video }: any =
     !calendrierData.recurrents ? calendrierData : calendrierData.recurrents;
+
+  console.log(calendrierData);
 
   const date = calendrierData.date;
 
@@ -69,20 +74,22 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}
           </h2>
 
-          <div>
-            <ul className=" mt-8 flex list-none flex-col px-0 pb-3 md:flex-row md:pb-0">
-              {artiste?.map((art: any, i: number) => {
-                return (
-                  <li key={art._id} className="flex">
-                    {art.nom}
-                    <span className="mx-2 hidden md:block">
-                      {i !== artiste.length - 1 && "/"}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          {artiste && (
+            <div>
+              <ul className=" mt-8 flex list-none flex-col px-0 pb-3 md:flex-row md:pb-0">
+                {artiste?.map((art: any, i: number) => {
+                  return (
+                    <li key={art._id} className="flex">
+                      {art.nom}
+                      <span className="mx-2 hidden md:block">
+                        {i !== artiste.length - 1 && "/"}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
 
           <div className="mt-12 flex justify-start gap-5 md:mt-14">
             <div className="flex-1 space-y-2  text-sm sm:text-lg">
@@ -149,14 +156,12 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           </div>
 
           <div className="mt-12 md:mt-14">
-            <iframe
-              className="aspect-video w-full max-w-3xl"
-              src="https://www.youtube.com/embed/sOreUnGoIMg"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <div>
+              <YouTube
+                videoId={getYouTubeId(video) as string}
+                className="youtube-embed"
+              />
+            </div>
           </div>
         </div>
 
@@ -201,24 +206,6 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
 export default EventDetails;
 
-const calendrierQuery = `*[_type =="calendrier" && slug.current == $slug][0]{
-  _id,
-  title,
-  "slug":slug.current,
-  artiste[]->,
-  description,
-  complet,
-  prix,
-  date,
-  "mainImage": mainImage.asset->url,
-  "recurrents":evenements->{
-  title,
-  "mainImage": mainImage.asset->url,
-    artiste[]->,
-    description,
-  }, 
-}`;
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths =
     await sanityClient.fetch(`*[_type =="calendrier" && defined(slug.current)]{
@@ -235,7 +222,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const { slug }: any = params;
 
-  const calendrierData = await sanityClient.fetch(calendrierQuery, { slug });
+  const calendrierData = await sanityClient.fetch(fetchCalendarSingleEvent, {
+    slug,
+  });
 
   if (!calendrierData) {
     return {
