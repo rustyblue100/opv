@@ -10,9 +10,10 @@ import { useRouter } from "next/router";
 
 interface IProps {
   data: Calendrier;
+  locale: string;
 }
 
-const CalendarCell: NextPage<IProps> = ({ data }) => {
+const CalendarCell: NextPage<IProps> = ({ data, locale }) => {
   const { query } = useRouter() || { query: { text: "" } };
 
   const { title, mainImage, complet, prix, description, artiste } =
@@ -20,8 +21,6 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
 
   const date = data.date;
   const slug = data.slug;
-
-  console.log(artiste);
 
   function truncate(string: string, limit: number) {
     return string.length > limit ? `${string.slice(0, limit)}...` : string;
@@ -39,7 +38,9 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
 
         <div className="relative flex-1">
           <div className="mb-2 text-2xl font-bold sm:mb-0 md:text-3xl">
-            {dayjs(date).locale("fr").format("dddd")}
+            {dayjs(date)
+              .locale(locale === "fr" ? "fr" : "en")
+              .format("dddd")}
           </div>
           <motion.div
             initial={!query.i && { opacity: 0, y: 5 }}
@@ -50,7 +51,9 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
           >
             {dayjs(date).format("DD")}
             <small className="relative top-1 align-top text-sm">
-              {dayjs(date).locale("fr").format("MMMM")}
+              {dayjs(date)
+                .locale(locale === "fr" ? "fr" : "en")
+                .format("MMMM")}
             </small>
           </motion.div>
 
@@ -114,8 +117,13 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               className="mt-0 text-sm font-normal sm:mt-0"
             >
               <div className="md:-rotate-90">
-                {dayjs(date).locale("fr").format("HH")}h
-                {dayjs(date).locale("fr").format("mm")}
+                {dayjs(date)
+                  .locale(locale === "fr" ? "fr" : "en")
+                  .format("HH")}
+                h
+                {dayjs(date)
+                  .locale(locale === "fr" ? "fr" : "en")
+                  .format("mm")}
               </div>
             </motion.div>
           </div>
@@ -152,12 +160,18 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               className="mt-4 max-w-[800px] flex-1 xl:mt-0 xl:px-12"
             >
               {/* <PortableText value={description?.fr[0]} /> */}
-              {description && truncate(description.fr[0].children[0].text, 150)}
+              {description &&
+                truncate(
+                  locale === "fr"
+                    ? description.fr[0].children[0].text
+                    : description.en[0].children[0].text,
+                  150
+                )}
 
               <br />
               <Link href={`/calendrier/${slug}`} passHref>
                 <a className="text-opv-pink-1200" data-testid="see more">
-                  Voir plus...
+                  {locale === "fr" ? "Voir plus..." : "See more..."}
                 </a>
               </Link>
             </motion.div>

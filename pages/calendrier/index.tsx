@@ -15,16 +15,19 @@ import pathPushQueryParams from "../../utils/pathPushQueryParams";
 import { fetchCalendar } from "../../utils/sanityQuery";
 import useIsomorphicLayoutEffect from "../../utils/useIsomorphicLayoutEffect";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 
 interface IProps {
   calendrier: Calendrier[];
+  locale: string;
 }
 
-const Calendrier: NextPage<IProps> = ({ calendrier }) => {
+const Calendrier: NextPage<IProps> = ({ calendrier, locale }) => {
   const [monthPosition, setMonthPosition] = useState(0);
 
   const router = useRouter();
   const { query } = useRouter();
+  const { t } = useTranslation();
 
   useIsomorphicLayoutEffect(() => {
     if (router.isReady && query.i) {
@@ -52,7 +55,9 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
 
   //reduce calendrier to array of objects by month
   const calendrierByMonth = calendrier?.reduce((acc: any, curr: any) => {
-    const month = dayjs(curr.date).locale("fr").format("MMMM YYYY");
+    const month = dayjs(curr.date)
+      .locale(locale === "fr" ? "fr" : "en")
+      .format("MMMM YYYY");
 
     if (!acc[month]) {
       acc[month] = [];
@@ -85,7 +90,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
       >
         <div className="mb-8 -mt-2 flex flex-col items-center justify-between sm:mb-0 sm:flex-row">
           <Header>
-            <h1 className="h1 mb-5 lg:mb-0">Calendrier</h1>
+            <h1 className="h1 mb-5 lg:mb-0">{t("evenement:title")}</h1>
           </Header>
 
           <div className="flex items-center  md:flex-row">
@@ -133,11 +138,15 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
                 {m.events
                   .filter((f: any) => {
                     return months[monthPosition]?.includes(
-                      dayjs(f.date).locale("fr").format("MMMM YYYY")
+                      dayjs(f.date)
+                        .locale(locale === "fr" ? "fr" : "en")
+                        .format("MMMM YYYY")
                     );
                   })
                   .map((cal: any, index: number) => {
-                    return <CalendarCell key={index} data={cal} />;
+                    return (
+                      <CalendarCell key={index} data={cal} locale={locale} />
+                    );
                   })}
               </div>
             );
@@ -160,7 +169,11 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, [])),
+      locale,
+      ...(await serverSideTranslations(locale as string, [
+        "common",
+        "evenement",
+      ])),
       calendrier,
     },
     revalidate: 60, // 60 seconds

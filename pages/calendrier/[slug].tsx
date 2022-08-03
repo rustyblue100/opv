@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import BodyFull from "../../components/Layout/BodyLayout";
 import { PortableText, sanityClient, urlFor } from "../../lib/sanityClient";
 import { Calendrier } from "../../typings";
-import { useContext, useEffect, useLayoutEffect } from "react";
+import { useContext } from "react";
 import { Context } from "../../contexts/Context";
 import Link from "next/link";
 import { fetchCalendarSingleEvent } from "../../utils/sanityQuery";
@@ -37,8 +37,6 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
   }: any = !calendrierData.recurrents
     ? calendrierData
     : calendrierData.recurrents;
-
-  console.log(calendrierData);
 
   const date = calendrierData.date;
 
@@ -69,12 +67,12 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
               onClick={() => router.back()}
               className="mt-8 hidden items-center gap-3 border-0 bg-none transition-all hover:underline lg:flex"
             >
-              ← Retour au calendrier
+              ← {t("evenement:calendar")}
             </button>
           ) : (
             <Link href="/calendrier" passHref>
               <a className="mt-8 hidden items-center gap-3 border-0 bg-none transition-all hover:underline lg:flex">
-                ← Retour au calendrier
+                ← {t("evenement:calendar")}
               </a>
             </Link>
           )}
@@ -84,7 +82,9 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           </div>
 
           <h2 className="text-3xl text-opv-pink-1200">
-            {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}
+            {dayjs(date)
+              .locale(locale === "fr" ? "fr" : "en")
+              .format("dddd DD MMMM YYYY")}{" "}
           </h2>
 
           {artiste && (
@@ -122,8 +122,13 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             <div className="flex-1 space-y-2 text-sm sm:text-lg">
               <h3 className="font-bold">{t("evenement:portes")}</h3>
               <div>
-                {dayjs(date).locale("fr").format("HH")}h
-                {dayjs(date).locale("fr").format("mm")}
+                {dayjs(date)
+                  .locale(locale === "fr" ? "fr" : "en")
+                  .format("HH")}
+                h
+                {dayjs(date)
+                  .locale(locale === "fr" ? "fr" : "en")
+                  .format("mm")}
               </div>
               <hr className=" border-opv-black"></hr>
             </div>
@@ -193,7 +198,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             }
             className="mb-8 flex items-center gap-3 border-0 bg-none transition-all hover:underline lg:hidden xl:mt-8"
           >
-            ← Retour au calendrier
+            ← {t("evenement:calendar")}
           </button>
           <div className="ml-auto max-w-6xl">
             <Image

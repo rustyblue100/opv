@@ -30,7 +30,7 @@ const EventDetails: NextPage<IProps> = ({ pageData, locale }) => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <Header>
-          <h1 className="h1"> {title.fr}</h1>
+          <h1 className="h1"> {locale === "fr" ? title?.fr : title?.en}</h1>
           <hr className="mt-4 w-full border-opv-black-300"></hr>
         </Header>
 

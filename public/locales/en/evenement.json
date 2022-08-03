@@ -2,5 +2,8 @@
     "type_event": "Type of event",
     "billets": "Tickets at the door",
     "portes": "Doors",
-    "cover": "Cover charge"
+    "cover": "Cover charge",
+    "calendar": "Back to the calendar",
+    "see_more": "See more...",
+    "title": "Calendar"
 }

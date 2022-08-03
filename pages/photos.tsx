@@ -13,9 +13,10 @@ import Lightbox from "../components/Lightbox";
 
 interface IProps {
   media: Photos[];
+  locale: string;
 }
 
-const contact: NextPage<IProps> = ({ media }) => {
+const contact: NextPage<IProps> = ({ media, locale }) => {
   return (
     <BodyFull>
       <motion.main
@@ -25,7 +26,9 @@ const contact: NextPage<IProps> = ({ media }) => {
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
       >
         <Header>
-          <h1 className="h1 ">Photos & Vidéos</h1>
+          <h1 className="h1 ">
+            {locale === "fr" ? media[0].title.fr : media[0].title.en}
+          </h1>
           <hr className="mt-4 w-full  border-opv-black-300"></hr>
         </Header>
 

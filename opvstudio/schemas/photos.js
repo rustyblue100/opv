@@ -5,6 +5,14 @@ export default {
   title: "Photos & vidéos",
   fields: [
     {
+      name: "title",
+      title: "Title",
+      type: "localeString",
+      hidden: ({ document }) => {
+        return document?.evenements;
+      },
+    },
+    {
       name: "images",
       type: "array",
       title: "Images",

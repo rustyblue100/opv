@@ -53,6 +53,7 @@ export interface Calendrier {
 
 export interface Photos {
   _id: string;
+  title: { fr: string; en: string };
   description: null;
   images: [
     {
@@ -65,5 +66,4 @@ export interface Photos {
       };
     }
   ];
-  title: null;
 }

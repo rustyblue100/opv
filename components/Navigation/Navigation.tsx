@@ -170,7 +170,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
         )}
       </div>
 
-      <div className="text-md -ml-20 hidden max-w-xs flex-1 leading-[40px] text-white sm:block sm:text-xl md:block md:text-2xl">
+      <div className="text-md -ml-24 hidden max-w-xs flex-1 leading-[40px] text-white sm:block sm:text-xl md:block md:text-2xl">
         <div className="-rotate-90 text-center">
           <p className="text-xs  md:text-[16px]">☆ Prochain Évènement ☆</p>
           <Marquee
