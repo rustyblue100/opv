@@ -64,7 +64,7 @@ const CalendarCell: NextPage<IProps> = ({ data, locale }) => {
               transition={{ duration: 0.3, delay: 1 }}
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 transform border border-opv-pink-1200 p-1 uppercase tracking-wide text-opv-pink-1200 md:text-2xl">
-                Complet
+                {(locale === "fr" ? "fr" : "en") === "fr" ? "complet" : "full"}
               </div>
             </motion.div>
           )}

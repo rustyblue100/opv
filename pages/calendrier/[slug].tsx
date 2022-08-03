@@ -147,7 +147,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
                 {prix}${" "}
                 {complet && (
                   <div className="relative -top-1 ml-5 inline-block border border-opv-pink-1200 p-1 text-sm  uppercase  text-opv-pink-1200 md:text-sm">
-                    Complet
+                    {t("evenement:full")}
                   </div>
                 )}
               </div>
@@ -217,7 +217,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
               {site && (
                 <li className="item-center  flex gap-1 hover:underline">
                   <a href={site} rel="noopener noreferrer" target={"_blank"}>
-                    <span>site web</span>
+                    <span>web</span>
                   </a>
                 </li>
               )}
