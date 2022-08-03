@@ -34,6 +34,8 @@ export const fetchCalendarSingleEvent = `*[_type =="calendrier" && slug.current 
   video,
   site,
   facebook,
+  spotify,
+  itunes,
   "mainImage": mainImage.asset->url,
   "recurrents":evenements->{
   title,

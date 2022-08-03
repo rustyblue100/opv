@@ -59,6 +59,22 @@ export default {
         return document?.evenements;
       },
     },
+    {
+      name: "spotify",
+      title: "Lien spotify",
+      type: "string",
+      hidden: ({ document }) => {
+        return document?.evenements;
+      },
+    },
+    {
+      name: "itunes",
+      title: "Lien itunes",
+      type: "string",
+      hidden: ({ document }) => {
+        return document?.evenements;
+      },
+    },
   ],
 
   preview: {
