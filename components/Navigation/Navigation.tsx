@@ -121,7 +121,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
   const mergedMenu = staticMenu.concat(...dynamicTitleMenu);
 
   return (
-    <div className="fixed top-0 left-0 flex h-full items-center justify-between">
+    <div className="fixed top-0 left-0 -ml-4 flex h-full items-center justify-between">
       <div className="flex h-full items-center pl-4 xs:pl-12">
         {!loading && (
           <motion.ul

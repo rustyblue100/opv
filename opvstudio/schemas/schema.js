@@ -14,6 +14,7 @@ import localeBlock from "./localeBlock";
 import evenements from "./evenements";
 import photos from "./photos";
 import pages from "./pages";
+import youtube from "./youtube";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,5 +35,6 @@ export default createSchema({
     pages, // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
+    youtube,
   ]),
 });

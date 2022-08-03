@@ -167,7 +167,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
               layout="responsive"
               alt={title}
               objectFit="cover"
-              className="rounded-lg"
+              className="rounded"
             />
           </div>
 

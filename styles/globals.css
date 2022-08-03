@@ -110,6 +110,16 @@ p{
    
   }
 
+  .youtube-embed{
+    margin:40px 0;
+    max-width:800px
+  }
+
+  .youtube-embed iframe{
+    @apply w-full h-full aspect-video
+
+  }
+
 
   .url-sanity{
     @apply text-opv-pink-1200;

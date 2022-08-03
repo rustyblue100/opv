@@ -56,6 +56,7 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
   };
 
   const imageCards = images.map((image: any) => {
+    console.log(urlFor(image).url() + "?h=200&blur=10");
     return (
       <motion.div
         whileHover={{
@@ -68,11 +69,10 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
       >
         <Image
           data-testid="photos"
-          src={urlFor(image).url()}
+          src={urlFor(image).url() + "?h=800"}
           alt={image._key}
           layout="fill"
-          className="cursor-pointer  object-cover md:object-contain "
-          quality={65}
+          className="cursor-pointer object-cover md:object-contain "
         />
       </motion.div>
     );
@@ -171,13 +171,14 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
             <Image
               src={
                 !imageToShow
-                  ? urlFor(images[0]).url()
-                  : urlFor(imageToShow).url()
+                  ? urlFor(images[0]).url() + "?h=1800"
+                  : urlFor(imageToShow).url() + "?h=1800"
               }
               layout="fill"
               objectFit="contain"
               alt="img"
               className="image"
+              priority
             />
           </div>
         </div>

@@ -54,7 +54,7 @@ const EventDetails: NextPage<IProps> = ({ pageData, locale }) => {
                   src={urlFor(mainImage).url()!}
                   alt="show"
                   objectFit="cover"
-                  className="mask2 rounded-full"
+                  className=" rounded"
                 />
               )}
             </motion.div>
