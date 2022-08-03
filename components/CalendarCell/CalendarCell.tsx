@@ -92,12 +92,12 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               </Link>
 
               <div className="mt-1 text-sm">
-                <ul className="m-0 flex list-none p-0">
+                <ul className="m-0 flex list-none flex-col px-0 pb-3 md:flex-row md:pb-0">
                   {artiste?.map((art: any, i: number) => {
                     return (
-                      <li key={art._id} className=" text-gray-600">
+                      <li key={art._id} className=" flex text-gray-600 ">
                         {art.nom}
-                        <span className="mx-2">
+                        <span className="mx-2 hidden md:block">
                           {i !== artiste.length - 1 && "/"}
                         </span>
                       </li>

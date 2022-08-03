@@ -19,7 +19,7 @@ interface IProps {
 }
 
 const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
-  const { title, mainImage, description, prix, complet }: any =
+  const { title, mainImage, description, prix, complet, artiste }: any =
     !calendrierData.recurrents ? calendrierData : calendrierData.recurrents;
 
   const date = calendrierData.date;
@@ -64,9 +64,25 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           <div className="max-w-2xl pb-2 text-2xl font-bold uppercase sm:pt-9 md:pt-6 md:text-4xl lg:pt-8 lg:text-5xl">
             {title.fr}
           </div>
+
           <h2 className="text-3xl text-opv-pink-1200">
             {dayjs(date).locale("fr").format("dddd DD MMMM YYYY")}{" "}
           </h2>
+
+          <div>
+            <ul className=" mt-8 flex list-none flex-col px-0 pb-3 md:flex-row md:pb-0">
+              {artiste?.map((art: any, i: number) => {
+                return (
+                  <li key={art._id} className="flex">
+                    {art.nom}
+                    <span className="mx-2 hidden md:block">
+                      {i !== artiste.length - 1 && "/"}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
 
           <div className="mt-12 flex justify-start gap-5 md:mt-14">
             <div className="flex-1 space-y-2  text-sm sm:text-lg">
