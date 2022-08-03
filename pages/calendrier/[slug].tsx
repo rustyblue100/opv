@@ -113,7 +113,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
 
             <div className="flex-1 space-y-2 text-sm sm:text-lg">
               <h3 className="font-bold">Adresse</h3>
-              <div>356, rue Mont-Royal EST</div>
+              <div>555, rue Mont-Montréal EST</div>
               <hr className=" border-opv-black"></hr>
             </div>
           </div>
@@ -169,12 +169,14 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           </div>
 
           <div className="mt-12 md:mt-14">
-            <div>
-              <YouTube
-                videoId={getYouTubeId(video) as string}
-                className="youtube-embed"
-              />
-            </div>
+            {video && (
+              <div>
+                <YouTube
+                  videoId={getYouTubeId(video) as string}
+                  className="youtube-embed"
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -215,7 +217,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
                 </li>
               )}
               {facebook && (
-                <li>
+                <li className="item-center  flex gap-1 hover:underline">
                   <a
                     href={facebook}
                     rel="noopener noreferrer"
@@ -237,7 +239,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
               )}
 
               {itunes && (
-                <li>
+                <li className="item-center  flex gap-1 hover:underline">
                   <a
                     href={itunes}
                     rel="noopener noreferrer"
@@ -260,7 +262,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
               )}
 
               {spotify && (
-                <li>
+                <li className="item-center  flex gap-1 hover:underline">
                   <a
                     href={spotify}
                     rel="noopener noreferrer"

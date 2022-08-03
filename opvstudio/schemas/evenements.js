@@ -34,6 +34,7 @@ export default {
       title: "Description",
       type: "localeBlock",
     },
+
     {
       name: "video",
       title: "Liens vidéo",

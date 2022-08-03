@@ -4,7 +4,6 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import Header from "../components/Header/Header";
 import BodyFull from "../components/Layout/BodyLayout";
 import { PortableText, sanityClient, urlFor } from "../lib/sanityClient";
@@ -20,10 +19,7 @@ const EventDetails: NextPage<IProps> = ({ pageData, locale }) => {
 
   const { t } = useTranslation();
 
-  const router = useRouter();
-
   // get document.referer from server
-  const referer = typeof window === "undefined" ? "" : window.document.referrer;
 
   return (
     <BodyFull>
@@ -44,18 +40,19 @@ const EventDetails: NextPage<IProps> = ({ pageData, locale }) => {
               value={locale === "fr" ? description?.fr : description?.en}
             />
           </div>
-
-          <div className="relative h-[400px] w-full lg:flex-1">
-            {mainImage && (
-              <Image
-                src={urlFor(mainImage).url()}
-                layout="fill"
-                alt={title}
-                objectFit="cover"
-                className="rounded"
-              />
-            )}
-          </div>
+          {mainImage && (
+            <div className="relative mb-8 h-[400px]  w-full lg:flex-1 xl:mb-0 2xl:h-[800px]">
+              {mainImage && (
+                <Image
+                  src={urlFor(mainImage).url()}
+                  layout="fill"
+                  alt={title}
+                  objectFit="cover"
+                  className="rounded"
+                />
+              )}
+            </div>
+          )}
         </div>
       </motion.main>
     </BodyFull>

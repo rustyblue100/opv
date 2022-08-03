@@ -85,7 +85,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier }) => {
       >
         <div className="mb-8 -mt-2 flex flex-col items-center justify-between sm:mb-0 sm:flex-row">
           <Header>
-            <h1 className="h1 mb-5 xl:mb-0">Calendrier</h1>
+            <h1 className="h1 mb-5 lg:mb-0">Calendrier</h1>
           </Header>
 
           <div className="flex items-center  md:flex-row">

@@ -139,7 +139,7 @@ const MainLayout: NextPage<Iprops> = ({ children, previousRoute }) => {
             data-testid={`slideFx-${menuHover}`}
             className="h-screen overflow-hidden"
           >
-            {children}
+            {/*            {children} */}
           </div>
         </Context.Provider>
       </motion.div>

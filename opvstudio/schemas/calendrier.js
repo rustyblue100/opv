@@ -32,6 +32,19 @@ export default {
       },
       to: [{ type: "evenements" }],
     },
+
+    {
+      name: "date",
+      title: "Date de l'évènement",
+      type: "datetime",
+      options: {
+        dateFormat: "YYYY-MM-DD",
+        timeFormat: "HH:mm",
+        timeStep: 15,
+        calendarTodayLabel: "Today",
+      },
+    },
+
     {
       name: "slug",
       title: "Slug",
@@ -77,15 +90,9 @@ export default {
     }, */
 
     {
-      name: "date",
-      title: "Date de l'évènement",
-      type: "datetime",
-      options: {
-        dateFormat: "YYYY-MM-DD",
-        timeFormat: "HH:mm",
-        timeStep: 15,
-        calendarTodayLabel: "Today",
-      },
+      name: "prix",
+      title: "Prix",
+      type: "number",
     },
 
     {
@@ -164,12 +171,6 @@ export default {
       name: "complet",
       title: "Complet",
       type: "boolean",
-    },
-
-    {
-      name: "prix",
-      title: "Prix",
-      type: "number",
     },
   ],
 
