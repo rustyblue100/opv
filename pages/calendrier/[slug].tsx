@@ -161,7 +161,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           </button>
           <div className="ml-auto max-w-6xl">
             <Image
-              src={urlFor(mainImage).url()!}
+              src={urlFor(mainImage).url()}
               width="1200"
               height="1200"
               layout="responsive"

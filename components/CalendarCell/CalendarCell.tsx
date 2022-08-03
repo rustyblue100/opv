@@ -15,12 +15,13 @@ interface IProps {
 const CalendarCell: NextPage<IProps> = ({ data }) => {
   const { query } = useRouter() || { query: { text: "" } };
 
-  const { title, mainImage, complet, prix, description } = data?.recurrents
-    ? data.recurrents
-    : data;
+  const { title, mainImage, complet, prix, description, artiste } =
+    data?.recurrents ? data.recurrents : data;
 
   const date = data.date;
   const slug = data.slug;
+
+  console.log(artiste);
 
   function truncate(string: string, limit: number) {
     return string.length > limit ? `${string.slice(0, limit)}...` : string;
@@ -86,9 +87,20 @@ const CalendarCell: NextPage<IProps> = ({ data }) => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-4 text-2xl font-normal sm:mt-0 sm:text-3xl md:text-3xl"
             >
-              {title?.fr}
+              <Link href={`/calendrier/${slug}`} passHref>
+                {title?.fr}
+              </Link>
+
               <div className="mt-1 text-sm">
-                Musiciens: Jf-Batteur / Marc-Guitariste
+                <ul className="m-0 flex list-none p-0">
+                  {artiste?.map((art: any, i) => {
+                    return (
+                      <li key={art._id} className="mr-3 text-gray-600">
+                        {art.nom}
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </motion.div>
 

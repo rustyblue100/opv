@@ -39,25 +39,22 @@ const EventDetails: NextPage<IProps> = ({ pageData, locale }) => {
         </Header>
 
         <div className="mt-10 flex max-w-full flex-col-reverse lg:flex-row lg:items-start lg:gap-12">
-          <div className="flex-1">
+          <div className="w-full lg:w-[58%]">
             <PortableText
               value={locale === "fr" ? description?.fr : description?.en}
             />
           </div>
 
-          <div className="mx-auto lg:ml-auto">
-            <motion.div className="rounded-full">
-              {mainImage && (
-                <Image
-                  width={500}
-                  height={500}
-                  src={urlFor(mainImage).url()!}
-                  alt="show"
-                  objectFit="cover"
-                  className=" rounded"
-                />
-              )}
-            </motion.div>
+          <div className="relative h-[400px] w-full lg:flex-1">
+            {mainImage && (
+              <Image
+                src={urlFor(mainImage).url()}
+                layout="fill"
+                alt={title}
+                objectFit="cover"
+                className="rounded"
+              />
+            )}
           </div>
         </div>
       </motion.main>

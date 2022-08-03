@@ -52,14 +52,14 @@ const Footer = () => {
             variants={item}
             className="transition-all duration-200 hover:text-opv-pink-1200"
           >
-            <Link href="contact">Nous joindre</Link>
+            <Link href="/contact">Nous joindre</Link>
           </motion.div>
 
           <motion.div
             variants={item}
             className="transition-all duration-200 hover:text-opv-pink-1200"
           >
-            <Link href="politique-de-confidentialite">
+            <Link href="/politique-de-confidentialite">
               Politique de condidentialité
             </Link>
           </motion.div>
