@@ -79,7 +79,7 @@ const Lightbox: NextPage<IProps> = ({ carousselData }) => {
 
   return (
     <div>
-      <div className="max-w-full grid-cols-2 gap-x-8 md:mt-8 md:grid md:gap-y-12">
+      <div className="mt-8 max-w-full grid-cols-2 gap-x-8 md:grid md:gap-y-12">
         {imageCards}
       </div>
 

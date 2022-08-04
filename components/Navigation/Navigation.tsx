@@ -154,7 +154,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
                     >
                       <Link href={`/${slug?.current}`}>
                         <a
-                          className="hover:text-opv-pink-500 "
+                          className="leading-[30px] hover:text-opv-pink-500 md:leading-tight"
                           onClick={handleClicked}
                         >
                           {router.locale === "fr" ? title.fr : title.en}
