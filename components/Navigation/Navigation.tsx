@@ -133,37 +133,43 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
           3xl:leading-[63px]`}
           >
             <u className="list-none	 no-underline">
-              {mergedMenu
-                .filter(
-                  (item) =>
-                    item?.slug.current !== "politique-de-confidentialite"
-                )
-                .map((menuItemDynamic: any, i: number) => {
-                  const {
-                    title,
-                    slug,
-                  }: {
-                    title: { fr: string; en: string };
-                    slug: { current: string };
-                  } = menuItemDynamic;
+              {dynamicTitleMenu ? (
+                mergedMenu
+                  .filter(
+                    (item) =>
+                      item?.slug.current !== "politique-de-confidentialite"
+                  )
+                  .map((menuItemDynamic: any, i: number) => {
+                    const {
+                      title,
+                      slug,
+                    }: {
+                      title: { fr: string; en: string };
+                      slug: { current: string };
+                    } = menuItemDynamic;
 
-                  return (
-                    <motion.li
-                      key={i}
-                      variants={item}
-                      onHoverStart={() => setMenuHover(true)}
-                    >
-                      <Link href={`/${slug?.current}`}>
-                        <a
-                          className="leading-[30px] hover:text-opv-pink-500 md:leading-tight"
-                          onClick={handleClicked}
-                        >
-                          {router.locale === "fr" ? title.fr : title.en}
-                        </a>
-                      </Link>
-                    </motion.li>
-                  );
-                })}
+                    return (
+                      <motion.li
+                        key={i}
+                        variants={item}
+                        onHoverStart={() => setMenuHover(true)}
+                      >
+                        <Link href={`/${slug?.current}`}>
+                          <a
+                            className="leading-[30px] hover:text-opv-pink-500 md:leading-tight"
+                            onClick={handleClicked}
+                          >
+                            {router.locale === "fr" ? title.fr : title.en}
+                          </a>
+                        </Link>
+                      </motion.li>
+                    );
+                  })
+              ) : (
+                <motion.li>
+                  <a>reload page....</a>
+                </motion.li>
+              )}
             </u>
 
             <LanguageSwitcher />

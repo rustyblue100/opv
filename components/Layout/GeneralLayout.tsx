@@ -86,7 +86,7 @@ const MainLayout: NextPage<Iprops> = ({ children, previousRoute }) => {
         </motion.nav>
 
         <div
-          className={`fixed top-0 right-0 min-h-full pr-4 md:pr-10 xl:pr-12 ${
+          className={`fixed top-0 right-0 min-h-full pr-4 md:pr-10 xl:pr-12 2xl:top-4 ${
             router.asPath === "/" ? "flex" : "hidden"
           }`}
         >
@@ -108,11 +108,11 @@ const MainLayout: NextPage<Iprops> = ({ children, previousRoute }) => {
               exit={{ opacity: 0 }}
             >
               <Link href="/">
-                <a>
+                <a className="">
                   <Image
                     src="/logo-sharp.png"
                     width="571"
-                    height="171"
+                    height="151"
                     layout="responsive"
                     objectFit="contain"
                     alt="OPV"
