@@ -1,20 +1,20 @@
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { motion } from "framer-motion";
+import getYouTubeId from "get-youtube-id";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import YouTube from "react-youtube";
 import BodyFull from "../../components/Layout/BodyLayout";
+import { Context } from "../../contexts/Context";
 import { PortableText, sanityClient, urlFor } from "../../lib/sanityClient";
 import { Calendrier } from "../../typings";
-import { useContext } from "react";
-import { Context } from "../../contexts/Context";
-import Link from "next/link";
 import { fetchCalendarSingleEvent } from "../../utils/sanityQuery";
-import getYouTubeId from "get-youtube-id";
-import YouTube from "react-youtube";
 
 interface IProps {
   calendrierData: Calendrier;
@@ -231,15 +231,6 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
                     target={"_blank"}
                     className="item-center flex gap-1"
                   >
-                    {/*                     <svg
-                      fill="#000000"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 30 30"
-                      width="30px"
-                      height="30px"
-                    >
-                      <path d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z" />
-                    </svg>{" "} */}
                     <span>facebook</span>
                   </a>
                 </li>
@@ -253,16 +244,6 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
                     target={"_blank"}
                     className="item-center flex gap-1"
                   >
-                    {/*                     <svg
-                      fill="#000000"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 30 30"
-                      width="30px"
-                      height="30px"
-                    >
-                      {" "}
-                      <path d="M15,3C8.383,3,3,8.383,3,15c0,6.617,5.383,12,12,12s12-5.383,12-12C27,8.383,21.617,3,15,3z M20,18.099 C20,18.948,19.315,20,17.751,20c-1.397,0-1.749-0.895-1.749-1.5c0-0.743,0.448-1.503,1.751-1.503c1.18,0,1.248-0.3,1.248-0.895 v-4.068l-7,0.778c0,2.281,0,5.944,0,6.286C12,19.948,11.315,21,9.751,21c-1.397,0-1.749-0.895-1.749-1.5 c0-0.743,0.448-1.503,1.751-1.503c1.18,0,1.248-0.3,1.248-0.895l0-6.597c0-0.331,0.249-0.609,0.578-0.646l7.7-0.856 C19.663,8.961,20,9.263,20,9.65C20,9.65,20,17.762,20,18.099z" />
-                    </svg>{" "} */}
                     <span>itunes</span>
                   </a>
                 </li>
@@ -276,15 +257,6 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
                     target={"_blank"}
                     className="item-center flex gap-1"
                   >
-                    {/*                     <svg
-                      fill="#000000"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 30 30"
-                      width="30px"
-                      height="30px"
-                    >
-                      <path d="M15,3C8.383,3,3,8.383,3,15c0,6.617,5.383,12,12,12s12-5.383,12-12C27,8.383,21.617,3,15,3z M20,18.099 C20,18.948,19.315,20,17.751,20c-1.397,0-1.749-0.895-1.749-1.5c0-0.743,0.448-1.503,1.751-1.503c1.18,0,1.248-0.3,1.248-0.895 v-4.068l-7,0.778c0,2.281,0,5.944,0,6.286C12,19.948,11.315,21,9.751,21c-1.397,0-1.749-0.895-1.749-1.5 c0-0.743,0.448-1.503,1.751-1.503c1.18,0,1.248-0.3,1.248-0.895l0-6.597c0-0.331,0.249-0.609,0.578-0.646l7.7-0.856 C19.663,8.961,20,9.263,20,9.65C20,9.65,20,17.762,20,18.099z" />
-                    </svg>{" "} */}
                     <span>spotify</span>
                   </a>
                 </li>

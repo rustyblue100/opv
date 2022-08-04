@@ -6,7 +6,6 @@ import { use100vh } from "react-div-100vh";
 import { Context } from "../../contexts/Context";
 import { Geo } from "../../utils/geoMetrical";
 import Footer from "../Footer/";
-import Image from "next/image";
 import Link from "next/link";
 
 interface Iprops {

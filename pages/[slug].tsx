@@ -1,16 +1,15 @@
 import "dayjs/locale/fr";
 import { motion } from "framer-motion";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import Image from "next/image";
+import { useContext } from "react";
 import Header from "../components/Header/Header";
 import BodyFull from "../components/Layout/BodyLayout";
+import { Context } from "../contexts/Context";
 import { PortableText, sanityClient, urlFor } from "../lib/sanityClient";
 import { Calendrier } from "../typings";
-import { useContext } from "react";
-import { Context } from "../contexts/Context";
 
 interface IProps {
   pageData: Calendrier;
@@ -20,10 +19,7 @@ interface IProps {
 const EventDetails: NextPage<IProps> = ({ pageData, locale }) => {
   const { title, mainImage, description }: any = pageData;
 
-  const { t } = useTranslation();
   const meta = useContext(Context)?.meta;
-
-  // get document.referer from server
 
   return (
     <>

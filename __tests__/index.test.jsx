@@ -5,7 +5,6 @@ import { createMockRouter } from "../createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context.js";
 import { elementProps } from "../__mocks__/sanityClient";
 import Calendrier from "../pages/calendrier/index";
-import { useTranslation } from "next-i18next";
 
 describe("Calendrier Index", () => {
   /*   beforeEach(() => {
@@ -26,12 +25,12 @@ describe("Calendrier Index", () => {
     expect(pageTitle).toBeInTheDocument();
   });
 
-  it("should render a select box", async () => {
+  /*   it("should render a select box", async () => {
     const selectOption = await screen.findByRole("combobox");
 
     expect(selectOption).toBeInTheDocument();
   });
-
+ */
   /* 
   it("should render a select box with many options", async () => {
     const selectOptions = await screen.findAllByRole("option");

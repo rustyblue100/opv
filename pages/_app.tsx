@@ -22,10 +22,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <Layout previousRoute={usePreviousRoute()} meta={meta}>
-      <AnimatePresence
-        initial={router.asPath === "/" ? true : true}
-        exitBeforeEnter
-      >
+      <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.asPath} />
       </AnimatePresence>
     </Layout>

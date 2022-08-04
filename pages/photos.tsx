@@ -1,17 +1,15 @@
 import { motion } from "framer-motion";
 import { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import React, { useContext } from "react";
-import BodyFull from "../components/Layout/BodyLayout";
+import Head from "next/head";
+import { useContext } from "react";
 import Header from "../components/Header/Header";
-import { fetchPhotosVideos } from "../utils/sanityQuery";
-import { sanityClient } from "../lib/sanityClient";
-import { Photos } from "../typings";
-import Image from "next/image";
-import { urlFor } from "../lib/sanityClient";
+import BodyFull from "../components/Layout/BodyLayout";
 import Lightbox from "../components/Lightbox";
 import { Context } from "../contexts/Context";
-import Head from "next/head";
+import { sanityClient } from "../lib/sanityClient";
+import { Photos } from "../typings";
+import { fetchPhotosVideos } from "../utils/sanityQuery";
 
 interface IProps {
   media: Photos[];

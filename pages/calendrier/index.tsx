@@ -28,7 +28,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier, locale }) => {
 
   const router = useRouter();
   const { query } = useRouter();
-  const { t } = useTranslation();
+
   const meta = useContext(Context)?.meta;
 
   useIsomorphicLayoutEffect(() => {

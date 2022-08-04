@@ -132,7 +132,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
             className={`capitalize  leading-[30px] text-opv-pink-900 xxs:text-lg xs:text-xl sm:text-lg md:text-2xl md:leading-[43px]  3xl:text-[40px] 
           3xl:leading-[63px]`}
           >
-            <ul className="list-none	 no-underline">
+            <ul className="-ml-4	 list-none no-underline">
               {dynamicTitleMenu ? (
                 mergedMenu
                   .filter(
