@@ -73,8 +73,10 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
         style={{ height: heightVH ? heightVH : "100vh" }}
         className="flex flex-col overflow-y-scroll bg-opv-pink-500 px-10 "
       >
-        <div className="py-8 font-sans text-2xl font-bold uppercase tracking-wider  md:text-[28px] lg:float-right lg:ml-auto">
-          {meta?.title}
+        <div className="py-8 font-sans text-2xl font-bold uppercase tracking-tight  md:text-[28px] lg:float-right lg:ml-auto">
+          <Link href="/" passHref>
+            {meta?.title}
+          </Link>
         </div>
 
         <motion.div

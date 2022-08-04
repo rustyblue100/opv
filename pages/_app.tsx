@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     return ref.current;
   };
 
-  const meta = { title: "Ø Temp làte", description: "Ø Template!" };
+  const meta = { title: "Ø Tmp late", description: "Ø Template!" };
   return (
     <>
       <Head>
