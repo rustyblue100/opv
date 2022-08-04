@@ -73,9 +73,10 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
         style={{ height: heightVH ? heightVH : "100vh" }}
         className="flex flex-col overflow-y-scroll bg-opv-pink-500 px-10 "
       >
-        {/*    <div className="py-8 text-2xl font-[900] uppercase tracking-wider md:text-[28px]  lg:float-right lg:ml-auto">
+        <div className="py-8 font-sans text-2xl font-bold uppercase tracking-wider  md:text-[28px] lg:float-right lg:ml-auto">
           {meta?.title}
-        </div> */}
+        </div>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -83,7 +84,7 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
           className="w-[120px] md:ml-auto md:w-[180px]"
         >
-          <Link href="/" passHref>
+          {/*           <Link href="/" passHref>
             <a>
               <Image
                 src="/logo-footer.png"
@@ -93,7 +94,7 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
                 alt="logo"
               />
             </a>
-          </Link>
+          </Link> */}
         </motion.div>
         <motion.div className="flex-1">{children}</motion.div>
         <Footer />

@@ -112,14 +112,17 @@ const MainLayout: NextPage<Iprops> = ({ children, previousRoute, meta }) => {
               >
                 <Link href="/">
                   <a>
-                    <Image
+                    <div className="py-8 font-sans text-2xl font-bold uppercase tracking-wider text-white md:text-6xl lg:float-right">
+                      {meta?.title}
+                    </div>
+                    {/*                     <Image
                       src="/logo-sharp.png"
                       width="571"
                       height="171"
                       layout="responsive"
                       objectFit="contain"
                       alt="OPV"
-                    />
+                    /> */}
                   </a>
                 </Link>
               </motion.div>
