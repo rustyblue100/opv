@@ -66,8 +66,6 @@ const MainLayout: NextPage<Iprops> = ({ children, previousRoute, meta }) => {
     }
   }, [router]); */
 
-  console.log(meta.title);
-
   return (
     <>
       <div className="max-w-screen relative">
