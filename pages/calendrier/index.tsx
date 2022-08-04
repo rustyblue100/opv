@@ -92,7 +92,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier, locale }) => {
             <h1 className="h1 mb-5 lg:mb-0">{t("evenement:title")}</h1>
           </Header>
 
-          <div className="flex items-center justify-between md:flex-row">
+          <div className="-ml-2 flex items-center justify-between md:flex-row lg:ml-0">
             <div>
               {months?.length > 1 && (
                 <MonthSlider
