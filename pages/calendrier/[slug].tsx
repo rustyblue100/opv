@@ -144,7 +144,7 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             <div className="flex-1 space-y-2 text-sm sm:text-lg">
               <h3 className="font-bold">{t("evenement:cover")}</h3>
               <div>
-                {prix}${" "}
+                {prix || calendrierData.prix}$
                 {complet && (
                   <div className="relative -top-1 ml-5 inline-block border border-opv-pink-1200 p-1 text-sm  uppercase  text-opv-pink-1200 md:text-sm">
                     {t("evenement:full")}

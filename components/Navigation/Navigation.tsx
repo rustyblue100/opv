@@ -17,7 +17,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
   const [calendarData, setCalendarData] = useState({
     title: { fr: "", en: "" },
     slug: { current: "" },
-    recurrents: { title: { fr: "", en: "" } },
+    recurrents: { title: { fr: "", en: "" }, slug: { current: "" } },
   });
 
   const [dynamicTitleMenu, setDynamicTitleMenu] = useState([
@@ -182,7 +182,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
               href={`/calendrier/${
                 calendarData && calendarData.slug && calendarData.slug.current
                   ? calendarData.slug.current
-                  : "/calendrier"
+                  : ""
               }`}
               passHref
             >
