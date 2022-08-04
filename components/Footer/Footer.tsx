@@ -59,8 +59,8 @@ const Footer = () => {
             variants={item}
             className="transition-all duration-200 hover:text-opv-pink-1200"
           >
-            <Link href="/contact">
-              {router.locale === "fr" ? "Nous joindre" : "Contact us"}
+            <Link href="/contact" passHref>
+              <a>{router.locale === "fr" ? "Nous joindre" : "Contact us"}</a>
             </Link>
           </motion.div>
 
@@ -68,10 +68,12 @@ const Footer = () => {
             variants={item}
             className="transition-all duration-200 hover:text-opv-pink-1200"
           >
-            <Link href="/politique-de-confidentialite">
-              {router.locale === "fr"
-                ? " Politique de condidentialité"
-                : "Privacy Policy"}
+            <Link href="/politique-de-confidentialite" passHref>
+              <a>
+                {router.locale === "fr"
+                  ? " Politique de condidentialité"
+                  : "Privacy Policy"}
+              </a>
             </Link>
           </motion.div>
         </div>
@@ -92,20 +94,18 @@ const Footer = () => {
           className="w-[120px] md:ml-auto md:w-[200px]"
         >
           <Link href="/" passHref>
-            <a className="cursor-pointer">
-              <div className="py-8 font-sans text-xl font-bold uppercase tracking-tight xs:text-2xl  md:text-[28px] lg:float-right lg:ml-auto">
-                <Link href="/" passHref>
-                  {meta?.title}
-                </Link>
-              </div>
-              {/*               <Image
+            <a className="py-8 font-sans text-xl font-bold uppercase tracking-tight xs:text-2xl  md:text-[28px] lg:float-right lg:ml-auto">
+              {meta?.title}
+            </a>
+            {/*             <a className="cursor-pointer">
+              <Image
                 src="/logo-footer.png"
                 width="200"
                 height="100"
                 objectFit="contain"
                 alt="logo"
-              /> */}
-            </a>
+              />
+            </a> */}
           </Link>
         </motion.div>
       </div>

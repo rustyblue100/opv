@@ -154,7 +154,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
                         variants={item}
                         onHoverStart={() => setMenuHover(true)}
                       >
-                        <Link href={`/${slug?.current}`}>
+                        <Link href={`/${slug?.current}`} passHref>
                           <a
                             className="leading-[30px] hover:text-opv-pink-500 md:leading-tight"
                             onClick={handleClicked}

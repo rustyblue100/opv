@@ -13,9 +13,11 @@ describe("Calendrier Index", () => {
   }); */
   beforeEach(() => {
     render(
-      <RouterContext.Provider value={(createMockRouter, { query: { i: 0 } })}>
-        <Calendrier calendrier={elementProps} />
-      </RouterContext.Provider>
+      <div>
+        <RouterContext.Provider value={(createMockRouter, { query: { i: 0 } })}>
+          <Calendrier calendrier={elementProps} />
+        </RouterContext.Provider>
+      </div>
     );
   });
 

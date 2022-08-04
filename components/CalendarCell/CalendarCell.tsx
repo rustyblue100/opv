@@ -92,7 +92,7 @@ const CalendarCell: NextPage<IProps> = ({ data, locale }) => {
               className="mt-4 text-2xl font-normal sm:mt-0 sm:text-3xl md:text-3xl"
             >
               <Link href={`/calendrier/${slug}`} passHref>
-                {title?.fr}
+                <a>{title?.fr}</a>
               </Link>
 
               <div className="mt-1 text-sm">

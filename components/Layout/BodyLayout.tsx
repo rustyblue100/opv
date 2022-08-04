@@ -75,7 +75,7 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
       >
         <div className="py-8 font-sans text-2xl font-bold uppercase tracking-tight  md:ml-auto md:text-[28px] lg:float-right">
           <Link href="/" passHref>
-            {meta?.title}
+            <a>{meta?.title}</a>
           </Link>
         </div>
 

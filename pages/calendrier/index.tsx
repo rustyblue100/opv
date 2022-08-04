@@ -98,7 +98,9 @@ const Calendrier: NextPage<IProps> = ({ calendrier, locale }) => {
         >
           <div className="mb-8 -mt-2 flex flex-col items-start justify-between sm:mb-0 sm:flex-row lg:items-center">
             <Header>
-              <h1 className="h1 mb-5 lg:mb-0">{t("evenement:title")}</h1>
+              <h1 className="h1 mb-5 lg:mb-0">
+                {locale === "fr" ? "calendrier" : "Calendar"}
+              </h1>
             </Header>
 
             <div className="-ml-2 flex flex-col items-center justify-between xxs:flex-row md:flex-row lg:ml-0">
