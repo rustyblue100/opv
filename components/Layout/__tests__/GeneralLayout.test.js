@@ -4,7 +4,6 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { RouterContext } from "next/dist/shared/lib/router-context.js";
 import { createMockRouter } from "../../../createMockRouter";
-import "@testing-library/jest-dom/extend-expect";
 
 import GeneralLayout from "../GeneralLayout";
 

@@ -2,7 +2,7 @@
 
 import { render, screen, fireEvent } from "@testing-library/react";
 import { elementPropsPhotos } from "../../../__mocks__/sanityClient";
-import "@testing-library/jest-dom/extend-expect";
+
 import Lightbox from "../Lightbox";
 
 import "@testing-library/jest-dom";
