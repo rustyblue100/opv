@@ -93,8 +93,7 @@ const Footer = () => {
         >
           <Link href="/" passHref>
             <a className="cursor-pointer">
-              <div className="py-8 font-sans text-2xl font-bold uppercase tracking-tight  md:text-[28px] lg:float-right lg:ml-auto">
-                {" "}
+              <div className="py-8 font-sans text-xl font-bold uppercase tracking-tight xs:text-2xl  md:text-[28px] lg:float-right lg:ml-auto">
                 <Link href="/" passHref>
                   {meta?.title}
                 </Link>

@@ -101,7 +101,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier, locale }) => {
               <h1 className="h1 mb-5 lg:mb-0">{t("evenement:title")}</h1>
             </Header>
 
-            <div className="-ml-2 flex items-center justify-between md:flex-row lg:ml-0">
+            <div className="-ml-2 flex flex-col items-center justify-between xxs:flex-row md:flex-row lg:ml-0">
               <div>
                 {months?.length > 1 && (
                   <MonthSlider
@@ -114,7 +114,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier, locale }) => {
                 )}
               </div>
 
-              <div className="flex items-center pl-0 sm:mt-6 md:mt-0 xl:mt-0">
+              <div className="hidden items-center pl-0 xxs:flex sm:mt-6 md:mt-0 xl:mt-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="ml-5 h-6 w-6"
