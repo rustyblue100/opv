@@ -91,7 +91,7 @@ p{
   }
 
   .h1{
-    @apply text-2xl xl:text-5xl md:text-4xl lg:text-3xl uppercase font-bold mt-2 xl:mt-0
+    @apply text-2xl xl:text-5xl md:text-4xl lg:text-3xl uppercase font-bold lg:mt-2 xl:mt-0
   }
 
   .h2{
