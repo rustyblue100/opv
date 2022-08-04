@@ -6,6 +6,7 @@ import LanguageSwitcher from "../LanguageSwitcher/";
 import { sanityClient } from "../../lib/sanityClient";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import dayjs from "dayjs";
 
 interface IProps {
   clicked: boolean;
@@ -188,9 +189,27 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
             >
               <a onClick={handleClicked}>
                 {!calendarData.recurrents ? (
-                  <span>{`${calendarData?.title?.fr}`} &nbsp;</span>
+                  <span>
+                    {`${calendarData?.title?.fr}`} &nbsp;
+                    <span>
+                      &nbsp; - &nbsp;
+                      {dayjs(date)
+                        .locale(router.locale === "fr" ? "fr" : "en")
+                        .format("dddd DD MMMM")}
+                    </span>
+                    &nbsp;
+                  </span>
                 ) : (
-                  <span>{`${calendarData?.recurrents.title?.fr}`} &nbsp;</span>
+                  <span>
+                    {`${calendarData?.recurrents.title?.fr}`} &nbsp;{" "}
+                    <span>
+                      &nbsp; - &nbsp;
+                      {dayjs(date)
+                        .locale(router.locale === "fr" ? "fr" : "en")
+                        .format("dddd DD MMMM")}
+                      &nbsp;
+                    </span>
+                  </span>
                 )}
               </a>
             </Link>

@@ -201,15 +201,17 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
             ← {t("evenement:calendar")}
           </button>
           <div className="ml-auto max-w-6xl">
-            <Image
-              src={urlFor(mainImage).url()}
-              width="1200"
-              height="1200"
-              layout="responsive"
-              alt={title}
-              objectFit="cover"
-              className="rounded"
-            />
+            {mainImage && (
+              <Image
+                src={urlFor(mainImage).url()}
+                width="1200"
+                height="1200"
+                layout="responsive"
+                alt={title}
+                objectFit="cover"
+                className="rounded"
+              />
+            )}
           </div>
 
           <div className="float-right mt-4">
