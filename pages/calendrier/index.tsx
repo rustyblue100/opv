@@ -84,7 +84,7 @@ const Calendrier: NextPage<IProps> = ({ calendrier, locale }) => {
     <>
       <Head>
         <title className="uppercase">
-          {t("evenement:title")} | {meta?.title}{" "}
+          {locale === "fr" ? "calendrier" : "Calendar"} | {meta?.title}{" "}
         </title>
       </Head>
       <BodyFull>
