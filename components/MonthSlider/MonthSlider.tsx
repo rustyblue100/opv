@@ -73,7 +73,14 @@ const MonthSlider: NextPage<Iprops> = ({
           className="bord bg-opv-pink-400 px-2 py-1 capitalize text-opv-black"
         >
           {months.map((m: string, i: number) => (
-            <option key={i} value={m} className="" role="option">
+            <option
+              key={i}
+              value={m}
+              className=""
+              role="option"
+              id={`month-${i}`}
+              data-testid={`month-${i}`}
+            >
               {m}
             </option>
           ))}

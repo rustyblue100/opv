@@ -1,25 +1,24 @@
 // __tests__/Calendrier/index.test.jsx
 
 import { render, screen, fireEvent } from "@testing-library/react";
-import { createMockRouter } from "../../../createMockRouter";
+import { createMockRouter } from "../createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context.js";
-import { elementProps } from "../../../__mocks__/sanityClient";
-import Calendrier from "../../../pages/calendrier/index";
-
-jest.mock("react-i18next", () => ({
-  // this mock makes sure any components using the translate hook can use it without a warning being shown
-  useTranslation: () => {
-    return {
-      t: (str) => str,
-    };
-  },
-}));
+import { elementProps } from "../__mocks__/sanityClient";
+import Calendrier from "../pages/calendrier/index";
 
 describe("Calendrier Index", () => {
   /*   beforeEach(() => {
     useTranslation.mockReturnValue({ t: (key) => key });
   }); */
   beforeEach(() => {
+    jest.mock("react-i18next", () => ({
+      // this mock makes sure any components using the translate hook can use it without a warning being shown
+      useTranslation: () => {
+        return {
+          t: (str) => str,
+        };
+      },
+    }));
     render(
       <RouterContext.Provider value={(createMockRouter, { query: { i: 0 } })}>
         <Calendrier calendrier={elementProps} />
@@ -29,10 +28,10 @@ describe("Calendrier Index", () => {
 
   afterEach(() => jest.resetAllMocks());
 
-  /*   it("Check for page title", async () => {
-    const pageTitle = screen.getByText(/Calendrier/i);
+  it("Check for page title", async () => {
+    const pageTitle = await screen.findByText(/evenement:title/i);
     expect(pageTitle).toBeInTheDocument();
-  }); */
+  });
 
   it("should render a select box", async () => {
     const selectOption = await screen.findByRole("combobox");
@@ -54,12 +53,13 @@ describe("Calendrier Index", () => {
     expect(eventDivElements.length).toBeGreaterThanOrEqual(2);
   });
 
-  /*   it("simulates selection of a month", async () => {
+  it("simulates selection of a month", async () => {
     fireEvent.click(await screen.findByRole("combobox"), {
-      target: { value: "août 2022" },
+      target: { id: "month-0" },
     });
+
     let options = await screen.findAllByRole("option");
+    expect(options[0].selected).toBeTruthy();
     expect(options[1].selected).toBeFalsy();
-    expect(options[1].selected).toBeFalsy();
-  }); */
+  });
 });
