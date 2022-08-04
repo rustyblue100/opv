@@ -4,6 +4,7 @@ import Layout from "../components/Layout/GeneralLayout";
 import "../styles/globals.css";
 import { appWithTranslation } from "next-i18next";
 import { useEffect, useRef } from "react";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const usePreviousRoute = () => {
@@ -18,16 +19,23 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     return ref.current;
   };
 
+  const meta = { title: "Ø Template!", description: "Ø Template!" };
   return (
-    <Layout previousRoute={usePreviousRoute()}>
-      <AnimatePresence
-        initial={router.asPath === "/" ? true : true}
-        exitBeforeEnter
-        /*    onExitComplete={() => window.scrollTo(0, 0)} */
-      >
-        <Component {...pageProps} key={router.asPath} />
-      </AnimatePresence>
-    </Layout>
+    <>
+      <Head>
+        <title>{meta.title}</title>
+        <meta name="author" content="John Doe" />
+      </Head>{" "}
+      <Layout previousRoute={usePreviousRoute()} meta={meta}>
+        <AnimatePresence
+          initial={router.asPath === "/" ? true : true}
+          exitBeforeEnter
+          /*    onExitComplete={() => window.scrollTo(0, 0)} */
+        >
+          <Component {...pageProps} key={router.asPath} />
+        </AnimatePresence>
+      </Layout>
+    </>
   );
 }
 

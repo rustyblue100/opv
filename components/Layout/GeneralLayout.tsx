@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -13,9 +14,10 @@ import SpotLights from "../SpotLights/";
 interface Iprops {
   children: React.ReactNode;
   previousRoute: string | null;
+  meta: { title: string; description: string };
 }
 
-const MainLayout: NextPage<Iprops> = ({ children, previousRoute }) => {
+const MainLayout: NextPage<Iprops> = ({ children, previousRoute, meta }) => {
   const [menuHover, setMenuHover] = useState(false);
   const [clicked, setClicked] = useState(false);
 
@@ -64,86 +66,91 @@ const MainLayout: NextPage<Iprops> = ({ children, previousRoute }) => {
     }
   }, [router]); */
 
+  console.log(meta.title);
+
   return (
-    <div className="max-w-screen relative">
-      <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
-      <motion.div
-        className="relative"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.2 }}
-      >
-        <motion.nav
-          onHoverStart={() => setMenuHover(true)}
-          onHoverEnd={handleOnMouseLeave}
-          data-testid="navigation"
+    <>
+      <div className="max-w-screen relative">
+        <Burger menuHover={menuHover} setMenuHover={setMenuHover} />
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
         >
-          <Navigation
-            clicked={clicked}
-            setClicked={setClicked}
-            setMenuHover={setMenuHover}
-          />
-        </motion.nav>
+          <motion.nav
+            onHoverStart={() => setMenuHover(true)}
+            onHoverEnd={handleOnMouseLeave}
+            data-testid="navigation"
+          >
+            <Navigation
+              clicked={clicked}
+              setClicked={setClicked}
+              setMenuHover={setMenuHover}
+            />
+          </motion.nav>
 
-        <div
-          className={`fixed top-0 right-0 min-h-full pr-4 md:pr-10 xl:pr-12 2xl:top-8 ${
-            router.asPath === "/" ? "flex" : "hidden"
-          }`}
-        >
-          <div className="flex flex-col justify-center">
-            <motion.div
-              className={`${menuHover && "invisible sm:visible"} `}
-              initial={{
-                y: 20,
-                opacity: 0,
-              }}
-              animate={{
-                y: 0,
-                opacity: 1,
-              }}
-              transition={{
-                duration: 1,
-                ease: "easeInOut",
-              }}
-              exit={{ opacity: 0 }}
-            >
-              <Link href="/">
-                <a>
-                  <Image
-                    src="/logo-sharp.png"
-                    width="571"
-                    height="171"
-                    layout="responsive"
-                    objectFit="contain"
-                    alt="OPV"
-                  />
-                </a>
-              </Link>
-            </motion.div>
+          <div
+            className={`fixed top-0 right-0 min-h-full pr-4 md:pr-10 xl:pr-12 2xl:top-8 ${
+              router.asPath === "/" ? "flex" : "hidden"
+            }`}
+          >
+            <div className="flex flex-col justify-center">
+              <motion.div
+                className={`${menuHover && "invisible sm:visible"} `}
+                initial={{
+                  y: 20,
+                  opacity: 0,
+                }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 1,
+                  ease: "easeInOut",
+                }}
+                exit={{ opacity: 0 }}
+              >
+                <Link href="/">
+                  <a>
+                    <Image
+                      src="/logo-sharp.png"
+                      width="571"
+                      height="171"
+                      layout="responsive"
+                      objectFit="contain"
+                      alt="OPV"
+                    />
+                  </a>
+                </Link>
+              </motion.div>
 
-            <div className="mt-10">
-              <SpotLights menuHover={menuHover} />
+              <div className="mt-10">
+                <SpotLights menuHover={menuHover} />
+              </div>
             </div>
           </div>
-        </div>
-        <Context.Provider
-          value={{
-            menuHover,
-            clicked,
-            distanceLeft,
-            distanceLeftHover,
-            previousRoute,
-          }}
-        >
-          <div
-            data-testid={`slideFx-${menuHover}`}
-            className="h-screen overflow-hidden"
+          <Context.Provider
+            value={{
+              menuHover,
+              clicked,
+              distanceLeft,
+              distanceLeftHover,
+              previousRoute,
+              meta,
+            }}
           >
-            {children}
-          </div>
-        </Context.Provider>
-      </motion.div>
-    </div>
+            <div
+              data-testid={`slideFx-${menuHover}`}
+              className="h-screen overflow-hidden"
+            >
+              {children}
+            </div>
+          </Context.Provider>
+        </motion.div>
+      </div>
+    </>
   );
 };
 

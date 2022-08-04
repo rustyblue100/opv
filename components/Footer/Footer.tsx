@@ -2,9 +2,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import { Context } from "../../contexts/Context";
 
 const Footer = () => {
   const router = useRouter();
+
+  const meta = useContext(Context)?.meta;
 
   const stagger = {
     hidden: {
@@ -89,13 +93,16 @@ const Footer = () => {
         >
           <Link href="/" passHref>
             <a className="cursor-pointer">
-              <Image
+              <div className="py-8 text-2xl font-bold uppercase tracking-wider md:text-[28px] lg:float-right lg:ml-auto">
+                {meta?.title}
+              </div>
+              {/*               <Image
                 src="/logo-footer.png"
                 width="200"
                 height="100"
                 objectFit="contain"
                 alt="logo"
-              />
+              /> */}
             </a>
           </Link>
         </motion.div>

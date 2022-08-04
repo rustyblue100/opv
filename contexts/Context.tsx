@@ -6,6 +6,7 @@ interface AppContextInterface {
   distanceLeft: number;
   distanceLeftHover: number;
   previousRoute: string | null;
+  meta: { title: string; description: string };
 }
 
 export const Context = createContext<AppContextInterface | null>(null);

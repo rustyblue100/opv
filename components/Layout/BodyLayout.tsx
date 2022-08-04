@@ -17,6 +17,7 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
   const heightVH = use100vh();
 
   const appContext = useContext(Context);
+  const meta = useContext(Context)?.meta;
   const route = useRouter();
 
   const rectangle = Geo().rectangle;
@@ -72,8 +73,8 @@ const BodyLayout: NextPage<Iprops> = ({ children }) => {
         style={{ height: heightVH ? heightVH : "100vh" }}
         className="flex flex-col overflow-y-scroll bg-opv-pink-500 px-10 "
       >
-        {/*       <div className="py-8 text-2xl font-[900] uppercase tracking-wider md:text-3xl lg:float-right lg:ml-auto">
-          ø Template!
+        {/*    <div className="py-8 text-2xl font-[900] uppercase tracking-wider md:text-[28px]  lg:float-right lg:ml-auto">
+          {meta?.title}
         </div> */}
         <motion.div
           initial={{ opacity: 0 }}
