@@ -130,7 +130,7 @@ const MainLayout: NextPage<Iprops> = ({ children, previousRoute, meta }) => {
                 </Link>
               </motion.div>
 
-              <div className="mt-10">
+              <div className="sm:mt-10">
                 <SpotLights menuHover={menuHover} />
               </div>
             </div>
