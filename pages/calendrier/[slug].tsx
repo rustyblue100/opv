@@ -203,13 +203,14 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
           <div className="ml-auto max-w-6xl">
             {mainImage && (
               <Image
-                src={urlFor(mainImage).url()}
+                src={urlFor(mainImage).width(1200).url()}
                 width="1200"
                 height="1200"
                 layout="responsive"
                 alt={title}
                 objectFit="cover"
                 className="rounded"
+                priority
               />
             )}
           </div>

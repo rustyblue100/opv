@@ -137,22 +137,24 @@ const CalendarCell: NextPage<IProps> = ({ data, locale }) => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="md:w-[200px] "
             >
-              <Link href={`/calendrier/${slug}`} passHref>
-                <a>
-                  <Image
-                    className="flex-1 cursor-pointer rounded-lg md:rounded-full"
-                    src={
-                      mainImage
-                        ? urlFor(mainImage).url()
-                        : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
-                    }
-                    width="400"
-                    height="400"
-                    objectFit="cover"
-                    alt="band"
-                  />
-                </a>
-              </Link>
+              {mainImage && (
+                <Link href={`/calendrier/${slug}`} passHref>
+                  <a>
+                    <Image
+                      className="flex-1 cursor-pointer rounded-lg md:rounded-full"
+                      src={
+                        mainImage
+                          ? urlFor(mainImage).width(400).url()
+                          : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
+                      }
+                      width="400"
+                      height="400"
+                      objectFit="cover"
+                      alt="band"
+                    />
+                  </a>
+                </Link>
+              )}
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 5 }}
