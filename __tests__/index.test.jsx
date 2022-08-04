@@ -5,6 +5,7 @@ import { createMockRouter } from "../createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context.js";
 import { elementProps } from "../__mocks__/sanityClient";
 import Calendrier from "../pages/calendrier/index";
+import { useTranslation } from "next-i18next";
 
 describe("Calendrier Index", () => {
   /*   beforeEach(() => {
