@@ -112,9 +112,9 @@ const MainLayout: NextPage<Iprops> = ({ children, previousRoute, meta }) => {
               >
                 <Link href="/">
                   <a>
-                    <div className="py-8 text-center font-sans text-2xl font-bold  uppercase tracking-tight text-[#f3efef] md:text-5xl lg:float-right lg:text-7xl">
+                    <div className="py-8 text-right font-sans text-2xl font-bold  uppercase tracking-tight text-[#f3efef] md:text-5xl lg:float-right lg:text-7xl 2xl:text-8xl">
                       {meta?.title}
-                      <div className="pt-2 text-center font-sans text-sm font-light capitalize tracking-normal text-[#f3efef]  md:text-2xl">
+                      <div className="pt-2 text-right font-sans text-sm font-light capitalize tracking-normal text-[#f3efef]  md:text-2xl">
                         555 Montréal Est
                       </div>
                     </div>
