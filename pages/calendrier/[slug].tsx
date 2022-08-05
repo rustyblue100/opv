@@ -210,6 +210,12 @@ const EventDetails: NextPage<IProps> = ({ calendrierData, locale }) => {
                 alt={title}
                 objectFit="cover"
                 className="rounded"
+                placeholder="blur"
+                blurDataURL={urlFor(mainImage)
+                  .quality(5)
+                  .width(1)
+                  .height(1)
+                  .url()}
               />
             )}
           </div>
