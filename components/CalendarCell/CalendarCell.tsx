@@ -144,7 +144,7 @@ const CalendarCell: NextPage<IProps> = ({ data, locale }) => {
                       className="flex-1 cursor-pointer rounded-lg md:rounded-full"
                       src={
                         mainImage
-                          ? urlFor(mainImage).width(400).url()
+                          ? urlFor(mainImage).width(800).url()
                           : "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay0xNzAtcG9tLTgwOTcuanBn.jpg"
                       }
                       width="400"
