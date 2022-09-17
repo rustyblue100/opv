@@ -19,6 +19,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
     title: { fr: "", en: "" },
     slug: { current: "" },
     recurrents: { title: { fr: "", en: "" }, slug: { current: "" } },
+    date:  ""
   });
 
   const [dynamicTitleMenu, setDynamicTitleMenu] = useState([
@@ -201,7 +202,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
                     {`${calendarData?.title?.fr}`} &nbsp;
                     <span>
                       &nbsp; - &nbsp;
-                      {dayjs(date)
+                      {dayjs(calendarData.date)
                         .locale(router.locale === "fr" ? "fr" : "en")
                         .format("dddd DD MMMM")}
                     </span>
@@ -212,7 +213,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
                     {`${calendarData?.recurrents.title?.fr}`} &nbsp;{" "}
                     <span>
                       &nbsp; - &nbsp;
-                      {dayjs(date)
+                      {dayjs(calendarData.date)
                         .locale(router.locale === "fr" ? "fr" : "en")
                         .format("dddd DD MMMM")}
                       &nbsp;

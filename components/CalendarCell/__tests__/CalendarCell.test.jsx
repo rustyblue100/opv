@@ -2,9 +2,6 @@
 
 import { render, screen, cleanup } from "@testing-library/react";
 
-import CalendarCell, {
-  getStaticProps,
-} from "../../../components/CalendarCell/";
 import "@testing-library/jest-dom";
 
 const elementProps = {
