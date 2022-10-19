@@ -210,7 +210,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
                   </span>
                 ) : (
                   <span>
-                    {`${calendarData?.recurrents.title?.fr}`} &nbsp;{" "}
+                    {`${calendarData?.recurrents?.title?.fr}`} &nbsp;{" "}
                     <span>
                       &nbsp; - &nbsp;
                       {dayjs(calendarData?.date)
