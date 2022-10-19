@@ -197,7 +197,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
               passHref
             >
               <a onClick={handleClicked}>
-                {!calendarData.recurrents ? (
+                {calendarData?.recurrents ? (
                   <span>
                     {`${calendarData?.title?.fr}`} &nbsp;
                     <span>
@@ -213,7 +213,7 @@ const Navigation: NextPage<IProps> = ({ setClicked, setMenuHover }) => {
                     {`${calendarData?.recurrents.title?.fr}`} &nbsp;{" "}
                     <span>
                       &nbsp; - &nbsp;
-                      {dayjs(calendarData.date)
+                      {dayjs(calendarData?.date)
                         .locale(router.locale === "fr" ? "fr" : "en")
                         .format("dddd DD MMMM")}
                       &nbsp;
